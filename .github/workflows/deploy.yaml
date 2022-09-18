@@ -28,4 +28,4 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: cscontainer/tb:latest
+          tags: registry-1.docker.io/cscontainer/tb:latest

@@ -125,21 +125,21 @@ class Preview extends Component{
                                     <div className="title-block">Новости платформы</div>
                                     <div className="feed">
                                         <div className="item-feed">
-                                            <h2>Способы вывода средств</h2>
+                                            <h2>Скоро запуск</h2>
                                             <div className="preview-inside-block red">
                                                 <p>
-                                                    В данный момент вывод средств осущевстляется только через QIWI
+                                                    Наша платформа еще в разработке. О начале этапа тестирования мы сообщим здесь :)
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="item-feed">
-                                            <h2>test</h2>
-                                            <div className="preview-inside-block">
-                                                <p>
-                                                    просто новость для теста верстки
-                                                </p>
-                                            </div>
-                                        </div>
+                                        {/*<div className="item-feed">*/}
+                                        {/*    <h2>test</h2>*/}
+                                        {/*    <div className="preview-inside-block">*/}
+                                        {/*        <p>*/}
+                                        {/*            просто новость для теста верстки*/}
+                                        {/*        </p>*/}
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
                                     </div>
                                 </div>
                             </>

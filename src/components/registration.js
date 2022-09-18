@@ -31,7 +31,7 @@ class Registration extends Component{
                                     <div className="wrapper-input-checkbox-wr-input">
                                         <input className="input-default-checkbox" type="checkbox"/>
                                     </div>
-                                    <div className="wrapper-input-checkbox-wr-input-text">Я прочел <a className="button-text" target="_blank" href="https://t.me/andrey_shsh">пользовательское соглашение</a> </div>
+                                    <div className="wrapper-input-checkbox-wr-input-text">Я прочел <a className="button-text" target="_blank" href="">пользовательское соглашение</a> </div>
                                 </div>
                                 <div className="wrapper-input-checkbox">
                                     <div className="wrapper-input-checkbox-wr-input">

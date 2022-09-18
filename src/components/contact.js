@@ -21,7 +21,7 @@ class Contact extends Component{
                                 <br/>
                                 Так же мы занимаемся контекстной рекламой и pre-roll вставками через наш видеоплеер. <br/>
                                 <br/>
-                                Всю дополнительную информацию по работе платформы Вы можете получить через <a className="button-text" target="_blank" href="https://t.me/andrey_shsh">чат с поддержкой.</a>
+                                Всю дополнительную информацию по работе платформы Вы можете получить через <a className="button-text" target="_blank" href="">чат с поддержкой.</a>
                             </p>
                         </div>
                         {/*<div className="block-default-icon">*/}

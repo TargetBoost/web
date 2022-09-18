@@ -625,7 +625,16 @@ body {
     background: none;
     padding: 15px;
     font-size: 14px;
+}
 
+.input-default-checkbox {
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #dcdcdc;
+    background: none;
+    padding: 15px;
+    font-size: 14px;
 }
 
 

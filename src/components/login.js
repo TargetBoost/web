@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import PhoneInput from "react-phone-number-input";
 
 class Login extends Component{
     constructor(props) {
@@ -6,6 +7,10 @@ class Login extends Component{
         this.state = {
             targetAction: "sign-in",
         }
+    }
+
+    numberChange = (e) => {
+        console.log(e)
     }
 
     render() {
@@ -16,7 +21,14 @@ class Login extends Component{
                         <div className="wrapper-auth-pop-up">
                             <div className="sign-in-place">
                                 <div className="wrapper-input">
-                                    <input className="input-default" placeholder="Логин / Номер мобильного телефона"/>
+                                    <PhoneInput
+                                        international
+                                        countryCallingCodeEditable={false}
+                                        defaultCountry="RU"
+                                        className="input-default-number input-default-number-country"
+                                        id="phone"
+                                        onChange={this.numberChange}
+                                    />
                                 </div>
                                 <div className="wrapper-input">
                                     <input className="input-default" type="password" placeholder="Пароль"/>

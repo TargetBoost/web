@@ -69,7 +69,7 @@ class Registration extends Component{
                                 </div>
                             </div>
                             <div className="sing-wrapper">
-                                <div className="button-sign green unselectable">Перейти в личный кабинет</div>
+                                <div className="button-sign green unselectable" onClick={this.registration}>Перейти в личный кабинет</div>
                             </div>
                         </div>
 

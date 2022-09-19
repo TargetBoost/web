@@ -21,7 +21,7 @@ class Registration extends Component{
         let data = {
             phone: Number(phone),
             login: document.getElementById("login").value,
-            password: document.getElementById("password")
+            password: document.getElementById("password").value
         }
 
         if (document.getElementById("re_password").value === data.password) {

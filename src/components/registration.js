@@ -17,13 +17,25 @@ class Registration extends Component{
 
     registration = () => {
         let data = {
-            phone: document.getElementById("phone"),
-            login: document.getElementById("login"),
-            password: document.getElementById("password")
+            phone: document.getElementById("phone").value,
+            login: document.getElementById("login").value,
+            password: document.getElementById("password").value
         }
 
-        if (document.getElementById("re_password") !== data.password) {
-            console.log("error")
+        if (document.getElementById("re_password").value === data.password) {
+            fetch("/core/v1/system/registration", {
+                method: "POST",
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(res => {
+                    if (res.status.massge === "") {
+                        console.log(res)
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                });
         }
 
         console.log(data)

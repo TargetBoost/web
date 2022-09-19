@@ -19,9 +19,9 @@ class Registration extends Component{
         let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
 
         let data = {
-            phone: document.getElementById("phone").value,
+            phone: Number(phone),
             login: document.getElementById("login").value,
-            password: Number(phone)
+            password: document.getElementById("password")
         }
 
         if (document.getElementById("re_password").value === data.password) {

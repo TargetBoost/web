@@ -388,7 +388,7 @@ body {
     padding: 20px;
     border-radius: 0 0 10px 10px;
     cursor: pointer;
-    transition: .50s;
+    transition: .04s;
 }
 
 .sing-wrapper {

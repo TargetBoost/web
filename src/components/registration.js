@@ -23,17 +23,16 @@ class Registration extends Component{
                         <div className="wrapper-auth-pop-up">
                             <div className="sign-in-place">
                                 <div className="wrapper-input">
-                                    <input className="input-default" id="login" placeholder="Логин"/>
-                                </div>
-                                <div className="wrapper-input">
                                     <PhoneInput
                                         international
                                         countryCallingCodeEditable={false}
                                         defaultCountry="RU"
-                                        className="input-default"
+                                        className="input-default-number input-default-number-country"
                                         onChange={this.numberChange}
                                     />
-                                    <input className="input-default" id="number_phone" placeholder="Номер мобильного телефона"/>
+                                </div>
+                                <div className="wrapper-input">
+                                    <input className="input-default" id="login" placeholder="Логин"/>
                                 </div>
                                 <div className="wrapper-input">
                                     <input className="input-default" id="password" type="password" placeholder="Пароль"/>

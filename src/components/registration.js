@@ -15,6 +15,20 @@ class Registration extends Component{
         console.log(e)
     }
 
+    registration = () => {
+        let data = {
+            phone: document.getElementById("phone"),
+            login: document.getElementById("login"),
+            password: document.getElementById("password")
+        }
+
+        if (document.getElementById("re_password") !== data.password) {
+            console.log("error")
+        }
+
+        console.log(data)
+    }
+
     render() {
         return (
             <>
@@ -28,6 +42,7 @@ class Registration extends Component{
                                         countryCallingCodeEditable={false}
                                         defaultCountry="RU"
                                         className="input-default-number input-default-number-country"
+                                        id="phone"
                                         onChange={this.numberChange}
                                     />
                                 </div>

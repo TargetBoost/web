@@ -1,11 +1,18 @@
 import React, {Component} from "react";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 class Registration extends Component{
     constructor(props) {
         super(props);
         this.state = {
             targetAction: "sign-in",
+            valueNumber: ""
         }
+    }
+
+    numberChange = (e) => {
+        console.log(e)
     }
 
     render() {
@@ -16,16 +23,23 @@ class Registration extends Component{
                         <div className="wrapper-auth-pop-up">
                             <div className="sign-in-place">
                                 <div className="wrapper-input">
-                                    <input className="input-default" placeholder="Логин"/>
+                                    <input className="input-default" id="login" placeholder="Логин"/>
                                 </div>
                                 <div className="wrapper-input">
-                                    <input className="input-default" placeholder="Номер мобильного телефона"/>
+                                    <PhoneInput
+                                        international
+                                        countryCallingCodeEditable={false}
+                                        defaultCountry="RU"
+                                        className="input-default"
+                                        onChange={this.numberChange}
+                                    />
+                                    <input className="input-default" id="number_phone" placeholder="Номер мобильного телефона"/>
                                 </div>
                                 <div className="wrapper-input">
-                                    <input className="input-default" type="password" placeholder="Пароль"/>
+                                    <input className="input-default" id="password" type="password" placeholder="Пароль"/>
                                 </div>
                                 <div className="wrapper-input">
-                                    <input className="input-default" type="password" placeholder="Повторите пароль"/>
+                                    <input className="input-default" id="re_password" type="password" placeholder="Повторите пароль"/>
                                 </div>
                                 <div className="wrapper-input-checkbox">
                                     <div className="wrapper-input-checkbox-wr-input">

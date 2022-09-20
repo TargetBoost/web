@@ -144,7 +144,7 @@ class Registration extends Component{
                                                     <input className="input-default" id="first_name" placeholder="Имя"/>
                                                 </div>
                                                 <div className="wrapper-input">
-                                                    <input className="input-default" id="old" type="number" placeholder="Возраст"/>
+                                                    <input className="input-default" id="old" type="number" placeholder="Возраст" max="99"/>
                                                 </div>
                                                 <div className="wrapper-input">
                                                     <div className="title-pop-up">Региональные настройки</div>

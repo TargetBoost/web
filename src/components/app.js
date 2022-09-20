@@ -17,7 +17,7 @@ class App extends Component{
         super(props);
         this.state = {
             store: this.props.store,
-            snow: false
+            snow: true
         }
 
         this.routes = mount({
@@ -27,14 +27,26 @@ class App extends Component{
             '/about' : route({view: <Contact store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
             '/user/:id' : route( request => {
-
                 return {
                     title: `user`,
                     view: <User store={this.state.store} id={request.params.id} type={"executor"}/>,
                 }
             }),
-
         })
+    }
+
+    componentDidMount () {
+        fetch("/core/v1/system/settings", {
+            method: "GET",
+        })
+            .then(response => response.json())
+            .then(res => {
+                this.setState({snow: res.data.snow})
+            })
+            .catch(error => {
+                console.log(error)
+                this.setState({nextStep: "reg"})
+            });
     }
 
     render() {

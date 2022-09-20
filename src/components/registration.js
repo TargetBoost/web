@@ -22,7 +22,7 @@ class Registration extends Component{
             number_phone: Number(phone),
             login: document.getElementById("login").value,
             password: document.getElementById("password").value,
-            execute: false
+            execute: document.getElementById("im_read").value !== 'on'
         }
 
         console.log(document.getElementById("im_read").value)

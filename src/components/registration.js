@@ -25,6 +25,8 @@ class Registration extends Component{
             execute: false
         }
 
+        console.log(document.getElementById("im_read").value)
+
         if (document.getElementById("re_password").value === data.password) {
             fetch("/core/v1/system/registration", {
                 method: "POST",
@@ -80,7 +82,7 @@ class Registration extends Component{
                                 </div>
                                 <div className="wrapper-input-checkbox">
                                     <div className="wrapper-input-checkbox-wr-input">
-                                        <input className="input-default-checkbox" type="checkbox"/>
+                                        <input className="input-default-checkbox" type="checkbox" id="im_read"/>
                                     </div>
                                     <div className="wrapper-input-checkbox-wr-input-text">Я исполнитель</div>
                                 </div>

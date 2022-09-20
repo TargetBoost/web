@@ -722,6 +722,7 @@ body {
 ._3sXmFundefined {
     display: flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
 }
 
 ._1qEzs {

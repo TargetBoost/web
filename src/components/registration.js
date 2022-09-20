@@ -150,7 +150,6 @@ class Registration extends Component{
                                                     <div className="title-pop-up">Региональные настройки</div>
                                                 </div>
                                                 <div className="wrapper-input">
-                                                    {/*<div className="title-pop-up">Войти</div>*/}
                                                     <CountrySelector
                                                         onChange={this.handleCountrySelect}
                                                         name='country'

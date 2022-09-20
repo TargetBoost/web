@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import {CountryDropdown, RegionDropdown} from "react-country-region-selector";
 
 class Registration extends Component{
     constructor(props) {
@@ -8,8 +9,17 @@ class Registration extends Component{
         this.state = {
             targetAction: "sign-in",
             nextStep: "reg",
-            store: this.props.store
+            store: this.props.store,
+            country: '', region: '',
         }
+    }
+
+    selectCountry (val) {
+        this.setState({ country: val });
+    }
+
+    selectRegion (val) {
+        this.setState({ region: val });
     }
 
     numberChange = (e) => {
@@ -125,10 +135,21 @@ class Registration extends Component{
                                                     <input className="input-default" id="first_name" placeholder="Имя"/>
                                                 </div>
                                                 <div className="wrapper-input">
-                                                    <input className="input-default" id="country" placeholder="Страна"/>
+                                                    <CountryDropdown
+                                                        defaultOptionLabel="Страна"
+
+                                                        className="input-default"
+                                                        value={this.state.country}
+                                                        onChange={(val) => this.selectCountry(val)} />
                                                 </div>
                                                 <div className="wrapper-input">
-                                                    <input className="input-default" id="city" placeholder="Город"/>
+                                                    <RegionDropdown
+                                                        defaultOptionLabel="Город"
+                                                        className="input-default"
+
+                                                        country={this.state.country}
+                                                        value={this.state.region}
+                                                        onChange={(val) => this.selectRegion(val)} />
                                                 </div>
                                                 <div className="wrapper-input">
                                                     <input className="input-default" id="old" placeholder="Возраст"/>

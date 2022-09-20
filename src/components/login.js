@@ -6,18 +6,11 @@ class Login extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            targetAction: "sign-in",
-            country: '', region: '',
+            targetAction: "sign-in"
         }
     }
 
-    selectCountry (val) {
-        this.setState({ country: val });
-    }
 
-    selectRegion (val) {
-        this.setState({ region: val });
-    }
 
     numberChange = (e) => {
         console.log(e)
@@ -32,23 +25,6 @@ class Login extends Component{
                             <div className="sign-in-place">
                                 <div className="wrapper-input">
                                     <div className="title-pop-up">Войти</div>
-                                </div>
-                                <div className="wrapper-input">
-                                <CountryDropdown
-                                    defaultOptionLabel="Страна"
-
-                                    className="input-default"
-                                    value={this.state.country}
-                                    onChange={(val) => this.selectCountry(val)} />
-                                </div>
-                                <div className="wrapper-input">
-                                <RegionDropdown
-                                    defaultOptionLabel="Город"
-                                    className="input-default"
-
-                                    country={this.state.country}
-                                    value={this.state.region}
-                                    onChange={(val) => this.selectRegion(val)} />
                                 </div>
                                 <div className="wrapper-input">
                                     <PhoneInput

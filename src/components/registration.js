@@ -7,7 +7,7 @@ class Registration extends Component{
         super(props);
         this.state = {
             targetAction: "sign-in",
-            valueNumber: ""
+            nextStep: "reg"
         }
     }
 
@@ -25,8 +25,6 @@ class Registration extends Component{
             execute: document.getElementById("im_read").value !== 'on'
         }
 
-        console.log(document.getElementById("im_read").value)
-
         if (document.getElementById("re_password").value === data.password) {
             fetch("/core/v1/system/registration", {
                 method: "POST",
@@ -37,7 +35,7 @@ class Registration extends Component{
                     console.log(res)
 
                     if (res.status.message === null) {
-                        console.log(res)
+                        this.setState({nextStep: "profile"})
                     }
                 })
                 .catch(error => {
@@ -54,42 +52,80 @@ class Registration extends Component{
                 <div className="block-flex-center full-page">
                     <div className="wrapper-auth-pop-up-wr">
                         <div className="wrapper-auth-pop-up">
-                            <div className="sign-in-place">
-                                <div className="wrapper-input">
-                                    <PhoneInput
-                                        international
-                                        countryCallingCodeEditable={false}
-                                        defaultCountry="RU"
-                                        className="input-default-number input-default-number-country"
-                                        id="phone"
-                                        onChange={this.numberChange}
-                                    />
-                                </div>
-                                <div className="wrapper-input">
-                                    <input className="input-default" id="login" placeholder="Логин"/>
-                                </div>
-                                <div className="wrapper-input">
-                                    <input className="input-default" id="password" type="password" placeholder="Пароль"/>
-                                </div>
-                                <div className="wrapper-input">
-                                    <input className="input-default" id="re_password" type="password" placeholder="Повторите пароль"/>
-                                </div>
-                                <div className="wrapper-input-checkbox">
-                                    <div className="wrapper-input-checkbox-wr-input">
-                                        <input className="input-default-checkbox" type="checkbox"/>
-                                    </div>
-                                    <div className="wrapper-input-checkbox-wr-input-text">Я прочел <a className="button-text" target="_blank" href="">пользовательское соглашение</a> </div>
-                                </div>
-                                <div className="wrapper-input-checkbox">
-                                    <div className="wrapper-input-checkbox-wr-input">
-                                        <input className="input-default-checkbox" type="checkbox" id="im_read"/>
-                                    </div>
-                                    <div className="wrapper-input-checkbox-wr-input-text">Я исполнитель</div>
-                                </div>
-                            </div>
-                            <div className="sing-wrapper">
-                                <div className="button-sign green unselectable" onClick={this.registration}>Перейти в личный кабинет</div>
-                            </div>
+                            {
+                                this.state.nextStep === "reg" ?
+                                    <>
+                                        <div className="sign-in-place">
+                                            <div className="wrapper-input">
+                                                <PhoneInput
+                                                    international
+                                                    countryCallingCodeEditable={false}
+                                                    defaultCountry="RU"
+                                                    className="input-default-number input-default-number-country"
+                                                    id="phone"
+                                                    onChange={this.numberChange}
+                                                />
+                                            </div>
+                                            <div className="wrapper-input">
+                                                <input className="input-default" id="login" placeholder="Логин"/>
+                                            </div>
+                                            <div className="wrapper-input">
+                                                <input className="input-default" id="password" type="password"
+                                                       placeholder="Пароль"/>
+                                            </div>
+                                            <div className="wrapper-input">
+                                                <input className="input-default" id="re_password" type="password"
+                                                       placeholder="Повторите пароль"/>
+                                            </div>
+                                            <div className="wrapper-input-checkbox">
+                                                <div className="wrapper-input-checkbox-wr-input">
+                                                    <input className="input-default-checkbox" type="checkbox"/>
+                                                </div>
+                                                <div className="wrapper-input-checkbox-wr-input-text">Я прочел <a
+                                                    className="button-text" target="_blank" href="">пользовательское
+                                                    соглашение</a></div>
+                                            </div>
+                                            <div className="wrapper-input-checkbox">
+                                                <div className="wrapper-input-checkbox-wr-input">
+                                                    <input className="input-default-checkbox" type="checkbox"
+                                                           id="im_read"/>
+                                                </div>
+                                                <div className="wrapper-input-checkbox-wr-input-text">Я исполнитель
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="sing-wrapper">
+                                            <div className="button-sign green unselectable"
+                                                 onClick={this.registration}>Перейти в личный кабинет
+                                            </div>
+                                        </div>
+                                    </>
+                                    :
+                                    this.state.nextStep === "profile" ?
+                                        <>
+                                            <div className="sign-in-place">
+                                                <div className="wrapper-input">
+                                                    <input className="input-default" id="first_name" placeholder="Имя"/>
+                                                </div>
+                                                <div className="wrapper-input">
+                                                    <input className="input-default" id="country" placeholder="Страна"/>
+                                                </div>
+                                                <div className="wrapper-input">
+                                                    <input className="input-default" id="city" placeholder="Город"/>
+                                                </div>
+                                                <div className="wrapper-input">
+                                                    <input className="input-default" id="old" placeholder="Возраст"/>
+                                                </div>
+                                            </div>
+                                            <div className="sing-wrapper">
+                                                <div className="button-sign green unselectable"
+                                                     onClick={this.registration}>Перейти в личный кабинет
+                                                </div>
+                                            </div>
+                                        </>
+                                        :
+                                        null
+                            }
                         </div>
 
                     </div>

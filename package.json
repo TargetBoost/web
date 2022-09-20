@@ -22,6 +22,7 @@
     "react-select": "^5.4.0",
     "react-snowfall": "^1.2.1",
     "react-textarea-autosize": "^8.3.4",
+    "react-toastify": "^9.0.8",
     "redux": "^4.2.0",
     "serve": "^14.0.1",
     "volkeno-react-country-state-city": "^1.0.0",

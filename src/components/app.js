@@ -11,13 +11,15 @@ import Login from "./login";
 import Registration from "./registration";
 import User from "./user";
 import Contact from "./contact";
+import {toast, ToastContainer} from 'react-toastify';
+
 
 class App extends Component{
     constructor(props) {
         super(props);
         this.state = {
             store: this.props.store,
-            snow: true
+            snow: false
         }
 
         this.routes = mount({
@@ -32,6 +34,24 @@ class App extends Component{
                     view: <User store={this.state.store} id={request.params.id} type={"executor"}/>,
                 }
             }),
+        })
+
+        this.state.store.subscribe(() => {
+            this.setState(this.state.store.getState())
+
+            let state = this.state.store.getState()
+
+            if (state.error.showError) {
+                toast.error(state.error.errorText, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }
         })
     }
 
@@ -49,8 +69,20 @@ class App extends Component{
     }
 
     render() {
+        let state = this.state.store.getState()
         return (
             <>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
                 {
                     this.state.snow ?
                         <Snowfall/>

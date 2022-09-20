@@ -122,14 +122,14 @@ class Registration extends Component{
                                                 </div>
                                             </div>
                                             <div className="sing-wrapper">
-                                                <div className="button-sign green unselectable"
-                                                     onClick={this.registration}>Перейти в личный кабинет
+                                                <div className="button-sign blue unselectable"
+                                                     >Сохранить
                                                 </div>
                                             </div>
                                         </>
                                         :
                                         this.state.nextStep === "load" ?
-                                            <div className="loader-small"/>
+                                            <div className="loader"/>
                                             :
                                             null
 

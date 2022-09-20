@@ -149,7 +149,7 @@ class Registration extends Component{
                                                         containerClass="wrapper-input"
                                                         onChange={this.handleCountrySelect}
                                                         name='country'
-                                                        placeholder='Страна'
+                                                        placeholder='Выберите страну'
                                                         value={this.state.country}
                                                     />
                                                 </div>
@@ -159,7 +159,7 @@ class Registration extends Component{
                                                         country={this.state.country}
                                                         name='state'
                                                         value={this.state.state}
-                                                        countryPlaceholder='Select a country first'
+                                                        countryPlaceholder='Выберите регион'
                                                         onChange={this.handleStateSelect}
                                                     />
                                                 </div>
@@ -169,7 +169,7 @@ class Registration extends Component{
                                                         state={this.state.state}
                                                         name='city'
                                                         value={this.state.city}
-                                                        statePlaceholder='Select a state first'
+                                                        statePlaceholder='Выберите город'
                                                         onChange={this.handleCitySelect}
                                                     />
                                                 </div>

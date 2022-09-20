@@ -6,7 +6,7 @@ import {
     StateSelector,
     CitySelector
 } from 'volkeno-react-country-state-city'
-import 'volkeno-react-country-state-city/dist/index.css'
+
 
 class Registration extends Component{
     constructor(props) {
@@ -138,7 +138,7 @@ class Registration extends Component{
                                         <>
                                             <div className="sign-in-place">
                                                 <div className="wrapper-input">
-                                                    <div className="title-pop-up">Заполните профиль</div>
+                                                    <div className="title-pop-up">Личные данные</div>
                                                 </div>
                                                 <div className="wrapper-input">
                                                     <input className="input-default" id="first_name" placeholder="Имя"/>

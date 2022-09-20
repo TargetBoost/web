@@ -144,9 +144,14 @@ class Registration extends Component{
                                                     <input className="input-default" id="first_name" placeholder="Имя"/>
                                                 </div>
                                                 <div className="wrapper-input">
+                                                    <input className="input-default" id="old" type="number" placeholder="Возраст"/>
+                                                </div>
+                                                <div className="wrapper-input">
+                                                    <div className="title-pop-up">Региональные настройки</div>
+                                                </div>
+                                                <div className="wrapper-input">
                                                     {/*<div className="title-pop-up">Войти</div>*/}
                                                     <CountrySelector
-                                                        containerClass="wrapper-input"
                                                         onChange={this.handleCountrySelect}
                                                         name='country'
                                                         placeholder='Выберите страну'
@@ -155,7 +160,6 @@ class Registration extends Component{
                                                 </div>
                                                 <div className="wrapper-input">
                                                     <StateSelector
-                                                        containerClass="wrapper-input"
                                                         country={this.state.country}
                                                         name='state'
                                                         value={this.state.state}
@@ -165,16 +169,12 @@ class Registration extends Component{
                                                 </div>
                                                 <div className="wrapper-input">
                                                     <CitySelector
-                                                        containerClass="wrapper-input"
                                                         state={this.state.state}
                                                         name='city'
                                                         value={this.state.city}
                                                         statePlaceholder='Выберите город'
                                                         onChange={this.handleCitySelect}
                                                     />
-                                                </div>
-                                                <div className="wrapper-input">
-                                                    <input className="input-default" id="old" type="number" placeholder="Возраст"/>
                                                 </div>
                                             </div>
                                             <div className="sing-wrapper">

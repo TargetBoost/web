@@ -31,7 +31,7 @@ class Registration extends Component{
             })
                 .then(response => response.json())
                 .then(res => {
-                    if (res.status.massge === "") {
+                    if (res.status.message === "") {
                         console.log(res)
                     }
                 })

@@ -21,6 +21,9 @@ class Login extends Component{
                         <div className="wrapper-auth-pop-up">
                             <div className="sign-in-place">
                                 <div className="wrapper-input">
+                                    <div className="title-pop-up">Войти</div>
+                                </div>
+                                <div className="wrapper-input">
                                     <PhoneInput
                                         international
                                         countryCallingCodeEditable={false}

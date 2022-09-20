@@ -155,6 +155,7 @@ class Registration extends Component{
                                                 </div>
                                                 <div className="wrapper-input">
                                                     <StateSelector
+                                                        containerClass="wrapper-input"
                                                         country={this.state.country}
                                                         name='state'
                                                         value={this.state.state}
@@ -163,8 +164,8 @@ class Registration extends Component{
                                                     />
                                                 </div>
                                                 <div className="wrapper-input">
-                                                    {/*<div className="title-pop-up">Войти</div>*/}
                                                     <CitySelector
+                                                        containerClass="wrapper-input"
                                                         state={this.state.state}
                                                         name='city'
                                                         value={this.state.city}

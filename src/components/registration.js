@@ -16,6 +16,7 @@ class Registration extends Component{
     }
 
     registration = () => {
+        this.setState({nextStep: "load"})
         let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
 
         let data = {
@@ -36,10 +37,13 @@ class Registration extends Component{
 
                     if (res.status.message === null) {
                         this.setState({nextStep: "profile"})
+                    }else{
+
                     }
                 })
                 .catch(error => {
                     console.log(error)
+                    this.setState({nextStep: "reg"})
                 });
         }
 
@@ -124,10 +128,13 @@ class Registration extends Component{
                                             </div>
                                         </>
                                         :
-                                        null
+                                        this.state.nextStep === "load" ?
+                                            <div className="loader-small"/>
+                                            :
+                                            null
+
                             }
                         </div>
-
                     </div>
                 </div>
             </>

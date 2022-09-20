@@ -152,7 +152,7 @@ class Registration extends Component{
                                                         onChange={(val) => this.selectRegion(val)} />
                                                 </div>
                                                 <div className="wrapper-input">
-                                                    <input className="input-default" id="old" placeholder="Возраст"/>
+                                                    <input className="input-default" id="old" type="number" placeholder="Возраст"/>
                                                 </div>
                                             </div>
                                             <div className="sing-wrapper">

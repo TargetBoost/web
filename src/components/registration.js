@@ -142,8 +142,10 @@ class Registration extends Component{
                                         </>
                                         :
                                         this.state.nextStep === "load" ?
-                                            <div className="loader"/>
-                                            :
+                                            <div className="block-flex-center">
+                                                <div className="loader"/>
+                                            </div>
+                                        :
                                             null
 
                             }

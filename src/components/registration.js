@@ -7,7 +7,8 @@ class Registration extends Component{
         super(props);
         this.state = {
             targetAction: "sign-in",
-            nextStep: "reg"
+            nextStep: "reg",
+            store: this.props.store
         }
     }
 
@@ -37,6 +38,12 @@ class Registration extends Component{
 
                     if (res.status.message === null) {
                         this.setState({nextStep: "profile"})
+
+
+                        this.state.store.dispatch({
+                            type: "update_token", value: res.data.token,
+                        })
+
                     }else{
 
                     }
@@ -108,6 +115,9 @@ class Registration extends Component{
                                     this.state.nextStep === "profile" ?
                                         <>
                                             <div className="sign-in-place">
+                                                <div className="wrapper-input">
+                                                    <div className="title-pop-up">Заполните профиль</div>
+                                                </div>
                                                 <div className="wrapper-input">
                                                     <input className="input-default" id="first_name" placeholder="Имя"/>
                                                 </div>

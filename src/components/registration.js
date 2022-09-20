@@ -34,7 +34,7 @@ class Registration extends Component{
                 .then(res => {
                     console.log(res)
 
-                    if (res.status.message === "") {
+                    if (res.status.message === null) {
                         console.log(res)
                     }
                 })

@@ -721,9 +721,7 @@ body {
 
 ._3sXmFundefined {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 15px;
+    justify-content: space-between;
 }
 
 ._1qEzs {
@@ -731,8 +729,8 @@ body {
 }
 
 ._2z69Y {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
+    /*width: -webkit-fit-content;*/
+    /*width: -moz-fit-content;*/
+    /*width: fit-content;*/
     height: 1rem;
 }

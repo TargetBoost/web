@@ -42,7 +42,7 @@ class Login extends Component{
                                 </div>
                             </div>
                             <div className="sing-wrapper">
-                                <div className="button-sign blue unselectable">Войти</div>
+                                <div className="button-sign blue unselectable">Поехали!🚀</div>
                             </div>
                         </div>
 

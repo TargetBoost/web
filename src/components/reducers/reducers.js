@@ -1,7 +1,7 @@
 function reducer(state, action) {
     switch(action.type) {
         case "update_token":
-            window.localStorage.setItem("token", `Bareer ${action.value}`)
+            window.localStorage.setItem("token", `Bearer ${action.value}`)
             return { status: true};
         case "asdsd": return { value: action.value };
 

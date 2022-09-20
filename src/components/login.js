@@ -1,12 +1,22 @@
 import React, {Component} from "react";
 import PhoneInput from "react-phone-number-input";
+import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
 
 class Login extends Component{
     constructor(props) {
         super(props);
         this.state = {
             targetAction: "sign-in",
+            country: '', region: '',
         }
+    }
+
+    selectCountry (val) {
+        this.setState({ country: val });
+    }
+
+    selectRegion (val) {
+        this.setState({ region: val });
     }
 
     numberChange = (e) => {
@@ -23,6 +33,13 @@ class Login extends Component{
                                 <div className="wrapper-input">
                                     <div className="title-pop-up">Войти</div>
                                 </div>
+                                <CountryDropdown
+                                    value={this.state.country}
+                                    onChange={(val) => this.selectCountry(val)} />
+                                <RegionDropdown
+                                    country={this.state.country}
+                                    value={this.state.region}
+                                    onChange={(val) => this.selectRegion(val)} />
                                 <div className="wrapper-input">
                                     <PhoneInput
                                         international

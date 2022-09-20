@@ -1,7 +1,12 @@
 import React, {Component} from "react";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
-import {CountryDropdown, RegionDropdown} from "react-country-region-selector";
+import {
+    CountrySelector,
+    StateSelector,
+    CitySelector
+} from 'volkeno-react-country-state-city'
+import 'volkeno-react-country-state-city/dist/index.css'
 
 class Registration extends Component{
     constructor(props) {
@@ -10,16 +15,20 @@ class Registration extends Component{
             targetAction: "sign-in",
             nextStep: "reg",
             store: this.props.store,
-            country: '', region: '',
+            country: '', state: '', city: '',
         }
     }
 
-    selectCountry (val) {
-        this.setState({ country: val });
+    handleCountrySelect = (option) => {
+        this.setState({country: option})
     }
 
-    selectRegion (val) {
-        this.setState({ region: val });
+    handleStateSelect = (option) => {
+        this.setState({state: option})
+    }
+
+    handleCitySelect = (option) => {
+        this.setState({city: option})
     }
 
     numberChange = (e) => {
@@ -135,21 +144,33 @@ class Registration extends Component{
                                                     <input className="input-default" id="first_name" placeholder="Имя"/>
                                                 </div>
                                                 <div className="wrapper-input">
-                                                    <CountryDropdown
-                                                        defaultOptionLabel="Страна"
-
-                                                        className="input-default"
+                                                    {/*<div className="title-pop-up">Войти</div>*/}
+                                                    <CountrySelector
+                                                        containerClass="wrapper-input"
+                                                        onChange={this.handleCountrySelect}
+                                                        name='country'
+                                                        placeholder='Страна'
                                                         value={this.state.country}
-                                                        onChange={(val) => this.selectCountry(val)} />
+                                                    />
                                                 </div>
                                                 <div className="wrapper-input">
-                                                    <RegionDropdown
-                                                        defaultOptionLabel="Город"
-                                                        className="input-default"
-
+                                                    <StateSelector
                                                         country={this.state.country}
-                                                        value={this.state.region}
-                                                        onChange={(val) => this.selectRegion(val)} />
+                                                        name='state'
+                                                        value={this.state.state}
+                                                        countryPlaceholder='Select a country first'
+                                                        onChange={this.handleStateSelect}
+                                                    />
+                                                </div>
+                                                <div className="wrapper-input">
+                                                    {/*<div className="title-pop-up">Войти</div>*/}
+                                                    <CitySelector
+                                                        state={this.state.state}
+                                                        name='city'
+                                                        value={this.state.city}
+                                                        statePlaceholder='Select a state first'
+                                                        onChange={this.handleCitySelect}
+                                                    />
                                                 </div>
                                                 <div className="wrapper-input">
                                                     <input className="input-default" id="old" type="number" placeholder="Возраст"/>

@@ -1,14 +1,15 @@
 import React, {Component} from "react";
 import PhoneInput from "react-phone-number-input";
-import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
 
 class Login extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            targetAction: "sign-in"
+            targetAction: "sign-in",
+            country: ""
         }
     }
+
 
 
 

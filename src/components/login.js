@@ -43,7 +43,7 @@ class Login extends Component{
 
 
     numberChange = (e) => {
-        console.log(e)
+        // console.log(e)
     }
 
     render() {

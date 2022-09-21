@@ -104,8 +104,6 @@ class App extends Component{
             .then(response => response.json())
             .then(res => {
                 console.log(res)
-                // window.location.href = `/user/${res.data.id}`
-
                 if (res.status.message === null) {
                     this.state.store.dispatch({
                         type: "update_user", value: {

@@ -112,9 +112,7 @@ class App extends Component{
         this.state.store.subscribe(() => {
             this.setState(this.state.store.getState())
 
-            let state = this.state.store.getState()
-
-            console.log(state)
+            // let state = this.state.store.getState()
 
             // if (state.error.showError) {
             //     toast.error(state.error.errorText, {
@@ -150,7 +148,6 @@ class App extends Component{
         })
             .then(response => response.json())
             .then(res => {
-                console.log(res)
                 if (res.status.message === null) {
 
                     fetch(`/core/v1/service/user/${res.data.id}`, {

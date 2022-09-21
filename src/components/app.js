@@ -116,7 +116,7 @@ class App extends Component{
 
             if (state.error.showError) {
                 toast.error(state.error.errorText, {
-                    position: "top-right",
+                    position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: false,
                     closeOnClick: true,
@@ -205,7 +205,7 @@ class App extends Component{
         return (
             <>
                 <ToastContainer
-                    position="top"
+                    position="top-center"
                     autoClose={5000}
                     hideProgressBar={false}
                     newestOnTop={false}

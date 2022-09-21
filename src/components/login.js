@@ -10,7 +10,33 @@ class Login extends Component{
         }
     }
 
+    auth = () => {
+        let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
 
+
+        let data = {
+            number_phone: Number(phone),
+            password: document.getElementById("password").value
+        }
+
+        fetch("/core/v1/system/auth", {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(res => {
+                console.log(res)
+
+                if (res.status.message == null) {
+                    this.state.store.dispatch({
+                        type: "update_token", value: res.data.token,
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
 
 
     numberChange = (e) => {
@@ -38,15 +64,15 @@ class Login extends Component{
                                     />
                                 </div>
                                 <div className="wrapper-input">
-                                    <input className="input-default" type="password" placeholder="Пароль"/>
+                                    <input className="input-default" type="password" id="password" placeholder="Пароль"/>
                                 </div>
                                 <div className="wrapper-input-checkbox">
                                     <div className="wrapper-input-checkbox-wr-input">
-                                        <a className="button-text" target="_blank" href="https://t.me/andrey_shsh">Восстановить пароль</a>                                </div>
+                                        <a className="button-text" target="_blank" href="">Восстановить пароль</a>                                </div>
                                 </div>
                             </div>
                             <div className="sing-wrapper">
-                                <div className="button-sign blue unselectable">Поехали! 🚀</div>
+                                <div className="button-sign blue unselectable" onClick={this.auth}>Поехали! 🚀</div>
                             </div>
                         </div>
 

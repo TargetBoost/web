@@ -325,6 +325,10 @@ body {
     cursor: pointer;
 }
 
+.wrapper-error {
+    padding: 20px;
+}
+
 .comment-feed-wrapper {
     width: 100%;
     padding: 10px;

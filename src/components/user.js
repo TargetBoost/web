@@ -24,9 +24,10 @@ class User extends Component{
                         store.user.auth === false ?
                             <div className="wrapper-error">
                                 <div className="error">Страница только для авторизованных пользователей</div>
-                                <div className="error small-text">вернуться <div
-                                    style={{textDecoration: "underline", cursor: "pointer"}}
-                                    onClick={() => {window.history.go(-1)}}>Назад</div></div>
+                                <div className="error small-text">
+                                     <div style={{textDecoration: "underline", cursor: "pointer"}}
+                                    onClick={() => {window.history.go(-1)}}>Вернуться назад</div>
+                                </div>
                             </div>
                             :
                                 this.state.type === "executor" ?

@@ -20,7 +20,6 @@ class Header extends Component{
 
     render() {
         let store = this.state.store.getState()
-        console.log(store.user.load)
         return (
             <div className="header-bg">
                 <div className="wrapper-header">
@@ -41,8 +40,8 @@ class Header extends Component{
                         {
                             store.user.load === false ?
                                 store.user.auth ?
-                                    <div className="button-text" onClick={()=>{window.location.href = `/user/${store.user.id}`}} >{store.user.login}</div>
-                                    :
+                                    <div className="button-default" onClick={()=>{window.location.href = `/user/${store.user.id}`}} >{store.user.login}</div>
+                                :
                                     <>
                                         <div className="button-default unselectable" onClick={()=>{window.location.href = "/login"}}>Войти</div>
                                         <div className="button-default unselectable" onClick={()=>{window.location.href = "/registration"}}>Регистрация</div>

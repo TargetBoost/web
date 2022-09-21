@@ -29,6 +29,23 @@ class App extends Component{
             '/about' : route({view: <Contact store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
             '/user/:id' : route( request => {
+
+                fetch(`/core/v1/service/user/${request.params.id}`, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": window.localStorage.getItem("token")
+                    }
+                })
+                    .then(response => response.json())
+                    .then(res => {
+                        console.log(res)
+
+
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+
                 return {
                     title: `user`,
                     view: <User store={this.state.store} id={request.params.id} type={"executor"}/>,
@@ -68,10 +85,25 @@ class App extends Component{
             .catch(error => {
                 console.log(error)
             });
+
+        fetch(`/core/v1/system/is_auth`, {
+            method: "GET",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            }
+        })
+            .then(response => response.json())
+            .then(res => {
+                console.log(res)
+
+
+            })
+            .catch(error => {
+                console.log(error)
+            });
     }
 
     render() {
-        let state = this.state.store.getState()
         return (
             <>
                 <ToastContainer

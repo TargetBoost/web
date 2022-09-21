@@ -43,7 +43,7 @@ class App extends Component{
                                 type: "update_user", value: {
                                     load: false,
                                     id: res.data.id,
-                                    number: res.data.number,
+                                    number: res.data.number_phone,
                                     login: res.data.login,
                                     auth: true
                                 },
@@ -129,7 +129,7 @@ class App extends Component{
                                     type: "update_user", value: {
                                         load: false,
                                         id: res.data.id,
-                                        number: res.data.number,
+                                        number: res.data.number_phone,
                                         login: res.data.login,
                                         auth: true
                                     },
@@ -187,7 +187,7 @@ class App extends Component{
                     :
                         null
                 }
-                <Header auth={false} load={true} store={this.state.store}/>
+                <Header auth={false} store={this.state.store}/>
                 <div className="wrapper">
                     <BrowserRouter>
                         <Switch>

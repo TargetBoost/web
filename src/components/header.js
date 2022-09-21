@@ -6,7 +6,6 @@ class Header extends Component{
         super(props);
         this.state = {
             isAuth: props.auth,
-            isLoad: props.load,
             store: this.props.store,
             targetAction: "sign-in",
             isAuthOpen: false,

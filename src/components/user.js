@@ -26,7 +26,7 @@ class User extends Component{
                                 <div className="error">Страница только для авторизованных пользователей</div>
                                 <div className="error small-text">
                                      <div style={{textDecoration: "underline", cursor: "pointer"}}
-                                    onClick={() => {window.history.go(-1)}}>Вернуться назад</div>
+                                    onClick={() => {window.location.href = '/'}}>На главную</div>
                                 </div>
                             </div>
                             :

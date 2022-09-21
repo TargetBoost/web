@@ -39,8 +39,7 @@ class Header extends Component{
                     </div>
                     <div className="wrapper-auth">
                         {
-                            store.user.load ?
-
+                            store.user.load === false ?
                                 store.user.auth ?
                                     <div className="button-text" onClick={()=>{window.location.href = `/user/${store.user.id}`}} >{store.user.login}</div>
                                     :
@@ -48,8 +47,8 @@ class Header extends Component{
                                         <div className="button-default unselectable" onClick={()=>{window.location.href = "/login"}}>Войти</div>
                                         <div className="button-default unselectable" onClick={()=>{window.location.href = "/registration"}}>Регистрация</div>
                                     </>
-                                :
-                            <div className="loader-small"/>
+                            :
+                                <div className="loader-small"/>
                         }
                     </div>
                 </div>

@@ -57,6 +57,12 @@ class Login extends Component{
         // console.log(e)
     }
 
+    handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            this.auth()
+        }
+    }
+
     render() {
         return (
             <>
@@ -75,10 +81,11 @@ class Login extends Component{
                                         className="input-default-number input-default-number-country"
                                         id="phone"
                                         onChange={this.numberChange}
+                                        onKeyDown={this.handleKeyDown}
                                     />
                                 </div>
                                 <div className="wrapper-input">
-                                    <input className="input-default" type="password" id="password" placeholder="Пароль"/>
+                                    <input className="input-default" onKeyDown={this.handleKeyDown} type="password" id="password" placeholder="Пароль" />
                                 </div>
                                 <div className="wrapper-input-checkbox">
                                     <div className="wrapper-input-checkbox-wr-input">

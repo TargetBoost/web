@@ -36,7 +36,6 @@ class Registration extends Component{
     }
 
     registration = () => {
-        this.setState({nextStep: "load"})
         let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
 
         let data = {
@@ -47,6 +46,7 @@ class Registration extends Component{
         }
 
         if (data.login !== '' && data.number_phone !== '' && data.password !== '') {
+            this.setState({nextStep: "load"})
             if (document.getElementById("re_password").value === data.password) {
                 fetch("/core/v1/system/registration", {
                     method: "POST",

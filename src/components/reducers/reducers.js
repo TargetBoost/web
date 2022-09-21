@@ -4,6 +4,7 @@ const initState = {
         errorText: null
     },
     user: {
+        load: true,
         id: 0,
         number: 0,
         login: null,
@@ -18,6 +19,7 @@ function reducer(state = initState, action) {
             return state
         case "update_user":
             state.user = {
+                load: action.value.load,
                 id: action.value.id,
                 number: action.value.number,
                 login: action.value.login,

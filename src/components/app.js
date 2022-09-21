@@ -42,10 +42,21 @@ class App extends Component{
                         if (res.status.message === null) {
                             this.state.store.dispatch({
                                 type: "update_user", value: {
+                                    load: false,
                                     id: res.data.id,
                                     number: res.data.number,
                                     login: res.data.login,
                                     auth: true
+                                },
+                            })
+                        }else{
+                            this.state.store.dispatch({
+                                type: "update_user", value: {
+                                    load: false,
+                                    id: 0,
+                                    number: 0,
+                                    login: null,
+                                    auth: false
                                 },
                             })
                         }
@@ -107,10 +118,21 @@ class App extends Component{
                 if (res.status.message === null) {
                     this.state.store.dispatch({
                         type: "update_user", value: {
+                            load: false,
                             id: res.data.id,
                             number: res.data.number,
                             login: res.data.login,
                             auth: true
+                        },
+                    })
+                }else{
+                    this.state.store.dispatch({
+                        type: "update_user", value: {
+                            load: false,
+                            id: 0,
+                            number: 0,
+                            login: null,
+                            auth: false
                         },
                     })
                 }

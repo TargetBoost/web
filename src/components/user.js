@@ -21,21 +21,29 @@ class User extends Component{
             <>
                 {
                     store.user.load !== false ?
-                        this.state.type === "executor" ?
-                            <div className="block-default-pre">
-                                <div className="title-block">Список заданий</div>
-                                <div className="navigation-preview">
-                                    {/*<div className="block-text-pre">*/}
-                                    {/*    Раскрутка сообществ VK актуальная тема в 2022 году. Сегодня можно увидеть тысячи различных сообществ разной тематики. Одни создают группу как хобби, другие для продажи товаров и предоставления услуг, третьи для заработка на рекламе.*/}
-                                    {/*    Чтобы Ваше сообщество стало заметным и популярным нужно приложить время и усилия. Вы должны придерживаться наших рекомендаций и раскрутить группу в VK станет намного проще, эффективнее и быстрее.*/}
-                                    {/*</div>*/}
-                                    {/*<div className="block-default-icon">*/}
-                                    {/*    <img className="default-icon" src={vk} alt="vk"/>*/}
-                                    {/*</div>*/}
-                                </div>
+                        store.user.auth === false ?
+                            <div className="wrapper-error">
+                                <div className="error">Страница только для авторизованных пользователей</div>
+                                <div className="error small-text">вернуться <div
+                                    style={{textDecoration: "underline", cursor: "pointer"}}
+                                    onClick={() => {window.history.go(-1)}}>Назад</div></div>
                             </div>
                             :
-                            <div>123</div>
+                                this.state.type === "executor" ?
+                                    <div className="block-default-pre">
+                                        <div className="title-block">Список заданий</div>
+                                        <div className="navigation-preview">
+                                            {/*<div className="block-text-pre">*/}
+                                            {/*    Раскрутка сообществ VK актуальная тема в 2022 году. Сегодня можно увидеть тысячи различных сообществ разной тематики. Одни создают группу как хобби, другие для продажи товаров и предоставления услуг, третьи для заработка на рекламе.*/}
+                                            {/*    Чтобы Ваше сообщество стало заметным и популярным нужно приложить время и усилия. Вы должны придерживаться наших рекомендаций и раскрутить группу в VK станет намного проще, эффективнее и быстрее.*/}
+                                            {/*</div>*/}
+                                            {/*<div className="block-default-icon">*/}
+                                            {/*    <img className="default-icon" src={vk} alt="vk"/>*/}
+                                            {/*</div>*/}
+                                        </div>
+                                    </div>
+                                    :
+                                    <div>123</div>
 
                     :
                         <div className="block-flex-center full-page">

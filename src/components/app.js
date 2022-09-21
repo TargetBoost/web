@@ -12,6 +12,7 @@ import Registration from "./registration";
 import User from "./user";
 import Contact from "./contact";
 import {toast, ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 class App extends Component{

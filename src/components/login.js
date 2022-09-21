@@ -6,7 +6,8 @@ class Login extends Component{
         super(props);
         this.state = {
             targetAction: "sign-in",
-            country: ""
+            country: "",
+            store: this.props.store
         }
     }
 
@@ -32,6 +33,8 @@ class Login extends Component{
                         type: "update_token", value: res.data.token,
                     })
                 }
+
+                window.location.href = `/user/${res.data.id}`
             })
             .catch(error => {
                 console.log(error)

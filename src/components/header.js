@@ -42,7 +42,7 @@ class Header extends Component{
                             store.user.load ?
 
                                 store.user.auth ?
-                                    <div className="button-text" onClick={()=>{window.location.href = `/user/${store.user.id}`}}>{store.user.login}</div>
+                                    <div className="button-text" onClick={()=>{window.location.href = `/user/${store.user.id}`}} >{store.user.login}</div>
                                     :
                                     <>
                                         <div className="button-default unselectable" onClick={()=>{window.location.href = "/login"}}>Войти</div>

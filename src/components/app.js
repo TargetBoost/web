@@ -115,15 +115,41 @@ class App extends Component{
             .then(res => {
                 console.log(res)
                 if (res.status.message === null) {
-                    this.state.store.dispatch({
-                        type: "update_user", value: {
-                            load: false,
-                            id: res.data.id,
-                            number: res.data.number,
-                            login: res.data.login,
-                            auth: true
-                        },
+
+                    fetch(`/core/v1/service/user/${res.data.id}`, {
+                        method: "GET",
+                        headers: {
+                            "Authorization": window.localStorage.getItem("token")
+                        }
                     })
+                        .then(response => response.json())
+                        .then(res => {
+                            if (res.status.message === null) {
+                                this.state.store.dispatch({
+                                    type: "update_user", value: {
+                                        load: false,
+                                        id: res.data.id,
+                                        number: res.data.number,
+                                        login: res.data.login,
+                                        auth: true
+                                    },
+                                })
+                            }else{
+                                this.state.store.dispatch({
+                                    type: "update_user", value: {
+                                        load: false,
+                                        id: 0,
+                                        number: 0,
+                                        login: null,
+                                        auth: false
+                                    },
+                                })
+                            }
+
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        });
                 }else{
                     this.state.store.dispatch({
                         type: "update_user", value: {

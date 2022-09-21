@@ -20,6 +20,7 @@ class Header extends Component{
 
     render() {
         let store = this.state.store.getState()
+        console.log(store.user.load)
         return (
             <div className="header-bg">
                 <div className="wrapper-header">

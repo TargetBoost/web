@@ -7,14 +7,20 @@ class Header extends Component{
         this.state = {
             isAuth: props.auth,
             isLoad: props.load,
+            store: this.props.store,
             targetAction: "sign-in",
             isAuthOpen: false,
         }
+
+        this.state.store.subscribe(() => {
+            this.setState(this.state.store.getState())
+        })
     }
 
 
 
     render() {
+        let store = this.state.store.getState()
         return (
             <div className="header-bg">
                 <div className="wrapper-header">
@@ -35,7 +41,7 @@ class Header extends Component{
                         {
                             this.state.isLoad ?
 
-                                this.state.isAuth ?
+                                store.user.auth ?
                                     <div className="button-text">AndreySHSH</div>
                                     :
                                     <>

@@ -39,7 +39,16 @@ class App extends Component{
                     .then(response => response.json())
                     .then(res => {
                         console.log(res)
-
+                        if (res.status.message === null) {
+                            this.state.store.dispatch({
+                                type: "update_user", value: {
+                                    id: res.data.id,
+                                    number: res.data.number,
+                                    login: res.data.login,
+                                    auth: true
+                                },
+                            })
+                        }
 
                     })
                     .catch(error => {
@@ -95,8 +104,7 @@ class App extends Component{
             .then(response => response.json())
             .then(res => {
                 console.log(res)
-
-
+                window.location.href = `/user/${res.data.id}`
             })
             .catch(error => {
                 console.log(error)
@@ -123,7 +131,7 @@ class App extends Component{
                     :
                         null
                 }
-                <Header auth={false} load={true}/>
+                <Header auth={false} load={true} store={this.state.store}/>
                 <div className="wrapper">
                     <BrowserRouter>
                         <Switch>

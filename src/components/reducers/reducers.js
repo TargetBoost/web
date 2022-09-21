@@ -28,6 +28,14 @@ function reducer(state = initState, action) {
 
             return state
 
+        case "set_error":
+            state.error = {
+                showError: true,
+                errorText: action.value
+            }
+
+            return state
+
         default: return state;
     }
 }

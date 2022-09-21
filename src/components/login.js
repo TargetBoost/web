@@ -32,9 +32,20 @@ class Login extends Component{
                     this.state.store.dispatch({
                         type: "update_token", value: res.data.token,
                     })
+
+                    window.location.href = `/user`
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: "Не правельный номер телефона или пароль",
+                    })
+
+                    document.getElementById("password").value = ""
                 }
 
-                window.location.href = `/user`
+
+
+
+
             })
             .catch(error => {
                 console.log(error)

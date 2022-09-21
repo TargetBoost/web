@@ -46,67 +46,71 @@ class Registration extends Component{
             execute: document.getElementById("im_read").value !== 'on'
         }
 
-        if (document.getElementById("re_password").value === data.password) {
-            fetch("/core/v1/system/registration", {
-                method: "POST",
-                body: JSON.stringify(data)
-            })
-                .then(response => response.json())
-                .then(res => {
-                    console.log(res)
-
-                    if (res.status.message === null) {
-                        this.setState({nextStep: "profile"})
-
-                        this.state.store.dispatch({
-                            type: "update_token", value: res.data.token,
-                        })
-
-                        fetch(`/core/v1/service/user/${res.data.id}`, {
-                            method: "GET",
-                            headers: {
-                                "Authorization": window.localStorage.getItem("token")
-                            }
-                        })
-                            .then(response => response.json())
-                            .then(res => {
-                                if (res.status.message === null) {
-                                    this.state.store.dispatch({
-                                        type: "update_user", value: {
-                                            load: false,
-                                            id: res.data.id,
-                                            number: res.data.number_phone,
-                                            login: res.data.login,
-                                            auth: true
-                                        },
-                                    })
-                                }else{
-                                    this.state.store.dispatch({
-                                        type: "update_user", value: {
-                                            load: false,
-                                            id: 0,
-                                            number: 0,
-                                            login: null,
-                                            auth: false
-                                        },
-                                    })
-                                }
-
-                            })
-                            .catch(error => {
-                                console.log(error)
-                            });
-                    }else{
-
-                    }
+        if (data.login !== '' && data.number_phone !== '' && data.password !== '') {
+            if (document.getElementById("re_password").value === data.password) {
+                fetch("/core/v1/system/registration", {
+                    method: "POST",
+                    body: JSON.stringify(data)
                 })
-                .catch(error => {
-                    console.log(error)
-                    this.setState({nextStep: "reg"})
-                });
-        }
+                    .then(response => response.json())
+                    .then(res => {
+                        console.log(res)
 
-        console.log(data)
+                        if (res.status.message === null) {
+                            this.setState({nextStep: "profile"})
+
+                            this.state.store.dispatch({
+                                type: "update_token", value: res.data.token,
+                            })
+
+                            fetch(`/core/v1/service/user/${res.data.id}`, {
+                                method: "GET",
+                                headers: {
+                                    "Authorization": window.localStorage.getItem("token")
+                                }
+                            })
+                                .then(response => response.json())
+                                .then(res => {
+                                    if (res.status.message === null) {
+                                        this.state.store.dispatch({
+                                            type: "update_user", value: {
+                                                load: false,
+                                                id: res.data.id,
+                                                number: res.data.number_phone,
+                                                login: res.data.login,
+                                                auth: true
+                                            },
+                                        })
+                                    }else{
+                                        this.state.store.dispatch({
+                                            type: "update_user", value: {
+                                                load: false,
+                                                id: 0,
+                                                number: 0,
+                                                login: null,
+                                                auth: false
+                                            },
+                                        })
+                                    }
+
+                                })
+                                .catch(error => {
+                                    console.log(error)
+                                });
+                        }else{
+
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        this.setState({nextStep: "reg"})
+                    });
+            }
+        }else{
+            this.state.store.dispatch({
+                type: "set_error", value: "Некоторые поля не заполнены",
+            })
+        }
     }
 
     render() {

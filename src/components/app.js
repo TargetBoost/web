@@ -28,9 +28,20 @@ class App extends Component{
             '/login' : route({view: <Login store={this.state.store}/>}),
             '/about' : route({view: <Contact store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
-            '/user/:id' : route( request => {
+            '/user' : route( request => {
 
-                fetch(`/core/v1/service/user/${request.params.id}`, {
+                fetch("/core/v1/system/settings", {
+                    method: "GET",
+                })
+                    .then(response => response.json())
+                    .then(res => {
+                        this.setState({snow: res.data.snow})
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+
+                fetch(`/core/v1/system/is_auth`, {
                     method: "GET",
                     headers: {
                         "Authorization": window.localStorage.getItem("token")
@@ -38,16 +49,43 @@ class App extends Component{
                 })
                     .then(response => response.json())
                     .then(res => {
+                        console.log(res)
                         if (res.status.message === null) {
-                            this.state.store.dispatch({
-                                type: "update_user", value: {
-                                    load: false,
-                                    id: res.data.id,
-                                    number: res.data.number_phone,
-                                    login: res.data.login,
-                                    auth: true
-                                },
+
+                            fetch(`/core/v1/service/user/${res.data.id}`, {
+                                method: "GET",
+                                headers: {
+                                    "Authorization": window.localStorage.getItem("token")
+                                }
                             })
+                                .then(response => response.json())
+                                .then(res => {
+                                    if (res.status.message === null) {
+                                        this.state.store.dispatch({
+                                            type: "update_user", value: {
+                                                load: false,
+                                                id: res.data.id,
+                                                number: res.data.number_phone,
+                                                login: res.data.login,
+                                                auth: true
+                                            },
+                                        })
+                                    }else{
+                                        this.state.store.dispatch({
+                                            type: "update_user", value: {
+                                                load: false,
+                                                id: 0,
+                                                number: 0,
+                                                login: null,
+                                                auth: false
+                                            },
+                                        })
+                                    }
+
+                                })
+                                .catch(error => {
+                                    console.log(error)
+                                });
                         }else{
                             this.state.store.dispatch({
                                 type: "update_user", value: {
@@ -59,7 +97,6 @@ class App extends Component{
                                 },
                             })
                         }
-
                     })
                     .catch(error => {
                         console.log(error)
@@ -67,7 +104,7 @@ class App extends Component{
 
                 return {
                     title: `user`,
-                    view: <User store={this.state.store} id={request.params.id} type={"executor"}/>,
+                    view: <User store={this.state.store} type={"executor"}/>,
                 }
             }),
         })

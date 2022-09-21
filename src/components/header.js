@@ -39,7 +39,7 @@ class Header extends Component{
                     </div>
                     <div className="wrapper-auth">
                         {
-                            this.state.isLoad ?
+                            store.user.load ?
 
                                 store.user.auth ?
                                     <div className="button-text" onClick={()=>{window.location.href = `/user/${store.user.id}`}}>{store.user.login}</div>

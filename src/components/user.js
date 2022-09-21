@@ -20,7 +20,7 @@ class User extends Component{
         return (
             <>
                 {
-                    store.user.load !== false ?
+                    store.user.load === false ?
                         store.user.auth === false ?
                             <div className="wrapper-error">
                                 <div className="error">Страница только для авторизованных пользователей</div>

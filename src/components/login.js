@@ -34,7 +34,7 @@ class Login extends Component{
                     })
                 }
 
-                window.location.href = `/user/${res.data.id}`
+                window.location.href = `/user`
             })
             .catch(error => {
                 console.log(error)

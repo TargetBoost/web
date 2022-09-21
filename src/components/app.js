@@ -50,7 +50,6 @@ class App extends Component{
                 })
                     .then(response => response.json())
                     .then(res => {
-                        console.log(res)
                         if (res.status.message === null) {
 
                             fetch(`/core/v1/service/user/${res.data.id}`, {

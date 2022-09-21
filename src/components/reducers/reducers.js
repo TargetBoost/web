@@ -15,7 +15,7 @@ const initState = {
 function reducer(state = initState, action) {
     switch(action.type) {
         case "update_token":
-            window.localStorage.setItem("token", `Bearer ${action.value}`)
+            window.localStorage.setItem("token", action.value)
             return state
         case "update_user":
             state.user = {

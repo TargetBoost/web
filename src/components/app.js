@@ -12,7 +12,12 @@ import Registration from "./registration";
 import User from "./user";
 import Contact from "./contact";
 import {toast, ToastContainer} from 'react-toastify';
+import ReactRain from 'react-rain-animation';
+
 import 'react-toastify/dist/ReactToastify.css';
+
+// import all the styles
+import "react-rain-animation/lib/style.css";
 
 
 class App extends Component{
@@ -20,7 +25,8 @@ class App extends Component{
         super(props);
         this.state = {
             store: this.props.store,
-            snow: false
+            snow: false,
+            rain: false
         }
 
         this.routes = mount({
@@ -136,7 +142,7 @@ class App extends Component{
         })
             .then(response => response.json())
             .then(res => {
-                this.setState({snow: res.data.snow})
+                this.setState({snow: res.data.snow, rain: res.data.rain})
             })
             .catch(error => {
                 console.log(error)
@@ -223,7 +229,12 @@ class App extends Component{
                     this.state.snow ?
                         <Snowfall/>
                     :
-                        null
+                        this.state.rain ?
+                            <ReactRain
+                                numDrops="500"
+                            />
+                        :
+                            null
                 }
                 <Header auth={false} store={this.state.store}/>
                 <div className="wrapper">

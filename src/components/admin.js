@@ -3,6 +3,7 @@ import vk from "../icon/vk.png";
 import youtube from "../icon/youtube.png"
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import {FormGroup} from "@mui/material";
 
 
 
@@ -34,7 +35,7 @@ class Admin extends Component{
     }
 
     updateSettings = (e) => {
-        let target = e.target.getAttribute("target").name
+        let target = e.target.getAttribute("target")
         let store = this.state.store.getState()
 
 
@@ -54,7 +55,7 @@ class Admin extends Component{
             })
         }
 
-        console.log(e)
+        console.log(target)
 
         // fetch(`/core/v1/service/user/${res.data.id}`, {
         //     method: "GET",
@@ -158,18 +159,20 @@ class Admin extends Component{
                                                             this.state.executor === "settings" ?
                                                                 <div className="block-default-pre">
                                                                     <div className="settings">
-                                                                        <FormControlLabel
-                                                                            control={
-                                                                                <Switch checked={store.settings.snow} target="snow" onChange={this.updateSettings} name="snow" />
-                                                                            }
-                                                                            label="Снег"
-                                                                        />
-                                                                        <FormControlLabel
-                                                                            control={
-                                                                                <Switch checked={store.settings.rain} target="rain" onChange={this.updateSettings} name="rain" />
-                                                                            }
-                                                                            label="Дождь"
-                                                                        />
+                                                                        <FormGroup>
+                                                                            <FormControlLabel
+                                                                                control={
+                                                                                    <Switch checked={store.settings.snow} target="snow" onChange={this.updateSettings} name="snow" />
+                                                                                }
+                                                                                label="Снег"
+                                                                            />
+                                                                            <FormControlLabel
+                                                                                control={
+                                                                                    <Switch checked={store.settings.rain} target="rain" onChange={this.updateSettings} name="rain" />
+                                                                                }
+                                                                                label="Дождь"
+                                                                            />
+                                                                        </FormGroup>
                                                                     </div>
                                                                 </div>
                                                             :

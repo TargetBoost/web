@@ -90,6 +90,11 @@
     margin: 0;
 }
 
+.ui.menu {
+    border: none;
+    box-shadow: none;
+}
+
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;

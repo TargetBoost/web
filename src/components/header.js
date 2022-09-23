@@ -46,14 +46,14 @@ class Header extends Component{
                                         <Dropdown text={store.user.login} floating labeled button className='icon'>
                                             <Dropdown.Menu>
                                                 {
-                                                    store.user === "execute" ?
+                                                    store.user.execute === "execute" ?
                                                         <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Задания</Dropdown.Item>
                                                     :
                                                         <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Рекламные кампании</Dropdown.Item>
 
                                                 }
                                                 {
-                                                    store.user === "execute" ?
+                                                    store.user.execute === "execute" ?
                                                         <Dropdown.Item>Вывести</Dropdown.Item>
                                                         :
                                                         <Dropdown.Item >Пополнить баланс</Dropdown.Item>

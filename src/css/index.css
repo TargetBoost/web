@@ -215,6 +215,7 @@ body {
 
 .header-bg {
     background: var(--white);
+    height: 95px;
 }
 
 .block-default {

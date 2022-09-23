@@ -65,7 +65,7 @@ class Header extends Component{
                                                     store.user.admin === true ?
                                                         <>
                                                             <Dropdown.Divider />
-                                                            <Dropdown.Item>Панель Администратора</Dropdown.Item>
+                                                            <Dropdown.Item onClick={()=>{window.location.href = '/admin'}}>Панель Администратора</Dropdown.Item>
                                                         </>
                                                     :
                                                         null

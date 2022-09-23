@@ -54,6 +54,13 @@ class Header extends Component{
 
                                                 }
                                                 <Dropdown.Item>Настройки профиля</Dropdown.Item>
+                                                {
+                                                    store.user === "execute" ?
+                                                        <Dropdown.Item>Вывести</Dropdown.Item>
+                                                    :
+                                                        <Dropdown.Item >Пополнить баланс</Dropdown.Item>
+
+                                                }
                                                 <Dropdown.Divider />
                                                 <Dropdown.Item onClick={()=>{
                                                     window.localStorage.removeItem('token')

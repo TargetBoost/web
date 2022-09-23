@@ -48,14 +48,14 @@ class Header extends Component{
                                                 <Dropdown.Header>Ваш баланс: 0.00 ₽</Dropdown.Header>
                                                 {
                                                     store.user.execute === true ?
-                                                        <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Задания</Dropdown.Item>
+                                                        <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Ваши задания</Dropdown.Item>
                                                     :
                                                         <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Рекламные кампании</Dropdown.Item>
 
                                                 }
                                                 {
                                                     store.user.execute === true ?
-                                                        <Dropdown.Item>Вывести</Dropdown.Item>
+                                                        <Dropdown.Item>Заявка на вывод средств</Dropdown.Item>
                                                         :
                                                         <Dropdown.Item >Пополнить баланс</Dropdown.Item>
 

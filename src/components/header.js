@@ -43,7 +43,7 @@ class Header extends Component{
                             store.user.load === false ?
                                 store.user.auth ?
                                     <Menu>
-                                        <Dropdown text='Меню' pointing className='link item'>
+                                        <Dropdown text='Меню' floating labeled button className='icon'>
                                             <Dropdown.Menu>
                                                 <Dropdown.Header>{store.user.login}</Dropdown.Header>
                                                 {

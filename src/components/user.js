@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import vk from "../icon/vk.png";
+import youtube from "../icon/youtube.png"
 
 class User extends Component{
     constructor(props) {
@@ -69,9 +70,9 @@ class User extends Component{
                                                         </div>
                                                         <div className="task-item">
                                                             <div className="task-item-value">
-                                                                <img className="icon-task-small" src={vk} alt="item"/>
+                                                                <img className="icon-task-small" src={youtube} alt="item"/>
                                                             </div>
-                                                            <div className="task-item-value">Подписаться на сообщество VK</div>
+                                                            <div className="task-item-value">Подписаться на канал Youtube</div>
                                                             <div className="task-item-value">0.50 коп</div>
                                                             <div className="task-item-value underline click">Перейти к заданию</div>
                                                             <div className="task-item-value">
@@ -177,9 +178,9 @@ class User extends Component{
                                                         </div>
                                                         <div className="task-item">
                                                             <div className="task-item-value">
-                                                                <img className="icon-task-small" src={vk} alt="item"/>
+                                                                <img className="icon-task-small" src={youtube} alt="item"/>
                                                             </div>
-                                                            <div className="task-item-value">Подписаться на сообщество VK</div>
+                                                            <div className="task-item-value">Подписаться на канал Youtube</div>
                                                             <div className="task-item-value">29/30</div>
                                                             <div className="task-item-value underline click">Статистка</div>
                                                             <div className="task-item-value">

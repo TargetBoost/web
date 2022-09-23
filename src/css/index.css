@@ -164,6 +164,7 @@ body {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .wrapper-content {
@@ -764,4 +765,50 @@ body {
     /*width: -moz-fit-content;*/
     /*width: fit-content;*/
     height: 1rem;
+}
+
+
+@media (max-width: 1000px) {
+    .wrapper {
+        width: auto;
+        padding: 10px;
+    }
+
+    .place-logo {
+        font-size: 40px;
+    }
+
+    .logo-img {
+        max-width: 45px;
+    }
+
+    .wrapper-auth {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .button-light {
+        font-size: 25px;
+        padding: 10px 20px;
+    }
+
+    .wrapper-header {
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    html {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header-bg {
+        width: 100%;
+    }
+
+    body {
+        font-size: 25px;
+    }
 }

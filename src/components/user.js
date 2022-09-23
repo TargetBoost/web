@@ -34,7 +34,7 @@ class User extends Component{
             <>
                 {
                     store.user.load === false ?
-                        store.user.auth ?
+                        store.user.auth === false ?
                             <div className="wrapper-error">
                                 <div className="error">Страница только для авторизованных пользователей</div>
                                 <div className="error small-text">

@@ -226,10 +226,10 @@ class App extends Component{
                     pauseOnHover
                 />
                 {
-                    this.state.snow ?
+                    this.state.snow === true ?
                         <Snowfall/>
                     :
-                        this.state.rain ?
+                        this.state.rain === true ?
                             <ReactRain
                                 numDrops="500"
                             />

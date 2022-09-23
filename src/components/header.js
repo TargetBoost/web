@@ -43,9 +43,8 @@ class Header extends Component{
                             store.user.load === false ?
                                 store.user.auth ?
                                     <Menu>
-                                        <Dropdown text='Меню' floating labeled button className='icon'>
+                                        <Dropdown text={store.user.login} floating labeled button className='icon'>
                                             <Dropdown.Menu>
-                                                <Dropdown.Header>{store.user.login}</Dropdown.Header>
                                                 {
                                                     store.user === "execute" ?
                                                         <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Задания</Dropdown.Item>

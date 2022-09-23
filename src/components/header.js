@@ -65,7 +65,7 @@ class Header extends Component{
                                                     store.user.admin === true ?
                                                         <>
                                                             <Dropdown.Divider />
-                                                            <Dropdown.Item>Админ панель</Dropdown.Item>
+                                                            <Dropdown.Item>Панель Администратора</Dropdown.Item>
                                                         </>
                                                     :
                                                         null

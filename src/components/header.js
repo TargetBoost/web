@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import target from "../icon/target.png"
+import avatar from "../icon/avatar.png"
 
 class Header extends Component{
     constructor(props) {
@@ -40,7 +41,9 @@ class Header extends Component{
                         {
                             store.user.load === false ?
                                 store.user.auth ?
-                                    <div className="button-default" onClick={()=>{window.location.href = `/user`}} >{store.user.login}</div>
+                                    <div onClick={()=>{window.location.href = `/user`}} >
+                                        <img className="avatar-profile" src={avatar} alt="avatar"/>
+                                    </div>
                                 :
                                     <>
                                         <div className="button-default unselectable" onClick={()=>{window.location.href = "/login"}}>Войти</div>

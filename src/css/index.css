@@ -545,6 +545,11 @@ body {
     /*transition: 1s;*/
 }
 
+.avatar-profile {
+    max-width: 40px;
+    cursor: pointer;
+}
+
 .block-default-pre:hover {
     transform: scale(1.01);
 }

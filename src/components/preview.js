@@ -3,6 +3,7 @@ import youtube from "../icon/youtube.png"
 import vk from "../icon/vk.png"
 import io from "../icon/io.png"
 import qiwi from "../icon/qiwi.png"
+import telegram from "../icon/telegram.png"
 
 
 
@@ -41,7 +42,7 @@ class Preview extends Component{
                         <>
                             <div className="block-full-size">
                                 <h1>Раскрутка в социальных сетях</h1>
-                                <h3>Youtube, VK, Одноклассники</h3>
+                                <h3>Youtube, VK, Telegram</h3>
                                 <div className="preview-inside-block">
                                     <p>
                                         Регистрирутесь, создавайте задания, наши исполнители с радостью их выполнят 🙂
@@ -53,6 +54,17 @@ class Preview extends Component{
                                 {/*    <div className="button-light pre-add unselectable">Подписка на канал Youtube 1 руб.</div>*/}
                                 {/*    <div className="button-light pre-add unselectable">Посмотреть видео на Youtube 1 руб.</div>*/}
                                 {/*</div>*/}
+                            </div>
+                            <div className="block-default-pre">
+                                <h2>Раскрутка каналов Telegram</h2>
+                                <div className="navigation-preview">
+                                    <div className="block-default-icon">
+                                        <img className="default-icon" src={telegram} alt="telegram"/>
+                                    </div>
+                                    <div className="block-text-pre">
+                                        Каналы Telegram - на данный момент самый популярный способ получения информации. Раскрутка телеграмм канала даст вам наибольшее доверие аудитории и в последсвии естественный прирост подписчиков.
+                                    </div>
+                                </div>
                             </div>
                             <div className="block-default-pre">
                                 <h2>Раскрутка каналов Youtube</h2>
@@ -85,7 +97,7 @@ class Preview extends Component{
                             <>
                                 <div className="block-full-size">
                                     <h1>Заработок на заданиях в социальных сетях</h1>
-                                    <h3>Youtube, VK, Одноклассники</h3>
+                                    <h3>Youtube, VK, Telegram</h3>
                                     <div className="preview-inside-block">
                                         <p>
                                             Зарабатывай выполняя задания по подпискам/лайкам и прочим действиям в социальных сетях.
@@ -96,7 +108,7 @@ class Preview extends Component{
                                     <h2>Выполнение заданий</h2>
                                     <div className="preview-inside-block">
                                         <p>
-                                            Мы автоматически провериям выполнение заданий и сразу зачисляем оплату на Ваш баланс.
+                                            Мы автоматически провериям выполненные задания и сразу зачисляем оплату на Ваш баланс.
                                         </p>
                                     </div>
                                 </div>

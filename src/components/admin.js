@@ -77,7 +77,7 @@ class Admin extends Component{
 
             })
             .catch(error => {
-                console.log(error)
+                console.error(error)
             });
     }
 
@@ -150,13 +150,13 @@ class Admin extends Component{
                                                                                 control={
                                                                                     <Switch checked={store.settings.snow} target="snow" onChange={this.updateSettings} name="snow" />
                                                                                 }
-                                                                                label="Снег на сайте"
+                                                                                label="Снег"
                                                                             />
                                                                             <FormControlLabel
                                                                                 control={
                                                                                     <Switch checked={store.settings.rain} target="rain" onChange={this.updateSettings} name="rain" />
                                                                                 }
-                                                                                label="Дождь на сайте"
+                                                                                label="Дождь"
                                                                                 disabled
                                                                             />
                                                                         </FormGroup>

@@ -135,7 +135,14 @@ class User extends Component{
                                                                     </div>
                                                                 </div>
                                                             :
-                                                                null
+                                                                this.state.executor === "admin" ?
+                                                                    <div className="block-default-pre">
+                                                                        <div className="settings">
+
+                                                                        </div>
+                                                                    </div>
+                                                                :
+                                                                    null
 
 
 
@@ -231,10 +238,16 @@ class User extends Component{
 
                                                                     </div>
                                                                 </div>
+                                                            :
+                                                                this.state.executor === "admin" ?
+                                                                    <div className="block-default-pre">
+                                                                        <div className="task-item">Настройки платформы</div>
+                                                                        <div className="settings">
+
+                                                                        </div>
+                                                                    </div>
                                                                 :
-                                                                null
-
-
+                                                                    null
 
                                         }
 

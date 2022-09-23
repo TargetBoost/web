@@ -18,6 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // import all the styles
 import "react-rain-animation/lib/style.css";
+import Admin from "./admin";
 
 
 class App extends Component{
@@ -34,6 +35,7 @@ class App extends Component{
             '/jobs' : route({view: <Jobs store={this.state.store}/>}),
             '/login' : route({view: <Login store={this.state.store}/>}),
             '/about' : route({view: <Contact store={this.state.store}/>}),
+            '/admin' : route({view: <Admin store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
             '/user' : route( request => {
 

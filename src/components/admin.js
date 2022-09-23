@@ -35,7 +35,7 @@ class Admin extends Component{
     }
 
     updateSettings = (e) => {
-        let target = e.target.name
+        let target = e.target.getAttribute("name")
         let store = this.state.store.getState()
 
 
@@ -164,13 +164,14 @@ class Admin extends Component{
                                                                                 control={
                                                                                     <Switch checked={store.settings.snow} target="snow" onChange={this.updateSettings} name="snow" />
                                                                                 }
-                                                                                label="Снег"
+                                                                                label="Снег на сайте"
                                                                             />
                                                                             <FormControlLabel
                                                                                 control={
                                                                                     <Switch checked={store.settings.rain} target="rain" onChange={this.updateSettings} name="rain" />
                                                                                 }
-                                                                                label="Дождь"
+                                                                                label="Дождь на сайте"
+                                                                                disabled
                                                                             />
                                                                         </FormGroup>
                                                                     </div>

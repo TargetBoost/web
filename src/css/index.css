@@ -86,6 +86,48 @@
 /*    }*/
 /*}*/
 
+.task-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.click {
+    cursor: pointer;
+}
+
+.alert {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-wall {
+
+}
+
+.icon-task-small {
+    max-width: 30px;
+}
+
+.task-item {
+    border-bottom: 1px solid #fafafa;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.task-item-value {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .ui.button {
     margin: 0;
 }

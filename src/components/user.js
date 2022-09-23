@@ -58,7 +58,7 @@ class User extends Component{
                                                 <div className="block-default-pre">
                                                     <div className="task-wall">
                                                         <div className="task-item">
-                                                            <div className="task-item-value">
+                                                            <div className="task-item-value task-item-icon-box">
                                                                 <img className="icon-task-small" src={vk} alt="item"/>
                                                             </div>
                                                             <div className="task-item-value">Подписаться на сообщество VK</div>
@@ -69,7 +69,7 @@ class User extends Component{
                                                             </div>
                                                         </div>
                                                         <div className="task-item">
-                                                            <div className="task-item-value">
+                                                            <div className="task-item-value task-item-icon-box">
                                                                 <img className="icon-task-small" src={youtube} alt="item"/>
                                                             </div>
                                                             <div className="task-item-value">Подписаться на канал Youtube</div>
@@ -80,7 +80,7 @@ class User extends Component{
                                                             </div>
                                                         </div>
                                                         <div className="task-item">
-                                                            <div className="task-item-value">
+                                                            <div className="task-item-value task-item-icon-box">
                                                                 <img className="icon-task-small" src={vk} alt="item"/>
                                                             </div>
                                                             <div className="task-item-value">Подписаться на сообщество VK</div>
@@ -97,7 +97,7 @@ class User extends Component{
                                                     <div className="block-default-pre">
                                                         <div className="task-wall">
                                                             <div className="task-item">
-                                                                <div className="task-item-value">
+                                                                <div className="task-item-value task-item-icon-box">
                                                                     <img className="icon-task-small" src={vk} alt="item"/>
                                                                 </div>
                                                                 <div className="task-item-value">Подписаться на сообщество VK</div>
@@ -155,7 +155,7 @@ class User extends Component{
                                                 <div className="block-default-pre">
                                                     <div className="task-wall">
                                                         <div className="task-item">
-                                                            <div className="task-item-value">
+                                                            <div className="task-item-value task-item-icon-box">
                                                                 <img className="icon-task-small" src={vk} alt="item"/>
                                                             </div>
                                                             <div className="task-item-value">Подписаться на сообщество VK</div>
@@ -166,7 +166,7 @@ class User extends Component{
                                                             </div>
                                                         </div>
                                                         <div className="task-item">
-                                                            <div className="task-item-value">
+                                                            <div className="task-item-value task-item-icon-box">
                                                                 <img className="icon-task-small" src={vk} alt="item"/>
                                                             </div>
                                                             <div className="task-item-value">Подписаться на сообщество VK</div>
@@ -177,7 +177,7 @@ class User extends Component{
                                                             </div>
                                                         </div>
                                                         <div className="task-item">
-                                                            <div className="task-item-value">
+                                                            <div className="task-item-value task-item-icon-box">
                                                                 <img className="icon-task-small" src={youtube} alt="item"/>
                                                             </div>
                                                             <div className="task-item-value">Подписаться на канал Youtube</div>
@@ -194,7 +194,7 @@ class User extends Component{
                                                     <div className="block-default-pre">
                                                         <div className="task-wall">
                                                             <div className="task-item">
-                                                                <div className="task-item-value">
+                                                                <div className="task-item-value task-item-icon-box">
                                                                     <img className="icon-task-small" src={vk} alt="item"/>
                                                                 </div>
                                                                 <div className="task-item-value">Подписаться на сообщество VK</div>

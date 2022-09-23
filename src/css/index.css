@@ -86,6 +86,10 @@
 /*    }*/
 /*}*/
 
+.ui.button {
+    margin: 0;
+}
+
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;

@@ -1,6 +1,10 @@
 import React, {Component} from "react";
 import vk from "../icon/vk.png";
 import youtube from "../icon/youtube.png"
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+
+
 
 class Admin extends Component{
     constructor(props) {
@@ -102,9 +106,12 @@ class Admin extends Component{
                                                                 this.state.executor === "admin" ?
                                                                     <div className="block-default-pre">
                                                                         <div className="settings">
-                                                                            <div className="alert">
-                                                                                Пока ничего нет
-                                                                            </div>
+                                                                            <FormControlLabel
+                                                                                control={
+                                                                                    <Switch checked={store.settings.snow} onChange={()=>{}} name="snow" />
+                                                                                }
+                                                                                label="Снег"
+                                                                            />
                                                                         </div>
                                                                     </div>
                                                                 :

@@ -11,6 +11,10 @@ const initState = {
         auth: false,
         execute: true,
         admin: false
+    },
+    settings: {
+        snow: false,
+        rain: false,
     }
 }
 
@@ -36,6 +40,14 @@ function reducer(state = initState, action) {
             state.error = {
                 showError: true,
                 errorText: action.value
+            }
+
+            return state
+
+        case "set_settings":
+            state.settings = {
+                snow: action.value.snow,
+                rain: action.value.rain,
             }
 
             return state

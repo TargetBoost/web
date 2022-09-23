@@ -144,6 +144,12 @@ class App extends Component{
         })
             .then(response => response.json())
             .then(res => {
+                this.state.store.dispatch({
+                    type: "set_settings", value: {
+                        snow: res.data.snow,
+                        rain: res.data.rain
+                    },
+                })
                 this.setState({snow: res.data.snow, rain: res.data.rain})
             })
             .catch(error => {

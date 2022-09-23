@@ -148,7 +148,7 @@ class Admin extends Component{
 
                                         }
 
-                                //     </>
+                                    </>
                                 // :
                                 //     <>
                                 //         <div className="navigation-preview">

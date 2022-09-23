@@ -33,6 +33,49 @@ class Admin extends Component{
         e.target.classList.add("active-white")
     }
 
+    updateSettings = (e) => {
+        let target = e.target.getAttribute("target")
+
+        console.log(e)
+
+        // fetch(`/core/v1/service/user/${res.data.id}`, {
+        //     method: "GET",
+        //     headers: {
+        //         "Authorization": window.localStorage.getItem("token")
+        //     }
+        // })
+        //     .then(response => response.json())
+        //     .then(res => {
+        //         if (res.status.message === null) {
+        //             this.state.store.dispatch({
+        //                 type: "update_user", value: {
+        //                     load: false,
+        //                     id: res.data.id,
+        //                     number: res.data.number_phone,
+        //                     login: res.data.login,
+        //                     auth: true,
+        //                     execute: res.data.execute,
+        //                     admin: res.data.admin
+        //                 },
+        //             })
+        //         }else{
+        //             this.state.store.dispatch({
+        //                 type: "update_user", value: {
+        //                     load: false,
+        //                     id: 0,
+        //                     number: 0,
+        //                     login: null,
+        //                     auth: false
+        //                 },
+        //             })
+        //         }
+        //
+        //     })
+        //     .catch(error => {
+        //         console.log(error)
+        //     });
+    }
+
     render() {
         let store = this.state.store.getState()
         return (
@@ -108,7 +151,7 @@ class Admin extends Component{
                                                                         <div className="settings">
                                                                             <FormControlLabel
                                                                                 control={
-                                                                                    <Switch checked={store.settings.snow} onChange={()=>{}} name="snow" />
+                                                                                    <Switch checked={store.settings.snow} target="snow" onChange={this.updateSettings} name="snow" />
                                                                                 }
                                                                                 label="Снег"
                                                                             />

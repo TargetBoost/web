@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import target from "../icon/target.png"
-import avatar from "../icon/avatar.png"
+import { Dropdown, Menu } from 'semantic-ui-react'
+// import 'semantic-ui-css/semantic.min.css'
 
 class Header extends Component{
     constructor(props) {
@@ -41,9 +42,22 @@ class Header extends Component{
                         {
                             store.user.load === false ?
                                 store.user.auth ?
-                                    <div onClick={()=>{window.location.href = `/user`}} >
-                                        <img className="avatar-profile" src={avatar} alt="avatar"/>
-                                    </div>
+                                    <Menu>
+                                        <Dropdown text={store.user.login} pointing className='link item'>
+                                            <Dropdown.Menu>
+                                                {
+                                                    store.user === "execute" ?
+                                                        <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Задания</Dropdown.Item>
+                                                    :
+                                                        <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Рекламные кампании</Dropdown.Item>
+
+                                                }
+                                                <Dropdown.Item>Настройки</Dropdown.Item>
+                                                <Dropdown.Divider />
+                                                <Dropdown.Item>Выйти</Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </Menu>
                                 :
                                     <>
                                         <div className="button-default unselectable" onClick={()=>{window.location.href = "/login"}}>Войти</div>

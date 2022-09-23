@@ -213,9 +213,10 @@ body {
     display: flex;
 }
 
+
 .header-bg {
     background: var(--white);
-    height: 95px;
+    /*height: 95px;*/
 }
 
 .block-default {

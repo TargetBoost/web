@@ -68,7 +68,8 @@ class App extends Component{
                                                 number: res.data.number_phone,
                                                 login: res.data.login,
                                                 auth: true,
-                                                execute: res.data.execute
+                                                execute: res.data.execute,
+                                                admin: res.data.admin
                                             },
                                         })
                                     }else{
@@ -167,7 +168,8 @@ class App extends Component{
                                         number: res.data.number_phone,
                                         login: res.data.login,
                                         auth: true,
-                                        execute: res.data.execute
+                                        execute: res.data.execute,
+                                        admin: res.data.admin
                                     },
                                 })
                             }else{

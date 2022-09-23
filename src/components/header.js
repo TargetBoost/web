@@ -61,6 +61,16 @@ class Header extends Component{
 
                                                 }
                                                 <Dropdown.Item>Настройки профиля</Dropdown.Item>
+                                                {
+                                                    store.user.admin === true ?
+                                                        <>
+                                                            <Dropdown.Divider />
+                                                            <Dropdown.Item>Админ панель</Dropdown.Item>
+                                                        </>
+                                                    :
+                                                        null
+
+                                                }
                                                 <Dropdown.Divider />
                                                 <Dropdown.Item onClick={()=>{
                                                     window.localStorage.removeItem('token')

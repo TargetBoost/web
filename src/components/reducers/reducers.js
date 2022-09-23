@@ -9,7 +9,8 @@ const initState = {
         number: 0,
         login: null,
         auth: false,
-        execute: true
+        execute: true,
+        admin: false
     }
 }
 
@@ -26,6 +27,7 @@ function reducer(state = initState, action) {
                 login: action.value.login,
                 auth: action.value.auth,
                 execute: action.value.execute,
+                admin: action.value.admin,
             }
 
             return state

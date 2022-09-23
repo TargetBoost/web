@@ -44,6 +44,8 @@ class Header extends Component{
                                 store.user.auth ?
                                     <Menu>
                                         <Dropdown text={store.user.login} floating labeled button className='icon'>
+                                            <Dropdown.Header>Ваш баланс: 0.00 ₽</Dropdown.Header>
+
                                             <Dropdown.Menu>
                                                 {
                                                     store.user.execute === true ?

@@ -52,14 +52,14 @@ class Header extends Component{
                                                         <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Рекламные кампании</Dropdown.Item>
 
                                                 }
-                                                <Dropdown.Item>Настройки профиля</Dropdown.Item>
                                                 {
                                                     store.user === "execute" ?
                                                         <Dropdown.Item>Вывести</Dropdown.Item>
-                                                    :
+                                                        :
                                                         <Dropdown.Item >Пополнить баланс</Dropdown.Item>
 
                                                 }
+                                                <Dropdown.Item>Настройки профиля</Dropdown.Item>
                                                 <Dropdown.Divider />
                                                 <Dropdown.Item onClick={()=>{
                                                     window.localStorage.removeItem('token')

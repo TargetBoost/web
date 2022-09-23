@@ -43,8 +43,9 @@ class Header extends Component{
                             store.user.load === false ?
                                 store.user.auth ?
                                     <Menu>
-                                        <Dropdown text={store.user.login} pointing className='link item'>
+                                        <Dropdown text='Меню' pointing className='link item'>
                                             <Dropdown.Menu>
+                                                <Dropdown.Header>{store.user.login}</Dropdown.Header>
                                                 {
                                                     store.user === "execute" ?
                                                         <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Задания</Dropdown.Item>
@@ -52,7 +53,7 @@ class Header extends Component{
                                                         <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Рекламные кампании</Dropdown.Item>
 
                                                 }
-                                                <Dropdown.Item>Настройки</Dropdown.Item>
+                                                <Dropdown.Item>Настройки профиля</Dropdown.Item>
                                                 <Dropdown.Divider />
                                                 <Dropdown.Item>Выйти</Dropdown.Item>
                                             </Dropdown.Menu>

@@ -35,6 +35,24 @@ class Admin extends Component{
 
     updateSettings = (e) => {
         let target = e.target.getAttribute("target")
+        let store = this.state.store.getState()
+
+
+        if (target === "snow") {
+            this.state.store.dispatch({
+                type: "set_settings", value: {
+                    snow: !store.settings.snow,
+                },
+            })
+        }
+
+        if (target === "rain") {
+            this.state.store.dispatch({
+                type: "set_settings", value: {
+                    rain: !store.settings.rain,
+                },
+            })
+        }
 
         console.log(e)
 
@@ -145,6 +163,12 @@ class Admin extends Component{
                                                                                 <Switch checked={store.settings.snow} target="snow" onChange={this.updateSettings} name="snow" />
                                                                             }
                                                                             label="Снег"
+                                                                        />
+                                                                        <FormControlLabel
+                                                                            control={
+                                                                                <Switch checked={store.settings.rain} target="rain" onChange={this.updateSettings} name="rain" />
+                                                                            }
+                                                                            label="Дождь"
                                                                         />
                                                                     </div>
                                                                 </div>

@@ -34,7 +34,7 @@ class Admin extends Component{
     }
 
     updateSettings = (e) => {
-        let target = e.target.getAttribute("target")
+        let target = e.target.getAttribute("target").name
         let store = this.state.store.getState()
 
 

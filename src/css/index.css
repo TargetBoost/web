@@ -529,7 +529,7 @@ body {
 
 
 .block-default-icon {
-    padding: 50px;
+    padding: 20px 50px 20px 20px;
 }
 
 .default-icon {
@@ -592,7 +592,7 @@ body {
     align-items: center;
 
     font-weight: 400;
-    line-height: 24px;
+    /*line-height: 24px;*/
     letter-spacing: 0;
 }
 

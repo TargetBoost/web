@@ -30,7 +30,7 @@ class User extends Component{
                                 </div>
                             </div>
                             :
-                                this.state.type === "executor" ?
+                                store.user.execute === true ?
                                     <div className="block-default-pre">
                                         <div className="title-block">Список заданий</div>
                                         <div className="navigation-preview">
@@ -44,7 +44,7 @@ class User extends Component{
                                         </div>
                                     </div>
                                     :
-                                    <div>123</div>
+                                    <div>рекл</div>
 
                     :
                         <div className="block-flex-center full-page">

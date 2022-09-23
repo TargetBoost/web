@@ -8,7 +8,8 @@ const initState = {
         id: 0,
         number: 0,
         login: null,
-        auth: false
+        auth: false,
+        execute: true
     }
 }
 
@@ -24,6 +25,7 @@ function reducer(state = initState, action) {
                 number: action.value.number,
                 login: action.value.login,
                 auth: action.value.auth,
+                execute: action.value.execute,
             }
 
             return state

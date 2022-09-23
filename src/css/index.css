@@ -137,7 +137,7 @@
     background-color: #f5f5f5;
 }
 
-.ui.button:active {
+.ui.active.button {
     background-color: #f5f5f5;
 }
 

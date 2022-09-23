@@ -140,25 +140,16 @@ class Admin extends Component{
                                                             this.state.executor === "settings" ?
                                                                 <div className="block-default-pre">
                                                                     <div className="settings">
-                                                                        <div className="alert">
-                                                                            Пока ничего нет
-                                                                        </div>
+                                                                        <FormControlLabel
+                                                                            control={
+                                                                                <Switch checked={store.settings.snow} target="snow" onChange={this.updateSettings} name="snow" />
+                                                                            }
+                                                                            label="Снег"
+                                                                        />
                                                                     </div>
                                                                 </div>
                                                             :
-                                                                this.state.executor === "admin" ?
-                                                                    <div className="block-default-pre">
-                                                                        <div className="settings">
-                                                                            <FormControlLabel
-                                                                                control={
-                                                                                    <Switch checked={store.settings.snow} target="snow" onChange={this.updateSettings} name="snow" />
-                                                                                }
-                                                                                label="Снег"
-                                                                            />
-                                                                        </div>
-                                                                    </div>
-                                                                :
-                                                                    null
+                                                                null
 
 
 

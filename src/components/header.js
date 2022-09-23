@@ -55,7 +55,10 @@ class Header extends Component{
                                                 }
                                                 <Dropdown.Item>Настройки профиля</Dropdown.Item>
                                                 <Dropdown.Divider />
-                                                <Dropdown.Item>Выйти</Dropdown.Item>
+                                                <Dropdown.Item onClick={()=>{
+                                                    window.localStorage.removeItem('token')
+                                                    window.location.href = '/login'
+                                                }}>Выйти</Dropdown.Item>
                                             </Dropdown.Menu>
                                         </Dropdown>
                                     </Menu>

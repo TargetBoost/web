@@ -542,7 +542,7 @@ body {
     background: #fff;
     margin-top: 10px;
     border-radius: 20px;
-    transition: 1s;
+    /*transition: 1s;*/
 }
 
 .block-default-pre:hover {

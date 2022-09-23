@@ -158,7 +158,7 @@ class User extends Component{
                                                                 <img className="icon-task-small" src={vk} alt="item"/>
                                                             </div>
                                                             <div className="task-item-value">Подписаться на сообщество VK</div>
-                                                            <div className="task-item-value">0.50 коп</div>
+                                                            <div className="task-item-value">29/100</div>
                                                             <div className="task-item-value underline click">Перейти к заданию</div>
                                                             <div className="task-item-value">
                                                                 <div className="button-default">Проверить</div>
@@ -169,7 +169,7 @@ class User extends Component{
                                                                 <img className="icon-task-small" src={vk} alt="item"/>
                                                             </div>
                                                             <div className="task-item-value">Подписаться на сообщество VK</div>
-                                                            <div className="task-item-value">0.50 коп</div>
+                                                            <div className="task-item-value">19/100</div>
                                                             <div className="task-item-value underline click">Перейти к заданию</div>
                                                             <div className="task-item-value">
                                                                 <div className="button-default">Проверить</div>
@@ -180,7 +180,7 @@ class User extends Component{
                                                                 <img className="icon-task-small" src={vk} alt="item"/>
                                                             </div>
                                                             <div className="task-item-value">Подписаться на сообщество VK</div>
-                                                            <div className="task-item-value">0.50 коп</div>
+                                                            <div className="task-item-value">29/30</div>
                                                             <div className="task-item-value underline click">Перейти к заданию</div>
                                                             <div className="task-item-value">
                                                                 <div className="button-default">Проверить</div>

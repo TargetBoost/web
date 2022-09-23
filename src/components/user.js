@@ -159,9 +159,9 @@ class User extends Component{
                                                             </div>
                                                             <div className="task-item-value">Подписаться на сообщество VK</div>
                                                             <div className="task-item-value">29/100</div>
-                                                            <div className="task-item-value underline click">Перейти к заданию</div>
+                                                            <div className="task-item-value underline click">Статистка</div>
                                                             <div className="task-item-value">
-                                                                <div className="button-default">Проверить</div>
+                                                                <div className="button-default">Завершить</div>
                                                             </div>
                                                         </div>
                                                         <div className="task-item">
@@ -170,9 +170,9 @@ class User extends Component{
                                                             </div>
                                                             <div className="task-item-value">Подписаться на сообщество VK</div>
                                                             <div className="task-item-value">19/100</div>
-                                                            <div className="task-item-value underline click">Перейти к заданию</div>
+                                                            <div className="task-item-value underline click">Статистка</div>
                                                             <div className="task-item-value">
-                                                                <div className="button-default">Проверить</div>
+                                                                <div className="button-default">Завершить</div>
                                                             </div>
                                                         </div>
                                                         <div className="task-item">
@@ -181,9 +181,9 @@ class User extends Component{
                                                             </div>
                                                             <div className="task-item-value">Подписаться на сообщество VK</div>
                                                             <div className="task-item-value">29/30</div>
-                                                            <div className="task-item-value underline click">Перейти к заданию</div>
+                                                            <div className="task-item-value underline click">Статистка</div>
                                                             <div className="task-item-value">
-                                                                <div className="button-default">Проверить</div>
+                                                                <div className="button-default">Завершить</div>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -337,13 +337,17 @@ class User extends Component{
                                                                             {/*<div className="task-item">Настройки платформы</div>*/}
                                                                             <div className="settings">
                                                                                 <div className="wrapper-input">
+                                                                                    <div className="title-pop-up">Данные кампании</div>
+                                                                                </div>
+                                                                                <div className="wrapper-input">
                                                                                     <Select
+                                                                                        placeholder="Цель рекламной кампании"
                                                                                         onChange={this.handleChange}
                                                                                         options={this.state.options}
                                                                                     />
                                                                                 </div>
                                                                                 <div className="wrapper-input">
-                                                                                    <input className="input-default" id="old" type="number" placeholder="Возраст" max="99"/>
+                                                                                    <input className="input-default" id="old" type="number" placeholder="Количество пользователей которых Вы хотите привлечь" max="99"/>
                                                                                 </div>
                                                                                 <div className="wrapper-input">
                                                                                     <div className="title-pop-up">Региональные настройки</div>
@@ -375,9 +379,7 @@ class User extends Component{
                                                                                     />
                                                                                 </div>
                                                                                 <div className="sing-wrapper">
-                                                                                    <div className="button-sign blue unselectable"
-                                                                                    >Сохранить
-                                                                                    </div>
+                                                                                    <div className="button-sign blue unselectable">Создать</div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

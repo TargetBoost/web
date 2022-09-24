@@ -29,6 +29,31 @@ class User extends Component{
         e.target.classList.add("active-white")
     }
 
+    componentDidMount() {
+        let store = this.state.store.getState()
+        if (store.user.execute === false) {
+            fetch(`/core/v1/service/target`, {
+                method: "GET",
+                headers: {
+                    "Authorization": window.localStorage.getItem("token")
+                }
+            })
+                .then(response => response.json())
+                .then(res => {
+                    if (res.status.message === null) {
+                        console.log(res)
+                    }else{
+                        this.state.store.dispatch({
+                            type: "set_error", value: res.status.message,
+                        })
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        }
+    }
+
     render() {
         let store = this.state.store.getState()
         return (

@@ -26,7 +26,7 @@ class User extends Component{
                 { value: 'g', label: 'Женщины' },
             ],
             select: null,
-            oldRange: { min: 2, max: 10 }
+            oldRange: { min: 18, max: 28 }
         }
 
         this.state.store.subscribe(() => {

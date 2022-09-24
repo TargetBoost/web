@@ -4,6 +4,7 @@ import youtube from "../icon/youtube.png"
 import {CitySelector, CountrySelector, StateSelector} from "volkeno-react-country-state-city";
 import Select from 'react-select';
 import InputRange from 'react-input-range';
+import 'react-input-range/lib/css/index.css';
 
 class User extends Component{
     constructor(props) {
@@ -18,6 +19,11 @@ class User extends Component{
                 { value: 'vk', label: 'VK' },
                 { value: 'tg', label: 'Telegram' },
                 { value: 'yt', label: 'Youtube' },
+            ],
+            optionsGender: [
+                { value: 'a', label: 'все' },
+                { value: 'm', label: 'Мужчины' },
+                { value: 'g', label: 'Женщины' },
             ],
             select: null,
             oldRange: { min: 2, max: 10 }
@@ -83,6 +89,19 @@ class User extends Component{
             console.log(`Option selected:`, this.state.selectedOption)
         );
     };
+
+    handleChangeRange = (selectedOption) => {
+        this.setState({ selectOld: selectedOption}, () =>
+            console.log(`Option selected:`, this.state.selectedOption)
+        );
+    };
+
+    handleChangeGender = (selectedOption) => {
+        this.setState({ selectGender: selectedOption}, () =>
+            console.log(`Option selected:`, this.state.selectedOption)
+        );
+    };
+
 
     render() {
         let store = this.state.store.getState()
@@ -200,9 +219,6 @@ class User extends Component{
                                                                     </div>
                                                                 :
                                                                     null
-
-
-
                                         }
 
                                     </>
@@ -369,6 +385,13 @@ class User extends Component{
                                                                                         minValue={0}
                                                                                         value={this.state.oldRange}
                                                                                         onChange={value => this.setState({ oldRange: value })} />
+                                                                                </div>
+                                                                                <div className="wrapper-input">
+                                                                                    <Select
+                                                                                        placeholder="Пол"
+                                                                                        onChange={this.handleChangeGender}
+                                                                                        options={this.state.optionsGender}
+                                                                                    />
                                                                                 </div>
                                                                                 <div className="wrapper-input">
                                                                                     <div className="title-pop-up">Региональные настройки</div>

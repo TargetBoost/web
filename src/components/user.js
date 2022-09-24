@@ -392,7 +392,7 @@ class User extends Component{
                                                                                 <div className="wrapper-input">
                                                                                     <InputRange
                                                                                         maxValue={99}
-                                                                                        minValue={0}
+                                                                                        minValue={18}
                                                                                         value={this.state.oldRange}
                                                                                         onChange={value => this.setState({ oldRange: value })} />
                                                                                 </div>

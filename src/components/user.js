@@ -179,9 +179,14 @@ class User extends Component{
                                 :
                                     <>
                                         <div className="navigation-preview">
-                                            <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Кампании</div>
-                                            <div className="button-light" target="end" onClick={this.swapButtonTask}>Завершенные кампании</div>
-                                            <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
+                                            <div className="flex-left-right">
+                                                <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Кампании</div>
+                                                <div className="button-light" target="end" onClick={this.swapButtonTask}>Завершенные кампании</div>
+                                                <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
+                                            </div>
+                                            <div className="flex-left-right">
+                                                <div className="button-light" target="create" onClick={this.swapButtonTask}>Создать рекламную кампанию</div>
+                                            </div>
                                         </div>
                                         {
                                             this.state.executor === "all" ?

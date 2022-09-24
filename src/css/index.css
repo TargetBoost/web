@@ -572,6 +572,11 @@ body {
 .navigation-preview {
     padding: 10px 10px 0 0;
     display: flex;
+    justify-content: space-between;
+}
+
+.flex-left-right {
+    display: flex;
 }
 
 .block-flex-center {

@@ -31,29 +31,29 @@ class User extends Component{
     }
 
     componentDidMount() {
-        let store = this.state.store.getState()
-        if (store.user.execute === false) {
-            fetch(`/core/v1/service/target`, {
-                method: "GET",
-                headers: {
-                    "Authorization": window.localStorage.getItem("token")
+        // let store = this.state.store.getState()
+
+        fetch(`/core/v1/service/target`, {
+            method: "GET",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            }
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message === null) {
+                    console.log(res)
+                    this.setState({targets: res.data})
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
                 }
             })
-                .then(response => response.json())
-                .then(res => {
-                    if (res.status.message === null) {
-                        console.log(res)
-                        this.setState({targets: res.data})
-                    }else{
-                        this.state.store.dispatch({
-                            type: "set_error", value: res.status.message,
-                        })
-                    }
-                })
-                .catch(error => {
-                    console.log(error)
-                });
-        }
+            .catch(error => {
+                console.log(error)
+            });
+
     }
 
     render() {

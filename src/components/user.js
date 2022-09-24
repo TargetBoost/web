@@ -3,6 +3,7 @@ import vk from "../icon/vk.png";
 import youtube from "../icon/youtube.png"
 import {CitySelector, CountrySelector, StateSelector} from "volkeno-react-country-state-city";
 import Select from 'react-select';
+import InputRange from 'react-input-range';
 
 class User extends Component{
     constructor(props) {
@@ -18,7 +19,8 @@ class User extends Component{
                 { value: 'tg', label: 'Telegram' },
                 { value: 'yt', label: 'Youtube' },
             ],
-            select: null
+            select: null,
+            oldRange: { min: 2, max: 10 }
         }
 
         this.state.store.subscribe(() => {
@@ -360,6 +362,13 @@ class User extends Component{
                                                                                 </div>
                                                                                 <div className="wrapper-input">
                                                                                     <input className="input-default" id="old" type="number" placeholder="Количество пользователей которых Вы хотите привлечь" max="99"/>
+                                                                                </div>
+                                                                                <div className="wrapper-input">
+                                                                                    <InputRange
+                                                                                        maxValue={99}
+                                                                                        minValue={0}
+                                                                                        value={this.state.oldRange}
+                                                                                        onChange={value => this.setState({ oldRange: value })} />
                                                                                 </div>
                                                                                 <div className="wrapper-input">
                                                                                     <div className="title-pop-up">Региональные настройки</div>

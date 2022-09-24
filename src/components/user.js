@@ -22,10 +22,10 @@ class User extends Component{
 
         this.setState({executor: e.target.getAttribute("target")})
 
-        let childrenCollection = e.target.parentNode.children
+        let childrenCollection = document.getElementsByClassName("button-light")
 
         for (let i=0; i !== childrenCollection.length; i++) {
-            e.target.parentNode.children[i].classList.remove('active-white')
+            childrenCollection[i].classList.remove('active-white')
         }
         e.target.classList.add("active-white")
     }

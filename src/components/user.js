@@ -13,7 +13,7 @@ class User extends Component{
             type: this.props.type,
             executor: "all",
             targets: [],
-            options: [
+            optionsTypeTarget: [
                 { value: 'vk', label: 'VK' },
                 { value: 'tg', label: 'Telegram' },
                 { value: 'yt', label: 'Youtube' },
@@ -24,6 +24,18 @@ class User extends Component{
         this.state.store.subscribe(() => {
             this.setState(this.state.store.getState())
         })
+    }
+
+    handleCountrySelect = (option) => {
+        this.setState({country: option})
+    }
+
+    handleStateSelect = (option) => {
+        this.setState({state: option})
+    }
+
+    handleCitySelect = (option) => {
+        this.setState({city: option})
     }
 
     swapButtonTask = (e) => {
@@ -343,7 +355,7 @@ class User extends Component{
                                                                                     <Select
                                                                                         placeholder="Цель рекламной кампании"
                                                                                         onChange={this.handleChange}
-                                                                                        options={this.state.options}
+                                                                                        options={this.state.optionsTypeTarget}
                                                                                     />
                                                                                 </div>
                                                                                 <div className="wrapper-input">

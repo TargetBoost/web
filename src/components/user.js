@@ -21,7 +21,7 @@ class User extends Component{
                 { value: 'yt', label: 'Youtube' },
             ],
             optionsGender: [
-                { value: 'a', label: 'все' },
+                { value: 'a', label: 'Все' },
                 { value: 'm', label: 'Мужчины' },
                 { value: 'g', label: 'Женщины' },
             ],
@@ -376,8 +376,18 @@ class User extends Component{
                                                                                         options={this.state.optionsTypeTarget}
                                                                                     />
                                                                                 </div>
+                                                                                {/*<div className="wrapper-input">*/}
+                                                                                {/*    <input className="input-default" id="old" type="number" placeholder="Количество пользователей которых Вы хотите привлечь" max="99"/>*/}
+                                                                                {/*</div>*/}
                                                                                 <div className="wrapper-input">
-                                                                                    <input className="input-default" id="old" type="number" placeholder="Количество пользователей которых Вы хотите привлечь" max="99"/>
+                                                                                    <Select
+                                                                                        placeholder="Пол"
+                                                                                        onChange={this.handleChangeGender}
+                                                                                        options={this.state.optionsGender}
+                                                                                    />
+                                                                                </div>
+                                                                                <div className="wrapper-input">
+                                                                                    <div className="title-pop-up">Количество пользователей которых Вы хотите привлечь</div>
                                                                                 </div>
                                                                                 <div className="wrapper-input">
                                                                                     <InputRange
@@ -385,13 +395,6 @@ class User extends Component{
                                                                                         minValue={0}
                                                                                         value={this.state.oldRange}
                                                                                         onChange={value => this.setState({ oldRange: value })} />
-                                                                                </div>
-                                                                                <div className="wrapper-input">
-                                                                                    <Select
-                                                                                        placeholder="Пол"
-                                                                                        onChange={this.handleChangeGender}
-                                                                                        options={this.state.optionsGender}
-                                                                                    />
                                                                                 </div>
                                                                                 <div className="wrapper-input">
                                                                                     <div className="title-pop-up">Региональные настройки</div>

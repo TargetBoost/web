@@ -189,14 +189,20 @@ class User extends Component{
                                                 <div className="block-default-pre">
                                                     <div className="task-wall">
                                                         {
-                                                            this.state.targets.lenght > 0 ?
+                                                            this.state.targets.length > 0 ?
                                                                 this.state.targets.map(t =>
                                                                     <div className="task-item">
                                                                         <div className="task-item-value task-item-icon-box">
-                                                                            <img className="icon-task-small" src={vk} alt="item"/>
+                                                                            {
+                                                                                t.icon === "vk" ?
+                                                                                    <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                :
+                                                                                    null
+                                                                            }
+
                                                                         </div>
-                                                                        <div className="task-item-value">Подписаться на сообщество VK</div>
-                                                                        <div className="task-item-value">29/100</div>
+                                                                        <div className="task-item-value">{t.title}</div>
+                                                                        <div className="task-item-value">29/{t.count}</div>
                                                                         <div className="task-item-value underline click">Статистка</div>
                                                                         <div className="task-item-value">
                                                                             <div className="button-default">Завершить</div>

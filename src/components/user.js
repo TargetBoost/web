@@ -16,9 +16,14 @@ class User extends Component{
             executor: "all",
             targets: [],
             optionsTypeTarget: [
-                { value: 'vk', label: 'VK' },
-                { value: 'tg', label: 'Telegram' },
-                { value: 'yt', label: 'Youtube' },
+                { value: 'vk_community', label: 'Вступить в сообщество VK - 1 руб.' },
+                { value: 'vk_like', label: 'Лайк на пост VK 0.15 коп.' },
+
+                { value: 'tg_chanel', label: 'Подписка на канал Telegram - 1 руб.' },
+                { value: 'yt_chanel', label: 'Подписка на канал Youtube - 2 руб.' },
+                { value: 'yt_watch', label: 'Просмотр видео на Youtube - 0.20 коп.' },
+                { value: 'yt_like', label: 'Подписка на канал Youtube - 1 руб.' },
+
             ],
             optionsGender: [
                 { value: 'a', label: 'Все' },

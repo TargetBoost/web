@@ -377,7 +377,7 @@ class User extends Component{
                                                                                     />
                                                                                 </div>
                                                                                 <div className="wrapper-input">
-                                                                                    <input className="input-default" id="old" type="number" placeholder="Количество пользователей которых Вы хотите привлечь" max="99"/>
+                                                                                    <input className="input-default" id="old" type="number" placeholder="Количество пользователей которых Вы хотите привлечь" max="10000000"/>
                                                                                 </div>
                                                                                 <div className="wrapper-input">
                                                                                     <Select

@@ -181,7 +181,6 @@ class User extends Component{
                                         <div className="navigation-preview">
                                             <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Кампании</div>
                                             <div className="button-light" target="end" onClick={this.swapButtonTask}>Завершенные кампании</div>
-                                            <div className="button-light" target="rejected" onClick={this.swapButtonTask}>Отклоненные кампании</div>
                                             <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
                                         </div>
                                         {
@@ -226,38 +225,77 @@ class User extends Component{
                                                 this.state.executor === "end" ?
                                                     <div className="block-default-pre">
                                                         <div className="task-wall">
-                                                            <div className="task-item">
-                                                                <div className="task-item-value task-item-icon-box">
-                                                                    <img className="icon-task-small" src={vk} alt="item"/>
-                                                                </div>
-                                                                <div className="task-item-value">Подписаться на сообщество VK</div>
-                                                                <div className="task-item-value">0.50 коп</div>
-                                                                <div className="task-item-value underline click">Перейти к заданию</div>
-                                                                <div className="task-item-value">
-                                                                    <div className="button-default">Проверить</div>
-                                                                </div>
-                                                            </div>
+                                                            {
+                                                                this.state.targets.length > 0 ?
+                                                                    this.state.targets.map(t =>
+                                                                        t.status === "end" ?
+
+
+                                                                            <div className="task-item">
+                                                                                <div className="task-item-value task-item-icon-box">
+                                                                                    {
+                                                                                        t.icon === "vk" ?
+                                                                                            <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                            :
+                                                                                            null
+                                                                                    }
+
+                                                                                </div>
+                                                                                <div className="task-item-value">{t.title}</div>
+                                                                                <div className="task-item-value">29/{t.count}</div>
+                                                                                <div className="task-item-value">Завершенная</div>
+                                                                                <div className="task-item-value underline click">Статистка</div>
+                                                                                <div className="task-item-value">
+                                                                                    <div className="button-default">Начать снова</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        :
+                                                                            null
+                                                                    )
+                                                                    :
+                                                                    <div className="alert">
+                                                                        Активных кампаний нет
+                                                                    </div>
+                                                            }
                                                         </div>
                                                     </div>
                                                     :
                                                     this.state.executor === "rejected" ?
                                                         <div className="block-default-pre">
-                                                            <div className="task-wall">
-                                                                <div className="alert">
-                                                                    Кампаний нет
-                                                                </div>
-                                                            </div>
+                                                            {
+                                                                this.state.targets.length > 0 ?
+                                                                    this.state.targets.map(t =>
+                                                                        t.status === "rejected" ?
+
+
+                                                                            <div className="task-item">
+                                                                                <div className="task-item-value task-item-icon-box">
+                                                                                    {
+                                                                                        t.icon === "vk" ?
+                                                                                            <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                            :
+                                                                                            null
+                                                                                    }
+
+                                                                                </div>
+                                                                                <div className="task-item-value">{t.title}</div>
+                                                                                <div className="task-item-value">29/{t.count}</div>
+                                                                                <div className="task-item-value red">Отклоненная</div>
+                                                                                <div className="task-item-value underline click">Статистка</div>
+                                                                                <div className="task-item-value">
+                                                                                    <div className="button-default">Отправить на проверку</div>
+                                                                                </div>
+                                                                            </div>
+                                                                            :
+                                                                            null
+                                                                    )
+                                                                    :
+                                                                    <div className="alert">
+                                                                        Активных кампаний нет
+                                                                    </div>
+                                                            }
                                                         </div>
                                                         :
-                                                        this.state.executor === "shortcomings" ?
-                                                            <div className="block-default-pre">
-                                                                <div className="task-wall">
-                                                                    <div className="alert">
-                                                                        Кампаний нет
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            :
                                                             this.state.executor === "settings" ?
                                                                 <div className="block-default-pre">
                                                                     <div className="settings">

@@ -32,9 +32,11 @@ class Preview extends Component{
         return (
             <>
                 <div className="navigation-preview">
-                    <div className="button-light active-white" target="target" onClick={this.swapButton}>Рекламодателям</div>
-                    <div className="button-light" target="executer" onClick={this.swapButton}>Исполнителям</div>
-                    <div className="button-light" target="feed" onClick={this.swapButton}>Новости</div>
+                    <div className="flex-left-right">
+                        <div className="button-light active-white" target="target" onClick={this.swapButton}>Рекламодателям</div>
+                        <div className="button-light" target="executer" onClick={this.swapButton}>Исполнителям</div>
+                        <div className="button-light" target="feed" onClick={this.swapButton}>Новости</div>
+                    </div>
                 </div>
 
                 {

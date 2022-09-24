@@ -376,9 +376,9 @@ class User extends Component{
                                                                                         options={this.state.optionsTypeTarget}
                                                                                     />
                                                                                 </div>
-                                                                                {/*<div className="wrapper-input">*/}
-                                                                                {/*    <input className="input-default" id="old" type="number" placeholder="Количество пользователей которых Вы хотите привлечь" max="99"/>*/}
-                                                                                {/*</div>*/}
+                                                                                <div className="wrapper-input">
+                                                                                    <input className="input-default" id="old" type="number" placeholder="Количество пользователей которых Вы хотите привлечь" max="99"/>
+                                                                                </div>
                                                                                 <div className="wrapper-input">
                                                                                     <Select
                                                                                         placeholder="Пол"
@@ -387,7 +387,7 @@ class User extends Component{
                                                                                     />
                                                                                 </div>
                                                                                 <div className="wrapper-input">
-                                                                                    <div className="title-pop-up">Количество пользователей которых Вы хотите привлечь</div>
+                                                                                    <div className="title-pop-up">Диапазон возрастной категории</div>
                                                                                 </div>
                                                                                 <div className="wrapper-input">
                                                                                     <InputRange

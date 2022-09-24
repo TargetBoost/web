@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import vk from "../icon/vk.png";
 import youtube from "../icon/youtube.png"
+import {CitySelector, CountrySelector, StateSelector} from "volkeno-react-country-state-city";
+import Select from 'react-select';
 
 class User extends Component{
     constructor(props) {
@@ -11,6 +13,12 @@ class User extends Component{
             type: this.props.type,
             executor: "all",
             targets: [],
+            options: [
+                { value: 'vk', label: 'VK' },
+                { value: 'tg', label: 'Telegram' },
+                { value: 'yt', label: 'Youtube' },
+            ],
+            select: null
         }
 
         this.state.store.subscribe(() => {
@@ -55,6 +63,12 @@ class User extends Component{
             });
 
     }
+
+    handleChange = (selectedOption) => {
+        this.setState({ select: selectedOption}, () =>
+            console.log(`Option selected:`, this.state.selectedOption)
+        );
+    };
 
     render() {
         let store = this.state.store.getState()
@@ -318,7 +332,57 @@ class User extends Component{
                                                                         </div>
                                                                     </div>
                                                                 :
-                                                                    null
+                                                                    this.state.executor === "create" ?
+                                                                        <div className="block-default-pre">
+                                                                            {/*<div className="task-item">Настройки платформы</div>*/}
+                                                                            <div className="settings">
+                                                                                <div className="wrapper-input">
+                                                                                    <Select
+                                                                                        onChange={this.handleChange}
+                                                                                        options={this.state.options}
+                                                                                    />
+                                                                                </div>
+                                                                                <div className="wrapper-input">
+                                                                                    <input className="input-default" id="old" type="number" placeholder="Возраст" max="99"/>
+                                                                                </div>
+                                                                                <div className="wrapper-input">
+                                                                                    <div className="title-pop-up">Региональные настройки</div>
+                                                                                </div>
+                                                                                <div className="wrapper-input">
+                                                                                    <CountrySelector
+                                                                                        onChange={this.handleCountrySelect}
+                                                                                        name='country'
+                                                                                        placeholder='Выберите страну'
+                                                                                        value={this.state.country}
+                                                                                    />
+                                                                                </div>
+                                                                                <div className="wrapper-input">
+                                                                                    <StateSelector
+                                                                                        country={this.state.country}
+                                                                                        name='state'
+                                                                                        value={this.state.state}
+                                                                                        countryPlaceholder='Выберите регион'
+                                                                                        onChange={this.handleStateSelect}
+                                                                                    />
+                                                                                </div>
+                                                                                <div className="wrapper-input">
+                                                                                    <CitySelector
+                                                                                        state={this.state.state}
+                                                                                        name='city'
+                                                                                        value={this.state.city}
+                                                                                        statePlaceholder='Выберите город'
+                                                                                        onChange={this.handleCitySelect}
+                                                                                    />
+                                                                                </div>
+                                                                                <div className="sing-wrapper">
+                                                                                    <div className="button-sign blue unselectable"
+                                                                                    >Сохранить
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    :
+                                                                        null
 
                                         }
 

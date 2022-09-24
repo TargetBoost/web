@@ -9,7 +9,8 @@ class User extends Component{
             store: this.props.store,
             id: this.props.id,
             type: this.props.type,
-            executor: "all"
+            executor: "all",
+            targets: [],
         }
 
         this.state.store.subscribe(() => {
@@ -42,6 +43,7 @@ class User extends Component{
                 .then(res => {
                     if (res.status.message === null) {
                         console.log(res)
+                        this.setState({targets: res.data})
                     }else{
                         this.state.store.dispatch({
                             type: "set_error", value: res.status.message,
@@ -177,7 +179,7 @@ class User extends Component{
                                 :
                                     <>
                                         <div className="navigation-preview">
-                                            <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Все кампании</div>
+                                            <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Кампании</div>
                                             <div className="button-light" target="end" onClick={this.swapButtonTask}>Завершенные кампании</div>
                                             <div className="button-light" target="rejected" onClick={this.swapButtonTask}>Отклоненные кампании</div>
                                             <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
@@ -186,39 +188,26 @@ class User extends Component{
                                             this.state.executor === "all" ?
                                                 <div className="block-default-pre">
                                                     <div className="task-wall">
-                                                        <div className="task-item">
-                                                            <div className="task-item-value task-item-icon-box">
-                                                                <img className="icon-task-small" src={vk} alt="item"/>
-                                                            </div>
-                                                            <div className="task-item-value">Подписаться на сообщество VK</div>
-                                                            <div className="task-item-value">29/100</div>
-                                                            <div className="task-item-value underline click">Статистка</div>
-                                                            <div className="task-item-value">
-                                                                <div className="button-default">Завершить</div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="task-item">
-                                                            <div className="task-item-value task-item-icon-box">
-                                                                <img className="icon-task-small" src={vk} alt="item"/>
-                                                            </div>
-                                                            <div className="task-item-value">Подписаться на сообщество VK</div>
-                                                            <div className="task-item-value">19/100</div>
-                                                            <div className="task-item-value underline click">Статистка</div>
-                                                            <div className="task-item-value">
-                                                                <div className="button-default">Завершить</div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="task-item">
-                                                            <div className="task-item-value task-item-icon-box">
-                                                                <img className="icon-task-small" src={youtube} alt="item"/>
-                                                            </div>
-                                                            <div className="task-item-value">Подписаться на канал Youtube</div>
-                                                            <div className="task-item-value">29/30</div>
-                                                            <div className="task-item-value underline click">Статистка</div>
-                                                            <div className="task-item-value">
-                                                                <div className="button-default">Завершить</div>
-                                                            </div>
-                                                        </div>
+                                                        {
+                                                            this.state.targets.lenght > 0 ?
+                                                                this.state.targets.map(t =>
+                                                                    <div className="task-item">
+                                                                        <div className="task-item-value task-item-icon-box">
+                                                                            <img className="icon-task-small" src={vk} alt="item"/>
+                                                                        </div>
+                                                                        <div className="task-item-value">Подписаться на сообщество VK</div>
+                                                                        <div className="task-item-value">29/100</div>
+                                                                        <div className="task-item-value underline click">Статистка</div>
+                                                                        <div className="task-item-value">
+                                                                            <div className="button-default">Завершить</div>
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                            :
+                                                                <div className="alert">
+                                                                    Активных кампаний нет
+                                                                </div>
+                                                        }
                                                     </div>
                                                 </div>
                                                 :

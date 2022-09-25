@@ -383,7 +383,7 @@ class User extends Component{
                                                                                                 this.state.cost !== null ?
                                                                                                     <>
                                                                                                         <div className="wrapper-input">
-                                                                                                            <input className="input-default" type="number" onChange={this.handleChangeCount}/>
+                                                                                                            <input className="input-default" type="number" placeholder="Количество" onChange={this.handleChangeCount}/>
                                                                                                         </div>
                                                                                                         <div className="wrapper-input color-blue">
                                                                                                             Стоимость: { this.state.fullPrice } руб.

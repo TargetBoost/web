@@ -10,7 +10,6 @@ class User extends Component{
         this.state = {
             store: this.props.store,
             id: this.props.id,
-            type: this.props.type,
             executor: "all",
             targets: [],
             optionsTypeTarget: [
@@ -38,7 +37,9 @@ class User extends Component{
 
             select: null,
             cost: null,
+            count: 0,
             fullPrice: 0,
+            type: null,
         }
 
         this.state.store.subscribe(() => {
@@ -84,16 +85,46 @@ class User extends Component{
 
     }
 
+    createTarget = () => {
+        let data = {
+            icon: this.state.select,
+            count: this.state.count,
+            cost: this.state.cost,
+            type: this.state.type,
+        }
+
+        fetch(`/core/v1/service/target`, {
+            method: "POST",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message === null) {
+                    window.location.reload()
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
+
     handleChange = (selectedOption) => {
         this.setState({ select: selectedOption.value});
     };
 
     handleChangeDeep = (selectedOption) => {
-        this.setState({ cost: selectedOption.cost});
+        this.setState({ cost: selectedOption.cost, type: selectedOption.value});
     };
 
     handleChangeCount = (e) => {
-        this.setState({fullPrice: e.target.value * this.state.cost})
+        this.setState({fullPrice: e.target.value * this.state.cost, count: e.target.value})
     };
 
     render() {
@@ -401,7 +432,7 @@ class User extends Component{
                                                                                 {
                                                                                     this.state.fullPrice !== 0 ?
                                                                                         <div className="sing-wrapper">
-                                                                                            <div className="button-any blue unselectable" >GO 👍</div>
+                                                                                            <div onClick={this.createTarget} className="button-any blue unselectable" >GO 👍</div>
                                                                                         </div>
                                                                                     :
                                                                                         <div className="sing-wrapper">

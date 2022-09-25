@@ -22,7 +22,7 @@ class User extends Component{
                 vk: [
                     { value: 'vk_community', cost: 2, label: 'Вступить в сообщество' },
                     { value: 'vk_like', cost: 1, label: 'Поставить лайк на запись' },
-                    { value: 'vk_like', cost: 2, label: 'Добавить в друзья' },
+                    { value: 'vk_add_friends', cost: 2, label: 'Добавить в друзья' },
                 ],
                 tg: [
                     { value: 'tg_community', cost: 2, label: 'Подписаться на канал' },

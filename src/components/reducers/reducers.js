@@ -10,7 +10,8 @@ const initState = {
         login: null,
         auth: false,
         execute: true,
-        admin: false
+        admin: false,
+        balance: 0,
     },
     settings: {
         snow: false,

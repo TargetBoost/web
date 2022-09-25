@@ -77,7 +77,8 @@ class App extends Component{
                                                 login: res.data.login,
                                                 auth: true,
                                                 execute: res.data.execute,
-                                                admin: res.data.admin
+                                                admin: res.data.admin,
+                                                balance: res.data.balance
                                             },
                                         })
                                     }else{
@@ -183,7 +184,8 @@ class App extends Component{
                                         login: res.data.login,
                                         auth: true,
                                         execute: res.data.execute,
-                                        admin: res.data.admin
+                                        admin: res.data.admin,
+                                        balance: res.data.balance
                                     },
                                 })
                             }else{

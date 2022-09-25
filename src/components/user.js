@@ -1,9 +1,7 @@
 import React, {Component} from "react";
 import vk from "../icon/vk.png";
 import youtube from "../icon/youtube.png"
-import {CitySelector, CountrySelector, StateSelector} from "volkeno-react-country-state-city";
 import Select from 'react-select';
-import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css';
 
 class User extends Component{
@@ -21,7 +19,25 @@ class User extends Component{
                 { value: 'yt', label: 'Youtube' },
 
             ],
+            optionsDeepTarget: {
+                vk: [
+                    { value: 'vk_community', cost: 2, label: 'Вступить в сообщество' },
+                    { value: 'vk_like', cost: 1, label: 'Поставить лайк на запись' },
+                    { value: 'vk_like', cost: 2, label: 'Добавить в друзья' },
+                ],
+                tg: [
+                    { value: 'tg_community', cost: 2, label: 'Подписаться на канал' },
+                ],
+                yt: [
+                    { value: 'yt_chanel', cost: 2, label: 'Подписаться на канал' },
+                    { value: 'yt_watch', cost: 1, label: 'Посмотреть видео' },
+                    { value: 'yt_like', cost: 1, label: 'Поставить дизлайк'},
+                    { value: 'yt_dislike', cost: 2, label: 'Поставить дизлайк' },
+                ]
+            },
+
             select: null,
+            cost: null,
         }
 
         this.state.store.subscribe(() => {
@@ -68,24 +84,16 @@ class User extends Component{
     }
 
     handleChange = (selectedOption) => {
+        this.setState({ select: selectedOption.value});
+    };
+
+    handleChangeDeep = (selectedOption) => {
+        this.setState({ cost: selectedOption.cost});
+    };
+
+    handleChangeCount = (selectedOption) => {
         console.log(selectedOption)
-        this.setState({ select: selectedOption}, () =>
-            console.log(`Option selected:`, this.state.selectedOption)
-        );
     };
-
-    handleChangeRange = (selectedOption) => {
-        this.setState({ selectOld: selectedOption}, () =>
-            console.log(`Option selected:`, this.state.selectedOption)
-        );
-    };
-
-    handleChangeGender = (selectedOption) => {
-        this.setState({ selectGender: selectedOption}, () =>
-            console.log(`Option selected:`, this.state.selectedOption)
-        );
-    };
-
 
     render() {
         let store = this.state.store.getState()
@@ -360,17 +368,33 @@ class User extends Component{
                                                                                         options={this.state.optionsTypeTarget}
                                                                                     />
                                                                                 </div>
+                                                                                {
+                                                                                    this.state.select !== null ?
+                                                                                        <>
+                                                                                            <div className="wrapper-input">
+                                                                                                <Select
+                                                                                                    placeholder="Цель рекламной кампании"
+                                                                                                    onChange={this.handleChangeDeep}
+                                                                                                    options={this.state.optionsDeepTarget[this.state.select]}
+                                                                                                />
+                                                                                            </div>
+                                                                                            {
+                                                                                                this.state.cost !== null ?
+                                                                                                    <div className="wrapper-input">
+                                                                                                        <input type="number" onChange={this.handleChangeCount}/>
+                                                                                                    </div>
+                                                                                                :
+                                                                                                    null
+                                                                                            }
+                                                                                        </>
+                                                                                    :
+                                                                                        null
+
+                                                                                }
+
                                                                                 <div className="sing-wrapper">
                                                                                     <div className="button-sign blue unselectable" >Сохранить</div>
                                                                                 </div>
-                                                                                {/*<div className="wrapper-input">*/}
-                                                                                {/*    <Select*/}
-                                                                                {/*        placeholder="Цель рекламной кампании"*/}
-                                                                                {/*        onChange={this.handleChange}*/}
-                                                                                {/*        options={this.state.optionsTypeTarget}*/}
-                                                                                {/*    />*/}
-                                                                                {/*</div>*/}
-
                                                                             </div>
                                                                         </div>
                                                                     :

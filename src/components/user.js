@@ -401,7 +401,7 @@ class User extends Component{
                                                                                 {
                                                                                     this.state.fullPrice !== 0 ?
                                                                                         <div className="sing-wrapper">
-                                                                                            <div className="button-any grey unselectable" >GO 👍</div>
+                                                                                            <div className="button-any blue unselectable" >GO 👍</div>
                                                                                         </div>
                                                                                     :
                                                                                         null

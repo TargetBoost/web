@@ -309,11 +309,24 @@ class User extends Component{
                                                                             t.status === "check" ?
                                                                                 <div className="task-item-value">На проверке</div>
                                                                             :
-                                                                                null
+                                                                                t.status === "end" ?
+                                                                                    <div className="task-item-value">Завершина</div>
+                                                                                :
+                                                                                    null
+
                                                                         }
                                                                         <div className="task-item-value underline click">Статистка</div>
                                                                         <div className="task-item-value">
-                                                                            <div className="button-default">Завершить</div>
+                                                                            {
+                                                                                t.status === "check" ?
+                                                                                    <div className="button-default">Завершить</div>
+                                                                                    :
+                                                                                    t.status === "end" ?
+                                                                                        <div className="button-default">Начать заново</div>
+                                                                                        :
+                                                                                        null
+
+                                                                            }
                                                                         </div>
                                                                     </div>
                                                                 )

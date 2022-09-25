@@ -362,7 +362,7 @@ class User extends Component{
                                                                                 </div>
                                                                                 <div className="task-item-value">{t.title}</div>
                                                                                 <div className="task-item-value">29/{t.count}</div>
-                                                                                <div className="task-item-value">Завершенная</div>
+                                                                                <div className="task-item-value">Завершена</div>
                                                                                 <div className="task-item-value underline click">Статистка</div>
                                                                                 <div className="task-item-value">
                                                                                     <div className="button-default">Начать снова</div>

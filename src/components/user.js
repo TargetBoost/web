@@ -361,7 +361,7 @@ class User extends Component{
                                                                                     />
                                                                                 </div>
                                                                                 <div className="sing-wrapper">
-                                                                                    <div className="button-sign green unselectable" >Перейти в личный кабинет</div>
+                                                                                    <div className="button-sign blue unselectable" >Сохранить</div>
                                                                                 </div>
                                                                                 {/*<div className="wrapper-input">*/}
                                                                                 {/*    <Select*/}

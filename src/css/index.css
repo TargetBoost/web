@@ -491,6 +491,20 @@ body {
     transition: .04s;
 }
 
+.button-any {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .04s;
+}
+
+
+
 .sing-wrapper {
     margin-top: 10px;
 }
@@ -505,6 +519,11 @@ body {
 }
 
 .button-sign:active {
+    background: #fafafa;
+    color: #000;
+}
+
+.button-any:active {
     background: #fafafa;
     color: #000;
 }

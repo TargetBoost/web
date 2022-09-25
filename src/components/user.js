@@ -273,7 +273,7 @@ class User extends Component{
                                                 <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Активные</div>
                                                 <div className="button-light" target="end" onClick={this.swapButtonTask}>Завершенные</div>
                                                 <div className="button-light" target="check" onClick={this.swapButtonTask}>На проверке</div>
-                                                <div className="button-light" target="rejection" onClick={this.swapButtonTask}>Отклоненны</div>
+                                                <div className="button-light" target="rejection" onClick={this.swapButtonTask}>Отклоненные</div>
                                                 <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
 
                                             </div>

@@ -534,7 +534,7 @@ class User extends Component{
                                                                         null
 
                                         }
-                                        <div className="block-default-pre">
+                                        <div className="block-default-pre" style={{fontSize: "12px"}}>
                                             Кампании запустяться как только наши администраторы проверят рекламые кампании и Вашего баланса будет хаватать для запуска.
                                         </div>
                                     </>

@@ -326,7 +326,10 @@ class User extends Component{
                                                                                     t.status === "end" ?
                                                                                         <div className="button-default">Начать заново</div>
                                                                                         :
-                                                                                        null
+                                                                                        t.status === "active" ?
+                                                                                            <div className="button-default">Завершить</div>
+                                                                                            :
+                                                                                            null
 
                                                                             }
                                                                         </div>

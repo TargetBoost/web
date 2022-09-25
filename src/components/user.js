@@ -386,7 +386,7 @@ class User extends Component{
                                                                                                             <input className="input-default" type="number" placeholder="Количество" onChange={this.handleChangeCount}/>
                                                                                                         </div>
                                                                                                         <div className="wrapper-input color-blue">
-                                                                                                            Стоимость: { (this.state.fullPrice).toLocaleString('ru') } руб.
+                                                                                                            Стоимость: { (Number(this.state.fullPrice)).toLocaleString('ru') } руб.
                                                                                                         </div>
                                                                                                     </>
                                                                                                 :

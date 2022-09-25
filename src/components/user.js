@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import vk from "../icon/vk.png";
 import youtube from "../icon/youtube.png"
+import telegram from "../icon/telegram.png"
 import Select from 'react-select';
 import 'react-input-range/lib/css/index.css';
 
@@ -30,7 +31,7 @@ class User extends Component{
                 yt: [
                     { value: 'yt_chanel', cost: 2, label: 'Подписаться на канал' },
                     { value: 'yt_watch', cost: 1, label: 'Посмотреть видео' },
-                    { value: 'yt_like', cost: 1, label: 'Поставить дизлайк'},
+                    { value: 'yt_like', cost: 1, label: 'Поставить лайк'},
                     { value: 'yt_dislike', cost: 2, label: 'Поставить дизлайк' },
                 ]
             },
@@ -277,7 +278,13 @@ class User extends Component{
                                                                                 t.icon === "vk" ?
                                                                                     <img className="icon-task-small" src={vk} alt="item"/>
                                                                                 :
-                                                                                    null
+                                                                                    t.icon === "yt" ?
+                                                                                        <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                    :
+                                                                                        t.icon === "tg" ?
+                                                                                            <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                        :
+                                                                                            null
                                                                             }
 
                                                                         </div>
@@ -318,7 +325,13 @@ class User extends Component{
                                                                                         t.icon === "vk" ?
                                                                                             <img className="icon-task-small" src={vk} alt="item"/>
                                                                                             :
-                                                                                            null
+                                                                                            t.icon === "yt" ?
+                                                                                                <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                                :
+                                                                                                t.icon === "tg" ?
+                                                                                                    <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                                    :
+                                                                                                    null
                                                                                     }
 
                                                                                 </div>

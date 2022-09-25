@@ -124,7 +124,7 @@ class User extends Component{
     };
 
     handleChangeCount = (e) => {
-        this.setState({fullPrice: e.target.value * this.state.cost, count: e.target.value})
+        this.setState({fullPrice: e.target.value * this.state.cost, count: Number(e.target.value)})
     };
 
     render() {

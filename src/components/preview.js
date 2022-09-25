@@ -122,13 +122,15 @@ class Preview extends Component{
                                         </p>
                                     </div>
                                     <div className="navigation-preview">
-                                        <div className="block-default-icon-many">
-                                            <img className="default-icon-many" src={io} alt="io"/>
-                                            <div className="title-default-icon-many">ЮMoney</div>
-                                        </div>
-                                        <div className="block-default-icon-many">
-                                            <img className="default-icon-many" src={qiwi} alt="qiwi"/>
-                                            <div className="title-default-icon-many">QIWI</div>
+                                        <div className="flex-left-right">
+                                            <div className="block-default-icon-many">
+                                                <img className="default-icon-many" src={io} alt="io"/>
+                                                <div className="title-default-icon-many">ЮMoney</div>
+                                            </div>
+                                            <div className="block-default-icon-many">
+                                                <img className="default-icon-many" src={qiwi} alt="qiwi"/>
+                                                <div className="title-default-icon-many">QIWI</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

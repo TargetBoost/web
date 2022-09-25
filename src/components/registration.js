@@ -57,8 +57,6 @@ class Registration extends Component{
                         console.log(res)
 
                         if (res.status.message === null) {
-                            this.setState({nextStep: "profile"})
-
                             this.state.store.dispatch({
                                 type: "update_token", value: res.data.token,
                             })
@@ -81,6 +79,8 @@ class Registration extends Component{
                                                 auth: true
                                             },
                                         })
+
+                                        window.location.href = "/user"
                                     }else{
                                         this.state.store.dispatch({
                                             type: "update_user", value: {

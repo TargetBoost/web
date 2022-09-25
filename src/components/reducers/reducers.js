@@ -33,6 +33,7 @@ function reducer(state = initState, action) {
                 auth: action.value.auth,
                 execute: action.value.execute,
                 admin: action.value.admin,
+                balance: action.value.balance,
             }
 
             return state

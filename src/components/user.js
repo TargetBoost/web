@@ -319,19 +319,7 @@ class User extends Component{
                                                                         }
                                                                         <div className="task-item-value underline click">Статистка</div>
                                                                         <div className="task-item-value">
-                                                                            {
-                                                                                t.status === "check" ?
-                                                                                    <div className="button-default">Завершить</div>
-                                                                                    :
-                                                                                    t.status === "end" ?
-                                                                                        <div className="button-default">Начать заново</div>
-                                                                                        :
-                                                                                        t.status === "active" ?
-                                                                                            <div className="button-default">Завершить</div>
-                                                                                            :
-                                                                                            null
-
-                                                                            }
+                                                                            <div className="button-default">Изменить</div>
                                                                         </div>
                                                                     </div>
                                                                 )
@@ -372,7 +360,7 @@ class User extends Component{
                                                                                 <div className="task-item-value">Завершена</div>
                                                                                 <div className="task-item-value underline click">Статистка</div>
                                                                                 <div className="task-item-value">
-                                                                                    <div className="button-default">Начать снова</div>
+                                                                                    <div className="button-default">Изменить</div>
                                                                                 </div>
                                                                             </div>
 
@@ -413,7 +401,7 @@ class User extends Component{
                                                                             <div className="task-item-value">На проверке</div>
                                                                             <div className="task-item-value underline click">Статистка</div>
                                                                             <div className="task-item-value">
-                                                                                <div className="button-default">Начать снова</div>
+                                                                                <div className="button-default">Изменить</div>
                                                                             </div>
                                                                         </div>
 

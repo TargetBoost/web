@@ -142,13 +142,11 @@ class User extends Component{
             let target = []
 
             for (const property in targets) {
-                console.log(property)
-                if (property.status === f) {
-                    target.append(property)
+                if (targets[property].status === f) {
+                    target.append(targets[property])
                 }
             }
 
-            console.log(target, f)
             return target
         }
 

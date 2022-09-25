@@ -42,7 +42,7 @@ class Registration extends Component{
             number_phone: Number(phone),
             login: document.getElementById("login").value,
             password: document.getElementById("password").value,
-            execute: document.getElementById("im_read").value === 'on'
+            execute: document.getElementById("im_read").value !== 'on'
         }
 
         if (data.login !== '' && data.number_phone !== '' && data.password !== '') {

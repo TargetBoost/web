@@ -103,7 +103,7 @@ class User extends Component{
             .then(response => response.json())
             .then(res => {
                 if (res.status.message === null) {
-                    window.location.reload()
+                    // window.location.reload()
                 }else{
                     this.state.store.dispatch({
                         type: "set_error", value: res.status.message,

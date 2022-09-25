@@ -134,8 +134,22 @@ class User extends Component{
         this.setState({link: e.target.value})
     };
 
+
     render() {
         let store = this.state.store.getState()
+
+        function filterTarget(targets, f) {
+            let target = []
+
+            for (const property in targets) {
+                if (property.status === f) {
+                    target.append(property)
+                }
+            }
+
+            return target
+        }
+
         return (
             <>
                 {
@@ -315,8 +329,7 @@ class User extends Component{
                                                         <div className="task-wall">
                                                             {
                                                                 this.state.targets.length > 0 ?
-                                                                    this.state.targets.map(t =>
-                                                                        t.status === "end" ?
+                                                                    filterTarget(this.state.targets, "end").map(t =>
 
 
                                                                             <div className="task-item">
@@ -343,8 +356,7 @@ class User extends Component{
                                                                                     <div className="button-default">Начать снова</div>
                                                                                 </div>
                                                                             </div>
-                                                                        :
-                                                                            null
+
                                                                     )
                                                                     :
                                                                     <div className="alert">

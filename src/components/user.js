@@ -386,7 +386,7 @@ class User extends Component{
                                                                                                             <input className="input-default" type="number" placeholder="Количество" onChange={this.handleChangeCount}/>
                                                                                                         </div>
                                                                                                         <div className="wrapper-input color-blue">
-                                                                                                            Стоимость: { this.state.fullPrice.toLocaleString('ru') } руб.
+                                                                                                            Стоимость: { (this.state.fullPrice).toLocaleString('ru') } руб.
                                                                                                         </div>
                                                                                                     </>
                                                                                                 :
@@ -401,15 +401,13 @@ class User extends Component{
                                                                                 {
                                                                                     this.state.fullPrice !== 0 ?
                                                                                         <div className="sing-wrapper">
-                                                                                            <div className="button-any blue unselectable" >Еще не все...</div>
+                                                                                            <div className="button-any blue unselectable" >Начать 👍</div>
                                                                                         </div>
                                                                                     :
                                                                                         <div className="sing-wrapper">
-                                                                                            <div className="button-any grey unselectable" >Начать 👍</div>
+                                                                                            <div className="button-any grey unselectable" >Еще не все...</div>
                                                                                         </div>
                                                                                 }
-
-
                                                                             </div>
                                                                         </div>
                                                                     :

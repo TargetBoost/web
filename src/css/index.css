@@ -530,7 +530,10 @@ body {
 .green {
     color: #fff;
     background: green;
+}
 
+.green-color {
+    color: green;
 }
 
 .grey {

@@ -270,8 +270,9 @@ class User extends Component{
                                     <>
                                         <div className="navigation-preview">
                                             <div className="flex-left-right">
-                                                <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Активные кампании</div>
-                                                <div className="button-light" target="end" onClick={this.swapButtonTask}>Завершенные кампании</div>
+                                                <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Активные</div>
+                                                <div className="button-light" target="end" onClick={this.swapButtonTask}>Завершенные</div>
+                                                <div className="button-light" target="check" onClick={this.swapButtonTask}>На проверке</div>
                                                 <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
                                             </div>
                                             <div className="flex-left-right">
@@ -283,8 +284,8 @@ class User extends Component{
                                                 <div className="block-default-pre">
                                                     <div className="task-wall">
                                                         {
-                                                            this.state.targets.length > 0 ?
-                                                                this.state.targets.map(t =>
+                                                            filterTarget(this.state.targets, "active").length > 0 ?
+                                                                filterTarget(this.state.targets, "active").map(t =>
                                                                     <div className="task-item">
                                                                         <div className="task-item-value task-item-icon-box">
                                                                             {
@@ -310,7 +311,10 @@ class User extends Component{
                                                                                 t.status === "end" ?
                                                                                     <div className="task-item-value">Завершена</div>
                                                                                 :
-                                                                                    null
+                                                                                    t.status === "active" ?
+                                                                                        <div className="task-item-value green-color">Активна</div>
+                                                                                        :
+                                                                                        null
 
                                                                         }
                                                                         <div className="task-item-value underline click">Статистка</div>
@@ -378,38 +382,42 @@ class User extends Component{
                                                         </div>
                                                     </div>
                                                     :
-                                                    this.state.executor === "rejected" ?
+                                                    this.state.executor === "check" ?
                                                         <div className="block-default-pre">
                                                             {
-                                                                this.state.targets.length > 0 ?
-                                                                    this.state.targets.map(t =>
-                                                                        t.status === "rejected" ?
+                                                                filterTarget(this.state.targets, "check").length > 0 ?
+                                                                    filterTarget(this.state.targets, "check").map(t =>
 
 
-                                                                            <div className="task-item">
-                                                                                <div className="task-item-value task-item-icon-box">
-                                                                                    {
-                                                                                        t.icon === "vk" ?
-                                                                                            <img className="icon-task-small" src={vk} alt="item"/>
+                                                                        <div className="task-item">
+                                                                            <div className="task-item-value task-item-icon-box">
+                                                                                {
+                                                                                    t.icon === "vk" ?
+                                                                                        <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                        :
+                                                                                        t.icon === "yt" ?
+                                                                                            <img className="icon-task-small" src={youtube} alt="item"/>
                                                                                             :
-                                                                                            null
-                                                                                    }
+                                                                                            t.icon === "tg" ?
+                                                                                                <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                                :
+                                                                                                null
+                                                                                }
 
-                                                                                </div>
-                                                                                <div className="task-item-value">{t.title}</div>
-                                                                                <div className="task-item-value">29/{t.count}</div>
-                                                                                <div className="task-item-value red">Отклоненная</div>
-                                                                                <div className="task-item-value underline click">Статистка</div>
-                                                                                <div className="task-item-value">
-                                                                                    <div className="button-default">Отправить на проверку</div>
-                                                                                </div>
                                                                             </div>
-                                                                            :
-                                                                            null
+                                                                            <div className="task-item-value">{t.title}</div>
+                                                                            <div className="task-item-value">29/{t.count}</div>
+                                                                            <div className="task-item-value">Завершена</div>
+                                                                            <div className="task-item-value underline click">Статистка</div>
+                                                                            <div className="task-item-value">
+                                                                                <div className="button-default">Начать снова</div>
+                                                                            </div>
+                                                                        </div>
+
                                                                     )
                                                                     :
                                                                     <div className="alert">
-                                                                        Активных кампаний нет
+                                                                        Кампаний на проверке нет
                                                                     </div>
                                                             }
                                                         </div>

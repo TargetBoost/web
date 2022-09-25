@@ -437,8 +437,8 @@ class User extends Component{
                                                                                 </div>
                                                                                 <div className="task-item-value">{t.title}</div>
                                                                                 <div className="task-item-value">29/{t.count}</div>
-                                                                                <div className="task-item-value">
-                                                                                    Отклонена, причина внутри
+                                                                                <div className="task-item-value red">
+                                                                                    Причина внутри
                                                                                 </div>
                                                                                 <div className="task-item-value">
                                                                                     <div className="button-default">Изменить</div>

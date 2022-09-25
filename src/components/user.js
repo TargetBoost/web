@@ -447,7 +447,7 @@ class User extends Component{
                                                                         )
                                                                         :
                                                                         <div className="alert">
-                                                                            Кампаний на проверке нет
+                                                                            Отклоненных кампаний пока нет
                                                                         </div>
                                                                 }
                                                             </div>

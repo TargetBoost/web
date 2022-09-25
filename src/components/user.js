@@ -88,7 +88,7 @@ class User extends Component{
     createTarget = () => {
         let data = {
             icon: this.state.select,
-            count: this.state.count,
+            count: Number(this.state.count),
             cost: this.state.cost,
             type: this.state.type,
         }

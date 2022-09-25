@@ -73,7 +73,6 @@ class User extends Component{
             .then(response => response.json())
             .then(res => {
                 if (res.status.message === null) {
-                    console.log(res)
                     this.setState({targets: res.data})
                 }else{
                     this.state.store.dispatch({

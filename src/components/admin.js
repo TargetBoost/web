@@ -99,7 +99,7 @@ class Admin extends Component{
                                 <>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
-                                            <div className="button-light active-white" target="с" onClick={this.swapButtonTask}>Кампании</div>
+                                            <div className="button-light active-white" target="c" onClick={this.swapButtonTask}>Кампании</div>
                                             <div className="button-light" target="end" onClick={this.swapButtonTask}>Пользователи</div>
                                             <div className="button-light" target="rejected" onClick={this.swapButtonTask}>Бан-лист</div>
                                             <div className="button-light" target="shortcomings" onClick={this.swapButtonTask}>Заявки на выплаты</div>
@@ -107,7 +107,7 @@ class Admin extends Component{
                                         </div>
                                     </div>
                                     {
-                                        this.state.executor === "с" ?
+                                        this.state.executor === "c" ?
                                             <div className="block-default-pre">
                                                 <div className="task-wall">
                                                     <div className="alert">

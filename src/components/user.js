@@ -38,6 +38,7 @@ class User extends Component{
 
             select: null,
             cost: null,
+            fullPrice: 0,
         }
 
         this.state.store.subscribe(() => {
@@ -91,8 +92,8 @@ class User extends Component{
         this.setState({ cost: selectedOption.cost});
     };
 
-    handleChangeCount = (selectedOption) => {
-        console.log(selectedOption)
+    handleChangeCount = (e) => {
+        this.setState({fullPrice: e.target.value * this.state.cost})
     };
 
     render() {
@@ -380,9 +381,14 @@ class User extends Component{
                                                                                             </div>
                                                                                             {
                                                                                                 this.state.cost !== null ?
-                                                                                                    <div className="wrapper-input">
-                                                                                                        <input type="number" onChange={this.handleChangeCount}/>
-                                                                                                    </div>
+                                                                                                    <>
+                                                                                                        <div className="wrapper-input">
+                                                                                                            <input className="input-default" type="number" onChange={this.handleChangeCount}/>
+                                                                                                        </div>
+                                                                                                        <div className="wrapper-input color-blue">
+                                                                                                            Стоимость: { this.state.fullPrice } руб.
+                                                                                                        </div>
+                                                                                                    </>
                                                                                                 :
                                                                                                     null
                                                                                             }
@@ -392,9 +398,16 @@ class User extends Component{
 
                                                                                 }
 
-                                                                                <div className="sing-wrapper">
-                                                                                    <div className="button-any grey unselectable" >Сохранить</div>
-                                                                                </div>
+                                                                                {
+                                                                                    this.state.fullPrice !== 0 ?
+                                                                                        <div className="sing-wrapper">
+                                                                                            <div className="button-any grey unselectable" >GO 👍</div>
+                                                                                        </div>
+                                                                                    :
+                                                                                        null
+                                                                                }
+
+
                                                                             </div>
                                                                         </div>
                                                                     :

@@ -305,7 +305,7 @@ class User extends Component{
                                                                         <div className="task-item-value">29/{t.count}</div>
                                                                         {
                                                                             t.status === "check" ?
-                                                                                <div className="task-item-value">На проверке</div>
+                                                                                <div className="task-item-value orange">На проверке</div>
                                                                             :
                                                                                 t.status === "end" ?
                                                                                     <div className="task-item-value">Завершена</div>

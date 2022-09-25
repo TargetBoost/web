@@ -130,6 +130,10 @@
     margin-bottom: 5px;
 }
 
+.orange {
+    color: orange;
+}
+
 .task-item-value {
     padding: 10px;
     display: flex;

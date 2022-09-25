@@ -16,39 +16,17 @@ class User extends Component{
             executor: "all",
             targets: [],
             optionsTypeTarget: [
-                { value: 'vk_community', label: 'Вступить в сообщество VK - 1 руб.' },
-                { value: 'vk_like', label: 'Лайк на пост VK 0.15 коп.' },
+                { value: 'vk', label: 'VK' },
+                { value: 'tg', label: 'Telegram' },
+                { value: 'yt', label: 'Youtube' },
 
-                { value: 'tg_chanel', label: 'Подписка на канал Telegram - 1 руб.' },
-                { value: 'yt_chanel', label: 'Подписка на канал Youtube - 2 руб.' },
-                { value: 'yt_watch', label: 'Просмотр видео на Youtube - 0.20 коп.' },
-                { value: 'yt_like', label: 'Подписка на канал Youtube - 1 руб.' },
-
-            ],
-            optionsGender: [
-                { value: 'a', label: 'Все' },
-                { value: 'm', label: 'Мужчины' },
-                { value: 'g', label: 'Женщины' },
             ],
             select: null,
-            oldRange: { min: 18, max: 28 }
         }
 
         this.state.store.subscribe(() => {
             this.setState(this.state.store.getState())
         })
-    }
-
-    handleCountrySelect = (option) => {
-        this.setState({country: option})
-    }
-
-    handleStateSelect = (option) => {
-        this.setState({state: option})
-    }
-
-    handleCitySelect = (option) => {
-        this.setState({city: option})
     }
 
     swapButtonTask = (e) => {
@@ -90,6 +68,7 @@ class User extends Component{
     }
 
     handleChange = (selectedOption) => {
+        console.log(selectedOption)
         this.setState({ select: selectedOption}, () =>
             console.log(`Option selected:`, this.state.selectedOption)
         );
@@ -376,63 +355,22 @@ class User extends Component{
                                                                                 </div>
                                                                                 <div className="wrapper-input">
                                                                                     <Select
-                                                                                        placeholder="Цель рекламной кампании"
+                                                                                        placeholder="Рекламной кампании"
                                                                                         onChange={this.handleChange}
                                                                                         options={this.state.optionsTypeTarget}
                                                                                     />
                                                                                 </div>
-                                                                                <div className="wrapper-input">
-                                                                                    <input className="input-default" id="old" type="number" placeholder="Количество пользователей которых Вы хотите привлечь" max="10000000"/>
-                                                                                </div>
-                                                                                <div className="wrapper-input">
-                                                                                    <Select
-                                                                                        placeholder="Пол"
-                                                                                        onChange={this.handleChangeGender}
-                                                                                        options={this.state.optionsGender}
-                                                                                    />
-                                                                                </div>
-                                                                                <div className="wrapper-input">
-                                                                                    <div className="title-pop-up">Диапазон возрастной категории</div>
-                                                                                </div>
-                                                                                <div className="wrapper-input">
-                                                                                    <InputRange
-                                                                                        maxValue={99}
-                                                                                        minValue={18}
-                                                                                        value={this.state.oldRange}
-                                                                                        onChange={value => this.setState({ oldRange: value })} />
-                                                                                </div>
-                                                                                <div className="wrapper-input">
-                                                                                    <div className="title-pop-up">Региональные настройки</div>
-                                                                                </div>
-                                                                                <div className="wrapper-input">
-                                                                                    <CountrySelector
-                                                                                        onChange={this.handleCountrySelect}
-                                                                                        name='country'
-                                                                                        placeholder='Выберите страну'
-                                                                                        value={this.state.country}
-                                                                                    />
-                                                                                </div>
-                                                                                <div className="wrapper-input">
-                                                                                    <StateSelector
-                                                                                        country={this.state.country}
-                                                                                        name='state'
-                                                                                        value={this.state.state}
-                                                                                        countryPlaceholder='Выберите регион'
-                                                                                        onChange={this.handleStateSelect}
-                                                                                    />
-                                                                                </div>
-                                                                                <div className="wrapper-input">
-                                                                                    <CitySelector
-                                                                                        state={this.state.state}
-                                                                                        name='city'
-                                                                                        value={this.state.city}
-                                                                                        statePlaceholder='Выберите город'
-                                                                                        onChange={this.handleCitySelect}
-                                                                                    />
-                                                                                </div>
                                                                                 <div className="sing-wrapper">
-                                                                                    <div className="button-sign blue unselectable">Создать</div>
+                                                                                    <div className="button-sign green unselectable" >Перейти в личный кабинет</div>
                                                                                 </div>
+                                                                                {/*<div className="wrapper-input">*/}
+                                                                                {/*    <Select*/}
+                                                                                {/*        placeholder="Цель рекламной кампании"*/}
+                                                                                {/*        onChange={this.handleChange}*/}
+                                                                                {/*        options={this.state.optionsTypeTarget}*/}
+                                                                                {/*    />*/}
+                                                                                {/*</div>*/}
+
                                                                             </div>
                                                                         </div>
                                                                     :

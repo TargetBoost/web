@@ -404,7 +404,9 @@ class User extends Component{
                                                                                             <div className="button-any blue unselectable" >GO 👍</div>
                                                                                         </div>
                                                                                     :
-                                                                                        null
+                                                                                        <div className="sing-wrapper">
+                                                                                            <div className="button-any grey unselectable" >GO 👍</div>
+                                                                                        </div>
                                                                                 }
 
 

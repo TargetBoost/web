@@ -466,9 +466,14 @@ class User extends Component{
                                                                                                 :
                                                                                                     null
                                                                                             }
-                                                                                            <div className="wrapper-input">
-                                                                                                <input className="input-default" type="text" placeholder="Ссылка" onChange={this.handleChangeLink}/>
-                                                                                            </div>
+                                                                                            {
+                                                                                                this.state.fullPrice !== 0 ?
+                                                                                                    <div className="wrapper-input">
+                                                                                                        <input className="input-default" type="text" placeholder="Ссылка" onChange={this.handleChangeLink}/>
+                                                                                                    </div>
+                                                                                                :
+                                                                                                    null
+                                                                                            }
                                                                                         </>
                                                                                     :
                                                                                         null

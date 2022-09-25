@@ -273,7 +273,9 @@ class User extends Component{
                                                 <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Активные</div>
                                                 <div className="button-light" target="end" onClick={this.swapButtonTask}>Завершенные</div>
                                                 <div className="button-light" target="check" onClick={this.swapButtonTask}>На проверке</div>
+                                                <div className="button-light" target="rejection" onClick={this.swapButtonTask}>Отклоненны</div>
                                                 <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
+
                                             </div>
                                             <div className="flex-left-right">
                                                 <div className="button-light" target="create" onClick={this.swapButtonTask}>Создать рекламную кампанию</div>
@@ -317,7 +319,6 @@ class User extends Component{
                                                                                         null
 
                                                                         }
-                                                                        <div className="task-item-value underline click">Статистка</div>
                                                                         <div className="task-item-value">
                                                                             <div className="button-default">Изменить</div>
                                                                         </div>
@@ -358,7 +359,6 @@ class User extends Component{
                                                                                 <div className="task-item-value">{t.title}</div>
                                                                                 <div className="task-item-value">29/{t.count}</div>
                                                                                 <div className="task-item-value">Завершена</div>
-                                                                                <div className="task-item-value underline click">Статистка</div>
                                                                                 <div className="task-item-value">
                                                                                     <div className="button-default">Изменить</div>
                                                                                 </div>
@@ -399,7 +399,6 @@ class User extends Component{
                                                                             <div className="task-item-value">{t.title}</div>
                                                                             <div className="task-item-value">29/{t.count}</div>
                                                                             <div className="task-item-value">На проверке</div>
-                                                                            <div className="task-item-value underline click">Статистка</div>
                                                                             <div className="task-item-value">
                                                                                 <div className="button-default">Изменить</div>
                                                                             </div>
@@ -413,6 +412,46 @@ class User extends Component{
                                                             }
                                                         </div>
                                                         :
+                                                        this.state.executor === "rejection" ?
+                                                            <div className="block-default-pre">
+                                                                {
+                                                                    filterTarget(this.state.targets, "rejection").length > 0 ?
+                                                                        filterTarget(this.state.targets, "rejection").map(t =>
+
+
+                                                                            <div className="task-item">
+                                                                                <div className="task-item-value task-item-icon-box">
+                                                                                    {
+                                                                                        t.icon === "vk" ?
+                                                                                            <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                            :
+                                                                                            t.icon === "yt" ?
+                                                                                                <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                                :
+                                                                                                t.icon === "tg" ?
+                                                                                                    <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                                    :
+                                                                                                    null
+                                                                                    }
+
+                                                                                </div>
+                                                                                <div className="task-item-value">{t.title}</div>
+                                                                                <div className="task-item-value">29/{t.count}</div>
+                                                                                <div className="task-item-value">Отклонена</div>
+                                                                                <div className="task-item-value">{ t.cause }</div>
+                                                                                <div className="task-item-value">
+                                                                                    <div className="button-default">Изменить</div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        )
+                                                                        :
+                                                                        <div className="alert">
+                                                                            Кампаний на проверке нет
+                                                                        </div>
+                                                                }
+                                                            </div>
+                                                            :
                                                             this.state.executor === "settings" ?
                                                                 <div className="block-default-pre">
                                                                     <div className="settings">

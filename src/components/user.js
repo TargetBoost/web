@@ -393,7 +393,7 @@ class User extends Component{
                                                                                 }
 
                                                                                 <div className="sing-wrapper">
-                                                                                    <div className="button-sign blue unselectable" >Сохранить</div>
+                                                                                    <div className="button-any grey unselectable" >Сохранить</div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>

@@ -375,7 +375,7 @@ class User extends Component{
                                                                     )
                                                                     :
                                                                     <div className="alert">
-                                                                        Активных кампаний нет
+                                                                        Завершенных кампаний нет
                                                                     </div>
                                                             }
                                                         </div>

@@ -142,6 +142,7 @@ class User extends Component{
             let target = []
 
             for (const property in targets) {
+                console.log(property)
                 if (property.status === f) {
                     target.append(property)
                 }

@@ -98,14 +98,16 @@ class Admin extends Component{
                             :
                                 <>
                                     <div className="navigation-preview">
-                                        <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Статистика</div>
-                                        <div className="button-light" target="end" onClick={this.swapButtonTask}>Пользователи</div>
-                                        <div className="button-light" target="rejected" onClick={this.swapButtonTask}>Бан-лист</div>
-                                        <div className="button-light" target="shortcomings" onClick={this.swapButtonTask}>Заявки на выплаты</div>
-                                        <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
+                                        <div className="flex-left-right">
+                                            <div className="button-light active-white" target="с" onClick={this.swapButtonTask}>Кампании</div>
+                                            <div className="button-light" target="end" onClick={this.swapButtonTask}>Пользователи</div>
+                                            <div className="button-light" target="rejected" onClick={this.swapButtonTask}>Бан-лист</div>
+                                            <div className="button-light" target="shortcomings" onClick={this.swapButtonTask}>Заявки на выплаты</div>
+                                            <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
+                                        </div>
                                     </div>
                                     {
-                                        this.state.executor === "all" ?
+                                        this.state.executor === "с" ?
                                             <div className="block-default-pre">
                                                 <div className="task-wall">
                                                     <div className="alert">

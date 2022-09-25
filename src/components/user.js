@@ -143,7 +143,7 @@ class User extends Component{
 
             for (const property in targets) {
                 if (targets[property].status === f) {
-                    target.append(targets[property])
+                    target.push(targets[property])
                 }
             }
 
@@ -271,7 +271,7 @@ class User extends Component{
                                     <>
                                         <div className="navigation-preview">
                                             <div className="flex-left-right">
-                                                <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Кампании</div>
+                                                <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Активные кампании</div>
                                                 <div className="button-light" target="end" onClick={this.swapButtonTask}>Завершенные кампании</div>
                                                 <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
                                             </div>

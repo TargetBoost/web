@@ -328,7 +328,7 @@ class User extends Component{
                                                     <div className="block-default-pre">
                                                         <div className="task-wall">
                                                             {
-                                                                this.state.targets.length > 0 ?
+                                                                filterTarget(this.state.targets, "end").length > 0 ?
                                                                     filterTarget(this.state.targets, "end").map(t =>
 
 

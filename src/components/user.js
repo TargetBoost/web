@@ -40,6 +40,7 @@ class User extends Component{
             count: 0,
             fullPrice: 0,
             type: null,
+            link: "",
         }
 
         this.state.store.subscribe(() => {
@@ -91,6 +92,7 @@ class User extends Component{
             count: Number(this.state.count),
             cost: this.state.cost,
             type: this.state.type,
+            link: this.state.link
         }
 
         fetch(`/core/v1/service/target`, {
@@ -125,6 +127,10 @@ class User extends Component{
 
     handleChangeCount = (e) => {
         this.setState({fullPrice: e.target.value * this.state.cost, count: Number(e.target.value)})
+    };
+
+    handleChangeLink = (e) => {
+        this.setState({link: e.target.value})
     };
 
     render() {
@@ -423,6 +429,9 @@ class User extends Component{
                                                                                                 :
                                                                                                     null
                                                                                             }
+                                                                                            <div className="wrapper-input">
+                                                                                                <input className="input-default" type="text" placeholder="Ссылка" onChange={this.handleChangeLink}/>
+                                                                                            </div>
                                                                                         </>
                                                                                     :
                                                                                         null
@@ -430,7 +439,7 @@ class User extends Component{
                                                                                 }
 
                                                                                 {
-                                                                                    this.state.fullPrice !== 0 ?
+                                                                                    this.state.link !== "" ?
                                                                                         <div className="sing-wrapper">
                                                                                             <div onClick={this.createTarget} className="button-any blue unselectable" >GO 👍</div>
                                                                                         </div>

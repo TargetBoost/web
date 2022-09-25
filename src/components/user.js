@@ -311,7 +311,7 @@ class User extends Component{
                                                                                 <div className="task-item-value">На проверке</div>
                                                                             :
                                                                                 t.status === "end" ?
-                                                                                    <div className="task-item-value">Завершина</div>
+                                                                                    <div className="task-item-value">Завершена</div>
                                                                                 :
                                                                                     null
 

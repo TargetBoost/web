@@ -222,6 +222,8 @@ class App extends Component{
     }
 
     render() {
+        let state = this.state.store.getState()
+        console.log(state)
         return (
             <>
                 <ToastContainer
@@ -236,7 +238,7 @@ class App extends Component{
                     pauseOnHover
                 />
                 {
-                    this.state.snow === true ?
+                    state.settings.snow === true ?
                         <Snowfall/>
                     :
                         this.state.rain === true ?

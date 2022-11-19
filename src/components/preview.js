@@ -35,7 +35,7 @@ class Preview extends Component{
                     <div className="flex-left-right">
                         <div className="button-light active-white" target="target" onClick={this.swapButton}>Рекламодателям</div>
                         <div className="button-light" target="executer" onClick={this.swapButton}>Исполнителям</div>
-                        <div className="button-light" target="feed" onClick={this.swapButton}>Новости</div>
+                        <div className="button-light" target="feed" onClick={this.swapButton}>Обновления</div>
                     </div>
                 </div>
 
@@ -138,7 +138,7 @@ class Preview extends Component{
                         :
                             <>
                                 <div className="block-default-pre">
-                                    <div className="title-block">Новости платформы</div>
+                                    <div className="title-block">Обновления</div>
                                     <div className="feed">
                                         <div className="item-feed">
                                             <h2>Скоро запуск</h2>

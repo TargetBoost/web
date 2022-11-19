@@ -223,7 +223,6 @@ class App extends Component{
 
     render() {
         let state = this.state.store.getState()
-        console.log(state)
         return (
             <>
                 <ToastContainer

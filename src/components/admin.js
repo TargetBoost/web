@@ -69,12 +69,9 @@ class Admin extends Component{
         })
             .then(response => response.json())
             .then(res => {
-                if (res.status.message === null) {
-                    console.log("success")
-                }else{
+                if (res.status.message !== null) {
                     console.error("error", res.status.message)
                 }
-
             })
             .catch(error => {
                 console.error(error)

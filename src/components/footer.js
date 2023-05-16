@@ -12,7 +12,7 @@ class Footer extends Component{
         return (
             <>
                 <div className="footer">
-                    <div className="logo-text">© 2022 - {date.getFullYear()} Target Boost</div>
+                    <div className="logo-text">© 2022-{date.getFullYear()} Target Boost</div>
                     <div className="footer-button">Чат с поддержкой</div>
                     <div className="footer-button">Пользовательское соглашение</div>
                     <div className="footer-button" onClick={()=> {window.location.href = "/jobs"}}>Вакансии</div>

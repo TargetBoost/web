@@ -38,7 +38,7 @@ class User extends Component{
 
             select: null,
             cost: null,
-            count: 0,
+            total: 0,
             fullPrice: 0,
             type: null,
             link: "",
@@ -89,7 +89,7 @@ class User extends Component{
     createTarget = () => {
         let data = {
             icon: this.state.select,
-            count: Number(this.state.count),
+            total: Number(this.state.total),
             cost: this.state.cost,
             type: this.state.type,
             link: this.state.link
@@ -126,7 +126,7 @@ class User extends Component{
     };
 
     handleChangeCount = (e) => {
-        this.setState({fullPrice: e.target.value * this.state.cost, count: Number(e.target.value)})
+        this.setState({fullPrice: e.target.value * this.state.cost, total: Number(e.target.value)})
     };
 
     handleChangeLink = (e) => {
@@ -305,7 +305,7 @@ class User extends Component{
 
                                                                         </div>
                                                                         <div className="task-item-value">{t.title}</div>
-                                                                        <div className="task-item-value">29/{t.count}</div>
+                                                                        <div className="task-item-value">{t.count}/{t.total}</div>
                                                                         {
                                                                             t.status === "check" ?
                                                                                 <div className="task-item-value orange">На проверке</div>
@@ -320,7 +320,7 @@ class User extends Component{
 
                                                                         }
                                                                         <div className="task-item-value">
-                                                                            <div className="button-default">Изменить</div>
+                                                                            <div className="button-default">Завершить</div>
                                                                         </div>
                                                                     </div>
                                                                 )
@@ -357,7 +357,7 @@ class User extends Component{
 
                                                                                 </div>
                                                                                 <div className="task-item-value">{t.title}</div>
-                                                                                <div className="task-item-value">29/{t.count}</div>
+                                                                                <div className="task-item-value">{t.count}/{t.total}</div>
                                                                                 <div className="task-item-value">Завершена</div>
                                                                                 <div className="task-item-value">
                                                                                     <div className="button-default">Изменить</div>
@@ -397,7 +397,7 @@ class User extends Component{
 
                                                                             </div>
                                                                             <div className="task-item-value">{t.title}</div>
-                                                                            <div className="task-item-value">29/{t.count}</div>
+                                                                            <div className="task-item-value">{t.count}/{t.total}</div>
                                                                             <div className="task-item-value">На проверке</div>
                                                                             <div className="task-item-value">
                                                                                 <div className="button-default">Изменить</div>
@@ -436,7 +436,7 @@ class User extends Component{
 
                                                                                 </div>
                                                                                 <div className="task-item-value">{t.title}</div>
-                                                                                <div className="task-item-value">29/{t.count}</div>
+                                                                                <div className="task-item-value">{t.count}/{t.total}</div>
                                                                                 <div className="task-item-value red">
                                                                                     Причина внутри
                                                                                 </div>

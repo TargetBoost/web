@@ -43,7 +43,7 @@ class Registration extends Component{
             login: document.getElementById("login").value,
             login_tg: document.getElementById("login_tg").value,
             password: document.getElementById("password").value,
-            execute: document.getElementById("im_read").value !== 'on'
+            execute: document.getElementById("im_read").checked,
         }
 
         if (data.login !== '' && data.number_phone !== '' && data.password !== '') {

@@ -62,49 +62,25 @@ class User extends Component{
     }
 
     componentDidMount() {
-        let store = this.state.store.getState()
-
-        if (store.user.execute === true) {
-            fetch(`/core/v1/service/executor/target`, {
-                method: "GET",
-                headers: {
-                    "Authorization": window.localStorage.getItem("token")
+        fetch(`/core/v1/service/target`, {
+            method: "GET",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            }
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message === null) {
+                    this.setState({targets: res.data})
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
                 }
             })
-                .then(response => response.json())
-                .then(res => {
-                    if (res.status.message === null) {
-                        this.setState({targets: res.data})
-                    }else{
-                        this.state.store.dispatch({
-                            type: "set_error", value: res.status.message,
-                        })
-                    }
-                })
-                .catch(error => {
-                    console.log(error)
-                });
-        }else{
-            fetch(`/core/v1/service/target`, {
-                method: "GET",
-                headers: {
-                    "Authorization": window.localStorage.getItem("token")
-                }
-            })
-                .then(response => response.json())
-                .then(res => {
-                    if (res.status.message === null) {
-                        this.setState({targets: res.data})
-                    }else{
-                        this.state.store.dispatch({
-                            type: "set_error", value: res.status.message,
-                        })
-                    }
-                })
-                .catch(error => {
-                    console.log(error)
-                });
-        }
+            .catch(error => {
+                console.log(error)
+            });
     }
 
     createTarget = () => {

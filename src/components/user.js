@@ -187,11 +187,13 @@ class User extends Component{
                                     <>
                                         <div className="navigation-preview">
                                             <div className="flex-left-right">
-                                                <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Доступные</div>
-                                                <div className="button-light" target="end" onClick={this.swapButtonTask}>Выполненные</div>
-                                                <div className="button-light" target="rejected" onClick={this.swapButtonTask}>Отклоненные</div>
-                                                <div className="button-light" target="shortcomings" onClick={this.swapButtonTask}>Недочеты</div>
-                                                <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
+                                                <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Задания</div>
+                                                <div className="button-light active-white" target="history" onClick={this.swapButtonTask}>История заданий</div>
+
+                                                {/*<div className="button-light" target="end" onClick={this.swapButtonTask}>Выполненные</div>*/}
+                                                {/*<div className="button-light" target="rejected" onClick={this.swapButtonTask}>Отклоненные</div>*/}
+                                                {/*<div className="button-light" target="shortcomings" onClick={this.swapButtonTask}>Недочеты</div>*/}
+                                                {/*<div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>*/}
                                             </div>
                                         </div>
                                         {

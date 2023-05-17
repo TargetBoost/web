@@ -217,9 +217,6 @@ class User extends Component{
                                                                             }
 
                                                                         </div>
-                                                                        <div className="task-item-value task-item-icon-box">
-                                                                            <img className="icon-task-small" src={vk} alt="item"/>
-                                                                        </div>
                                                                         <div className="task-item-value">{t.title}</div>
                                                                         <div className="task-item-value">{t.cost}</div>
                                                                         <div className="task-item-value underline click">Перейти к заданию</div>

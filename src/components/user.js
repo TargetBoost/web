@@ -62,28 +62,49 @@ class User extends Component{
     }
 
     componentDidMount() {
-        // let store = this.state.store.getState()
+        let store = this.state.store.getState()
 
-        fetch(`/core/v1/service/target`, {
-            method: "GET",
-            headers: {
-                "Authorization": window.localStorage.getItem("token")
-            }
-        })
-            .then(response => response.json())
-            .then(res => {
-                if (res.status.message === null) {
-                    this.setState({targets: res.data})
-                }else{
-                    this.state.store.dispatch({
-                        type: "set_error", value: res.status.message,
-                    })
+        if (store.user.execute === true) {
+            fetch(`/core/v1/service/executor/target`, {
+                method: "GET",
+                headers: {
+                    "Authorization": window.localStorage.getItem("token")
                 }
             })
-            .catch(error => {
-                console.log(error)
-            });
-
+                .then(response => response.json())
+                .then(res => {
+                    if (res.status.message === null) {
+                        this.setState({targets: res.data})
+                    }else{
+                        this.state.store.dispatch({
+                            type: "set_error", value: res.status.message,
+                        })
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        }else{
+            fetch(`/core/v1/service/target`, {
+                method: "GET",
+                headers: {
+                    "Authorization": window.localStorage.getItem("token")
+                }
+            })
+                .then(response => response.json())
+                .then(res => {
+                    if (res.status.message === null) {
+                        this.setState({targets: res.data})
+                    }else{
+                        this.state.store.dispatch({
+                            type: "set_error", value: res.status.message,
+                        })
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        }
     }
 
     createTarget = () => {
@@ -177,39 +198,50 @@ class User extends Component{
                                             this.state.executor === "all" ?
                                                 <div className="block-default-pre">
                                                     <div className="task-wall">
-                                                        <div className="task-item">
-                                                            <div className="task-item-value task-item-icon-box">
-                                                                <img className="icon-task-small" src={vk} alt="item"/>
-                                                            </div>
-                                                            <div className="task-item-value">Подписаться на сообщество VK</div>
-                                                            <div className="task-item-value">0.50 коп</div>
-                                                            <div className="task-item-value underline click">Перейти к заданию</div>
-                                                            <div className="task-item-value">
-                                                                <div className="button-default">Проверить</div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="task-item">
-                                                            <div className="task-item-value task-item-icon-box">
-                                                                <img className="icon-task-small" src={youtube} alt="item"/>
-                                                            </div>
-                                                            <div className="task-item-value">Подписаться на канал Youtube</div>
-                                                            <div className="task-item-value">0.50 коп</div>
-                                                            <div className="task-item-value underline click">Перейти к заданию</div>
-                                                            <div className="task-item-value">
-                                                                <div className="button-default">Проверить</div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="task-item">
-                                                            <div className="task-item-value task-item-icon-box">
-                                                                <img className="icon-task-small" src={vk} alt="item"/>
-                                                            </div>
-                                                            <div className="task-item-value">Подписаться на сообщество VK</div>
-                                                            <div className="task-item-value">0.50 коп</div>
-                                                            <div className="task-item-value underline click">Перейти к заданию</div>
-                                                            <div className="task-item-value">
-                                                                <div className="button-default">Проверить</div>
-                                                            </div>
-                                                        </div>
+                                                        {
+                                                            filterTarget(this.state.targets, "active").length > 0 ?
+                                                                filterTarget(this.state.targets, "active").map(t =>
+                                                                    <div className="task-item">
+                                                                        <div className="task-item-value task-item-icon-box">
+                                                                            {
+                                                                                t.icon === "vk" ?
+                                                                                    <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                    :
+                                                                                    t.icon === "yt" ?
+                                                                                        <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                        :
+                                                                                        t.icon === "tg" ?
+                                                                                            <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                            :
+                                                                                            null
+                                                                            }
+
+                                                                        </div>
+                                                                        <div className="task-item-value">{t.title}</div>
+                                                                        <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                        {
+                                                                            t.status === "check" ?
+                                                                                <div className="task-item-value orange">На проверке</div>
+                                                                                :
+                                                                                t.status === "end" ?
+                                                                                    <div className="task-item-value">Завершена</div>
+                                                                                    :
+                                                                                    t.status === "active" ?
+                                                                                        <div className="task-item-value green-color">Активна</div>
+                                                                                        :
+                                                                                        null
+
+                                                                        }
+                                                                        <div className="task-item-value">
+                                                                            <div className="button-default">Завершить</div>
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                                :
+                                                                <div className="alert">
+                                                                    Активных задач нет
+                                                                </div>
+                                                        }
                                                     </div>
                                                 </div>
                                             :

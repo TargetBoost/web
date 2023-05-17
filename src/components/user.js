@@ -219,7 +219,7 @@ class User extends Component{
                                                                         </div>
                                                                         <div className="task-item-value">{t.title}</div>
                                                                         <div className="task-item-value">{t.cost}₽</div>
-                                                                        <div className="task-item-value underline click">Перейти к заданию</div>
+                                                                        <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
                                                                         <div className="task-item-value">
                                                                             <div className="button-default">Проверить</div>
                                                                         </div>

@@ -46,7 +46,7 @@ class Registration extends Component{
             execute: document.getElementById("im_read").checked,
         }
 
-        if (data.login !== '' && data.number_phone !== '' && data.password !== '') {
+        if (data.login !== '' && data.number_phone !== '' && data.password !== '' && data.tg !== '') {
             this.setState({nextStep: "load"})
             if (document.getElementById("re_password").value === data.password) {
                 fetch("/core/v1/system/registration", {

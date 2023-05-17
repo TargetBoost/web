@@ -41,7 +41,7 @@ class Registration extends Component{
         let data = {
             number_phone: Number(phone),
             login: document.getElementById("login").value,
-            login_tg: document.getElementById("login_tg").value,
+            tg: document.getElementById("login_tg").value,
             password: document.getElementById("password").value,
             execute: document.getElementById("im_read").checked,
         }

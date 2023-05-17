@@ -9,7 +9,7 @@ const initState = {
         number: 0,
         login: null,
         auth: false,
-        execute: true,
+        execute: false,
         admin: false,
         balance: 0,
     },

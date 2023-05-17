@@ -229,7 +229,7 @@ class User extends Component{
                                                                 )
                                                                 :
                                                                 <div className="alert">
-                                                                    Доступный задач пока нет
+                                                                    Доступный заданий пока нет
                                                                 </div>
                                                         }
                                                     </div>

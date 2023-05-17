@@ -41,7 +41,6 @@ class Registration extends Component{
         let data = {
             number_phone: Number(phone),
             login: document.getElementById("login").value,
-            tg: document.getElementById("login_tg").value,
             password: document.getElementById("password").value,
             execute: document.getElementById("im_read").checked,
         }
@@ -139,9 +138,6 @@ class Registration extends Component{
                                             </div>
                                             <div className="wrapper-input">
                                                 <input className="input-default" id="login" placeholder="Логин"/>
-                                            </div>
-                                            <div className="wrapper-input">
-                                                <input className="input-default" id="login_tg" placeholder="Логин в телеграмм"/>
                                             </div>
                                             <div className="wrapper-input">
                                                 <input className="input-default" id="password" type="password"

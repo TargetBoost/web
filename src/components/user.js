@@ -284,8 +284,8 @@ class User extends Component{
                                                 <div className="block-default-pre">
                                                     <div className="task-wall">
                                                         {
-                                                            filterTarget(this.state.targets, "active").length > 0 ?
-                                                                filterTarget(this.state.targets, "active").map(t =>
+                                                            filterTarget(this.state.targets, 1).length > 0 ?
+                                                                filterTarget(this.state.targets, 1).map(t =>
                                                                     <div className="task-item">
                                                                         <div className="task-item-value task-item-icon-box">
                                                                             {
@@ -334,8 +334,8 @@ class User extends Component{
                                                     <div className="block-default-pre">
                                                         <div className="task-wall">
                                                             {
-                                                                filterTarget(this.state.targets, "end").length > 0 ?
-                                                                    filterTarget(this.state.targets, "end").map(t =>
+                                                                filterTarget(this.state.targets, 3).length > 0 ?
+                                                                    filterTarget(this.state.targets, 3).map(t =>
 
 
                                                                             <div className="task-item">
@@ -374,8 +374,8 @@ class User extends Component{
                                                     this.state.executor === "check" ?
                                                         <div className="block-default-pre">
                                                             {
-                                                                filterTarget(this.state.targets, "check").length > 0 ?
-                                                                    filterTarget(this.state.targets, "check").map(t =>
+                                                                filterTarget(this.state.targets, 0).length > 0 ?
+                                                                    filterTarget(this.state.targets, 0).map(t =>
 
 
                                                                         <div className="task-item">
@@ -413,8 +413,8 @@ class User extends Component{
                                                         this.state.executor === "rejection" ?
                                                             <div className="block-default-pre">
                                                                 {
-                                                                    filterTarget(this.state.targets, "rejection").length > 0 ?
-                                                                        filterTarget(this.state.targets, "rejection").map(t =>
+                                                                    filterTarget(this.state.targets, 2).length > 0 ?
+                                                                        filterTarget(this.state.targets, 2).map(t =>
 
 
                                                                             <div className="task-item">

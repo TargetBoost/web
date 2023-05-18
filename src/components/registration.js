@@ -80,7 +80,12 @@ class Registration extends Component{
                                             },
                                         })
 
-                                        window.location.href = "/user"
+                                        if (res.data.executor) {
+                                            window.location.href = "/tasks"
+                                        }else{
+                                            window.location.href = "/targets"
+                                        }
+
                                     }else{
                                         this.state.store.dispatch({
                                             type: "update_user", value: {

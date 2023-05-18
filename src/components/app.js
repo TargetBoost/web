@@ -9,7 +9,7 @@ import Content from "./content";
 import Jobs from "./jobs";
 import Login from "./login";
 import Registration from "./registration";
-import User from "./user";
+import Targets from "./user";
 import Contact from "./contact";
 import {toast, ToastContainer} from 'react-toastify';
 import ReactRain from 'react-rain-animation';
@@ -37,7 +37,7 @@ class App extends Component{
             '/about' : route({view: <Contact store={this.state.store}/>}),
             '/admin' : route({view: <Admin store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
-            '/user' : route( request => {
+            '/targets' : route( request => {
 
                 fetch("/core/v1/system/settings", {
                     method: "GET",
@@ -115,7 +115,7 @@ class App extends Component{
 
                 return {
                     title: `user`,
-                    view: <User store={this.state.store} type={"executor"}/>,
+                    view: <Targets store={this.state.store} type={"executor"}/>,
                 }
             }),
         })

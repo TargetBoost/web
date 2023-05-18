@@ -5,7 +5,7 @@ import telegram from "../icon/telegram.png"
 import Select from 'react-select';
 import 'react-input-range/lib/css/index.css';
 
-class User extends Component{
+class Targets extends Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -550,4 +550,4 @@ class User extends Component{
     }
 }
 
-export default User;
+export default Targets;

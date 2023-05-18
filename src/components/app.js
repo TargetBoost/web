@@ -9,7 +9,7 @@ import Content from "./content";
 import Jobs from "./jobs";
 import Login from "./login";
 import Registration from "./registration";
-import Targets from "./user";
+import Targets from "./targets";
 import Contact from "./contact";
 import {toast, ToastContainer} from 'react-toastify';
 import ReactRain from 'react-rain-animation';

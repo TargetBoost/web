@@ -48,9 +48,9 @@ class Header extends Component{
                                                 <Dropdown.Header>Ваш баланс: { store.user.balance } ₽</Dropdown.Header>
                                                 {
                                                     store.user.execute === true ?
-                                                        <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Ваши задания</Dropdown.Item>
+                                                        <Dropdown.Item onClick={()=>{window.location.href = '/tasks'}}>Ваши задания</Dropdown.Item>
                                                     :
-                                                        <Dropdown.Item onClick={()=>{window.location.href = '/user'}}>Рекламные кампании</Dropdown.Item>
+                                                        <Dropdown.Item onClick={()=>{window.location.href = '/targets'}}>Рекламные кампании</Dropdown.Item>
 
                                                 }
                                                 {

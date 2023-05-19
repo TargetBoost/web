@@ -118,6 +118,86 @@ class App extends Component{
                     view: <Targets store={this.state.store} type={"executor"}/>,
                 }
             }),
+            '/tasks' : route( request => {
+                fetch("/core/v1/system/settings", {
+                    method: "GET",
+                })
+                    .then(response => response.json())
+                    .then(res => {
+                        this.setState({snow: res.data.snow})
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+
+                fetch(`/core/v1/system/is_auth`, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": window.localStorage.getItem("token")
+                    }
+                })
+                    .then(response => response.json())
+                    .then(res => {
+                        if (res.status.message === null) {
+
+                            fetch(`/core/v1/service/user/${res.data.id}`, {
+                                method: "GET",
+                                headers: {
+                                    "Authorization": window.localStorage.getItem("token")
+                                }
+                            })
+                                .then(response => response.json())
+                                .then(res => {
+                                    if (res.status.message === null) {
+                                        this.state.store.dispatch({
+                                            type: "update_user", value: {
+                                                load: false,
+                                                id: res.data.id,
+                                                number: res.data.number_phone,
+                                                login: res.data.login,
+                                                auth: true,
+                                                execute: res.data.execute,
+                                                admin: res.data.admin,
+                                                balance: res.data.balance
+                                            },
+                                        })
+                                    }else{
+                                        this.state.store.dispatch({
+                                            type: "update_user", value: {
+                                                load: false,
+                                                id: 0,
+                                                number: 0,
+                                                login: null,
+                                                auth: false
+                                            },
+                                        })
+                                    }
+
+                                })
+                                .catch(error => {
+                                    console.log(error)
+                                });
+                        }else{
+                            this.state.store.dispatch({
+                                type: "update_user", value: {
+                                    load: false,
+                                    id: 0,
+                                    number: 0,
+                                    login: null,
+                                    auth: false
+                                },
+                            })
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+
+                return {
+                    title: `user`,
+                    view: <Targets store={this.state.store} type={"executor"}/>,
+                }
+            }),
         })
 
         this.state.store.subscribe(() => {

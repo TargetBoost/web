@@ -150,7 +150,7 @@ class Targets extends Component{
             <>
                 {
                     store.user.load === false ?
-                        store.user.auth === false || store.user.executor === true ?
+                        store.user.auth === false || store.user.execute === true ?
                             <div className="wrapper-error">
                                 <div className="error">У Вас нет доступа к этой странице</div>
                                 <div className="error small-text">

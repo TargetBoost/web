@@ -86,7 +86,7 @@ class Admin extends Component{
                     store.user.load === false ?
                         store.user.admin === false ?
                             <div className="wrapper-error">
-                                <div className="error">Страница только для авторизованных пользователей</div>
+                                <div className="error">У Вас нет доступа к этой странице</div>
                                 <div className="error small-text">
                                      <div style={{textDecoration: "underline", cursor: "pointer"}}
                                     onClick={() => {window.location.href = '/'}}>На главную</div>

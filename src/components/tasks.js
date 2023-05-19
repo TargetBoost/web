@@ -62,7 +62,7 @@ class Tasks extends Component{
     }
 
     componentDidMount() {
-        fetch(`/core/v1/service/target`, {
+        fetch(`/core/v1/service/task`, {
             method: "GET",
             headers: {
                 "Authorization": window.localStorage.getItem("token")
@@ -80,56 +80,11 @@ class Tasks extends Component{
             })
             .catch(error => {
                 console.log(error)
+                this.state.store.dispatch({
+                    type: "set_error", value: error,
+                })
             });
     }
-
-    createTarget = () => {
-        let data = {
-            icon: this.state.select,
-            total: Number(this.state.total),
-            cost: this.state.cost,
-            type: this.state.type,
-            link: this.state.link
-        }
-
-        fetch(`/core/v1/service/target`, {
-            method: "POST",
-            headers: {
-                "Authorization": window.localStorage.getItem("token")
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => response.json())
-            .then(res => {
-                if (res.status.message === null) {
-                    window.location.reload()
-                }else{
-                    this.state.store.dispatch({
-                        type: "set_error", value: res.status.message,
-                    })
-                }
-            })
-            .catch(error => {
-                console.log(error)
-            });
-    }
-
-    handleChange = (selectedOption) => {
-        this.setState({ select: selectedOption.value});
-    };
-
-    handleChangeDeep = (selectedOption) => {
-        this.setState({ cost: selectedOption.cost, type: selectedOption.value});
-    };
-
-    handleChangeCount = (e) => {
-        this.setState({fullPrice: e.target.value * this.state.cost, total: Number(e.target.value)})
-    };
-
-    handleChangeLink = (e) => {
-        this.setState({link: e.target.value})
-    };
-
 
     render() {
         let store = this.state.store.getState()

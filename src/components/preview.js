@@ -13,7 +13,7 @@ class Preview extends Component{
         super(props);
         this.state = {
             auth: this.props.auth,
-            executor: "target",
+            executor: "executer",
         }
     }
 
@@ -33,8 +33,8 @@ class Preview extends Component{
             <>
                 <div className="navigation-preview">
                     <div className="flex-left-right">
-                        <div className="button-light active-white" target="target" onClick={this.swapButton}>Рекламодателям</div>
-                        <div className="button-light" target="executer" onClick={this.swapButton}>Исполнителям</div>
+                        <div className="button-light" target="target" onClick={this.swapButton}>Рекламодателям</div>
+                        <div className="button-light active-white" target="executer" onClick={this.swapButton}>Исполнителям</div>
                         {/*<div className="button-light" target="feed" onClick={this.swapButton}>Обновления</div>*/}
                     </div>
                 </div>

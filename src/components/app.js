@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import all the styles
 import "react-rain-animation/lib/style.css";
 import Admin from "./admin";
+import Tasks from "./tasks";
 
 
 class App extends Component{
@@ -195,7 +196,7 @@ class App extends Component{
 
                 return {
                     title: `user`,
-                    view: <Targets store={this.state.store} type={"executor"}/>,
+                    view: <Tasks store={this.state.store} type={"executor"}/>,
                 }
             }),
         })

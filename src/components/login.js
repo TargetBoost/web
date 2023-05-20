@@ -33,7 +33,7 @@ class Login extends Component{
                         type: "update_token", value: res.data.token,
                     })
 
-                    if (res.data.execute) {
+                    if (res.data.execute === true) {
                         window.location.href = "/tasks"
                     }else{
                         window.location.href = "/targets"
@@ -45,11 +45,6 @@ class Login extends Component{
 
                     document.getElementById("password").value = ""
                 }
-
-
-
-
-
             })
             .catch(error => {
                 console.log(error)

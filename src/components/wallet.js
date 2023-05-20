@@ -43,13 +43,11 @@ class Wallet extends Component{
         return (
             <>
                 <div className="block-default-pre">
-                    <div className="block-default-pre">
-                        <div className="wrapper-input">
-                            <input className="input-default" type="text" placeholder="Введите сумму в рублях" />
-                        </div>
-                        <div className="sing-wrapper">
-                            <div className="button-sign blue unselectable">Пополнить</div>
-                        </div>
+                    <div className="wrapper-input">
+                        <input className="input-default" type="text" placeholder="Введите сумму в рублях" />
+                    </div>
+                    <div className="sing-wrapper">
+                        <div className="button-default blue unselectable">Пополнить</div>
                     </div>
                 </div>
             </>

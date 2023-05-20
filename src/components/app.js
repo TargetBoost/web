@@ -20,6 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import "react-rain-animation/lib/style.css";
 import Admin from "./admin";
 import Tasks from "./tasks";
+import Wallet from "./wallet";
 
 
 class App extends Component{

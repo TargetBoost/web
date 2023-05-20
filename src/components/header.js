@@ -39,13 +39,16 @@ class Header extends Component{
                         <div className="logo-text-t">Target Boost</div>
                     </div>
                     <div className="wrapper-auth">
+                        Ваш баланс: { store.user.balance } ₽
+                    </div>
+                    <div className="wrapper-auth">
                         {
                             store.user.load === false ?
                                 store.user.auth ?
                                     <Menu>
                                         <Dropdown text={store.user.login} floating labeled button className='icon'>
                                             <Dropdown.Menu>
-                                                <Dropdown.Header>Ваш баланс: { store.user.balance } ₽</Dropdown.Header>
+                                                {/*<Dropdown.Header>Ваш баланс: { store.user.balance } ₽</Dropdown.Header>*/}
                                                 {
                                                     store.user.execute === true ?
                                                         <Dropdown.Item onClick={()=>{window.location.href = '/tasks'}}>Ваши задания</Dropdown.Item>

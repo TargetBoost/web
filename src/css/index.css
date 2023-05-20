@@ -165,6 +165,10 @@
     box-shadow: none;
 }
 
+/*.ui.menu:last-child {*/
+/*    !* margin-bottom:0 *!*/
+/*}*/
+
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;

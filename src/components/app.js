@@ -37,6 +37,7 @@ class App extends Component{
             '/login' : route({view: <Login store={this.state.store}/>}),
             '/about' : route({view: <Contact store={this.state.store}/>}),
             '/admin' : route({view: <Admin store={this.state.store}/>}),
+            '/wallet' : route({view: <Wallet store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
             '/targets' : route( request => {
 

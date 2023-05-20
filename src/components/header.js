@@ -57,7 +57,7 @@ class Header extends Component{
                                                     store.user.execute === true ?
                                                         <Dropdown.Item>Заявка на вывод средств</Dropdown.Item>
                                                         :
-                                                        <Dropdown.Item >Пополнить баланс</Dropdown.Item>
+                                                        <Dropdown.Item onClick={()=>{window.location.href = '/wallet'}}>Пополнить баланс</Dropdown.Item>
 
                                                 }
                                                 <Dropdown.Item>Настройки профиля</Dropdown.Item>

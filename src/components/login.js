@@ -26,13 +26,10 @@ class Login extends Component{
         })
             .then(response => response.json())
             .then(res => {
-                console.log(res)
-
                 if (res.status.message == null) {
                     this.state.store.dispatch({
                         type: "update_token", value: res.data.token,
                     })
-
                     console.log(res.data)
 
                     if (res.data.execute === true) {

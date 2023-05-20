@@ -33,6 +33,8 @@ class Login extends Component{
                         type: "update_token", value: res.data.token,
                     })
 
+                    console.log(res.data)
+
                     if (res.data.execute === true) {
                         window.location.href = "/tasks"
                     }else{

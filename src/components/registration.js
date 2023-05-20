@@ -80,7 +80,9 @@ class Registration extends Component{
                                             },
                                         })
 
-                                        if (res.data.executor) {
+                                        console.log(res.data)
+
+                                        if (res.data.execute === true) {
                                             window.location.href = "/tasks"
                                         }else{
                                             window.location.href = "/targets"

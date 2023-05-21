@@ -42,28 +42,40 @@ class Wallet extends Component{
         let store = this.state.store.getState()
         return (
             <>
-                <div className="block-default-pre">
-                    <h2>Пополнение баланса</h2>
-                    <div className="preview-inside-block">
-                        <p>
-                            Введите сумму пополнения, после нажмите пополнить. <br/>
-                            Вы перейдете на страницу платежного шлюза и введете данные вашей карты.
-                        </p>
-                    </div>
-                </div>
-                <div className="block-default-pre">
-                    <div style={{width: "200px"}}>
-                        <div className="wrapper-input">
-                            <input className="input-default" type="text" placeholder="Введите сумму в рублях" />
+                {
+                    store.user.load === false ?
+                        <>
+                            <div className="block-default-pre">
+                                <h2>Пополнение баланса</h2>
+                                <h3>Ваш баланс { store.user.balance } ₽</h3>
+                                <div className="preview-inside-block">
+                                    <p>
+                                        Введите сумму пополнения, после нажмите пополнить. <br/>
+                                        Вы перейдете на страницу платежного шлюза и введете данные вашей карты.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="block-default-pre">
+                                <div style={{width: "200px"}}>
+                                    <div className="wrapper-input">
+                                        <input className="input-default" type="text" placeholder="Введите сумму в рублях" />
+                                    </div>
+                                    <div className="sing-wrapper">
+                                        <div className="button-default unselectable">Пополнить</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>
+                                Мы не храним данные вашей платежной карты.
+                            </div>
+                        </>
+                    :
+                        <div className="block-flex-center full-page">
+                            <div className="block-flex-center">
+                                <div className="loader"/>
+                            </div>
                         </div>
-                        <div className="sing-wrapper">
-                            <div className="button-default unselectable">Пополнить</div>
-                        </div>
-                    </div>
-                </div>
-                <div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>
-                    Мы не храним данные вашей платежной карты.
-                </div>
+                }
             </>
         )
     }

@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import CurrencyInput from 'react-currency-input-field';
 import 'react-input-range/lib/css/index.css';
 
 class Wallet extends Component{
@@ -38,6 +39,12 @@ class Wallet extends Component{
         //     });
     }
 
+    updatePrice = (value, name) => {
+        this.setState({
+            price: value
+        })
+    }
+
     render() {
         let store = this.state.store.getState()
         return (
@@ -60,7 +67,20 @@ class Wallet extends Component{
                                 </div>
                                 <div style={{width: "250px"}}>
                                     <div className="wrapper-input">
-                                        <input className="input-default" type="text" placeholder="Введите сумму в рублях" />
+                                        <CurrencyInput
+                                            id="price"
+                                            className="input-default"
+                                            intlConfig={{locale: 'ru-RU', currency: 'RUB'}}
+                                            name="price"
+                                            placeholder="Стоимость"
+                                            maxLength={6}
+                                            defaultValue={0}
+                                            decimalsLimit={2}
+                                            onValueChange={(value, name) => this.updatePrice(value, name)}
+                                            // style={{
+                                            //     width: "220px"
+                                            // }}
+                                        />
                                     </div>
                                     <div style={{padding: "10px", width: "100px"}}>
                                         <div className="button-default unselectable">Пополнить</div>

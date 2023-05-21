@@ -56,11 +56,11 @@ class Wallet extends Component{
                                         Вы перейдете на страницу платежного шлюза и введете данные вашей карты.
                                     </p>
                                 </div>
-                                <div style={{width: "200px"}}>
+                                <div style={{width: "250px"}}>
                                     <div className="wrapper-input">
                                         <input className="input-default" type="text" placeholder="Введите сумму в рублях" />
                                     </div>
-                                    <div style={{padding: "10px", width: "20px"}}>
+                                    <div style={{padding: "10px", width: "100px"}}>
                                         <div className="button-default unselectable">Пополнить</div>
                                     </div>
                                 </div>

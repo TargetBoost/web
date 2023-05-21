@@ -60,7 +60,7 @@ class Wallet extends Component{
                                     <div className="wrapper-input">
                                         <input className="input-default" type="text" placeholder="Введите сумму в рублях" />
                                     </div>
-                                    <div className="sing-wrapper">
+                                    <div style={{padding: "10px", width: "20px"}}>
                                         <div className="button-default unselectable">Пополнить</div>
                                     </div>
                                 </div>

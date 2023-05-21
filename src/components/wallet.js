@@ -43,12 +43,26 @@ class Wallet extends Component{
         return (
             <>
                 <div className="block-default-pre">
-                    <div className="wrapper-input">
-                        <input className="input-default" type="text" placeholder="Введите сумму в рублях" />
+                    <h2>Пополнение баланса</h2>
+                    <div className="preview-inside-block">
+                        <p>
+                            Введите сумму пополнения, после нажмите пополнить. <br/>
+                            Вы перейдете на страницу платежного шлюза и введете данные вашей карты.
+                        </p>
                     </div>
-                    <div className="sing-wrapper">
-                        <div className="button-default blue unselectable">Пополнить</div>
+                </div>
+                <div className="block-default-pre">
+                    <div style={{width: "200px"}}>
+                        <div className="wrapper-input">
+                            <input className="input-default" type="text" placeholder="Введите сумму в рублях" />
+                        </div>
+                        <div className="sing-wrapper">
+                            <div className="button-default unselectable">Пополнить</div>
+                        </div>
                     </div>
+                </div>
+                <div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>
+                    Мы не храним данные вашей платежной карты.
                 </div>
             </>
         )

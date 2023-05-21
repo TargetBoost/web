@@ -66,7 +66,7 @@ class Wallet extends Component{
                                 </div>
                             </div>
                             <div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>
-                                Мы не храним данные вашей платежной карты.
+                                Мы не храним данные ваших банковских карт.
                             </div>
                         </>
                     :

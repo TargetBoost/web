@@ -50,11 +50,13 @@ class Wallet extends Component{
                                 <h3>Ваш баланс: { store.user.balance } ₽</h3>
                             </div>
                             <div className="block-default-pre">
-                                <div className="preview-inside-block">
-                                    <p>
-                                        Введите сумму пополнения, после нажмите пополнить. <br/>
-                                        Вы перейдете на страницу платежного шлюза и введете данные вашей карты.
-                                    </p>
+                                <div className="wrapper-input">
+                                    <div className="preview-inside-block">
+                                        <p>
+                                            Введите сумму пополнения, после нажмите пополнить. <br/>
+                                            Вы перейдете на страницу платежного шлюза и введете данные вашей карты.
+                                        </p>
+                                    </div>
                                 </div>
                                 <div style={{width: "250px"}}>
                                     <div className="wrapper-input">

@@ -12,6 +12,7 @@ const initState = {
         execute: false,
         admin: false,
         balance: 0,
+        number_phone: "",
     },
     settings: {
         snow: false,
@@ -34,6 +35,7 @@ function reducer(state = initState, action) {
                 execute: action.value.execute,
                 admin: action.value.admin,
                 balance: action.value.balance,
+                number_phone: action.number_phone,
             }
 
             return state

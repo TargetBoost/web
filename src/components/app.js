@@ -83,7 +83,8 @@ class App extends Component{
                                                 auth: true,
                                                 execute: res.data.execute,
                                                 admin: res.data.admin,
-                                                balance: res.data.balance
+                                                balance: res.data.balance,
+                                                number_phone: res.number_phone,
                                             },
                                         })
                                     }else{

@@ -154,6 +154,7 @@ class Targets extends Component{
                             store.user.block === true ?
                                 <div className="wrapper-error">
                                     <div className="error">Ваш профиль был заплокирован по решению администрации</div>
+                                    <div className="error small-text">Причина: {store.user.cause}</div>
                                     <div className="error small-text">
                                         <div style={{textDecoration: "underline", cursor: "pointer"}}
                                              onClick={() => {window.location.href = '/'}}>На главную</div>

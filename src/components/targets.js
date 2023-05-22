@@ -102,7 +102,7 @@ class Targets extends Component{
             .then(response => response.json())
             .then(res => {
                 if (res.status.message === null) {
-                    window.location.reload()
+                    // window.location.reload()
                     this.setState({executor: "all"})
                     this.state.store.dispatch({
                         type: "set_info", value: "Рекламная Кампания успешно создана",

@@ -44,6 +44,9 @@ class Contact extends Component{
         }
     }
 
+    handleToggleVideo = (e) => {
+        console.log(e)
+    }
 
 
     render() {
@@ -67,12 +70,10 @@ class Contact extends Component{
                     </div>
                 </div>
                 <div className="block-default-pre">
-                    <ReactJWPlayer
-                        file="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-                        playerId="123"
-                        playerScript="https://cdn.jwplayer.com/libraries/someid.js"
-                        customProps={{ advertising: { ...this.advertising } }}
-                    />
+                    <video onClick={this.handleToggleVideo}  src="//samplelib.com/lib/preview/mp4/sample-5s.mp4" className="video-thumbnail" controls=""
+                           disablePictureInPicture="" preload="none"
+                           poster="https://samplelib.com/lib/preview/mp4/sample-5s.jpg"
+                           controlsList="nodownload"></video>
                 </div>
                 <div className="block-default-pre">
                     <div className="end">

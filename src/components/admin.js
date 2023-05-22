@@ -230,7 +230,7 @@ class Admin extends Component{
                                         <div className="flex-left-right">
                                             <div className="button-light active-white" target="ca" onClick={this.swapButtonTask}>Кампании на проверку</div>
                                             <div className="button-light" target="users" onClick={this.swapButtonTask}>Пользователи</div>
-                                            <div className="button-light" target="rejected" onClick={this.swapButtonTask}>Бан-лист</div>
+                                            <div className="button-light" target="block" onClick={this.swapButtonTask}>Бан-лист</div>
                                             <div className="button-light" target="shortcomings" onClick={this.swapButtonTask}>Заявки на выплаты</div>
                                             <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
                                         </div>
@@ -310,12 +310,29 @@ class Admin extends Component{
                                                     }
                                                 </div>
                                             :
-                                                this.state.executor === "rejected" ?
+                                                this.state.executor === "block" ?
                                                     <div className="block-default-pre">
-                                                        <div className="task-wall">
-                                                            <div className="alert">
-                                                                Пока ничего нет
-                                                            </div>
+                                                        <div className="block-default-pre">
+                                                            {
+                                                                filterUser(this.state.targets, true).length > 0 ?
+                                                                    filterUser(this.state.targets, true).map(t =>
+                                                                        <div className="task-item">
+                                                                            <div className="task-item-value">ID: {t.id}</div>
+                                                                            <div className="task-item-value">login: {t.login}</div>
+                                                                            <div className="task-item-value">balance: {(parseInt(t.balance)).toLocaleString('ru') } ₽</div>
+                                                                            {/*<div className="task-item-value">{t.count}/{t.total}</div>*/}
+                                                                            {/*<div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>*/}
+                                                                            <div className="task-item-value">
+                                                                                <div className="button-default">Изменить</div>
+                                                                                <div className="button-default green">Разблокировать</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    )
+                                                                    :
+                                                                    <div className="alert">
+                                                                        Пользователей нет
+                                                                    </div>
+                                                            }
                                                         </div>
                                                     </div>
                                                 :

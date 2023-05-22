@@ -198,7 +198,7 @@ class Targets extends Component{
                                                                     </div>
                                                                     <div className="task-item-value">{t.title}</div>
                                                                     <div className="task-item-value">{t.count}/{t.total}</div>
-                                                                    <div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') }₽</div>
+                                                                    <div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>
                                                                     {
                                                                         t.status === "check" ?
                                                                             <div className="task-item-value orange">На проверке</div>
@@ -251,7 +251,7 @@ class Targets extends Component{
                                                                             </div>
                                                                             <div className="task-item-value">{t.title}</div>
                                                                             <div className="task-item-value">{t.count}/{t.total}</div>
-                                                                            <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')}₽</div>
+                                                                            <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
 
                                                                             <div className="task-item-value">Завершена</div>
                                                                             <div className="task-item-value">
@@ -293,7 +293,7 @@ class Targets extends Component{
                                                                         </div>
                                                                         <div className="task-item-value">{t.title}</div>
                                                                         <div className="task-item-value">{t.count}/{t.total}</div>
-                                                                        <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')}₽</div>
+                                                                        <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
 
                                                                         <div className="task-item-value">На проверке</div>
                                                                         <div className="task-item-value">
@@ -334,7 +334,7 @@ class Targets extends Component{
                                                                             </div>
                                                                             <div className="task-item-value">{t.title}</div>
                                                                             <div className="task-item-value">{t.count}/{t.total}</div>
-                                                                            <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')}₽</div>
+                                                                            <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
 
                                                                             <div className="task-item-value red">
                                                                                 Причина внутри
@@ -398,7 +398,7 @@ class Targets extends Component{
                                                                                                         <input className="input-default" type="number" placeholder="Количество" onChange={this.handleChangeCount}/>
                                                                                                     </div>
                                                                                                     <div className="wrapper-input color-blue">
-                                                                                                        Стоимость: { (Number(this.state.fullPrice)).toLocaleString('ru') } руб.
+                                                                                                        Стоимость: { (Number(this.state.fullPrice)).toLocaleString('ru') } ₽
                                                                                                     </div>
                                                                                                 </>
                                                                                             :

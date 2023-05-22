@@ -19,6 +19,11 @@ class Registration extends Component{
         }
     }
 
+    urlPatternValidation = URL => {
+        const regex = new RegExp('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?');
+        return regex.test(URL);
+    };
+
     handleCountrySelect = (option) => {
         this.setState({country: option})
     }
@@ -43,6 +48,14 @@ class Registration extends Component{
             login: document.getElementById("login").value,
             password: document.getElementById("password").value,
             execute: document.getElementById("im_read").checked,
+            tg: document.getElementById("tg").value
+        }
+
+        if (!this.urlPatternValidation(data.tg)) {
+            this.state.store.dispatch({
+                type: "set_error", value: "Телеграм может быть только ссылкой",
+            })
+            return
         }
 
         if (data.login !== '' && data.number_phone !== '' && data.password !== '' && data.tg !== '') {
@@ -145,6 +158,9 @@ class Registration extends Component{
                                             </div>
                                             <div className="wrapper-input">
                                                 <input className="input-default" id="login" placeholder="Логин"/>
+                                            </div>
+                                            <div className="wrapper-input">
+                                                <input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>
                                             </div>
                                             <div className="wrapper-input">
                                                 <input className="input-default" id="password" type="password"

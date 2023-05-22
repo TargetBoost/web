@@ -1,48 +1,16 @@
 import React, {Component} from "react";
-import ReactJWPlayer from "react-jw-player";
-import target from "../icon/target.png"
+import VastPlayer from 'vast-player-react';
 
-import ReactPlayer from 'react-player'
+const videoOptions = {
+    disableControls: true,
+};
 
 class Contact extends Component{
     constructor(props) {
         super(props);
         this.state = {
             targetAction: "sign-in",
-            advertising: {
-                admessage: "This video will resume in xx seconds",
-                adscheduleid: "your_ad_schedule_id",
-                client: "vast",
-                cuetext: "Advertisement",
-                outstream: false,
-                preloadAds: false,
-                vpaidcontrols: false,
-                rules: {
-                    startOnSeek: "pre",
-                    timeBetweenAds: 0
-                },
-                schedule: [{
-                    tag: [
-                        "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=[timestamp]"
-                    ],
-                    type: "linear",
-                    offset: 25
-                },
-                    {
-                        tag: [
-                            "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=[timestamp]"
-                        ],
-                        type: "linear",
-                        offset: 125
-                    },
-                    {
-                        tag: [
-                            "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=[timestamp]"
-                        ],
-                        type: "linear",
-                        offset: 225
-                    }]
-            }
+            load: false,
         }
     }
 
@@ -50,51 +18,86 @@ class Contact extends Component{
         console.log(e)
     }
 
+    componentDidMount() {
+        fetch(`/core/v1/service/test/video/vast`, {
+            method: "GET",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            }
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message === null) {
+                    this.setState({vast: res.data, load: true})
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+                this.state.store.dispatch({
+                    type: "set_error", value: error,
+                })
+            });
+    }
+
 
     render() {
         return (
             <>
-                <div className="block-default-pre">
-                    <h1>Target Boost</h1>
-                    <div className="navigation-preview">
-                        <div className="block-text-pre">
-                            <p>
-                                Мы маркетинговый агрегатор по продвижению контента в социальных сетях.
-                                <br/>
-                                Так же мы занимаемся контекстной рекламой и pre-roll вставками через наш видеоплеер. <br/>
-                                <br/>
-                                Всю дополнительную информацию по работе платформы Вы можете получить через <a className="button-text" target="_blank" href="">чат с поддержкой.</a>
-                            </p>
+                {
+                    this.state.load ?
+                        <>
+                            <div className="block-default-pre">
+                                <h1>Target Boost</h1>
+                                <div className="navigation-preview">
+                                    <div className="block-text-pre">
+                                        <p>
+                                            Мы маркетинговый агрегатор по продвижению контента в социальных сетях.
+                                            <br/>
+                                            Так же мы занимаемся контекстной рекламой и pre-roll вставками через наш видеоплеер. <br/>
+                                            <br/>
+                                            Всю дополнительную информацию по работе платформы Вы можете получить через <a className="button-text" target="_blank" href="">чат с поддержкой.</a>
+                                        </p>
+                                    </div>
+                                    {/*<div className="block-default-icon">*/}
+                                    {/*    <img className="default-icon" src={target} alt="target"/>*/}
+                                    {/*</div>*/}
+                                </div>
+                            </div>
+                            <div className="block-default-pre">
+                                {/*<video onClick={this.handleToggleVideo}  src="//" className="video-thumbnail" controls=""*/}
+                                {/*       disablePictureInPicture="" preload="none"*/}
+                                {/*       poster="https://samplelib.com/lib/preview/mp4/sample-5s.jpg"*/}
+                                {/*       controlsList="nodownload"></video>*/}
+                                <VastPlayer
+                                    height={1080}
+                                    width={1920}
+                                    vastJson={}
+                                    videoOptions={videoOptions}
+                                    // onEnded={alertFinished}
+                                />
+                            </div>
+                            <div className="block-default-pre">
+                                <div className="end">
+                                    Основатель<br/>
+                                    <a className="button-text" target="_blank" href="https://t.me/andrey_shsh">Андрей</a>
+                                    <br/>
+                                    <br/>
+                                    Основатель и финансовый директор<br/>
+                                    <a className="button-text" target="_blank" href="https://t.me/Foodfox_Grigory_Zolotookhin">Григорий</a>
+                                </div>
+                            </div>
+                        </>
+                    :
+                        <div className="block-flex-center full-page">
+                            <div className="block-flex-center">
+                                <div className="loader"/>
+                            </div>
                         </div>
-                        {/*<div className="block-default-icon">*/}
-                        {/*    <img className="default-icon" src={target} alt="target"/>*/}
-                        {/*</div>*/}
-                    </div>
-                </div>
-                <div className="block-default-pre">
-                    {/*<video onClick={this.handleToggleVideo}  src="//" className="video-thumbnail" controls=""*/}
-                    {/*       disablePictureInPicture="" preload="none"*/}
-                    {/*       poster="https://samplelib.com/lib/preview/mp4/sample-5s.jpg"*/}
-                    {/*       controlsList="nodownload"></video>*/}
-                    <ReactPlayer
-                        controls={true}
-                        width="100%"
-                        url="https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
-                        onProgress={
-                            this.handleToggleVideo
-                        }
-                    />
-                </div>
-                <div className="block-default-pre">
-                    <div className="end">
-                        Основатель<br/>
-                        <a className="button-text" target="_blank" href="https://t.me/andrey_shsh">Андрей</a>
-                        <br/>
-                        <br/>
-                        Основатель и финансовый директор<br/>
-                        <a className="button-text" target="_blank" href="https://t.me/Foodfox_Grigory_Zolotookhin">Григорий</a>
-                    </div>
-                </div>
+                }
             </>
         )
     }

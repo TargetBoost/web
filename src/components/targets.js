@@ -435,7 +435,7 @@ class Targets extends Component{
                                                                                         {
                                                                                             this.state.fullPrice !== 0 ?
                                                                                                 <div className="wrapper-input">
-                                                                                                    <input className="input-default" type="text" placeholder="Ссылка на цель" onChange={this.handleChangeLink}/>
+                                                                                                    <input className="input-default" type="text" placeholder="Ссылка на цель https://..." onChange={this.handleChangeLink}/>
                                                                                                 </div>
                                                                                             :
                                                                                                 null

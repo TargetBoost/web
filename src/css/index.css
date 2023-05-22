@@ -343,6 +343,10 @@ body {
     color: #ee4747;
 }
 
+.red_bg {
+    background: #ee4747;
+}
+
 .item-preview-img {
     max-width: 700px;
     border-radius: 3px 3px 0 0 ;

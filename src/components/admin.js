@@ -253,7 +253,7 @@ class Admin extends Component{
                                                                     {/*<div className="task-item-value">{t.count}/{t.total}</div>*/}
                                                                     {/*<div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>*/}
                                                                     <div className="task-item-value">
-                                                                        <div className="button-default red">Заблокировать</div>
+                                                                        <div className="button-default red_bg">Заблокировать</div>
                                                                     </div>
                                                                 </div>
                                                             )
@@ -262,11 +262,6 @@ class Admin extends Component{
                                                                 Пользователей нет
                                                             </div>
                                                     }
-                                                    <div className="task-wall">
-                                                        <div className="alert">
-                                                            Пока ничего нет
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             :
                                                 this.state.executor === "rejected" ?

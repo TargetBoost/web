@@ -275,8 +275,8 @@ class Admin extends Component{
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
                                             <div className="button-light active-white" target="ca" onClick={this.swapButtonTask}>Кампании на проверку</div>
-                                            <div className="button-light active-white" target="caar" onClick={this.swapButtonTask}>Отклоненные кампании</div>
-                                            <div className="button-light active-white" target="caa" onClick={this.swapButtonTask}>Активные кампании</div>
+                                            <div className="button-light" target="caar" onClick={this.swapButtonTask}>Отклоненные кампании</div>
+                                            <div className="button-light" target="caa" onClick={this.swapButtonTask}>Активные кампании</div>
                                             <div className="button-light" target="users" onClick={this.swapButtonTask}>Пользователи</div>
                                             <div className="button-light" target="block" onClick={this.swapButtonTask}>Бан-лист</div>
                                             <div className="button-light" target="shortcomings" onClick={this.swapButtonTask}>Заявки на выплаты</div>

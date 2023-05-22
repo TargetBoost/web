@@ -150,14 +150,23 @@ class Targets extends Component{
             <>
                 {
                     store.user.load === false ?
-                        store.user.auth === false || store.user.execute === true ?
-                            <div className="wrapper-error">
-                                <div className="error">У Вас нет доступа к этой странице</div>
-                                <div className="error small-text">
-                                     <div style={{textDecoration: "underline", cursor: "pointer"}}
-                                    onClick={() => {window.location.href = '/'}}>На главную</div>
+                        store.user.auth === false || store.user.execute === true || store.user.block === true ?
+                            store.user.block === true ?
+                                <div className="wrapper-error">
+                                    <div className="error">Ваш профиль был заплокирован по решению администрации</div>
+                                    <div className="error small-text">
+                                        <div style={{textDecoration: "underline", cursor: "pointer"}}
+                                             onClick={() => {window.location.href = '/'}}>На главную</div>
+                                    </div>
                                 </div>
-                            </div>
+                            :
+                                <div className="wrapper-error">
+                                    <div className="error">У Вас нет доступа к этой странице</div>
+                                    <div className="error small-text">
+                                         <div style={{textDecoration: "underline", cursor: "pointer"}}
+                                        onClick={() => {window.location.href = '/'}}>На главную</div>
+                                    </div>
+                                </div>
                             :
                                 <>
                                     <div className="navigation-preview">

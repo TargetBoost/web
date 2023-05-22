@@ -181,7 +181,7 @@ class Admin extends Component{
 
                                                                 }
                                                                 <div className="task-item-value">
-                                                                    <div className="button-default">Завершить</div>
+                                                                    <div className="button-default">Запустить</div>
                                                                 </div>
                                                             </div>
                                                         )

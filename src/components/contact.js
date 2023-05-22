@@ -1,9 +1,4 @@
 import React, {Component} from "react";
-import VastPlayer from 'vast-player-react';
-
-const videoOptions = {
-    disableControls: true,
-};
 
 class Contact extends Component{
     constructor(props) {
@@ -73,13 +68,6 @@ class Contact extends Component{
                                 {/*       disablePictureInPicture="" preload="none"*/}
                                 {/*       poster="https://samplelib.com/lib/preview/mp4/sample-5s.jpg"*/}
                                 {/*       controlsList="nodownload"></video>*/}
-                                <VastPlayer
-                                    height={1080}
-                                    width={1920}
-                                    vastXml={this.state.vast}
-                                    videoOptions={videoOptions}
-                                    // onEnded={alertFinished}
-                                />
                             </div>
                             <div className="block-default-pre">
                                 <div className="end">

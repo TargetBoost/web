@@ -87,7 +87,8 @@ class Login extends Component{
                                 </div>
                                 <div className="wrapper-input-checkbox">
                                     <div className="wrapper-input-checkbox-wr-input">
-                                        <a className="button-text" target="_blank" href="">Восстановить пароль</a>                                </div>
+                                        <a className="button-text" target="_blank" href="">Восстановить пароль</a>
+                                    </div>
                                 </div>
                             </div>
                             <div className="sing-wrapper">

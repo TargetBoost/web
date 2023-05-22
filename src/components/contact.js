@@ -77,6 +77,7 @@ class Contact extends Component{
                     {/*       poster="https://samplelib.com/lib/preview/mp4/sample-5s.jpg"*/}
                     {/*       controlsList="nodownload"></video>*/}
                     <ReactPlayer
+                        controls={true}
                         width="100%"
                         url="https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
                         onProgress={

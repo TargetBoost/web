@@ -63,7 +63,7 @@ class Header extends Component{
                                                         <Dropdown.Item onClick={()=>{window.location.href = '/wallet'}}>Пополнить баланс</Dropdown.Item>
 
                                                 }
-                                                <Dropdown.Item>Настройки профиля</Dropdown.Item>
+                                                <Dropdown.Item onClick={()=>{window.location.href = '/settings'}}>Настройки профиля</Dropdown.Item>
                                                 {
                                                     store.user.admin === true ?
                                                         <>

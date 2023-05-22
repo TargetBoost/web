@@ -21,6 +21,7 @@ import "react-rain-animation/lib/style.css";
 import Admin from "./admin";
 import Tasks from "./tasks";
 import Wallet from "./wallet";
+import Settings from "./settings";
 
 
 class App extends Component{
@@ -39,6 +40,7 @@ class App extends Component{
             '/about' : route({view: <Contact store={this.state.store}/>}),
             '/admin' : route({view: <Admin store={this.state.store}/>}),
             '/wallet' : route({view: <Wallet store={this.state.store}/>}),
+            '/settings' : route({view: <Settings store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
             '/targets' : route( request => {
 

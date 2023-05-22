@@ -482,6 +482,9 @@ class Targets extends Component{
                                                                     null
 
                                     }
+                                    <div className="block-default-pre" style={{fontSize: "13px", background: "#f2e4a8"}}>
+                                        Добавьте нашего бота администраторов в Ваш телеграм канал, что бы мы могли отслеживать каких подписчиков привели мы.
+                                    </div>
                                     <div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>
                                         Созданные рекламные кампании запустятся после того как их проверят наши администраторы, в течении 1-3 часов.
                                     </div>

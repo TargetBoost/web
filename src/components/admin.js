@@ -109,6 +109,38 @@ class Admin extends Component{
         e.target.classList.add("active-white")
     }
 
+    updateTask = (e) => {
+        let data = {
+            id: e.target.getAttribute("target"),
+            status: 1
+        }
+
+        fetch(`/core/v1/service/target`, {
+            method: "PUT",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message !== null) {
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_info", value: `Кампания id:${data.id} переведена в статус активная`,
+                    })
+                }
+            })
+            .catch(error => {
+                this.state.store.dispatch({
+                    type: "set_error", value: error,
+                })
+            });
+    }
+
     updateSettings = (e) => {
         let target = e.target.getAttribute("name")
         let store = this.state.store.getState()
@@ -243,7 +275,7 @@ class Admin extends Component{
 
                                                                 }
                                                                 <div className="task-item-value">
-                                                                    <div className="button-default">Запустить</div>
+                                                                    <div className="button-default" target={t.id} onClick={this.updateTask}>Запустить</div>
                                                                 </div>
                                                             </div>
                                                         )

@@ -388,7 +388,7 @@ class Targets extends Component{
                                                                             </div>
                                                                             <div className="wrapper-input">
                                                                                 <Select
-                                                                                    placeholder="Рекламной кампании"
+                                                                                    placeholder="Платформа"
                                                                                     onChange={this.handleChange}
                                                                                     options={this.state.optionsTypeTarget}
                                                                                 />
@@ -407,7 +407,7 @@ class Targets extends Component{
                                                                                             this.state.cost !== null ?
                                                                                                 <>
                                                                                                     <div className="wrapper-input">
-                                                                                                        <input className="input-default" type="number" placeholder="Количество" onChange={this.handleChangeCount}/>
+                                                                                                        <input className="input-default" type="number" placeholder="Количество исполнителей" onChange={this.handleChangeCount}/>
                                                                                                     </div>
                                                                                                     <div className="wrapper-input color-blue">
                                                                                                         Стоимость: { (Number(this.state.fullPrice)).toLocaleString('ru') } ₽

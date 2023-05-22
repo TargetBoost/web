@@ -182,7 +182,7 @@ class Targets extends Component{
 
                                         </div>
                                         <div className="flex-left-right">
-                                            <div className="button-light" target="create" onClick={this.swapButtonTask}>Создать рекламную кампанию</div>
+                                            <div className="button-light" target="create" style={{background: "#0072FC"}} onClick={this.swapButtonTask}>Создать рекламную кампанию</div>
                                         </div>
                                     </div>
                                     {

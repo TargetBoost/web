@@ -168,6 +168,18 @@ class Admin extends Component{
             return target
         }
 
+        function filterUser(targets, f) {
+            let target = []
+
+            for (const property in targets) {
+                if (targets[property].block === f) {
+                    target.push(targets[property])
+                }
+            }
+
+            return target
+        }
+
         return (
             <>
                 {
@@ -245,11 +257,12 @@ class Admin extends Component{
                                             this.state.executor === "users" ?
                                                 <div className="block-default-pre">
                                                     {
-                                                        this.state.targets.length > 0 ?
-                                                            this.state.targets.map(t =>
+                                                        filterUser(this.state.targets, false).length > 0 ?
+                                                            filterUser(this.state.targets, false).map(t =>
                                                                 <div className="task-item">
-                                                                    <div className="task-item-value">{t.login}</div>
-                                                                    <div className="task-item-value">{(parseInt(store.user.balance)).toLocaleString('ru') } ₽</div>
+                                                                    <div className="task-item-value">ID: {t.login}</div>
+                                                                    <div className="task-item-value">login: {t.login}</div>
+                                                                    <div className="task-item-value">balance: {(parseInt(store.user.balance)).toLocaleString('ru') } ₽</div>
                                                                     {/*<div className="task-item-value">{t.count}/{t.total}</div>*/}
                                                                     {/*<div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>*/}
                                                                     <div className="task-item-value">

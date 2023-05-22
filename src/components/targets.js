@@ -159,7 +159,7 @@ class Targets extends Component{
                                              onClick={() => {window.location.href = '/'}}>На главную</div>
                                     </div>
                                 </div>
-                            :
+                                :
                                 <div className="wrapper-error">
                                     <div className="error">У Вас нет доступа к этой странице</div>
                                     <div className="error small-text">

@@ -37,9 +37,9 @@ function reducer(state = initState, action) {
                 execute: action.value.execute,
                 admin: action.value.admin,
                 balance: action.value.balance,
-                number_phone: action.number_phone,
-                block: action.block,
-                cause: action.cause,
+                number_phone: action.value.number_phone,
+                block: action.value.block,
+                cause: action.value.cause,
             }
 
             return state

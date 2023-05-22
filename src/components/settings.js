@@ -41,6 +41,7 @@ class Settings extends Component{
 
     render() {
         let store = this.state.store.getState()
+        console.log(store)
         return (
             <>
                 {

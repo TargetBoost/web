@@ -266,7 +266,7 @@ class Admin extends Component{
                                                                     {/*<div className="task-item-value">{t.count}/{t.total}</div>*/}
                                                                     {/*<div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>*/}
                                                                     <div className="task-item-value">
-                                                                        <div className="button-default">Изменить</div>
+                                                                        <div className="button-default">Изменить данные</div>
                                                                         <div className="button-default red_bg">Заблокировать</div>
                                                                     </div>
                                                                 </div>

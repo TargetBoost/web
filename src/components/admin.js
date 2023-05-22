@@ -244,6 +244,24 @@ class Admin extends Component{
                                         :
                                             this.state.executor === "users" ?
                                                 <div className="block-default-pre">
+                                                    {
+                                                        this.state.targets.length > 0 ?
+                                                            this.state.targets.map(t =>
+                                                                <div className="task-item">
+                                                                    <div className="task-item-value">{t.login}</div>
+                                                                    {/*<div className="task-item-value">{t.title}</div>*/}
+                                                                    {/*<div className="task-item-value">{t.count}/{t.total}</div>*/}
+                                                                    {/*<div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>*/}
+                                                                    <div className="task-item-value">
+                                                                        <div className="button-default red">Заблокировать</div>
+                                                                    </div>
+                                                                </div>
+                                                            )
+                                                        :
+                                                            <div className="alert">
+                                                                Пользователей нет
+                                                            </div>
+                                                    }
                                                     <div className="task-wall">
                                                         <div className="alert">
                                                             Пока ничего нет

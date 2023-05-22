@@ -76,7 +76,7 @@ class Contact extends Component{
                                 <VastPlayer
                                     height={1080}
                                     width={1920}
-                                    vastJson={this.state.vast}
+                                    vastXml={this.state.vast}
                                     videoOptions={videoOptions}
                                     // onEnded={alertFinished}
                                 />

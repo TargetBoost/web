@@ -4,6 +4,7 @@ import youtube from "../icon/youtube.png"
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import {FormGroup} from "@mui/material";
+import telegram from "../icon/telegram.png";
 
 
 
@@ -20,6 +21,31 @@ class Admin extends Component{
         this.state.store.subscribe(() => {
             this.setState(this.state.store.getState())
         })
+    }
+
+    componentDidMount() {
+        fetch(`/core/v1/admin/target`, {
+            method: "GET",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            }
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message === null) {
+                    this.setState({targets: res.data})
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+                this.state.store.dispatch({
+                    type: "set_error", value: error,
+                })
+            });
     }
 
     swapButtonTask = (e) => {
@@ -80,6 +106,19 @@ class Admin extends Component{
 
     render() {
         let store = this.state.store.getState()
+
+        function filterTarget(targets, f) {
+            let target = []
+
+            for (const property in targets) {
+                if (targets[property].status === f) {
+                    target.push(targets[property])
+                }
+            }
+
+            return target
+        }
+
         return (
             <>
                 {
@@ -106,11 +145,51 @@ class Admin extends Component{
                                     {
                                         this.state.executor === "c" ?
                                             <div className="block-default-pre">
-                                                <div className="task-wall">
-                                                    <div className="alert">
-                                                        Пока ничего нет
-                                                    </div>
-                                                </div>
+                                                {
+                                                    filterTarget(this.state.targets, 1).length > 0 ?
+                                                        filterTarget(this.state.targets, 1).map(t =>
+                                                            <div className="task-item">
+                                                                <div className="task-item-value task-item-icon-box">
+                                                                    {
+                                                                        t.icon === "vk" ?
+                                                                            <img className="icon-task-small" src={vk} alt="item"/>
+                                                                            :
+                                                                            t.icon === "yt" ?
+                                                                                <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                :
+                                                                                t.icon === "tg" ?
+                                                                                    <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                    :
+                                                                                    null
+                                                                    }
+
+                                                                </div>
+                                                                <div className="task-item-value">{t.title}</div>
+                                                                <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                <div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>
+                                                                {
+                                                                    t.status === "check" ?
+                                                                        <div className="task-item-value orange">На проверке</div>
+                                                                        :
+                                                                        t.status === "end" ?
+                                                                            <div className="task-item-value">Завершена</div>
+                                                                            :
+                                                                            t.status === "active" ?
+                                                                                <div className="task-item-value green-color">Активна</div>
+                                                                                :
+                                                                                null
+
+                                                                }
+                                                                <div className="task-item-value">
+                                                                    <div className="button-default">Завершить</div>
+                                                                </div>
+                                                            </div>
+                                                        )
+                                                        :
+                                                        <div className="alert">
+                                                            Активных кампаний нет
+                                                        </div>
+                                                }
                                             </div>
                                         :
                                             this.state.executor === "end" ?

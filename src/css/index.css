@@ -246,7 +246,7 @@ body {
 
 .wrapper-header {
     width: 990px;
-    padding: 15px;
+    /*padding: 15px;*/
     margin: 0 auto;
     display: flex;
     justify-content: space-between;

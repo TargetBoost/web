@@ -145,6 +145,29 @@ class Admin extends Component{
                         type: "set_error", value: error,
                     })
                 });
+        }else if (target === "block") {
+            fetch(`/core/v1/service/users`, {
+                method: "GET",
+                headers: {
+                    "Authorization": window.localStorage.getItem("token")
+                }
+            })
+                .then(response => response.json())
+                .then(res => {
+                    if (res.status.message === null) {
+                        this.setState({targets: res.data})
+                    } else {
+                        this.state.store.dispatch({
+                            type: "set_error", value: res.status.message,
+                        })
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                    this.state.store.dispatch({
+                        type: "set_error", value: error,
+                    })
+                });
         }
 
         let childrenCollection = e.target.parentNode.children

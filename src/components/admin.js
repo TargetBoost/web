@@ -260,7 +260,7 @@ class Admin extends Component{
                                                         filterUser(this.state.targets, false).length > 0 ?
                                                             filterUser(this.state.targets, false).map(t =>
                                                                 <div className="task-item">
-                                                                    <div className="task-item-value">ID: {t.login}</div>
+                                                                    <div className="task-item-value">ID: {t.id}</div>
                                                                     <div className="task-item-value">login: {t.login}</div>
                                                                     <div className="task-item-value">balance: {(parseInt(store.user.balance)).toLocaleString('ru') } ₽</div>
                                                                     {/*<div className="task-item-value">{t.count}/{t.total}</div>*/}

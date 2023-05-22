@@ -228,7 +228,7 @@ class Admin extends Component{
                                 <>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
-                                            <div className="button-light active-white" target="ca" onClick={this.swapButtonTask}>Кампании</div>
+                                            <div className="button-light active-white" target="ca" onClick={this.swapButtonTask}>Кампании на проверку</div>
                                             <div className="button-light" target="users" onClick={this.swapButtonTask}>Пользователи</div>
                                             <div className="button-light" target="rejected" onClick={this.swapButtonTask}>Бан-лист</div>
                                             <div className="button-light" target="shortcomings" onClick={this.swapButtonTask}>Заявки на выплаты</div>
@@ -281,7 +281,7 @@ class Admin extends Component{
                                                         )
                                                         :
                                                         <div className="alert">
-                                                            Активных кампаний нет
+                                                            Кампаний на проверку нет.
                                                         </div>
                                                 }
                                             </div>

@@ -277,6 +277,15 @@ class Admin extends Component{
             });
     }
 
+    copyText = (e) => {
+        let link = e.target.getAttribute("link")
+        navigator.clipboard.writeText(link)
+
+        this.state.store.dispatch({
+            type: "set_info", value: `Ссылка ${link} скопированна`,
+        })
+    }
+
     render() {
         let store = this.state.store.getState()
 
@@ -405,7 +414,7 @@ class Admin extends Component{
                                                                     <div className="task-item-value">{t.title}</div>
                                                                     <div className="task-item-value">{t.count}/{t.total}</div>
                                                                     <div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>
-                                                                    <div className="task-item-value underline click"><a target="_blank" href={t.link} >{t.link}</a></div>
+                                                                    <div className="task-item-value underline click" link={t.link} onClick={this.copyText}>ссылка</div>
                                                                     {
                                                                         t.status === "check" ?
                                                                             <div className="task-item-value orange">На проверке</div>

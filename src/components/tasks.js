@@ -62,7 +62,7 @@ class Tasks extends Component{
     }
 
     componentDidMount() {
-        fetch(`/core/v1/service/task`, {
+        fetch(`/core/v1/service/executor/target`, {
             method: "GET",
             headers: {
                 "Authorization": window.localStorage.getItem("token")

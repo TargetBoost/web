@@ -89,7 +89,7 @@ class Targets extends Component{
             total: Number(this.state.total),
             cost: this.state.cost,
             type: this.state.type,
-            link: this.state.link
+            link: this.state.link,
         }
 
         fetch(`/core/v1/service/target`, {
@@ -198,6 +198,7 @@ class Targets extends Component{
                                                                     </div>
                                                                     <div className="task-item-value">{t.title}</div>
                                                                     <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                    <div className="task-item-value">{t.total_price}</div>
                                                                     {
                                                                         t.status === "check" ?
                                                                             <div className="task-item-value orange">На проверке</div>
@@ -250,6 +251,8 @@ class Targets extends Component{
                                                                             </div>
                                                                             <div className="task-item-value">{t.title}</div>
                                                                             <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                            <div className="task-item-value">{t.total_price}</div>
+
                                                                             <div className="task-item-value">Завершена</div>
                                                                             <div className="task-item-value">
                                                                                 <div className="button-default">Изменить</div>
@@ -290,6 +293,8 @@ class Targets extends Component{
                                                                         </div>
                                                                         <div className="task-item-value">{t.title}</div>
                                                                         <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                        <div className="task-item-value">{t.total_price}</div>
+
                                                                         <div className="task-item-value">На проверке</div>
                                                                         <div className="task-item-value">
                                                                             <div className="button-default">Изменить</div>
@@ -329,6 +334,8 @@ class Targets extends Component{
                                                                             </div>
                                                                             <div className="task-item-value">{t.title}</div>
                                                                             <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                            <div className="task-item-value">{t.total_price}</div>
+
                                                                             <div className="task-item-value red">
                                                                                 Причина внутри
                                                                             </div>

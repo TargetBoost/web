@@ -48,7 +48,7 @@ class Header extends Component{
                                     <Menu>
                                         <Dropdown text={store.user.login} floating labeled button className='icon'>
                                             <Dropdown.Menu>
-                                                <Dropdown.Header>Ваш баланс: { store.user.balance } ₽</Dropdown.Header>
+                                                <Dropdown.Header>Ваш баланс: { (store.user.balance).toLocaleString('ru') } ₽</Dropdown.Header>
                                                 {
                                                     store.user.execute === true ?
                                                         <Dropdown.Item onClick={()=>{window.location.href = '/tasks'}}>Ваши задания</Dropdown.Item>

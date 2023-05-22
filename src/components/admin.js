@@ -15,7 +15,7 @@ class Admin extends Component{
             store: this.props.store,
             id: this.props.id,
             type: this.props.type,
-            executor: "c"
+            executor: "ca"
         }
 
         this.state.store.subscribe(() => {

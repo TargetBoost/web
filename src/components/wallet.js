@@ -54,7 +54,7 @@ class Wallet extends Component{
                         <>
                             <div className="block-default-pre">
                                 <h2>Пополнение баланса</h2>
-                                <h3>Ваш баланс: { (store.user.balance).toLocaleString('ru') } ₽</h3>
+                                <h3>Ваш баланс: { store.user.balance.toLocaleString('ru') } ₽</h3>
                             </div>
                             <div className="block-default-pre">
                                 <div className="wrapper-input">

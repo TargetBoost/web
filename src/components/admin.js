@@ -122,6 +122,29 @@ class Admin extends Component{
                         type: "set_error", value: error,
                     })
                 });
+        }else if (target === "caar") {
+            fetch(`/core/v1/service/admin/target`, {
+                method: "GET",
+                headers: {
+                    "Authorization": window.localStorage.getItem("token")
+                }
+            })
+                .then(response => response.json())
+                .then(res => {
+                    if (res.status.message === null) {
+                        this.setState({targets: res.data})
+                    }else{
+                        this.state.store.dispatch({
+                            type: "set_error", value: res.status.message,
+                        })
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                    this.state.store.dispatch({
+                        type: "set_error", value: error,
+                    })
+                });
         }
 
         let childrenCollection = e.target.parentNode.children
@@ -252,6 +275,7 @@ class Admin extends Component{
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
                                             <div className="button-light active-white" target="ca" onClick={this.swapButtonTask}>Кампании на проверку</div>
+                                            <div className="button-light active-white" target="caar" onClick={this.swapButtonTask}>Отклоненные кампании</div>
                                             <div className="button-light active-white" target="caa" onClick={this.swapButtonTask}>Активные кампании</div>
                                             <div className="button-light" target="users" onClick={this.swapButtonTask}>Пользователи</div>
                                             <div className="button-light" target="block" onClick={this.swapButtonTask}>Бан-лист</div>
@@ -349,7 +373,7 @@ class Admin extends Component{
 
                                                                     }
                                                                     <div className="task-item-value">
-                                                                        <div className="button-default" target={t.id} status="2" onClick={this.updateTask}>Запустить</div>
+                                                                        <div className="button-default red_bg" target={t.id} status="2" onClick={this.updateTask}>Остановить</div>
                                                                     </div>
                                                                 </div>
                                                             )
@@ -360,6 +384,56 @@ class Admin extends Component{
                                                     }
                                                 </div>
                                                 :
+                                                this.state.executor === "caar" ?
+                                                    <div className="block-default-pre">
+                                                        {
+                                                            filterTarget(this.state.targets, 1).length > 0 ?
+                                                                filterTarget(this.state.targets, 1).map(t =>
+                                                                    <div className="task-item">
+                                                                        <div className="task-item-value task-item-icon-box">
+                                                                            {
+                                                                                t.icon === "vk" ?
+                                                                                    <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                    :
+                                                                                    t.icon === "yt" ?
+                                                                                        <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                        :
+                                                                                        t.icon === "tg" ?
+                                                                                            <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                            :
+                                                                                            null
+                                                                            }
+
+                                                                        </div>
+                                                                        <div className="task-item-value">{t.title}</div>
+                                                                        <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                        <div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>
+                                                                        <div className="task-item-value underline click"><a target="_blank" href={t.link} >{t.link}</a></div>
+                                                                        {
+                                                                            t.status === "check" ?
+                                                                                <div className="task-item-value orange">На проверке</div>
+                                                                                :
+                                                                                t.status === "end" ?
+                                                                                    <div className="task-item-value">Завершена</div>
+                                                                                    :
+                                                                                    t.status === "active" ?
+                                                                                        <div className="task-item-value green-color">Активна</div>
+                                                                                        :
+                                                                                        null
+
+                                                                        }
+                                                                        <div className="task-item-value">
+                                                                            <div className="button-default" target={t.id} status="1" onClick={this.updateTask}>Запустить</div>
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                                :
+                                                                <div className="alert">
+                                                                    Кампаний на проверку нет.
+                                                                </div>
+                                                        }
+                                                    </div>
+                                                    :
                                             this.state.executor === "users" ?
                                                 <div className="block-default-pre">
                                                     {

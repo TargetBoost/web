@@ -24,7 +24,7 @@ class Admin extends Component{
     }
 
     componentDidMount() {
-        fetch(`/core/v1/admin/target`, {
+        fetch(`/core/v1/service/admin/target`, {
             method: "GET",
             headers: {
                 "Authorization": window.localStorage.getItem("token")

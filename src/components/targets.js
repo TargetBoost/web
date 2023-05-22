@@ -49,6 +49,11 @@ class Targets extends Component{
         })
     }
 
+    urlPatternValidation = URL => {
+        const regex = new RegExp('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?');
+        return regex.test(URL);
+    };
+
     swapButtonTask = (e) => {
 
         this.setState({executor: e.target.getAttribute("target")})
@@ -90,6 +95,13 @@ class Targets extends Component{
             cost: this.state.cost,
             type: this.state.type,
             link: this.state.link,
+        }
+
+        if (!this.urlPatternValidation(this.state.link)){
+            this.state.store.dispatch({
+                type: "set_error", value: "Цель может быть только ссылкой",
+            })
+            return
         }
 
         fetch(`/core/v1/service/target`, {

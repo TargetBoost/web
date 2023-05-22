@@ -47,7 +47,7 @@ class Settings extends Component{
                     store.user.load === false ?
                         <>
                             <div className="block-default-pre">
-                                <h2>Настройка профиля</h2>
+                                <h2>Профиль</h2>
                                 {/*<h3>Ваш баланс: { store.user.balance } ₽</h3>*/}
                             </div>
                             <div className="block-default-pre">
@@ -68,9 +68,9 @@ class Settings extends Component{
                                         Телефон: +{ store.user.number_phone }
                                         {/*<input className="input-default" id="login" placeholder="Логин"/>*/}
                                     </div>
-                                    <div style={{padding: "10px", width: "100px"}}>
-                                        <div className="button-default unselectable">Сохранить</div>
-                                    </div>
+                                    {/*<div style={{padding: "10px", width: "100px"}}>*/}
+                                    {/*    <div className="button-default unselectable">Сохранить</div>*/}
+                                    {/*</div>*/}
                                 </div>
                             </div>
                             {/*<div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>*/}

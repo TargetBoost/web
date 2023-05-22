@@ -929,7 +929,7 @@ body {
     }
 
     .wrapper-header {
-        padding: 15px;
+        /*padding: 15px;*/
         display: flex;
         justify-content: space-between;
         box-sizing: border-box;

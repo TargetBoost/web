@@ -199,8 +199,31 @@ class Admin extends Component{
                     })
                 }else{
                     this.state.store.dispatch({
-                        type: "set_info", value: `Кампания id:${data.id} переведена в статус активная`,
+                        type: "set_info", value: `Кампания id:${data.id} переведена в новый статус`,
                     })
+
+                    fetch(`/core/v1/service/admin/target`, {
+                        method: "GET",
+                        headers: {
+                            "Authorization": window.localStorage.getItem("token")
+                        }
+                    })
+                        .then(response => response.json())
+                        .then(res => {
+                            if (res.status.message === null) {
+                                this.setState({targets: res.data})
+                            }else{
+                                this.state.store.dispatch({
+                                    type: "set_error", value: res.status.message,
+                                })
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                            this.state.store.dispatch({
+                                type: "set_error", value: error,
+                            })
+                        });
                 }
             })
             .catch(error => {

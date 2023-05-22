@@ -77,8 +77,11 @@ class Contact extends Component{
                     {/*       poster="https://samplelib.com/lib/preview/mp4/sample-5s.jpg"*/}
                     {/*       controlsList="nodownload"></video>*/}
                     <ReactPlayer
+                        width="100%"
                         url="https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
-                        onPlay={(e) => { this.handleToggleVideo(e)}}
+                        onProgress={
+                            this.handleToggleVideo
+                        }
                     />
                 </div>
                 <div className="block-default-pre">

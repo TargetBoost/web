@@ -174,15 +174,15 @@ class Targets extends Component{
                                 <>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
-                                            <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Активные</div>
-                                            <div className="button-light" target="end" onClick={this.swapButtonTask}>Завершенные</div>
-                                            <div className="button-light" target="check" onClick={this.swapButtonTask}>На проверке</div>
-                                            <div className="button-light" target="rejection" onClick={this.swapButtonTask}>Отклоненные</div>
-                                            <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
+                                            <div className="unselectable button-light active-white" target="all" onClick={this.swapButtonTask}>Активные</div>
+                                            <div className="unselectable button-light" target="end" onClick={this.swapButtonTask}>Завершенные</div>
+                                            <div className="unselectable button-light" target="check" onClick={this.swapButtonTask}>На проверке</div>
+                                            <div className="unselectable button-light" target="rejection" onClick={this.swapButtonTask}>Отклоненные</div>
+                                            <div className="unselectable button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
 
                                         </div>
                                         <div className="flex-left-right">
-                                            <div className="button-light" target="create" style={{background: "#0072FC", color: "#fff"}} onClick={this.swapButtonTask}>Создать рекламную кампанию</div>
+                                            <div className="unselectable button-light" target="create" style={{background: "#0072FC", color: "#fff"}} onClick={this.swapButtonTask}>Создать рекламную кампанию</div>
                                         </div>
                                     </div>
                                     {

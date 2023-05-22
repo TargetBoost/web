@@ -129,8 +129,8 @@ class Tasks extends Component{
                                 <>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
-                                            <div className="button-light active-white" target="all" onClick={this.swapButtonTask}>Задания</div>
-                                            <div className="button-light" target="history" onClick={this.swapButtonTask}>История заданий</div>
+                                            <div className="unselectable button-light active-white" target="all" onClick={this.swapButtonTask}>Задания</div>
+                                            <div className="unselectable button-light" target="history" onClick={this.swapButtonTask}>История заданий</div>
 
                                             {/*<div className="button-light" target="end" onClick={this.swapButtonTask}>Выполненные</div>*/}
                                             {/*<div className="button-light" target="rejected" onClick={this.swapButtonTask}>Отклоненные</div>*/}

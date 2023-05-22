@@ -69,6 +69,10 @@ class Settings extends Component{
                                         Телефон: +{ store.user.number_phone }
                                         {/*<input className="input-default" id="login" placeholder="Логин"/>*/}
                                     </div>
+                                    <div className="wrapper-input">
+                                        Телеграм: { store.user.tg }
+                                        {/*<input className="input-default" id="login" placeholder="Логин"/>*/}
+                                    </div>
                                     {/*<div style={{padding: "10px", width: "100px"}}>*/}
                                     {/*    <div className="button-default unselectable">Сохранить</div>*/}
                                     {/*</div>*/}

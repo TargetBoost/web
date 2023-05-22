@@ -87,6 +87,7 @@ class App extends Component{
                                                 number_phone: res.data.number_phone,
                                                 block: res.data.block,
                                                 cause: res.data.cause,
+                                                tg: res.data.tg,
                                             },
                                         })
                                     }else{
@@ -170,6 +171,7 @@ class App extends Component{
                                                 number_phone: res.data.number_phone,
                                                 block: res.data.block,
                                                 cause: res.data.cause,
+                                                tg: res.data.tg,
                                             },
                                         })
                                     }else{
@@ -292,6 +294,7 @@ class App extends Component{
                                         number_phone: res.data.number_phone,
                                         block: res.data.block,
                                         cause: res.data.cause,
+                                        tg: res.data.tg,
                                     },
                                 })
                             }else{

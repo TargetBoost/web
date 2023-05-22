@@ -227,6 +227,18 @@ class App extends Component{
                     progress: undefined,
                 });
             }
+
+            if (state.error.showInfo) {
+                toast.info(state.error.infoText, {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }
         })
     }
 

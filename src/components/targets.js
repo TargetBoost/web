@@ -103,6 +103,10 @@ class Targets extends Component{
             .then(res => {
                 if (res.status.message === null) {
                     window.location.reload()
+                    this.setState({executor: "all"})
+                    this.state.store.dispatch({
+                        type: "set_info", value: "Рекламная Кампания успешно создана",
+                    })
                 }else{
                     this.state.store.dispatch({
                         type: "set_error", value: res.status.message,

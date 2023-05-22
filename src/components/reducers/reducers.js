@@ -1,7 +1,9 @@
 const initState = {
     error: {
+        showInfo: false,
         showError: false,
-        errorText: null
+        errorText: null,
+        infoText: null,
     },
     user: {
         load: true,
@@ -48,6 +50,14 @@ function reducer(state = initState, action) {
             state.error = {
                 showError: true,
                 errorText: action.value
+            }
+
+            return state
+
+        case "set_info":
+            state.error = {
+                showInfo: true,
+                infoText: action.value
             }
 
             return state

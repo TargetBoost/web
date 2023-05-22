@@ -86,7 +86,7 @@ class Targets extends Component{
     createTarget = () => {
         let data = {
             icon: this.state.select,
-            total: Number(this.state.total),
+            total: this.state.total,
             cost: this.state.cost,
             type: this.state.type,
             link: this.state.link,

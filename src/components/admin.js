@@ -52,6 +52,55 @@ class Admin extends Component{
 
         this.setState({executor: e.target.getAttribute("target")})
 
+        let target = e.target.getAttribute("target")
+        if (target === "ca"){
+            fetch(`/core/v1/service/admin/target`, {
+                method: "GET",
+                headers: {
+                    "Authorization": window.localStorage.getItem("token")
+                }
+            })
+                .then(response => response.json())
+                .then(res => {
+                    if (res.status.message === null) {
+                        this.setState({targets: res.data})
+                    }else{
+                        this.state.store.dispatch({
+                            type: "set_error", value: res.status.message,
+                        })
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                    this.state.store.dispatch({
+                        type: "set_error", value: error,
+                    })
+                });
+        } else if (target === "users") {
+            fetch(`/core/v1/service/users`, {
+                method: "GET",
+                headers: {
+                    "Authorization": window.localStorage.getItem("token")
+                }
+            })
+                .then(response => response.json())
+                .then(res => {
+                    if (res.status.message === null) {
+                        this.setState({targets: res.data})
+                    }else{
+                        this.state.store.dispatch({
+                            type: "set_error", value: res.status.message,
+                        })
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                    this.state.store.dispatch({
+                        type: "set_error", value: error,
+                    })
+                });
+        }
+
         let childrenCollection = e.target.parentNode.children
 
         for (let i=0; i !== childrenCollection.length; i++) {
@@ -135,15 +184,15 @@ class Admin extends Component{
                                 <>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
-                                            <div className="button-light active-white" target="c" onClick={this.swapButtonTask}>Кампании</div>
-                                            <div className="button-light" target="end" onClick={this.swapButtonTask}>Пользователи</div>
+                                            <div className="button-light active-white" target="ca" onClick={this.swapButtonTask}>Кампании</div>
+                                            <div className="button-light" target="users" onClick={this.swapButtonTask}>Пользователи</div>
                                             <div className="button-light" target="rejected" onClick={this.swapButtonTask}>Бан-лист</div>
                                             <div className="button-light" target="shortcomings" onClick={this.swapButtonTask}>Заявки на выплаты</div>
                                             <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
                                         </div>
                                     </div>
                                     {
-                                        this.state.executor === "c" ?
+                                        this.state.executor === "ca" ?
                                             <div className="block-default-pre">
                                                 {
                                                     filterTarget(this.state.targets, 0).length > 0 ?
@@ -193,7 +242,7 @@ class Admin extends Component{
                                                 }
                                             </div>
                                         :
-                                            this.state.executor === "end" ?
+                                            this.state.executor === "users" ?
                                                 <div className="block-default-pre">
                                                     <div className="task-wall">
                                                         <div className="alert">

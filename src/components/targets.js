@@ -155,6 +155,7 @@ class Targets extends Component{
                                 <div className="wrapper-error">
                                     <div className="error">Ваш профиль был заблокирован по решению администрации.</div>
                                     <div className="error small-text">Причина: {store.user.cause}</div>
+                                    <br/>
                                     <div className="error small-text">
                                         <div style={{textDecoration: "underline", cursor: "pointer"}}
                                              onClick={() => {window.location.href = '/'}}>На главную</div>
@@ -163,6 +164,7 @@ class Targets extends Component{
                                 :
                                 <div className="wrapper-error">
                                     <div className="error">У Вас нет доступа к этой странице</div>
+                                    <br/>
                                     <div className="error small-text">
                                          <div style={{textDecoration: "underline", cursor: "pointer"}}
                                         onClick={() => {window.location.href = '/'}}>На главную</div>

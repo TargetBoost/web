@@ -143,8 +143,8 @@ class Tasks extends Component{
                                             <div className="block-default-pre">
                                                 <div className="task-wall">
                                                     {
-                                                        filterTarget(this.state.targets, "active").length > 0 ?
-                                                            filterTarget(this.state.targets, "active").map(t =>
+                                                        filterTarget(this.state.targets, 1).length > 0 ?
+                                                            filterTarget(this.state.targets, 1).map(t =>
                                                                 <div className="task-item">
                                                                     <div className="task-item-value task-item-icon-box">
                                                                         {

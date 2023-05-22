@@ -146,8 +146,8 @@ class Admin extends Component{
                                         this.state.executor === "c" ?
                                             <div className="block-default-pre">
                                                 {
-                                                    filterTarget(this.state.targets, 1).length > 0 ?
-                                                        filterTarget(this.state.targets, 1).map(t =>
+                                                    filterTarget(this.state.targets, 0).length > 0 ?
+                                                        filterTarget(this.state.targets, 0).map(t =>
                                                             <div className="task-item">
                                                                 <div className="task-item-value task-item-icon-box">
                                                                     {

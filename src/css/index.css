@@ -139,7 +139,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 160px;
+    /*width: 160px;*/
 }
 
 .task-item-icon-box {

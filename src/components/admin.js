@@ -111,7 +111,7 @@ class Admin extends Component{
 
     updateTask = (e) => {
         let data = {
-            id: e.target.getAttribute("target"),
+            id: parseInt(e.target.getAttribute("target")),
             status: 1
         }
 

@@ -369,6 +369,7 @@ class Admin extends Component{
 
                                                                 }
                                                                 <div className="task-item-value">
+                                                                    <div className="button-default red_bg" target={t.id} status="2" onClick={this.updateTask}>Отклонить</div>
                                                                     <div className="button-default" target={t.id} status="1" onClick={this.updateTask}>Запустить</div>
                                                                 </div>
                                                             </div>

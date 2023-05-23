@@ -5,7 +5,7 @@ class Contact extends Component{
         super(props);
         this.state = {
             targetAction: "sign-in",
-            load: false,
+            load: true,
             vast: ""
         }
     }

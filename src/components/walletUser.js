@@ -166,21 +166,21 @@ class WalletUser extends Component{
                                         this.state.task.length > 0 ?
                                             this.state.task.map(t =>
                                                 <div className="task-item">
-                                                    <div className="task-item-value">{t.id}</div>
-                                                    <div className="task-item-value">{t.transaction_id}</div>
+                                                    <div className="task-item-value">ID: {t.id}</div>
+                                                    <div className="task-item-value">Transaction ID:{t.transaction_id}</div>
                                                     <div className="task-item-value">{t.number}</div>
                                                     <div className="task-item-value">{ (parseInt(t.total)).toLocaleString('ru') } ₽</div>
                                                     {
                                                         t.status === 0 ?
                                                             <div className="task-item-value">Создана</div>
                                                             :
-                                                            t.icon === 1 ?
+                                                            t.status === 1 ?
                                                                 <div className="task-item-value" style={{color: "green"}}>В работе</div>
                                                                 :
-                                                                t.icon === 2 ?
+                                                                t.status === 2 ?
                                                                     <div className="task-item-value" style={{color: "green"}}>Выполнена</div>
                                                                     :
-                                                                        t.icon === 4 ?
+                                                                        t.status === 4 ?
                                                                             <div className="task-item-value" style={{color: "red"}}>Отклонена</div>
                                                                         :
                                                                             null

@@ -164,7 +164,7 @@ class Registration extends Component{
                                                 <InputMask className="input-default" formatChars={{
                                                     '9': '[0-9]',
                                                     'a': '[A-Za-z]'
-                                                }} mask="@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм без @" />
+                                                }} mask="@" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм без @" />
                                                 {/*<input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>*/}
                                             </div>
                                             <div className="wrapper-input">

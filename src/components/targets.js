@@ -269,7 +269,7 @@ class Targets extends Component{
                                             <div className="unselectable button-light" target="end" onClick={this.swapButtonTask}>Завершенные</div>
                                             <div className="unselectable button-light" target="check" onClick={this.swapButtonTask}>На проверке</div>
                                             <div className="unselectable button-light" target="rejection" onClick={this.swapButtonTask}>Отклоненные</div>
-                                            <div className="unselectable button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
+                                            {/*<div className="unselectable button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>*/}
 
                                         </div>
                                         <div className="flex-left-right">

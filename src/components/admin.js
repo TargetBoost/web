@@ -645,14 +645,12 @@ class Admin extends Component{
                                                                                         :
                                                                                             t.status === 2 ?
                                                                                                 <div className="task-item-value">
-                                                                                                    <div className="button-default grey">Выполнил</div>
-                                                                                                    <div className="button-default grey">Отклонить</div>
+                                                                                                    <div className="button-default grey">Выполнена</div>
                                                                                                 </div>
                                                                                                 :
                                                                                                 t.status === 4 ?
                                                                                                     <div className="task-item-value">
-                                                                                                        <div className="button-default grey">Выполнил</div>
-                                                                                                        <div className="button-default grey">Отклонить</div>
+                                                                                                        <div className="button-default grey">Отклонена</div>
                                                                                                     </div>
                                                                                                     :
 

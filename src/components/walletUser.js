@@ -2,12 +2,16 @@ import React, {Component} from "react";
 import CurrencyInput from 'react-currency-input-field';
 import 'react-input-range/lib/css/index.css';
 import InputMask from "react-input-mask";
+import vk from "../icon/vk.png";
+import youtube from "../icon/youtube.png";
+import telegram from "../icon/telegram.png";
 
 class WalletUser extends Component{
     constructor(props) {
         super(props);
         this.state = {
             store: this.props.store,
+            task: [],
         }
 
         this.state.store.subscribe(() => {
@@ -48,6 +52,19 @@ class WalletUser extends Component{
 
     render() {
         let store = this.state.store.getState()
+
+        function filterTask(targets, f) {
+            let target = []
+
+            for (const property in targets) {
+                if (targets[property].status === f) {
+                    target.push(targets[property])
+                }
+            }
+
+            return target
+        }
+
         return (
             <>
                 {
@@ -56,6 +73,27 @@ class WalletUser extends Component{
                             <div className="block-default-pre">
                                 <h2>Вывод баланса</h2>
                                 <h3>Ваш баланс: { (parseInt(store.user.balance)).toLocaleString('ru') } ₽</h3>
+                            </div>
+                            <div className="block-default-pre">
+                                <div className="task-wall">
+                                    {
+                                        this.state.task.length > 0 ?
+                                            this.state.task.map(t =>
+                                                <div className="task-item">
+                                                    <div className="task-item-value">{t.title}</div>
+                                                    <div className="task-item-value">{t.cost}₽</div>
+                                                    <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
+                                                    <div className="task-item-value">
+                                                        <div className="button-default" target={t.id} id={t.tid} onClick={this.checkSub}>Проверить</div>
+                                                    </div>
+                                                </div>
+                                            )
+                                            :
+                                            <div className="alert">
+                                                Вы еще не делали заявок на вывод баланса.
+                                            </div>
+                                    }
+                                </div>
                             </div>
                             <div className="block-default-pre">
                                 <div className="wrapper-input">

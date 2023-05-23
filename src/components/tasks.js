@@ -238,7 +238,8 @@ class Tasks extends Component{
                                                 display: "flex",
                                                 justifyContent: "center",
                                                 alignItems: "center",
-                                                background: "#fff"
+                                                background: "#fff",
+                                                width: "40px"
                                             }}>
                                                 <img className="icon-task-small" src={update} alt="item" style={{maxWidth: "15px"}}/>
                                             </div>

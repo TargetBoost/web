@@ -197,7 +197,7 @@ class Tasks extends Component{
                                                                     <div className="task-item-value">{t.cost}₽</div>
                                                                     <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
                                                                     <div className="task-item-value">
-                                                                        <div className="button-default" target={t.id} id={t.t_id} onClick={this.checkSub}>Проверить</div>
+                                                                        <div className="button-default" target={t.id} id={t.tid} onClick={this.checkSub}>Проверить</div>
                                                                     </div>
                                                                 </div>
                                                             )

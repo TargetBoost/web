@@ -161,7 +161,7 @@ class Registration extends Component{
                                                 <input className="input-default" id="login" placeholder="Логин"/>
                                             </div>
                                             <div className="wrapper-input">
-                                                <InputMask {...this.props} mask="@[a-Z]{1,100}"/>
+                                                <InputMask className="input-default" mask="@aaaaaaaaaaaaaa"/>
                                                 {/*<input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>*/}
                                             </div>
                                             <div className="wrapper-input">

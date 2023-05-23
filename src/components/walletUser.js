@@ -175,7 +175,7 @@ class WalletUser extends Component{
                                             className="input-default"
                                             intlConfig={{locale: 'ru-RU', currency: 'RUB'}}
                                             name="price"
-                                            placeholder="Стоимость"
+                                            placeholder="Сумма вывода"
                                             maxLength={6}
                                             defaultValue={0}
                                             decimalsLimit={2}

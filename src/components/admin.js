@@ -662,7 +662,7 @@ class Admin extends Component{
                                                                         )
                                                                         :
                                                                         <div className="alert">
-                                                                            Вы еще не делали заявок на вывод баланса.
+                                                                            Заявок на вывод еще не было.
                                                                         </div>
                                                                 }
                                                             </div>

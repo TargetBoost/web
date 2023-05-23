@@ -632,7 +632,7 @@ class Admin extends Component{
                                                                             <div className="task-item">
                                                                                 <div className="task-item-value">ID: {t.id}</div>
 
-                                                                                <div className="task-item-value">Transaction ID: {t.transaction_id}</div>
+                                                                                <div className="task-item-value underline" link={t.transaction_id} onClick={this.copyText}>Transaction ID</div>
 
                                                                                 <div className="task-item-value">{t.number}</div>
                                                                                 <div className="task-item-value">{ (parseInt(t.total)).toLocaleString('ru') } ₽</div>

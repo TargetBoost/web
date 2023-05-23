@@ -241,7 +241,7 @@ class Tasks extends Component{
                                                 background: "#fff",
                                                 width: "40px"
                                             }}>
-                                                <img className="icon-task-small" src={update} alt="item" style={{maxWidth: "15px"}}/>
+                                                <img className="icon-task-small" src={update} alt="item" style={{maxWidth: "15px", cursor: "pointer"}}/>
                                             </div>
 
                                             <div className="unselectable button-light active-white" target="all" onClick={this.swapButtonTask}>Задания</div>

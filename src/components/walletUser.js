@@ -50,6 +50,36 @@ class WalletUser extends Component{
         })
     }
 
+    createTask = () => {
+        let data = {
+            total: this.state.price,
+            number: document.getElementById("number").value,
+        }
+
+        fetch(`/core/v1/service/task_cashes`, {
+            method: "POST",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message === null) {
+                    this.state.store.dispatch({
+                        type: "set_info", value: "Заявка на вывод создана",
+                    })
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
+
     render() {
         let store = this.state.store.getState()
 
@@ -121,11 +151,11 @@ class WalletUser extends Component{
                                         />
                                     </div>
                                     <div className="wrapper-input">
-                                        <InputMask className="input-default" id="tg" mask="+7***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Номер qiwi для пополнения" />
+                                        <InputMask className="input-default" id="number" mask="+7***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Номер qiwi для пополнения" />
                                         {/*<input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>*/}
                                     </div>
                                     <div style={{padding: "10px", width: "190px"}}>
-                                        <div className="button-default unselectable">Создать заявку</div>
+                                        <div className="button-default unselectable" onClick={this.createTask}>Создать заявку</div>
                                     </div>
                                 </div>
                             </div>

@@ -184,7 +184,7 @@ class Admin extends Component{
             status: parseInt(e.target.getAttribute("status"))
         }
 
-        fetch(`/core/v1/service/target`, {
+        fetch(`/core/v1/service/admin/target`, {
             method: "PUT",
             headers: {
                 "Authorization": window.localStorage.getItem("token")

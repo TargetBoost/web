@@ -166,6 +166,61 @@ class Targets extends Component{
         this.setState({link: e.target.value})
     };
 
+    updateTask = (e) => {
+        let data = {
+            id: parseInt(e.target.getAttribute("target")),
+            status: parseInt(e.target.getAttribute("status"))
+        }
+
+        fetch(`/core/v1/service/target`, {
+            method: "PUT",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message !== null) {
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_info", value: `Кампания id:${data.id} переведена в новый статус`,
+                    })
+
+                    fetch(`/core/v1/service/admin/target`, {
+                        method: "GET",
+                        headers: {
+                            "Authorization": window.localStorage.getItem("token")
+                        }
+                    })
+                        .then(response => response.json())
+                        .then(res => {
+                            if (res.status.message === null) {
+                                this.setState({targets: res.data})
+                            }else{
+                                this.state.store.dispatch({
+                                    type: "set_error", value: res.status.message,
+                                })
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                            this.state.store.dispatch({
+                                type: "set_error", value: error,
+                            })
+                        });
+                }
+            })
+            .catch(error => {
+                this.state.store.dispatch({
+                    type: "set_error", value: error,
+                })
+            });
+    }
+
 
     render() {
         let store = this.state.store.getState()
@@ -261,7 +316,7 @@ class Targets extends Component{
 
                                                                     }
                                                                     <div className="task-item-value">
-                                                                        <div className="button-default">Завершить</div>
+                                                                        <div className="button-default" target={t.id} status="3" onClick={this.updateTask}>Завершить</div>
                                                                     </div>
                                                                 </div>
                                                             )
@@ -302,9 +357,9 @@ class Targets extends Component{
                                                                             <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
 
                                                                             <div className="task-item-value">Завершена</div>
-                                                                            <div className="task-item-value">
-                                                                                <div className="button-default">Изменить</div>
-                                                                            </div>
+                                                                            {/*<div className="task-item-value">*/}
+                                                                            {/*    <div className="button-default" target={t.id} status="3" onClick={this.updateTask}></div>*/}
+                                                                            {/*</div>*/}
                                                                         </div>
 
                                                                 )

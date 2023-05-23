@@ -234,7 +234,7 @@ class Tasks extends Component{
                                 <>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
-                                            <div className="unselectable button-light active-white" onClick={this.update} style={{
+                                            <div className="unselectable button-light" onClick={this.update} style={{
                                                 display: "flex",
                                                 justifyContent: "center",
                                                 alignItems: "center",

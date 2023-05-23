@@ -172,14 +172,14 @@ class Registration extends Component{
                                                 <input className="input-default" id="re_password" type="password"
                                                        placeholder="Повторите пароль"/>
                                             </div>
-                                            <div className="wrapper-input-checkbox">
-                                                {/*<div className="wrapper-input-checkbox-wr-input">*/}
-                                                {/*    <input className="input-default-checkbox" type="checkbox"/>*/}
-                                                {/*</div>*/}
-                                                {/*<div className="wrapper-input-checkbox-wr-input-text">Я прочел <a*/}
-                                                {/*    className="button-text" target="_blank" href="">пользовательское*/}
-                                                {/*    соглашение</a></div>*/}
-                                            </div>
+                                            {/*<div className="wrapper-input-checkbox">*/}
+                                            {/*    /!*<div className="wrapper-input-checkbox-wr-input">*!/*/}
+                                            {/*    /!*    <input className="input-default-checkbox" type="checkbox"/>*!/*/}
+                                            {/*    /!*</div>*!/*/}
+                                            {/*    /!*<div className="wrapper-input-checkbox-wr-input-text">Я прочел <a*!/*/}
+                                            {/*    /!*    className="button-text" target="_blank" href="">пользовательское*!/*/}
+                                            {/*    /!*    соглашение</a></div>*!/*/}
+                                            {/*</div>*/}
                                             <div className="wrapper-input-checkbox">
                                                 <div className="wrapper-input-checkbox-wr-input">
                                                     <input className="input-default-checkbox" type="checkbox"

@@ -167,7 +167,12 @@ class WalletUser extends Component{
                                             this.state.task.map(t =>
                                                 <div className="task-item">
                                                     <div className="task-item-value">ID: {t.id}</div>
-                                                    <div className="task-item-value">Transaction ID:{t.transaction_id}</div>
+                                                    {
+                                                        t.transaction_id === "" ?
+                                                            <div className="task-item-value">Transaction ID: 0</div>
+                                                            :
+                                                            <div className="task-item-value">Transaction ID: {t.transaction_id}</div>
+                                                    }
                                                     <div className="task-item-value">{t.number}</div>
                                                     <div className="task-item-value">{ (parseInt(t.total)).toLocaleString('ru') } ₽</div>
                                                     {

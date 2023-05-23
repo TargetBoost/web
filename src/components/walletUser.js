@@ -154,7 +154,7 @@ class WalletUser extends Component{
                                         <InputMask className="input-default" id="number" mask="+7***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Номер qiwi для пополнения" />
                                         {/*<input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>*/}
                                     </div>
-                                    <div style={{padding: "10px", width: "190px"}}>
+                                    <div style={{padding: "10px", width: "126px"}}>
                                         <div className="button-default unselectable" onClick={this.createTask}>Создать заявку</div>
                                     </div>
                                 </div>

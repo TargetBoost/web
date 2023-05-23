@@ -20,28 +20,28 @@ class WalletUser extends Component{
     }
 
     componentDidMount() {
-        // fetch(`/core/v1/service/task`, {
-        //     method: "GET",
-        //     headers: {
-        //         "Authorization": window.localStorage.getItem("token")
-        //     }
-        // })
-        //     .then(response => response.json())
-        //     .then(res => {
-        //         if (res.status.message === null) {
-        //             this.setState({targets: res.data})
-        //         }else{
-        //             this.state.store.dispatch({
-        //                 type: "set_error", value: res.status.message,
-        //             })
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.log(error)
-        //         this.state.store.dispatch({
-        //             type: "set_error", value: error,
-        //         })
-        //     });
+        fetch(`/core/v1/service/task_cashes`, {
+            method: "GET",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            }
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message === null) {
+                    this.setState({task: res.data})
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+                this.state.store.dispatch({
+                    type: "set_error", value: error,
+                })
+            });
     }
 
     updatePrice = (value, name) => {
@@ -69,6 +69,28 @@ class WalletUser extends Component{
                     this.state.store.dispatch({
                         type: "set_info", value: "Заявка на вывод создана",
                     })
+                    fetch(`/core/v1/service/task_cashes`, {
+                        method: "GET",
+                        headers: {
+                            "Authorization": window.localStorage.getItem("token")
+                        }
+                    })
+                        .then(response => response.json())
+                        .then(res => {
+                            if (res.status.message === null) {
+                                this.setState({task: res.data})
+                            }else{
+                                this.state.store.dispatch({
+                                    type: "set_error", value: res.status.message,
+                                })
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                            this.state.store.dispatch({
+                                type: "set_error", value: error,
+                            })
+                        });
                 }else{
                     this.state.store.dispatch({
                         type: "set_error", value: res.status.message,
@@ -110,12 +132,25 @@ class WalletUser extends Component{
                                         this.state.task.length > 0 ?
                                             this.state.task.map(t =>
                                                 <div className="task-item">
-                                                    <div className="task-item-value">{t.title}</div>
-                                                    <div className="task-item-value">{t.cost}₽</div>
-                                                    <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
-                                                    <div className="task-item-value">
-                                                        <div className="button-default" target={t.id} id={t.tid} onClick={this.checkSub}>Проверить</div>
-                                                    </div>
+                                                    <div className="task-item-value">{t.id}</div>
+                                                    <div className="task-item-value">{t.transaction_id}</div>
+                                                    <div className="task-item-value">{t.number}</div>
+                                                    <div className="task-item-value">{ (parseInt(t.total)).toLocaleString('ru') } ₽</div>
+                                                    {
+                                                        t.status === 0 ?
+                                                            <div className="task-item-value">Создана</div>
+                                                            :
+                                                            t.icon === 1 ?
+                                                                <div className="task-item-value" style={{color: "green"}}>В работе</div>
+                                                                :
+                                                                t.icon === 2 ?
+                                                                    <div className="task-item-value" style={{color: "green"}}>Выполнена</div>
+                                                                    :
+                                                                        t.icon === 4 ?
+                                                                            <div className="task-item-value" style={{color: "red"}}>Отклонена</div>
+                                                                        :
+                                                                            null
+                                                    }
                                                 </div>
                                             )
                                             :

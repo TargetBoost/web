@@ -130,6 +130,27 @@ class WalletUser extends Component{
             <>
                 {
                     store.user.load === false ?
+                        store.user.auth === false || store.user.execute === false || store.user.block === true  ?
+                            store.user.block === true ?
+                                <div className="wrapper-error">
+                                    <div className="error">Ваш профиль был заблокирован по решению Администрации сайта.</div>
+                                    <div className="error small-text">Причина: {store.user.cause}</div>
+                                    <br/>
+                                    <div className="error small-text">
+                                        <div style={{textDecoration: "underline", cursor: "pointer"}}
+                                             onClick={() => {window.location.href = '/'}}>На главную</div>
+                                    </div>
+                                </div>
+                                :
+                                <div className="wrapper-error">
+                                    <div className="error">У Вас нет доступа к этой странице</div>
+                                    <br/>
+                                    <div className="error small-text">
+                                        <div style={{textDecoration: "underline", cursor: "pointer"}}
+                                             onClick={() => {window.location.href = '/'}}>На главную</div>
+                                    </div>
+                                </div>
+                            :
                         <>
                             <div className="block-default-pre">
                                 <h2>Вывод баланса</h2>

@@ -89,7 +89,7 @@ class Tasks extends Component{
     checkSub = (e) => {
         let data = {
             id: parseInt(e.target.getAttribute("target")),
-            status: 0,
+            tid: parseInt(e.target.getAttribute("id")),
         }
 
         fetch(`/core/v1/service/check_target`, {
@@ -197,7 +197,7 @@ class Tasks extends Component{
                                                                     <div className="task-item-value">{t.cost}₽</div>
                                                                     <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
                                                                     <div className="task-item-value">
-                                                                        <div className="button-default" target={t.id} onClick={this.checkSub}>Проверить</div>
+                                                                        <div className="button-default" target={t.id} id={t.t_id} onClick={this.checkSub}>Проверить</div>
                                                                     </div>
                                                                 </div>
                                                             )
@@ -209,21 +209,40 @@ class Tasks extends Component{
                                                 </div>
                                             </div>
                                         :
-                                            this.state.executor === "end" ?
+                                            this.state.executor === "history" ?
                                                 <div className="block-default-pre">
-                                                    <div className="task-wall">
-                                                        <div className="task-item">
-                                                            <div className="task-item-value task-item-icon-box">
-                                                                <img className="icon-task-small" src={vk} alt="item"/>
+                                                    {
+                                                        filterTarget(this.state.targets, 4).length > 0 ?
+                                                            filterTarget(this.state.targets, 4).map(t =>
+                                                                <div className="task-item">
+                                                                    <div className="task-item-value task-item-icon-box">
+                                                                        {
+                                                                            t.icon === "vk" ?
+                                                                                <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                :
+                                                                                t.icon === "yt" ?
+                                                                                    <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                    :
+                                                                                    t.icon === "tg" ?
+                                                                                        <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                        :
+                                                                                        null
+                                                                        }
+
+                                                                    </div>
+                                                                    <div className="task-item-value">{t.title}</div>
+                                                                    <div className="task-item-value">{t.cost}₽</div>
+                                                                    <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
+                                                                    <div className="task-item-value">
+                                                                        <div className="button-default grey">Выполнено</div>
+                                                                    </div>
+                                                                </div>
+                                                            )
+                                                            :
+                                                            <div className="alert">
+                                                                Доступный заданий пока нет
                                                             </div>
-                                                            <div className="task-item-value">Подписаться на сообщество VK</div>
-                                                            <div className="task-item-value">0.50 коп</div>
-                                                            <div className="task-item-value underline click">Перейти к заданию</div>
-                                                            <div className="task-item-value">
-                                                                <div className="button-default">Проверить</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    }
                                                 </div>
                                             :
                                                 this.state.executor === "rejected" ?

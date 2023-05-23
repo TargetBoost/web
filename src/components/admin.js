@@ -256,6 +256,61 @@ class Admin extends Component{
             });
     }
 
+    updateTaskCashes = (e) => {
+        let data = {
+            id: parseInt(e.target.getAttribute("targetID")),
+            status: parseInt(e.target.getAttribute("status"))
+        }
+
+        fetch(`/core/v1/service/admin/task_cashes`, {
+            method: "PUT",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message !== null) {
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_info", value: `Заявка id:${data.id} переведена в новый статус`,
+                    })
+
+                    fetch(`/core/v1/service/admin/task_cashes`, {
+                        method: "GET",
+                        headers: {
+                            "Authorization": window.localStorage.getItem("token")
+                        }
+                    })
+                        .then(response => response.json())
+                        .then(res => {
+                            if (res.status.message === null) {
+                                this.setState({targets: res.data})
+                            }else{
+                                this.state.store.dispatch({
+                                    type: "set_error", value: res.status.message,
+                                })
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                            this.state.store.dispatch({
+                                type: "set_error", value: error,
+                            })
+                        });
+                }
+            })
+            .catch(error => {
+                this.state.store.dispatch({
+                    type: "set_error", value: error,
+                })
+            });
+    }
+
     updateSettings = (e) => {
         let target = e.target.getAttribute("name")
         let store = this.state.store.getState()
@@ -576,19 +631,16 @@ class Admin extends Component{
                                                                         this.state.targets.map(t =>
                                                                             <div className="task-item">
                                                                                 <div className="task-item-value">ID: {t.id}</div>
-                                                                                {
-                                                                                    t.transaction_id === "" ?
-                                                                                        <div className="task-item-value">Transaction ID: 0000000000</div>
-                                                                                        :
-                                                                                        <div className="task-item-value">Transaction ID: {t.transaction_id}</div>
-                                                                                }
+
+                                                                                <div className="task-item-value">Transaction ID: {t.transaction_id}</div>
+
                                                                                 <div className="task-item-value">{t.number}</div>
                                                                                 <div className="task-item-value">{ (parseInt(t.total)).toLocaleString('ru') } ₽</div>
                                                                                 {
                                                                                     t.status === 0 ?
                                                                                         <div className="task-item-value">
-                                                                                            <div className="button-default">Выполнил</div>
-                                                                                            <div className="button-default red_bg">Отклонить</div>
+                                                                                            <div className="button-default" targetID={t.id} status={2} onClick={this.updateTaskCashes}>Выполнил</div>
+                                                                                            <div className="button-default red_bg" targetID={t.id} status={4} onClick={this.updateTaskCashes}>Отклонить</div>
                                                                                         </div>
                                                                                         :
                                                                                             t.status === 2 ?

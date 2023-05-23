@@ -589,15 +589,24 @@ class Admin extends Component{
                                                                                         <div className="task-item-value">Создана</div>
                                                                                         :
                                                                                         t.status === 1 ?
-                                                                                            <div className="task-item-value" style={{color: "green"}}>В работе</div>
+                                                                                            <div className="button-default grey">В работе</div>
                                                                                             :
                                                                                             t.status === 2 ?
-                                                                                                <div className="task-item-value" style={{color: "green"}}>Выполнена</div>
+                                                                                                <div className="button-default grey">Выполнена</div>
                                                                                                 :
                                                                                                 t.status === 4 ?
-                                                                                                    <div className="task-item-value" style={{color: "red"}}>Отклонена</div>
+                                                                                                    <div className="button-default grey">Отклонена</div>
                                                                                                     :
                                                                                                     null
+                                                                                }
+                                                                                {
+                                                                                    t.status === 0 ?
+                                                                                        <div className="task-item-value">
+                                                                                            <div className="button-default">Выполнил</div>
+                                                                                            <div className="button-default green">Отклонить</div>
+                                                                                        </div>
+                                                                                        :
+                                                                                            null
                                                                                 }
                                                                             </div>
                                                                         )

@@ -103,7 +103,7 @@ class Tasks extends Component{
             .then(res => {
                 if (res.status.message !== null) {
                     this.state.store.dispatch({
-                        type: "set_error", value: res.status.message,
+                        type: "set_error", value: "Вы не подписаны",
                     })
                 }else{
                     this.state.store.dispatch({

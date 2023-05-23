@@ -13,7 +13,7 @@ class Footer extends Component{
             <>
                 <div className="footer">
                     <div className="logo-text">© 2022-{date.getFullYear()} Target Boost</div>
-                    <div className="footer-button" onClick={()=> {window.location.href = "https://t.me/targetboostchat"}} target={_blank}>Чат с поддержкой</div>
+                    <div className="footer-button" onClick={()=> {window.location.href = "https://t.me/targetboostchat"}}>Чат с поддержкой</div>
                     <div className="footer-button">Пользовательское соглашение</div>
                     <div className="footer-button" onClick={()=> {window.location.href = "/jobs"}}>Вакансии</div>
                     <div className="footer-button" onClick={()=> {window.location.href = "/about"}}>О Нас</div>

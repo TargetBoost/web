@@ -86,14 +86,14 @@ class WalletUser extends Component{
                                         <InputMask className="input-default" id="tg" mask="+7***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Номер qiwi для пополнения" />
                                         {/*<input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>*/}
                                     </div>
-                                    <div style={{padding: "10px", width: "100px"}}>
+                                    <div style={{padding: "10px", width: "190px"}}>
                                         <div className="button-default unselectable">Создать заявку</div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>
-                                Мы не храним данные ваших банковских карт.
-                            </div>
+                            {/*<div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>*/}
+                            {/*    Мы не храним данные ваших банковских карт.*/}
+                            {/*</div>*/}
                         </>
                         :
                         <div className="block-flex-center full-page">

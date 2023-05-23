@@ -161,7 +161,7 @@ class Registration extends Component{
                                                 <input className="input-default" id="login" placeholder="Логин"/>
                                             </div>
                                             <div className="wrapper-input">
-                                                <InputMask className="input-default" mask="@aaaaaaaaaaaaaa"/>
+                                                <InputMask className="input-default" mask="@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" placeholder="Логин телеграмм без @" />
                                                 {/*<input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>*/}
                                             </div>
                                             <div className="wrapper-input">

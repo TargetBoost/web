@@ -6,6 +6,7 @@ import {
     StateSelector,
     CitySelector
 } from 'volkeno-react-country-state-city'
+import InputMask from 'react-input-mask';
 
 
 class Registration extends Component{
@@ -160,7 +161,8 @@ class Registration extends Component{
                                                 <input className="input-default" id="login" placeholder="Логин"/>
                                             </div>
                                             <div className="wrapper-input">
-                                                <input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>
+                                                <InputMask {...this.props} mask="@[a-Z]{1,100}"/>
+                                                {/*<input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>*/}
                                             </div>
                                             <div className="wrapper-input">
                                                 <input className="input-default" id="password" type="password"

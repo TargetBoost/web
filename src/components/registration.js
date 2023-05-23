@@ -52,12 +52,12 @@ class Registration extends Component{
             tg: document.getElementById("tg").value
         }
 
-        if (!this.urlPatternValidation(data.tg)) {
-            this.state.store.dispatch({
-                type: "set_error", value: "Телеграм может быть только ссылкой",
-            })
-            return
-        }
+        // if (!this.urlPatternValidation(data.tg)) {
+        //     this.state.store.dispatch({
+        //         type: "set_error", value: "Телеграм может быть только ссылкой",
+        //     })
+        //     return
+        // }
 
         if (data.login !== '' && data.number_phone !== '' && data.password !== '' && data.tg !== '') {
             if (document.getElementById("re_password").value !== data.password){

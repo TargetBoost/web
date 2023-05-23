@@ -234,15 +234,7 @@ class Tasks extends Component{
                                 <>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
-                                            <div className="unselectable button-light" onClick={this.update} style={{
-                                                display: "flex",
-                                                justifyContent: "center",
-                                                alignItems: "center",
-                                                background: "#fff",
-                                                width: "40px"
-                                            }}>
-                                                <img className="icon-task-small" src={update} alt="item" style={{maxWidth: "15px", cursor: "pointer"}}/>
-                                            </div>
+
 
                                             <div className="unselectable button-light active-white" target="all" onClick={this.swapButtonTask}>Задания</div>
                                             <div className="unselectable button-light" target="history" onClick={this.swapButtonTask}>История заданий</div>
@@ -251,6 +243,18 @@ class Tasks extends Component{
                                             {/*<div className="button-light" target="rejected" onClick={this.swapButtonTask}>Отклоненные</div>*/}
                                             {/*<div className="button-light" target="shortcomings" onClick={this.swapButtonTask}>Недочеты</div>*/}
                                             {/*<div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>*/}
+                                        </div>
+                                        <div className="flex-left-right">
+                                            <div className="unselectable button-light" onClick={this.update} style={{
+                                                display: "flex",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                background: "#fff",
+                                                width: "40px"
+                                            }}>
+                                                <img className="icon-task-small" src={update} alt="item" style={{maxWidth: "15px", cursor: "pointer", paddingRight: "3px"}}/>
+                                                Обновить
+                                            </div>
                                         </div>
                                     </div>
                                     {

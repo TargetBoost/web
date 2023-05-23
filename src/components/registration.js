@@ -60,6 +60,12 @@ class Registration extends Component{
         }
 
         if (data.login !== '' && data.number_phone !== '' && data.password !== '' && data.tg !== '') {
+            if (document.getElementById("re_password").value !== data.password){
+                this.state.store.dispatch({
+                    type: "set_error", value: "Пароли не совпадают",
+                })
+                return
+            }
             this.setState({nextStep: "load"})
             if (document.getElementById("re_password").value === data.password) {
                 fetch("/core/v1/system/registration", {

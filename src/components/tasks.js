@@ -376,7 +376,7 @@ class Tasks extends Component{
                                                                         null
                                     }
                                     <div className="block-default-pre" style={{fontSize: "13px", background: "#f2e4a8"}}>
-                                        Напишите нашему боту (<a href="https://t.me/targetBoostBot" target="_blank" className="underline">@targetBoostBot</a>) в телеграм, что бы начать выполнять задания.
+                                        Напишите нашему боту (<a href="https://t.me/targetBoostBot" target="_blank" className="underline">@targetBoostBot</a>) в телеграм, чтобы начать выполнять задания.
                                     </div>
                                     {/*<div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>*/}
                                     {/*    Не обновляйте страницу, задания будут появлятся автоматически.*/}

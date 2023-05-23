@@ -127,40 +127,6 @@ class WalletUser extends Component{
                                 <h3>Ваш баланс: { (parseInt(store.user.balance)).toLocaleString('ru') } ₽</h3>
                             </div>
                             <div className="block-default-pre">
-                                <div className="task-wall">
-                                    {
-                                        this.state.task.length > 0 ?
-                                            this.state.task.map(t =>
-                                                <div className="task-item">
-                                                    <div className="task-item-value">{t.id}</div>
-                                                    <div className="task-item-value">{t.transaction_id}</div>
-                                                    <div className="task-item-value">{t.number}</div>
-                                                    <div className="task-item-value">{ (parseInt(t.total)).toLocaleString('ru') } ₽</div>
-                                                    {
-                                                        t.status === 0 ?
-                                                            <div className="task-item-value">Создана</div>
-                                                            :
-                                                            t.icon === 1 ?
-                                                                <div className="task-item-value" style={{color: "green"}}>В работе</div>
-                                                                :
-                                                                t.icon === 2 ?
-                                                                    <div className="task-item-value" style={{color: "green"}}>Выполнена</div>
-                                                                    :
-                                                                        t.icon === 4 ?
-                                                                            <div className="task-item-value" style={{color: "red"}}>Отклонена</div>
-                                                                        :
-                                                                            null
-                                                    }
-                                                </div>
-                                            )
-                                            :
-                                            <div className="alert">
-                                                Вы еще не делали заявок на вывод баланса.
-                                            </div>
-                                    }
-                                </div>
-                            </div>
-                            <div className="block-default-pre">
                                 <div className="wrapper-input">
                                     <div className="preview-inside-block">
                                         <p>
@@ -194,6 +160,41 @@ class WalletUser extends Component{
                                     </div>
                                 </div>
                             </div>
+                            <div className="block-default-pre">
+                                <div className="task-wall">
+                                    {
+                                        this.state.task.length > 0 ?
+                                            this.state.task.map(t =>
+                                                <div className="task-item">
+                                                    <div className="task-item-value">{t.id}</div>
+                                                    <div className="task-item-value">{t.transaction_id}</div>
+                                                    <div className="task-item-value">{t.number}</div>
+                                                    <div className="task-item-value">{ (parseInt(t.total)).toLocaleString('ru') } ₽</div>
+                                                    {
+                                                        t.status === 0 ?
+                                                            <div className="task-item-value">Создана</div>
+                                                            :
+                                                            t.icon === 1 ?
+                                                                <div className="task-item-value" style={{color: "green"}}>В работе</div>
+                                                                :
+                                                                t.icon === 2 ?
+                                                                    <div className="task-item-value" style={{color: "green"}}>Выполнена</div>
+                                                                    :
+                                                                        t.icon === 4 ?
+                                                                            <div className="task-item-value" style={{color: "red"}}>Отклонена</div>
+                                                                        :
+                                                                            null
+                                                    }
+                                                </div>
+                                            )
+                                            :
+                                            <div className="alert">
+                                                Вы еще не делали заявок на вывод баланса.
+                                            </div>
+                                    }
+                                </div>
+                            </div>
+
                             {/*<div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>*/}
                             {/*    Мы не храним данные ваших банковских карт.*/}
                             {/*</div>*/}

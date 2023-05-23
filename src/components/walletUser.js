@@ -143,7 +143,7 @@ class WalletUser extends Component{
                                             name="price"
                                             placeholder="Сумма вывода"
                                             maxLength={6}
-                                            defaultValue={0}
+                                            defaultValue={null}
                                             decimalsLimit={2}
                                             onValueChange={(value, name) => this.updatePrice(value, name)}
                                             // style={{

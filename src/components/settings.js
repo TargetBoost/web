@@ -60,7 +60,7 @@ class Settings extends Component{
                                 {/*        </p>*/}
                                 {/*    </div>*/}
                                 {/*</div>*/}
-                                <div style={{width: "250px"}}>
+                                <div >
                                     <div className="wrapper-input">
                                         Логин: { store.user.login }
                                         {/*<input className="input-default" id="login" placeholder="Логин"/>*/}

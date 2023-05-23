@@ -86,9 +86,9 @@ class Login extends Component{
                                     <input className="input-default" onKeyDown={this.handleKeyDown} type="password" id="password" placeholder="Пароль" />
                                 </div>
                                 <div className="wrapper-input-checkbox">
-                                    <div className="wrapper-input-checkbox-wr-input">
-                                        <a className="button-text" target="_blank" href="">Восстановить пароль</a>
-                                    </div>
+                                    {/*<div className="wrapper-input-checkbox-wr-input">*/}
+                                    {/*    <a className="button-text" target="_blank" href="">Восстановить пароль</a>*/}
+                                    {/*</div>*/}
                                 </div>
                             </div>
                             <div className="sing-wrapper">

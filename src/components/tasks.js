@@ -240,7 +240,7 @@ class Tasks extends Component{
                                                             )
                                                             :
                                                             <div className="alert">
-                                                                Доступный заданий пока нет
+                                                                Вы еще не выполнили ни одного задания
                                                             </div>
                                                     }
                                                 </div>

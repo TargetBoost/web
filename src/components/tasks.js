@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import vk from "../icon/vk.png";
 import youtube from "../icon/youtube.png"
 import telegram from "../icon/telegram.png"
+import update from "../icon/update.png";
+
 import Select from 'react-select';
 import 'react-input-range/lib/css/index.css';
 
@@ -164,6 +166,31 @@ class Tasks extends Component{
             });
     }
 
+    update = (e) => {
+        fetch(`/core/v1/service/executor/target`, {
+            method: "GET",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            }
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message === null) {
+                    this.setState({targets: res.data})
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+                this.state.store.dispatch({
+                    type: "set_error", value: error,
+                })
+            });
+    }
+
     render() {
         let store = this.state.store.getState()
 
@@ -207,6 +234,10 @@ class Tasks extends Component{
                                 <>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
+                                            <div className="unselectable button-light active-white" onClick={this.update}>
+                                                <img className="icon-task-small" src={update} alt="item" style={{maxWidth: "30px"}}/>
+                                            </div>
+
                                             <div className="unselectable button-light active-white" target="all" onClick={this.swapButtonTask}>Задания</div>
                                             <div className="unselectable button-light" target="history" onClick={this.swapButtonTask}>История заданий</div>
 

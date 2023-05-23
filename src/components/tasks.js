@@ -234,8 +234,13 @@ class Tasks extends Component{
                                 <>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
-                                            <div className="unselectable button-light active-white" onClick={this.update}>
-                                                <img className="icon-task-small" src={update} alt="item" style={{maxWidth: "30px"}}/>
+                                            <div className="unselectable button-light active-white" onClick={this.update} style={{
+                                                display: "flex",
+                                                justifyContent: "center",
+                                                alignItems: "center",
+                                                background: "#fff"
+                                            }}>
+                                                <img className="icon-task-small" src={update} alt="item" style={{maxWidth: "15px"}}/>
                                             </div>
 
                                             <div className="unselectable button-light active-white" target="all" onClick={this.swapButtonTask}>Задания</div>

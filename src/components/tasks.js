@@ -86,6 +86,38 @@ class Tasks extends Component{
             });
     }
 
+    checkSub = (e) => {
+        let data = {
+            id: parseInt(e.target.getAttribute("target")),
+            status: 0,
+        }
+
+        fetch(`/core/v1/service/check_target`, {
+            method: "POST",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message !== null) {
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_info", value: `Задача выполнена`,
+                    })
+                }
+            })
+            .catch(error => {
+                this.state.store.dispatch({
+                    type: "set_error", value: error,
+                })
+            });
+    }
+
     render() {
         let store = this.state.store.getState()
 
@@ -165,7 +197,7 @@ class Tasks extends Component{
                                                                     <div className="task-item-value">{t.cost}₽</div>
                                                                     <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
                                                                     <div className="task-item-value">
-                                                                        <div className="button-default">Проверить</div>
+                                                                        <div className="button-default" target={t.id} onClick={this.checkSub}>Проверить</div>
                                                                     </div>
                                                                 </div>
                                                             )

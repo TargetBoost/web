@@ -168,6 +168,29 @@ class Admin extends Component{
                         type: "set_error", value: error,
                     })
                 });
+        }else if (target === "withdrawal") {
+            fetch(`/core/v1/service/task_cashes`, {
+                method: "GET",
+                headers: {
+                    "Authorization": window.localStorage.getItem("token")
+                }
+            })
+                .then(response => response.json())
+                .then(res => {
+                    if (res.status.message === null) {
+                        this.setState({targets: res.data})
+                    }else{
+                        this.state.store.dispatch({
+                            type: "set_error", value: res.status.message,
+                        })
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                    this.state.store.dispatch({
+                        type: "set_error", value: error,
+                    })
+                });
         }
 
         let childrenCollection = e.target.parentNode.children
@@ -334,7 +357,7 @@ class Admin extends Component{
                                             <div className="button-light" target="caa" onClick={this.swapButtonTask}>Активные кампании</div>
                                             <div className="button-light" target="users" onClick={this.swapButtonTask}>Пользователи</div>
                                             <div className="button-light" target="block" onClick={this.swapButtonTask}>Бан-лист</div>
-                                            <div className="button-light" target="shortcomings" onClick={this.swapButtonTask}>Заявки на выплаты</div>
+                                            <div className="button-light" target="withdrawal" onClick={this.swapButtonTask}>Заявки на выплаты</div>
                                             <div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>
                                         </div>
                                     </div>
@@ -545,12 +568,44 @@ class Admin extends Component{
                                                         </div>
                                                     </div>
                                                 :
-                                                    this.state.executor === "shortcomings" ?
+                                                    this.state.executor === "withdrawal" ?
                                                         <div className="block-default-pre">
                                                             <div className="task-wall">
-                                                                <div className="alert">
-                                                                    Пока ничего нет
-                                                                </div>
+                                                                {
+                                                                    this.state.targets.length > 0 ?
+                                                                        this.state.targets.map(t =>
+                                                                            <div className="task-item">
+                                                                                <div className="task-item-value">ID: {t.id}</div>
+                                                                                {
+                                                                                    t.transaction_id === "" ?
+                                                                                        <div className="task-item-value">Transaction ID: 0000000000</div>
+                                                                                        :
+                                                                                        <div className="task-item-value">Transaction ID: {t.transaction_id}</div>
+                                                                                }
+                                                                                <div className="task-item-value">{t.number}</div>
+                                                                                <div className="task-item-value">{ (parseInt(t.total)).toLocaleString('ru') } ₽</div>
+                                                                                {
+                                                                                    t.status === 0 ?
+                                                                                        <div className="task-item-value">Создана</div>
+                                                                                        :
+                                                                                        t.status === 1 ?
+                                                                                            <div className="task-item-value" style={{color: "green"}}>В работе</div>
+                                                                                            :
+                                                                                            t.status === 2 ?
+                                                                                                <div className="task-item-value" style={{color: "green"}}>Выполнена</div>
+                                                                                                :
+                                                                                                t.status === 4 ?
+                                                                                                    <div className="task-item-value" style={{color: "red"}}>Отклонена</div>
+                                                                                                    :
+                                                                                                    null
+                                                                                }
+                                                                            </div>
+                                                                        )
+                                                                        :
+                                                                        <div className="alert">
+                                                                            Вы еще не делали заявок на вывод баланса.
+                                                                        </div>
+                                                                }
                                                             </div>
                                                         </div>
                                                     :

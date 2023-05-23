@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import CurrencyInput from 'react-currency-input-field';
 import 'react-input-range/lib/css/index.css';
+import InputMask from "react-input-mask";
 
 class WalletUser extends Component{
     constructor(props) {
@@ -60,8 +61,7 @@ class WalletUser extends Component{
                                 <div className="wrapper-input">
                                     <div className="preview-inside-block">
                                         <p>
-                                            Введите сумму пополнения, после нажмите пополнить. <br/>
-                                            Вы перейдете на страницу платежного шлюза и введете данные вашей карты.
+                                            Минимальная сумма вывода 5 ₽
                                         </p>
                                     </div>
                                 </div>
@@ -82,8 +82,12 @@ class WalletUser extends Component{
                                             // }}
                                         />
                                     </div>
+                                    <div className="wrapper-input">
+                                        <InputMask className="input-default" id="tg" mask="+7***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Номер qiwi для пополнения" />
+                                        {/*<input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>*/}
+                                    </div>
                                     <div style={{padding: "10px", width: "100px"}}>
-                                        <div className="button-default unselectable">Пополнить</div>
+                                        <div className="button-default unselectable">Создать заявку</div>
                                     </div>
                                 </div>
                             </div>

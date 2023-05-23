@@ -169,7 +169,7 @@ class WalletUser extends Component{
                                                     <div className="task-item-value">ID: {t.id}</div>
                                                     {
                                                         t.transaction_id === "" ?
-                                                            <div className="task-item-value">Transaction ID: 00000000000000000000000</div>
+                                                            <div className="task-item-value">Transaction ID: 0000000000</div>
                                                             :
                                                             <div className="task-item-value">Transaction ID: {t.transaction_id}</div>
                                                     }

@@ -211,6 +211,7 @@ class Tasks extends Component{
                                         :
                                             this.state.executor === "history" ?
                                                 <div className="block-default-pre">
+                                                    <div className="task-wall">
                                                     {
                                                         filterTarget(this.state.targets, 4).length > 0 ?
                                                             filterTarget(this.state.targets, 4).map(t =>
@@ -243,6 +244,7 @@ class Tasks extends Component{
                                                                 Вы еще не выполнили ни одного задания
                                                             </div>
                                                     }
+                                                    </div>
                                                 </div>
                                             :
                                                 this.state.executor === "rejected" ?

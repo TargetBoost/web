@@ -169,7 +169,7 @@ class Admin extends Component{
                     })
                 });
         }else if (target === "withdrawal") {
-            fetch(`/core/v1/service/task_cashes`, {
+            fetch(`/core/v1/service/admin/task_cashes`, {
                 method: "GET",
                 headers: {
                     "Authorization": window.localStorage.getItem("token")

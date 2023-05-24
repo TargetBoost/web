@@ -131,32 +131,39 @@ class Tasks extends Component{
                             })
                         });
                 }else{
-                    this.state.store.dispatch({
-                        type: "set_info", value: `Задача выполнена`,
-                    })
+                    if (res.data) {
+                        this.state.store.dispatch({
+                            type: "set_info", value: `Задача выполнена`,
+                        })
 
-                    fetch(`/core/v1/service/executor/target`, {
-                        method: "GET",
-                        headers: {
-                            "Authorization": window.localStorage.getItem("token")
-                        }
-                    })
-                        .then(response => response.json())
-                        .then(res => {
-                            if (res.status.message === null) {
-                                this.setState({targets: res.data})
-                            }else{
-                                this.state.store.dispatch({
-                                    type: "set_error", value: res.status.message,
-                                })
+                        fetch(`/core/v1/service/executor/target`, {
+                            method: "GET",
+                            headers: {
+                                "Authorization": window.localStorage.getItem("token")
                             }
                         })
-                        .catch(error => {
-                            console.log(error)
-                            this.state.store.dispatch({
-                                type: "set_error", value: error,
+                            .then(response => response.json())
+                            .then(res => {
+                                if (res.status.message === null) {
+                                    this.setState({targets: res.data})
+                                }else{
+                                    this.state.store.dispatch({
+                                        type: "set_error", value: res.status.message,
+                                    })
+                                }
                             })
-                        });
+                            .catch(error => {
+                                console.log(error)
+                                this.state.store.dispatch({
+                                    type: "set_error", value: error,
+                                })
+                            });
+                    }else{
+                        this.state.store.dispatch({
+                            type: "set_error", value: `Вы не подписались`,
+                        })
+                    }
+
                 }
             })
             .catch(error => {

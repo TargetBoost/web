@@ -172,9 +172,10 @@ class WalletUser extends Component{
                                             intlConfig={{locale: 'ru-RU', currency: 'RUB'}}
                                             name="price"
                                             placeholder="Сумма вывода"
+                                            decimalSeparator="."
                                             maxLength={6}
                                             defaultValue={null}
-                                            decimalsLimit={0}
+                                            decimalsLimit={2}
                                             onValueChange={(value, name) => this.updatePrice(value, name)}
                                             // style={{
                                             //     width: "220px"

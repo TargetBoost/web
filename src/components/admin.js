@@ -635,7 +635,7 @@ class Admin extends Component{
                                                                                 <div className="task-item-value underline" link={t.transaction_id} onClick={this.copyText}>Transaction ID</div>
 
                                                                                 <div className="task-item-value">{t.number}</div>
-                                                                                <div className="task-item-value">{ (parseInt(t.total)).toLocaleString('ru') } ₽</div>
+                                                                                <div className="task-item-value">{ (parseFloat(t.total)).toLocaleString('ru') } ₽</div>
                                                                                 {
                                                                                     t.status === 0 ?
                                                                                         <div className="task-item-value">

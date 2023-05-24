@@ -52,7 +52,7 @@ class WalletUser extends Component{
 
     createTask = () => {
         let data = {
-            total: Number(this.state.price),
+            total: parseFloat(this.state.price),
             number: document.getElementById("number").value,
         }
 

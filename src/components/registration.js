@@ -48,7 +48,7 @@ class Registration extends Component{
             number_phone: Number(phone),
             login: document.getElementById("login").value,
             password: document.getElementById("password").value,
-            execute: document.getElementById("im_read").checked,
+            execute: !document.getElementById("im_read").checked,
             tg: document.getElementById("tg").value
         }
 
@@ -191,7 +191,7 @@ class Registration extends Component{
                                                     <input className="input-default-checkbox" type="checkbox"
                                                            id="im_read"/>
                                                 </div>
-                                                <div className="wrapper-input-checkbox-wr-input-text">Я исполнитель
+                                                <div className="wrapper-input-checkbox-wr-input-text">Я рекламодатель
                                                 </div>
                                             </div>
                                         </div>

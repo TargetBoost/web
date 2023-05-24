@@ -70,8 +70,6 @@ class WalletUser extends Component{
                         type: "set_info", value: "Заявка на вывод создана",
                     })
 
-                    this.setState({price: null})
-                    document.getElementById("number").value = ""
                     fetch(`/core/v1/service/task_cashes`, {
                         method: "GET",
                         headers: {

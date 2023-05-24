@@ -24,10 +24,10 @@ class Pay extends Component{
         let store = this.state.store.getState()
         return (
             <>
-                <div className="block-full-size">
-                    <div className="alert">
-                        Ваш баланс <span style={{color: "green"}}>{(parseFloat(store.user.balance)).toLocaleString('ru') } ₽</span> успешно пополнен
-                    </div>
+                <div className="preview-inside-block">
+                    <p>
+                        Ваш баланс <span style={{color: "green"}}> {(parseFloat(store.user.balance)).toLocaleString('ru') } ₽ </span> успешно пополнен
+                    </p>
                 </div>
             </>
         )

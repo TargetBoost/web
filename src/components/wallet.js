@@ -101,9 +101,9 @@ class Wallet extends Component{
                                             className="input-default"
                                             intlConfig={{locale: 'ru-RU', currency: 'RUB'}}
                                             name="price"
-                                            placeholder="Стоимость"
+                                            placeholder="Сумма"
                                             maxLength={6}
-                                            defaultValue={0}
+                                            defaultValue={null}
                                             decimalsLimit={2}
                                             onValueChange={(value, name) => this.updatePrice(value, name)}
                                             // style={{

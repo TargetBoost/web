@@ -41,7 +41,7 @@ class Wallet extends Component{
 
     pay = e => {
         let data = {
-            value: String(document.getElementById("price").value)
+            value: this.state.price
         }
         fetch(`/core/v1/service/pay`, {
             method: "POST",

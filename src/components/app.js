@@ -23,6 +23,7 @@ import Tasks from "./tasks";
 import Wallet from "./wallet";
 import Settings from "./settings";
 import WalletUser from "./walletUser";
+import Pay from "./pay_s";
 
 
 class App extends Component{
@@ -42,6 +43,7 @@ class App extends Component{
             '/admin' : route({view: <Admin store={this.state.store}/>}),
             '/wallet' : route({view: <Wallet store={this.state.store}/>}),
             '/withdrawal' : route({view: <WalletUser store={this.state.store}/>}),
+            '/s/pay' : route({view: <Pay store={this.state.store}/>}),
             '/settings' : route({view: <Settings store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
             '/targets' : route( request => {

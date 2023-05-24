@@ -116,9 +116,9 @@ class Wallet extends Component{
                                     </div>
                                 </div>
                             </div>
-                            <div className="block-default-pre" style={{fontSize: "12px", background: "red", color: "#fff"}}>
-                                На платежном шлюзе ведутся тех. работы. Попробуйте позже.
-                            </div>
+                            {/*<div className="block-default-pre" style={{fontSize: "12px", background: "red", color: "#fff"}}>*/}
+                            {/*    На платежном шлюзе ведутся тех. работы. Попробуйте позже.*/}
+                            {/*</div>*/}
                             <div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>
                                 Мы не храним данные ваших банковских карт.
                             </div>

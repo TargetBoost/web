@@ -27,7 +27,7 @@ class Pay extends Component{
                 <div className="block-default-pre">
                     <div className="preview-inside-block">
                         <p>
-                            Ваш баланс <span style={{color: "green"}}> {(parseFloat(store.user.balance)).toLocaleString('ru') } ₽ </span> успешно пополнен
+                            Ваш баланс (<span style={{color: "green"}}> {(parseFloat(store.user.balance)).toLocaleString('ru') } ₽ </span>) успешно пополнен.
                         </p>
                     </div>
                 </div>

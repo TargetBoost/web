@@ -29,7 +29,7 @@ class Targets extends Component{
                     { value: 'tg_community', cost: 2, label: 'Подписаться на канал' },
                 ],
                 yt: [
-                    { value: 'yt_chanel', cost: 2, label: 'Подписаться на канал' },
+                    { value: 'yt_chanel', cost: 5, label: 'Подписаться на канал' },
                     { value: 'yt_watch', cost: 1, label: 'Посмотреть видео' },
                     { value: 'yt_like', cost: 1, label: 'Поставить лайк'},
                     { value: 'yt_dislike', cost: 2, label: 'Поставить дизлайк' },

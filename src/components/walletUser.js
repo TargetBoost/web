@@ -182,7 +182,7 @@ class WalletUser extends Component{
                                         />
                                     </div>
                                     <div className="wrapper-input">
-                                        <InputMask className="input-default" id="number" mask="+7***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Номер qiwi для пополнения" />
+                                        <InputMask className="input-default" id="number" mask="+***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Номер qiwi для пополнения" />
                                         {/*<input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>*/}
                                     </div>
                                     <div style={{padding: "10px", width: "126px"}}>

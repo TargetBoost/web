@@ -12,16 +12,21 @@ class Pay extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            auth: this.props.auth,
+            store: this.props.store,
         }
+
+        this.state.store.subscribe(() => {
+            this.setState(this.state.store.getState())
+        })
     }
 
     render() {
+        let store = this.state.store.getState()
         return (
             <>
                 <div className="block-full-size">
                     <div className="alert">
-                        Ваш баланс успешно пополнен
+                        Ваш баланс <span style={{color: "green"}}>{(parseFloat(store.user.balance)).toLocaleString('ru') } ₽</span> успешно пополнен
                     </div>
                 </div>
             </>

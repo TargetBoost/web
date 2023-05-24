@@ -65,27 +65,30 @@ class Wallet extends Component{
                                         </p>
                                     </div>
                                 </div>
-                                <div style={{width: "250px"}}>
-                                    <div className="wrapper-input">
-                                        <CurrencyInput
-                                            id="price"
-                                            className="input-default"
-                                            intlConfig={{locale: 'ru-RU', currency: 'RUB'}}
-                                            name="price"
-                                            placeholder="Стоимость"
-                                            maxLength={6}
-                                            defaultValue={0}
-                                            decimalsLimit={2}
-                                            onValueChange={(value, name) => this.updatePrice(value, name)}
-                                            // style={{
-                                            //     width: "220px"
-                                            // }}
-                                        />
-                                    </div>
-                                    <div style={{padding: "10px", width: "100px"}}>
-                                        <div className="button-default unselectable">Пополнить</div>
-                                    </div>
-                                </div>
+                                {/*<div style={{width: "250px"}}>*/}
+                                {/*    <div className="wrapper-input">*/}
+                                {/*        <CurrencyInput*/}
+                                {/*            id="price"*/}
+                                {/*            className="input-default"*/}
+                                {/*            intlConfig={{locale: 'ru-RU', currency: 'RUB'}}*/}
+                                {/*            name="price"*/}
+                                {/*            placeholder="Стоимость"*/}
+                                {/*            maxLength={6}*/}
+                                {/*            defaultValue={0}*/}
+                                {/*            decimalsLimit={2}*/}
+                                {/*            onValueChange={(value, name) => this.updatePrice(value, name)}*/}
+                                {/*            // style={{*/}
+                                {/*            //     width: "220px"*/}
+                                {/*            // }}*/}
+                                {/*        />*/}
+                                {/*    </div>*/}
+                                {/*    <div style={{padding: "10px", width: "100px"}}>*/}
+                                {/*        <div className="button-default unselectable">Пополнить</div>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
+                            </div>
+                            <div className="block-default-pre" style={{fontSize: "12px", background: "red", color: "#fff"}}>
+                                На платежном шлюзе ведутся тех. работы. Попробуйте позже.
                             </div>
                             <div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>
                                 Мы не храним данные ваших банковских карт.

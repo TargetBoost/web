@@ -154,7 +154,7 @@ class WalletUser extends Component{
                         <>
                             <div className="block-default-pre">
                                 <h2>Вывод баланса</h2>
-                                <h3>Ваш баланс: { (parseInt(store.user.balance)).toLocaleString('ru') } ₽</h3>
+                                <h3>Ваш баланс: { (parseFloat(store.user.balance)).toLocaleString('ru') } ₽</h3>
                             </div>
                             <div className="block-default-pre">
                                 <div className="wrapper-input">

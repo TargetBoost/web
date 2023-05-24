@@ -76,7 +76,7 @@ class Contact extends Component{
                                     <br/>
                                     <br/>
                                     Основатель и финансовый директор<br/>
-                                    <a className="button-text" target="_blank" href="https://t.me/Foodfox_Grigory_Zolotookhin">Григорий</a>
+                                    <a className="button-text" target="_blank" href="https://t.me/Grigoriy_zol">Григорий</a>
                                 </div>
                             </div>
                         </>

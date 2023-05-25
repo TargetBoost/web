@@ -114,6 +114,10 @@ class Preview extends Component{
                                         </p>
                                     </div>
                                 </div>
+                                <div className="block-default-pre" style={{fontSize: "13px", background: "#f2e4a8"}}>
+                                    Мы запустились в тестовом режиме.<br/>
+                                    У Нас уже есть задания которые можно выполнить!<br/>
+                                </div>
                                 <div className="block-default-pre">
                                     <h2>Способы вывода средств</h2>
                                     <div className="preview-inside-block">

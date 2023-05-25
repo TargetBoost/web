@@ -22,16 +22,16 @@ class Targets extends Component{
             optionsDeepTarget: {
                 vk: [
                     { value: 'vk_community', cost: 2, label: 'Вступить в сообщество' },
-                    { value: 'vk_like', cost: 1, label: 'Поставить лайк на запись' },
+                    { value: 'vk_like', cost: 2, label: 'Поставить лайк на запись' },
                     { value: 'vk_add_friends', cost: 2, label: 'Добавить в друзья' },
                 ],
                 tg: [
-                    { value: 'tg_community', cost: 30, label: 'Подписаться на канал' },
+                    { value: 'tg_community', cost: 2, label: 'Подписаться на канал' },
                 ],
                 yt: [
-                    { value: 'yt_chanel', cost: 5, label: 'Подписаться на канал' },
-                    { value: 'yt_watch', cost: 1, label: 'Посмотреть видео' },
-                    { value: 'yt_like', cost: 1, label: 'Поставить лайк'},
+                    { value: 'yt_chanel', cost: 2, label: 'Подписаться на канал' },
+                    { value: 'yt_watch', cost: 2, label: 'Посмотреть видео' },
+                    { value: 'yt_like', cost: 2, label: 'Поставить лайк'},
                     { value: 'yt_dislike', cost: 2, label: 'Поставить дизлайк' },
                 ]
             },

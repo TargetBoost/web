@@ -26,7 +26,7 @@ class Targets extends Component{
                     { value: 'vk_add_friends', cost: 2, label: 'Добавить в друзья' },
                 ],
                 tg: [
-                    { value: 'tg_community', cost: 7, label: 'Подписаться на канал' },
+                    { value: 'tg_community', cost: 30, label: 'Подписаться на канал' },
                 ],
                 yt: [
                     { value: 'yt_chanel', cost: 5, label: 'Подписаться на канал' },

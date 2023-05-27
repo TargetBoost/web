@@ -13,6 +13,7 @@ class Tasks extends Component{
         this.state = {
             store: this.props.store,
             id: this.props.id,
+            updateNow: false,
             executor: "all",
             targets: [],
             optionsTypeTarget: [
@@ -174,6 +175,7 @@ class Tasks extends Component{
     }
 
     update = (e) => {
+        this.setState({"updateNow": true})
         fetch(`/core/v1/service/executor/target`, {
             method: "GET",
             headers: {
@@ -189,9 +191,11 @@ class Tasks extends Component{
                         type: "set_error", value: res.status.message,
                     })
                 }
+                this.setState({"updateNow": false})
             })
             .catch(error => {
                 console.log(error)
+                this.setState({"updateNow": false})
                 this.state.store.dispatch({
                     type: "set_error", value: error,
                 })
@@ -252,16 +256,30 @@ class Tasks extends Component{
                                             {/*<div className="button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>*/}
                                         </div>
                                         <div className="flex-left-right">
-                                            <div className="unselectable button-light" onClick={this.update} style={{
-                                                display: "flex",
-                                                justifyContent: "center",
-                                                alignItems: "center",
-                                                background: "#fff",
-                                                width: "115px"
-                                            }}>
-                                                <img className="icon-task-small" src={update} alt="item" style={{maxWidth: "15px", cursor: "pointer", paddingRight: "3px"}}/>
-                                                Обновить
-                                            </div>
+
+                                            {
+                                                this.state.updateNow ?
+                                                    <div className="unselectable button-light" style={{
+                                                        display: "flex",
+                                                        justifyContent: "center",
+                                                        alignItems: "center",
+                                                        background: "#fff",
+                                                        width: "115px"
+                                                    }}>
+                                                        <div className="loader-small" style={{width: "15px", height: "15px"}}/>
+                                                    </div>
+                                                :
+                                                    <div className="unselectable button-light" onClick={this.update} style={{
+                                                        display: "flex",
+                                                        justifyContent: "center",
+                                                        alignItems: "center",
+                                                        background: "#fff",
+                                                        width: "115px"
+                                                    }}>
+                                                        <img className="icon-task-small" src={update} alt="item" style={{maxWidth: "15px", cursor: "pointer", paddingRight: "3px"}}/>
+                                                        Обновить
+                                                    </div>
+                                            }
                                         </div>
                                     </div>
                                     {

@@ -46,7 +46,7 @@ class Header extends Component{
                             store.user.load === false ?
                                 store.user.auth ?
                                     <Menu>
-                                        <Dropdown text={store.user.login} floating labeled button className='icon'>
+                                        <Dropdown text={store.user.tg} floating labeled button className='icon'>
                                             <Dropdown.Menu>
                                                 <Dropdown.Header>Ваш баланс: { (parseFloat(store.user.balance)).toLocaleString('ru')  } ₽</Dropdown.Header>
                                                 {

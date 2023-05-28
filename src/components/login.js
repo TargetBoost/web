@@ -40,7 +40,7 @@ class Login extends Component{
                     }
                 }else{
                     this.state.store.dispatch({
-                        type: "set_error", value: "Не правельный номер телефона или пароль",
+                        type: "set_error", value: "Не правельный логин или пароль",
                     })
 
                     document.getElementById("password").value = ""

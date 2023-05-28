@@ -13,7 +13,7 @@ class Login extends Component{
     }
 
     auth = () => {
-        let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
+        // let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
 
 
         let data = {

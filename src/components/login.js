@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import PhoneInput from "react-phone-number-input";
+import InputMask from "react-input-mask";
 
 class Login extends Component{
     constructor(props) {
@@ -16,7 +17,7 @@ class Login extends Component{
 
 
         let data = {
-            number_phone: Number(phone),
+            tg: document.getElementById("tg").value,
             password: document.getElementById("password").value
         }
 
@@ -71,16 +72,24 @@ class Login extends Component{
                                 <div className="wrapper-input">
                                     <div className="title-pop-up">Войти</div>
                                 </div>
+                                {/*<div className="wrapper-input">*/}
+                                {/*    <PhoneInput*/}
+                                {/*        international*/}
+                                {/*        countryCallingCodeEditable={false}*/}
+                                {/*        defaultCountry="RU"*/}
+                                {/*        className="input-default-number input-default-number-country"*/}
+                                {/*        id="phone"*/}
+                                {/*        onChange={this.numberChange}*/}
+                                {/*        onKeyDown={this.handleKeyDown}*/}
+                                {/*    />*/}
+                                {/*</div>*/}
                                 <div className="wrapper-input">
-                                    <PhoneInput
-                                        international
-                                        countryCallingCodeEditable={false}
-                                        defaultCountry="RU"
-                                        className="input-default-number input-default-number-country"
-                                        id="phone"
-                                        onChange={this.numberChange}
-                                        onKeyDown={this.handleKeyDown}
-                                    />
+                                    <InputMask className="input-default" formatChars={{
+                                        '9': '[0-9]',
+                                        'a': '[A-Za-z]',
+                                        '*': '.*'
+                                    }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм без @" />
+                                    {/*<input className="input-default" id="tg" placeholder="Сcылка на Ваш телеграм https://..."/>*/}
                                 </div>
                                 <div className="wrapper-input">
                                     <input className="input-default" onKeyDown={this.handleKeyDown} type="password" id="password" placeholder="Пароль" />

@@ -45,8 +45,8 @@ class Registration extends Component{
         let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
 
         let data = {
-            number_phone: Number(phone),
-            login: document.getElementById("login").value,
+            // number_phone: Number(phone),
+            // login: document.getElementById("login").value,
             password: document.getElementById("password").value,
             execute: !document.getElementById("im_read").checked,
             tg: document.getElementById("tg").value
@@ -59,7 +59,7 @@ class Registration extends Component{
         //     return
         // }
 
-        if (data.login !== '' && data.number_phone !== '' && data.password !== '' && data.tg !== '') {
+        if (data.password !== '' && data.tg !== '') {
             if (document.getElementById("re_password").value !== data.password){
                 this.state.store.dispatch({
                     type: "set_error", value: "Пароли не совпадают",
@@ -153,19 +153,19 @@ class Registration extends Component{
                                             <div className="wrapper-input">
                                                 <div className="title-pop-up">Регистрация</div>
                                             </div>
-                                            <div className="wrapper-input">
-                                                <PhoneInput
-                                                    international
-                                                    countryCallingCodeEditable={false}
-                                                    defaultCountry="RU"
-                                                    className="input-default-number input-default-number-country"
-                                                    id="phone"
-                                                    onChange={this.numberChange}
-                                                />
-                                            </div>
-                                            <div className="wrapper-input">
-                                                <input className="input-default" id="login" placeholder="Логин"/>
-                                            </div>
+                                            {/*<div className="wrapper-input">*/}
+                                            {/*    <PhoneInput*/}
+                                            {/*        international*/}
+                                            {/*        countryCallingCodeEditable={false}*/}
+                                            {/*        defaultCountry="RU"*/}
+                                            {/*        className="input-default-number input-default-number-country"*/}
+                                            {/*        id="phone"*/}
+                                            {/*        onChange={this.numberChange}*/}
+                                            {/*    />*/}
+                                            {/*</div>*/}
+                                            {/*<div className="wrapper-input">*/}
+                                            {/*    <input className="input-default" id="login" placeholder="Логин"/>*/}
+                                            {/*</div>*/}
                                             <div className="wrapper-input">
                                                 <InputMask className="input-default" formatChars={{
                                                     '9': '[0-9]',

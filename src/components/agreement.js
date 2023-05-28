@@ -35,22 +35,22 @@ class Agreement extends Component{
                         </div>
                     </div>
                 </div>
-                <div className="block-default-pre">
-                    {/*<video onClick={this.handleToggleVideo}  src="//" className="video-thumbnail" controls=""*/}
-                    {/*       disablePictureInPicture="" preload="none"*/}
-                    {/*       poster="https://samplelib.com/lib/preview/mp4/sample-5s.jpg"*/}
-                    {/*       controlsList="nodownload"></video>*/}
-                </div>
-                <div className="block-default-pre">
-                    <div className="end">
-                        Основатель<br/>
-                        <a className="button-text" target="_blank" href="https://t.me/andrey_shsh">Андрей</a>
-                        <br/>
-                        <br/>
-                        Основатель и финансовый директор<br/>
-                        <a className="button-text" target="_blank" href="https://t.me/Grigoriy_zol">Григорий</a>
-                    </div>
-                </div>
+                {/*<div className="block-default-pre">*/}
+                {/*    /!*<video onClick={this.handleToggleVideo}  src="//" className="video-thumbnail" controls=""*!/*/}
+                {/*    /!*       disablePictureInPicture="" preload="none"*!/*/}
+                {/*    /!*       poster="https://samplelib.com/lib/preview/mp4/sample-5s.jpg"*!/*/}
+                {/*    /!*       controlsList="nodownload"></video>*!/*/}
+                {/*</div>*/}
+                {/*<div className="block-default-pre">*/}
+                {/*    <div className="end">*/}
+                {/*        Основатель<br/>*/}
+                {/*        <a className="button-text" target="_blank" href="https://t.me/andrey_shsh">Андрей</a>*/}
+                {/*        <br/>*/}
+                {/*        <br/>*/}
+                {/*        Основатель и финансовый директор<br/>*/}
+                {/*        <a className="button-text" target="_blank" href="https://t.me/Grigoriy_zol">Григорий</a>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </>
         )
     }

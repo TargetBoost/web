@@ -24,6 +24,7 @@ import Wallet from "./wallet";
 import Settings from "./settings";
 import WalletUser from "./walletUser";
 import Pay from "./pay_s";
+import Agreement from "./agreement";
 
 
 class App extends Component{
@@ -46,6 +47,8 @@ class App extends Component{
             '/s/pay' : route({view: <Pay store={this.state.store}/>}),
             '/settings' : route({view: <Settings store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
+            '/agreement' : route({view: <Agreement store={this.state.store}/>}),
+
             '/targets' : route( request => {
 
                 fetch("/core/v1/system/settings", {

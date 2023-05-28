@@ -42,7 +42,7 @@ class Registration extends Component{
     }
 
     registration = () => {
-        let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
+        // let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
 
         let data = {
             // number_phone: Number(phone),

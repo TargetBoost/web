@@ -61,10 +61,10 @@ class Settings extends Component{
                                 {/*    </div>*/}
                                 {/*</div>*/}
                                 <div >
-                                    <div className="wrapper-input">
-                                        Логин: { store.user.login }
-                                        {/*<input className="input-default" id="login" placeholder="Логин"/>*/}
-                                    </div>
+                                    {/*<div className="wrapper-input">*/}
+                                    {/*    Логин: { store.user.login }*/}
+                                    {/*    /!*<input className="input-default" id="login" placeholder="Логин"/>*!/*/}
+                                    {/*</div>*/}
                                     {/*<div className="wrapper-input">*/}
                                     {/*    Телефон: +{ store.user.number_phone }*/}
                                     {/*    /!*<input className="input-default" id="login" placeholder="Логин"/>*!/*/}

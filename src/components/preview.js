@@ -43,7 +43,7 @@ class Preview extends Component{
                     this.state.executor === "target" ?
                         <>
                             <div className="block-full-size">
-                                <h1>Раскрутка в социальных сетях</h1>
+                                <h1>Накрутка в социальных сетях</h1>
                                 <h3>Telegram</h3>
                                 <div className="preview-inside-block">
                                     <p>
@@ -58,7 +58,7 @@ class Preview extends Component{
                                 {/*</div>*/}
                             </div>
                             <div className="block-default-pre">
-                                <h2>Раскрутка каналов Telegram</h2>
+                                <h2>Накрутка каналов Telegram</h2>
                                 <div className="navigation-preview">
                                     <div className="block-default-icon">
                                         <img className="default-icon" src={telegram} alt="telegram"/>

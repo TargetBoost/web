@@ -448,9 +448,9 @@ class Targets extends Component{
                                                                             <div className="task-item-value red">
                                                                                 Не соответствует правилам сайта
                                                                             </div>
-                                                                            <div className="task-item-value">
-                                                                                <div className="button-default">Изменить</div>
-                                                                            </div>
+                                                                            {/*<div className="task-item-value">*/}
+                                                                            {/*    <div className="button-default">Изменить</div>*/}
+                                                                            {/*</div>*/}
                                                                         </div>
 
                                                                     )

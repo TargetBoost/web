@@ -125,7 +125,9 @@ class Registration extends Component{
                                     console.log(error)
                                 });
                         }else{
-
+                            this.state.store.dispatch({
+                                type: "set_error", value: res.status.message,
+                            })
                         }
                     })
                     .catch(error => {

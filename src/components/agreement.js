@@ -23,7 +23,7 @@ class Agreement extends Component{
             <>
                 <div className="block-default-pre">
                     <h1>Соглашение</h1>
-                    <div className="navigation-preview">
+                    <div className="navigation-preview" style={{padding: "20px"}}>
                         <div className="block-text-pre">
                             <ol type="1">
                                 <li>Запрещается отписываться от каналов менее чем через 2 месяца (бан).</li>

@@ -631,6 +631,8 @@ class Admin extends Component{
                                                                         this.state.targets.map(t =>
                                                                             <div className="task-item">
                                                                                 <div className="task-item-value">ID: {t.id}</div>
+                                                                                <div className="task-item-value">UID: {t.uid}</div>
+
 
                                                                                 <div className="task-item-value underline" link={t.transaction_id} onClick={this.copyText}>Transaction ID</div>
 

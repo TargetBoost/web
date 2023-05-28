@@ -243,6 +243,9 @@ class Tasks extends Component{
                                 </div>
                             :
                                 <>
+                                    <div className="block-default-pre" style={{fontSize: "13px", background: "#f2e4a8"}}>
+                                        Напишите нашему боту (<a href="https://t.me/targetBoostBot" target="_blank" className="underline">@targetBoostBot</a>) в телеграм, чтобы начать выполнять задания.
+                                    </div>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
 

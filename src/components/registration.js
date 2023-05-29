@@ -193,6 +193,11 @@ class Registration extends Component{
                                             {/*    /!*    соглашение</a></div>*!/*/}
                                             {/*</div>*/}
                                             <div className="wrapper-input-checkbox">
+                                                <p>
+                                                    Регистрируясь Вы подтверждаете что согласны с <a href="/agreement" target="_blank">правилами</a> сайта.
+                                                </p>
+                                            </div>
+                                            <div className="wrapper-input-checkbox">
                                                 <div className="wrapper-input-checkbox-wr-input">
                                                     <input className="input-default-checkbox" type="checkbox"
                                                            id="im_read"/>

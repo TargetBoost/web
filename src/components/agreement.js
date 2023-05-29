@@ -22,7 +22,7 @@ class Agreement extends Component{
         return (
             <>
                 <div className="block-default-pre">
-                    <h1>Соглашение</h1>
+                    <h1>Правила</h1>
                     <div className="navigation-preview" style={{padding: "20px"}}>
                         <div className="block-text-pre">
                             <ol type="1">

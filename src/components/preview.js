@@ -209,7 +209,7 @@ class Preview extends Component{
                     backgroundSize: "1000px, auto",
                     backgroundRepeat: "no-repeat",
                     color: "#000",
-                    paddingLeft: "600px",
+                    paddingRight: "600px",
                     height: "430px"
                 }}>
                     {/*<h1>Накрутка в социальных сетях</h1>*/}

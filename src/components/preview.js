@@ -33,7 +33,7 @@ class Preview extends Component{
             <>
                 <div className="block-default-pre">
                     <h1>Накрутка в социальных сетях</h1>
-                    <h2>Telegram</h2>
+                    <h2>Telegram, Youtube, VK</h2>
                     <div className="preview-inside-block">
                         <p>
                             Наша платформа помогает раскручивать социальные сети, такие как Telegram, Youtube, VK.

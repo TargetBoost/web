@@ -27,10 +27,10 @@ class Header extends Component{
                 <div className="wrapper-header">
                     <div className="place-logo" onClick={(e) => {
                         e.preventDefault();
-                        if (this.state.isAuth) {
-                            window.location.href = '/user/'
+                        if (store.user.execute === true) {
+                            window.location.href = '/task/'
                         } else {
-                            window.location.href = '/'
+                            window.location.href = '/target'
                         }
                     }}>
                         <div className="wrapper-logo-img">

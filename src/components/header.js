@@ -84,8 +84,8 @@ class Header extends Component{
                                     </Menu>
                                 :
                                     <>
-                                        <div className="button-default unselectable" onClick={()=>{window.location.href = "/login"}}>Войти</div>
-                                        <div className="button-default unselectable" onClick={()=>{window.location.href = "/registration"}}>Регистрация</div>
+                                        {/*<div className="button-default unselectable" onClick={()=>{window.location.href = "/login"}}>Войти</div>*/}
+                                        {/*<div className="button-default unselectable" onClick={()=>{window.location.href = "/registration"}}>Регистрация</div>*/}
                                     </>
                             :
                                 <div className="loader-small"/>

@@ -1,12 +1,9 @@
 import React, {Component} from "react";
-import youtube from "../icon/youtube.png"
-import vk from "../icon/vk.png"
-import io from "../icon/io.png"
 import background from "../img/d.png"
 import background_tg from "../img/dd.png"
+import background_auth from "../img/ddd_d.png"
 
-import qiwi from "../icon/qiwi.png"
-import telegram from "../icon/telegram.png"
+import InputMask from "react-input-mask";
 
 
 
@@ -17,18 +14,160 @@ class Preview extends Component{
         this.state = {
             auth: this.props.auth,
             executor: "executer",
+            regShow: false,
         }
     }
 
-    swapButton = (e) => {
-        this.setState({executor: e.target.getAttribute("target")})
+    auth = () => {
+        // let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
 
-        let childrenCollection = document.getElementsByClassName("button-light")
 
-        for (let i=0; i !== childrenCollection.length; i++) {
-            childrenCollection[i].classList.remove('active-white')
+        let data = {
+            tg: document.getElementById("tg").value,
+            password: document.getElementById("password").value
         }
-        e.target.classList.add("active-white")
+
+        fetch("/core/v1/system/auth", {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message == null) {
+                    this.state.store.dispatch({
+                        type: "update_token", value: res.data.token,
+                    })
+                    console.log(res.data)
+
+                    if (res.data.execute === true) {
+                        window.location.href = "/tasks"
+                    }else{
+                        window.location.href = "/targets"
+                    }
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: "Не правельный логин или пароль",
+                    })
+
+                    document.getElementById("password").value = ""
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
+
+    registration = () => {
+        // let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
+
+        let data = {
+            // number_phone: Number(phone),
+            // login: document.getElementById("login").value,
+            password: document.getElementById("password").value,
+            execute: !document.getElementById("im_read").checked,
+            tg: document.getElementById("tg").value
+        }
+
+        // if (!this.urlPatternValidation(data.tg)) {
+        //     this.state.store.dispatch({
+        //         type: "set_error", value: "Телеграм может быть только ссылкой",
+        //     })
+        //     return
+        // }
+
+        if (data.password !== '' && data.tg !== '') {
+            if (document.getElementById("re_password").value !== data.password){
+                this.state.store.dispatch({
+                    type: "set_error", value: "Пароли не совпадают",
+                })
+                return
+            }
+            this.setState({nextStep: "load"})
+            if (document.getElementById("re_password").value === data.password) {
+                fetch("/core/v1/system/registration", {
+                    method: "POST",
+                    body: JSON.stringify(data)
+                })
+                    .then(response => response.json())
+                    .then(res => {
+                        console.log(res)
+
+                        if (res.status.message === null) {
+                            this.state.store.dispatch({
+                                type: "update_token", value: res.data.token,
+                            })
+
+                            fetch(`/core/v1/service/user/${res.data.id}`, {
+                                method: "GET",
+                                headers: {
+                                    "Authorization": window.localStorage.getItem("token")
+                                }
+                            })
+                                .then(response => response.json())
+                                .then(res => {
+                                    if (res.status.message === null) {
+                                        this.state.store.dispatch({
+                                            type: "update_user", value: {
+                                                load: false,
+                                                id: res.data.id,
+                                                number: res.data.number_phone,
+                                                login: res.data.login,
+                                                auth: true
+                                            },
+                                        })
+
+                                        console.log(res.data)
+
+                                        if (res.data.execute === true) {
+                                            window.location.href = "/tasks"
+                                        }else{
+                                            window.location.href = "/targets"
+                                        }
+
+                                    }else{
+                                        this.state.store.dispatch({
+                                            type: "update_user", value: {
+                                                load: false,
+                                                id: 0,
+                                                number: 0,
+                                                login: null,
+                                                auth: false
+                                            },
+                                        })
+                                    }
+
+                                })
+                                .catch(error => {
+                                    console.log(error)
+                                });
+                        }else{
+                            this.state.store.dispatch({
+                                type: "set_error", value: res.status.message,
+                            })
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        this.setState({nextStep: "reg"})
+                    });
+            }
+        }else{
+            this.state.store.dispatch({
+                type: "set_error", value: "Некоторые поля не заполнены",
+            })
+        }
+    }
+
+    handleKeyDownAuth = (event) => {
+        if (event.key === 'Enter') {
+            this.auth()
+        }
+    }
+
+    handleKeyDownReg = (event) => {
+        if (event.key === 'Enter') {
+            this.registration()
+        }
     }
 
     render() {
@@ -48,10 +187,10 @@ class Preview extends Component{
                     <div className="preview-inside-block">
                         <p>
                             Наша платформа помогает раскручивать социальные сети, такие как Telegram, Youtube, VK.
-                            Начать очень просто, зарегистрируйтесь, создайте первую рекламную кампани уже сейчас и получите столько подписчиков и просмотров сколько Вам необходимо.
+                            Начать очень просто: зарегистрируйтесь, создайте первую рекламную кампанию уже сейчас и получите столько подписчиков и просмотров сколько Вам необходимо.
                             <br/>
                             <br/>
-                            Зарабатывай вместе с нами, выполняй задания по подпискам/лайкам и прочим действиям в социальных сетях.
+                            Зарабатывай вместе с нами, выполняйте задания по подпискам/лайкам и прочим действиям в социальных сетях.
                             Мы автоматически проверяем выполненные задания и сразу зачисляем оплату на Ваш баланс.
                         </p>
                     </div>
@@ -62,7 +201,74 @@ class Preview extends Component{
                     {/*    <div className="button-light pre-add unselectable">Посмотреть видео на Youtube 1 руб.</div>*/}
                     {/*</div>*/}
                 </div>
+                <div className="block-default-pre" style={{
+                    backgroundImage: `url(${background_auth})`,
+                    backgroundPosition: "right 0px top 21%",
+                    // backgroundAttachment: "fixed",
+                    backgroundSize: "1000px, auto",
+                    backgroundRepeat: "no-repeat",
+                    color: "#000",
+                    paddingLeft: "600px",
+                    height: "430px"
+                }}>
+                    {/*<h1>Накрутка в социальных сетях</h1>*/}
+                    {/*<h2>Telegram, Youtube, VK</h2>*/}
+                    <div className="preview-inside-block">
+                        <div className="white-block-border">
+                            {
+                                !this.state.regShow ?
+                                    <>
+                                        <div className="wrapper-input-main">
+                                            <InputMask className="input-main" formatChars={{
+                                                '9': '[0-9]',
+                                                'a': '[A-Za-z]',
+                                                '*': '.*'
+                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм без @" onKeyDown={this.handleKeyDownReg}/>
+                                        </div>
+                                        <div className="wrapper-input-main">
+                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
+                                        </div>
+                                        <div className="sing-wrapper-main">
+                                            <div className="button-default unselectable">Войти</div>
+                                            <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": true})}}>Зарегистрироваться</div>
 
+                                            {/*<div className="title-main underline unselectable">Забыли пароль?</div>*/}
+                                        </div>
+                                        {/*<div className="info-auth-main">*/}
+                                        {/*    Если Вы еще не с нами тогда <span className="underline unselectable" onClick={() => {this.setState({"regShow": true})}}>зарегистрируйтесь</span>.*/}
+                                        {/*</div>*/}
+                                    </>
+                                :
+                                    <>
+                                        <div className="wrapper-input-main">
+                                            <InputMask className="input-main" formatChars={{
+                                                '9': '[0-9]',
+                                                'a': '[A-Za-z]',
+                                                '*': '.*'
+                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм без @" />                                        </div>
+                                        <div className="wrapper-input-main">
+                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
+                                        </div>
+                                        <div className="wrapper-input-main">
+                                            <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
+                                        </div>
+                                        <div className="sing-wrapper-main">
+                                            <div className="button-default unselectable">Поехали! 🚀</div>
+                                            <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": false})}}>У Вас уже есть аккаунт?</div>
+                                        </div>
+                                    </>
+
+                            }
+
+                        </div>
+                    </div>
+                    {/*<div className="navigation-preview">*/}
+                    {/*    <div className="button-light pre-add unselectable">Подписка VK 2 руб.</div>*/}
+                    {/*    <div className="button-light pre-add unselectable">Лайк VK 1,5 руб.</div>*/}
+                    {/*    <div className="button-light pre-add unselectable">Подписка на канал Youtube 1 руб.</div>*/}
+                    {/*    <div className="button-light pre-add unselectable">Посмотреть видео на Youtube 1 руб.</div>*/}
+                    {/*</div>*/}
+                </div>
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background_tg})`,
                     backgroundPosition: "left -100px top 50%",
@@ -80,11 +286,13 @@ class Preview extends Component{
                         {/*    <img className="default-icon" src={telegram} alt="telegram"/>*/}
                         {/*</div>*/}
                         <div className="block-text-pre">
-                            Каналы Telegram - на данный момент самый популярный способ получения информации. Большое количество подписчиков канала даст вам доверие потенциальной аудитории к каналу и как следствие более выраженный, но при этом естественный прирост подписчиков.
+                            Каналы Telegram - на данный момент самый популярный способ получения информации. Большое количество подписчиков канала даст Вам доверие потенциальной аудитории к каналу и, как следствие, более выраженный, но при этом естественный прирост подписчиков.
                             <br/>
                             <br/>
-                            Покупка лайков/просмотров на Youtube является эффективным способом повышения популярности видео, не важно будь это музыкальное видео, обзор продукта или ваш персональный блог.
-                            Подписчики Youtube так же являются важным критерием ранжирования и влияют на рекомендацию Ваших роликов, но Youtube очень пристально следит за резкими изменениями этого показателя, по-этому мы осуществляем постепенное увеличение подписчиков, чтобы обойти их алгоритмы выявления накрутки.
+                            Покупка лайков/просмотров на Youtube является эффективным способом повышения популярности видео, не важно, будь это музыкальное видео, обзор продукта или Ваш персональный блог.
+                            <br/>
+                            <br/>
+                            Подписчики Youtube также являются важным критерием ранжирования и влияют на рекомендацию Ваших роликов, но Youtube очень пристально следит за резкими изменениями этого показателя, поэтому мы осуществляем постепенное увеличение подписчиков, чтобы обойти их алгоритмы выявления накрутки.
                             <br/>
                             <br/>
                         </div>

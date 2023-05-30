@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import PhoneInput from "react-phone-number-input";
 import InputMask from "react-input-mask";
 
 class Login extends Component{

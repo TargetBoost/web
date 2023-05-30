@@ -27,9 +27,13 @@ class Header extends Component{
                 <div className="wrapper-header">
                     <div className="place-logo" onClick={(e) => {
                         e.preventDefault();
-                        if (this.state.isAuth) {
-                            window.location.href = '/user/'
-                        } else {
+                        if (store.user.auth) {
+                            if (store.user.execute === true) {
+                                window.location.href = '/tasks/'
+                            } else {
+                                window.location.href = '/targets/'
+                            }
+                        }else{
                             window.location.href = '/'
                         }
                     }}>
@@ -77,15 +81,15 @@ class Header extends Component{
                                                 <Dropdown.Divider />
                                                 <Dropdown.Item onClick={()=>{
                                                     window.localStorage.removeItem('token')
-                                                    window.location.href = '/login'
+                                                    window.location.href = '/'
                                                 }}>Выйти</Dropdown.Item>
                                             </Dropdown.Menu>
                                         </Dropdown>
                                     </Menu>
                                 :
                                     <>
-                                        <div className="button-default unselectable" onClick={()=>{window.location.href = "/login"}}>Войти</div>
-                                        <div className="button-default unselectable" onClick={()=>{window.location.href = "/registration"}}>Регистрация</div>
+                                        {/*<div className="button-default unselectable" onClick={()=>{window.location.href = "/login"}}>Войти</div>*/}
+                                        {/*<div className="button-default unselectable" onClick={()=>{window.location.href = "/registration"}}>Регистрация</div>*/}
                                     </>
                             :
                                 <div className="loader-small"/>

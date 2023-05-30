@@ -102,6 +102,7 @@
 
 .underline {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .click {
@@ -281,12 +282,27 @@ body {
 .button-default {
     background: var(--logo);
     color: #fff;
-    padding: 5px;
+    padding: 5px 20px;
     border-radius: 3px;
     font-size: 12px;
     cursor: pointer;
     transition: 0.02s;
     margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-default-no-background {
+    color: #000;
+    padding: 5px 20px;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.02s;
+    margin-right: 5px;
+    /*width: 90px;*/
+    text-align: center;
 }
 
 .button-default:active {
@@ -661,6 +677,45 @@ body {
     display: flex;
 }
 
+.sing-wrapper-main {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px 0 0;
+}
+
+.title-main {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.info-auth-main {
+    padding: 10px 0 0;
+    font-size: 13px;
+    margin-top: 20px;
+    border-top: 1px solid #fafafa;
+}
+
+.white-block-border {
+    /*height: 370px;*/
+    padding: 20px;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.wrapper-input-main {
+    position: relative;
+    padding: 10px 0;
+}
+
+.input-main {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #dcdcdc;
+    outline: none;
+    width: 100%;
+}
+
 .block-flex-center {
     display: flex;
     justify-content: center;
@@ -702,6 +757,7 @@ body {
     padding: 20px;
     background: #fff;
     margin-top: 10px;
+    margin-bottom: 20px;
     border-radius: 20px;
     /*transition: 1s;*/
 }
@@ -769,7 +825,7 @@ body {
 }
 
 .preview-inside-block {
-    padding: 10px 10px 0 0;
+    padding: 10px 0;
 }
 
 .button-light:hover {
@@ -801,9 +857,9 @@ body {
 .wrapper-input-checkbox-wr-input-text {
     position: absolute;
     top: 10px;
-    left: 45px;
+    left: 20px;
     color: #696969;
-
+    cursor: pointer;
 }
 
 /*.wrapper-input-checkbox-wr-input {*/

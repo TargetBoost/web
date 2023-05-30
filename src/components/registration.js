@@ -199,11 +199,9 @@ class Registration extends Component{
                                             </div>
                                             <div className="wrapper-input-checkbox">
                                                 <div className="wrapper-input-checkbox-wr-input">
-                                                    <input className="input-default-checkbox" type="checkbox"
-                                                           id="im_read"/>
+                                                    <input className="input-default-checkbox" type="checkbox" id="im_read"/>
                                                 </div>
-                                                <div className="wrapper-input-checkbox-wr-input-text">Я рекламодатель
-                                                </div>
+                                                <div className="wrapper-input-checkbox-wr-input-text">Я рекламодатель</div>
                                             </div>
                                         </div>
                                         <div className="sing-wrapper">

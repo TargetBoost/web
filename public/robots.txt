@@ -1,3 +1,19 @@
-# https://www.robotstxt.org/robotstxt.html
-Targets-agent: *
-Disallow:
+User-agent: *
+Disallow: /task/*
+Disallow: /admin/*
+Disallow: /targets/*
+Disallow: /wallet/*
+
+User-agent: Yandex
+Disallow: /task/*
+Disallow: /admin/*
+Disallow: /targets/*
+Disallow: /wallet/*
+
+User-agent: Googlebot
+Disallow: /task/*
+Disallow: /admin/*
+Disallow: /targets/*
+Disallow: /wallet/*
+
+Host: https://targetboost.ru

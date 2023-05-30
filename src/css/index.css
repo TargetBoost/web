@@ -288,8 +288,9 @@ body {
     cursor: pointer;
     transition: 0.02s;
     margin-right: 5px;
-
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button-default-no-background {

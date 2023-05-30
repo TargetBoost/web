@@ -236,9 +236,6 @@ class Preview extends Component{
 
                                             {/*<div className="title-main underline unselectable">Забыли пароль?</div>*/}
                                         </div>
-                                        {/*<div className="info-auth-main">*/}
-                                        {/*    Если Вы еще не с нами тогда <span className="underline unselectable" onClick={() => {this.setState({"regShow": true})}}>зарегистрируйтесь</span>.*/}
-                                        {/*</div>*/}
                                     </>
                                 :
                                     <>

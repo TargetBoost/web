@@ -81,7 +81,7 @@ class Header extends Component{
                                                 <Dropdown.Divider />
                                                 <Dropdown.Item onClick={()=>{
                                                     window.localStorage.removeItem('token')
-                                                    window.location.href = '/login'
+                                                    window.location.href = '/'
                                                 }}>Выйти</Dropdown.Item>
                                             </Dropdown.Menu>
                                         </Dropdown>

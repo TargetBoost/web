@@ -31,13 +31,6 @@ class Preview extends Component{
     render() {
         return (
             <>
-                <div className="navigation-preview">
-                    <div className="flex-left-right">
-                        <div className="button-light active-white" target="executer" onClick={this.swapButton}>Исполнителям</div>
-                        <div className="button-light" target="target" onClick={this.swapButton}>Рекламодателям</div>
-                        {/*<div className="button-light" target="feed" onClick={this.swapButton}>Обновления</div>*/}
-                    </div>
-                </div>
                 <div className="block-full-size" id="ad_component">
                     <div className="ad-component-wrapper">
                         <div className="ad-component-image-block">
@@ -54,7 +47,13 @@ class Preview extends Component{
                         </div>
                     </div>
                 </div>
-
+                <div className="navigation-preview">
+                    <div className="flex-left-right">
+                        <div className="button-light active-white" target="executer" onClick={this.swapButton}>Исполнителям</div>
+                        <div className="button-light" target="target" onClick={this.swapButton}>Рекламодателям</div>
+                        {/*<div className="button-light" target="feed" onClick={this.swapButton}>Обновления</div>*/}
+                    </div>
+                </div>
                 {
                     this.state.executor === "target" ?
                         <>

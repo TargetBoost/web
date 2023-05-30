@@ -229,7 +229,7 @@ class Preview extends Component{
                                             <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
                                         </div>
                                         <div className="sing-wrapper-main">
-                                            <div className="button-default unselectable">Войти</div>
+                                            <div className="button-default unselectable" onClick={this.auth}>Войти</div>
                                             <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": true})}}>Зарегистрироваться</div>
 
                                             {/*<div className="title-main underline unselectable">Забыли пароль?</div>*/}
@@ -253,8 +253,13 @@ class Preview extends Component{
                                             <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
                                         </div>
                                         <div className="sing-wrapper-main">
-                                            <div className="button-default unselectable">Поехали! 🚀</div>
+                                            <div className="button-default unselectable" onClick={this.registration}>Поехали! 🚀</div>
                                             <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": false})}}>У Вас уже есть аккаунт?</div>
+                                        </div>
+                                        <div className="info-auth-main">
+                                            <p>
+                                                Регистрируясь Вы подтверждаете что согласны с <a href="/agreement" target="_blank">правилами</a> сайта.
+                                            </p>
                                         </div>
                                     </>
 

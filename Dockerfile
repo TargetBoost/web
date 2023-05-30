@@ -30,7 +30,14 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
 COPY yarn.lock ./
-RUN yarn install
+
+RUN sudo add-apt-repository ppa:chris-lea/node.js
+RUN sudo apt-get update
+RUN sudo apt-get install nodejs
+
+# now brunch
+RUN sudo npm install -g brunch
+RUN #yarn install
 
 COPY . ./
 

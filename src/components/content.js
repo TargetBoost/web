@@ -14,7 +14,7 @@ class Content extends Component{
     render() {
         return (
             <>
-                <Preview auth={this.state.auth}/>
+                <Preview auth={this.state.auth} store={this.state.store}/>
                 <div className="wrapper-content">
                     {/*<Feed auth={this.state.auth}/>*/}
                 </div>

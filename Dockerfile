@@ -34,7 +34,7 @@ RUN yarn install
 
 COPY . ./
 
-RUN yarn build
+RUN brunch build -p
 
 # production environment
 FROM nginx:stable-alpine

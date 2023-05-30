@@ -38,6 +38,22 @@ class Preview extends Component{
                         {/*<div className="button-light" target="feed" onClick={this.swapButton}>Обновления</div>*/}
                     </div>
                 </div>
+                <div className="block-full-size" id="ad_component">
+                    <div className="ad-component-wrapper">
+                        <div className="ad-component-image-block">
+
+                        </div>
+                        <div className="ad-component-info-block">
+                            <h1>название рекламы</h1>
+                            <h3>краткое описание</h3>
+                            <div className="preview-inside-block">
+                                <p>
+                                    Зарабатывай выполняя задания по подпискам/лайкам и прочим действиям в социальных сетях.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 {
                     this.state.executor === "target" ?

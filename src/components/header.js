@@ -29,14 +29,13 @@ class Header extends Component{
                         e.preventDefault();
                         if (store.user.auth) {
                             if (store.user.execute === true) {
-                                window.location.href = '/task/'
+                                window.location.href = '/tasks/'
                             } else {
-                                window.location.href = '/target'
+                                window.location.href = '/targets/'
                             }
                         }else{
                             window.location.href = '/'
                         }
-
                     }}>
                         <div className="wrapper-logo-img">
                             <img src={target} className="logo-img" alt="logo"/>

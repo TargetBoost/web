@@ -608,6 +608,36 @@ body {
     font-size: 13px;
 }
 
+.block-full-size-ad {
+    /*padding: 20px;*/
+    /*color: #fff;*/
+    margin-top: 10px;
+    border-radius: 15px;
+    /*transform: scale(1.02);*/
+}
+.ad-component-wrapper {
+    display: flex;
+}
+
+.ad-component-image-block {
+    padding: 10px;
+    border-radius: 15px 0 0 15px;
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ad-component-info-block {
+    width: 100%;
+    border-radius: 0 15px 15px 0;
+
+    padding: 10px;
+    background: #dcdcdc;
+}
+
 .block-full-size {
     padding: 20px;
     background: var(--logo);

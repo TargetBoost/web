@@ -31,22 +31,22 @@ class Preview extends Component{
     render() {
         return (
             <>
-                <div className="block-full-size" id="ad_component">
-                    <div className="ad-component-wrapper">
-                        <div className="ad-component-image-block">
-
-                        </div>
-                        <div className="ad-component-info-block">
-                            <h1>название рекламы</h1>
-                            <h3>краткое описание</h3>
-                            <div className="preview-inside-block">
-                                <p>
-                                    Зарабатывай выполняя задания по подпискам/лайкам и прочим действиям в социальных сетях.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {/*<div className="block-full-size-ad" id="ad_component">*/}
+                {/*    <div className="ad-component-wrapper">*/}
+                {/*        <div className="ad-component-image-block">*/}
+                {/*            12*/}
+                {/*        </div>*/}
+                {/*        <div className="ad-component-info-block">*/}
+                {/*            <h1>название рекламы</h1>*/}
+                {/*            <h3>краткое описание</h3>*/}
+                {/*            <div className="preview-inside-block">*/}
+                {/*                <p>*/}
+                {/*                    Зарабатывай выполняя задания по подпискам/лайкам и прочим действиям в социальных сетях.*/}
+                {/*                </p>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 <div className="navigation-preview">
                     <div className="flex-left-right">
                         <div className="button-light active-white" target="executer" onClick={this.swapButton}>Исполнителям</div>

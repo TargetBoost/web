@@ -31,7 +31,7 @@ class Preview extends Component{
     render() {
         return (
             <>
-                <div className="block-full-size">
+                <div className="block-default-pre">
                     <h1>Накрутка в социальных сетях</h1>
                     <h2>Telegram</h2>
                     <div className="preview-inside-block">
@@ -83,9 +83,8 @@ class Preview extends Component{
                 {/*</div>*/}
 
 
-                <div className="block-full-size">
-                    <h1>Заработок на заданиях в социальных сетях</h1>
-                    <h3>Telegram</h3>
+                <div className="block-default-pre">
+                    <h3>Заработок на заданиях в социальных сетях</h3>
                     <div className="preview-inside-block">
                         <p>
                             Зарабатывай выполняя задания по подпискам/лайкам и прочим действиям в социальных сетях.
@@ -93,7 +92,6 @@ class Preview extends Component{
                     </div>
                 </div>
                 <div className="block-default-pre">
-                    <h2>Выполнение заданий</h2>
                     <div className="preview-inside-block">
                         <p>
                             Мы автоматически проверяем выполненные задания и сразу зачисляем оплату на Ваш баланс.

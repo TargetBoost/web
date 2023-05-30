@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import youtube from "../icon/youtube.png"
 import vk from "../icon/vk.png"
 import io from "../icon/io.png"
+import background from "../img/d.png"
 import qiwi from "../icon/qiwi.png"
 import telegram from "../icon/telegram.png"
 
@@ -31,7 +32,16 @@ class Preview extends Component{
     render() {
         return (
             <>
-                <div className="block-default-pre">
+                <div className="block-default-pre" style={{
+                    backgroundImage: `url(${background})`,
+                    backgroundPosition: "right 0px top 50%",
+                    // backgroundAttachment: "fixed",
+                    backgroundSize: "1000px, auto",
+                    backgroundRepeat: "no-repeat",
+                    color: "#000",
+                    paddingLeft: "400px"
+
+                }}>
                     <h1>Накрутка в социальных сетях</h1>
                     <h2>Telegram, Youtube, VK</h2>
                     <div className="preview-inside-block">

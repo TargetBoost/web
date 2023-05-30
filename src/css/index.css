@@ -704,6 +704,7 @@ body {
 }
 
 .wrapper-input-main {
+    position: relative;
     padding: 10px 0;
 }
 
@@ -856,9 +857,9 @@ body {
 .wrapper-input-checkbox-wr-input-text {
     position: absolute;
     top: 10px;
-    left: 45px;
+    left: 20px;
     color: #696969;
-
+    cursor: pointer;
 }
 
 /*.wrapper-input-checkbox-wr-input {*/

@@ -251,6 +251,16 @@ class Preview extends Component{
                                         <div className="wrapper-input-main">
                                             <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
                                         </div>
+                                        <div className="wrapper-input-main">
+                                            <div className="wrapper-input-checkbox-wr-input">
+                                                <input className="input-default-checkbox" type="checkbox" id="im_read"/>
+                                            </div>
+                                            <div className="wrapper-input-checkbox-wr-input-text unselectable" onClick={()=> {
+                                                let check = document.getElementById("im_read").checked
+                                                document.getElementById("im_read").checked = !check;
+                                            }}>Я рекламодатель</div>
+                                        </div>
+
                                         <div className="sing-wrapper-main">
                                             <div className="button-default unselectable" onClick={this.registration}>Поехали! 🚀</div>
                                             <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": false})}}>У Вас уже есть аккаунт?</div>

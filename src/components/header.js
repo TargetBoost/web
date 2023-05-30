@@ -27,11 +27,16 @@ class Header extends Component{
                 <div className="wrapper-header">
                     <div className="place-logo" onClick={(e) => {
                         e.preventDefault();
-                        if (store.user.execute === true) {
-                            window.location.href = '/task/'
-                        } else {
-                            window.location.href = '/target'
+                        if (store.user.auth) {
+                            if (store.user.execute === true) {
+                                window.location.href = '/task/'
+                            } else {
+                                window.location.href = '/target'
+                            }
+                        }else{
+                            window.location.href = '/'
                         }
+
                     }}>
                         <div className="wrapper-logo-img">
                             <img src={target} className="logo-img" alt="logo"/>

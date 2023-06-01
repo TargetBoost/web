@@ -862,12 +862,138 @@ body {
     cursor: pointer;
 }
 
+.video-wrapper {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+
+.controls-video-wrapper {
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.action-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.action-button {
+    max-width: 15px;
+    cursor: pointer;
+}
+
+.action-button:active {
+    transform: scale(0.8);
+}
+
+.controls-video-panel{
+    padding: 10px;
+    background: rgba(61, 61, 61, 0.75);
+    border-radius: 10px;
+    display: flex;
+    transition: opacity .4s;
+}
+
+.controls-video-time-progress {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+}
+
+
 /*.wrapper-input-checkbox-wr-input {*/
 /*    !*margin-right: 10px;*!*/
 /*    z-index: 999;*/
 /*    !*padding: 10px;*!*/
 /*    padding: 20px;*/
 /*}*/
+
+.controls-video-time-wrapper {
+    padding-left: 5px;
+    color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+
+}
+
+.time-now-video-mouse {
+    position: absolute;
+    left: -30px;
+    bottom: 18px;
+    background: #3D3D3D;
+    padding: 10px;
+    font-size: 10px;
+    border-radius: 10px;
+    transition: opacity .2s;
+}
+
+.triangle-bottom-position {
+    position: relative;
+}
+
+.controls-video-time-progress-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*padding-left: 5px;*/
+    margin: 0 10px;
+    color: #fff;
+    width: 100%;
+    position: relative;
+}
+
+.triangle-bottom {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #3D3D3D;
+    position: absolute;
+    top: 10px;
+    left: 14px;
+}
+
+.point-bottom {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: red;
+    /*border-top: 8px solid #3D3D3D;*/
+    position: absolute;
+    top: 18px;
+    left: 19px;
+}
+
+.logo-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5px;
+    position: relative;
+    width: 125px;
+    height: 15px;
+}
+
+.logo-video-img {
+    max-height: 35px;
+    position: absolute;
+    right: 0;
+    bottom: -11px;
+}
+
+#video:fullscreen {position:relative}
+/*#video:fullscreen #my_video {width: 100vw; height: 100vh}*/
+#video:fullscreen #controls_bar {bottom: 0}
 
 .input-default {
     width: 100%;

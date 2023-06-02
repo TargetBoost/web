@@ -180,7 +180,7 @@ class Targets extends Component{
             })
             this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost})
         }else{
-            this.setState({cost: e.target.value})
+            this.setState({cost: e.target.value, fullPrice: e.target.value * this.state.cost})
         }
     }
 

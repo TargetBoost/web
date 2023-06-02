@@ -178,7 +178,7 @@ class Targets extends Component{
         let priceConst = this.state.optionsDeepTarget[this.state.select][0].cost
         if (e.target.value < priceConst ) {
             if (e.target.value < 0) {
-                this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost})
+                this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost, fullPrice: this.state.optionsDeepTarget[this.state.select][0].cost * this.countExecute.current.value})
 
             }else{
                 this.state.store.dispatch({
@@ -187,7 +187,7 @@ class Targets extends Component{
                 this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost, fullPrice: this.state.optionsDeepTarget[this.state.select][0].cost * this.countExecute.current.value })
             }
         }else{
-            this.setState({cost: e.target.value, fullPrice: e.target.value * this.state.cost})
+            this.setState({cost: e.target.value, fullPrice: e.target.value * this.countExecute.current.value})
         }
     }
 

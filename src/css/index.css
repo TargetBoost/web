@@ -166,6 +166,13 @@
     box-shadow: none;
 }
 
+.ui.floating.dropdown .menu  {
+    left: -27px;
+    right: auto;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.15)!important;
+    border-radius: .28571429rem!important;
+}
+
 /*.ui.menu:last-child {*/
 /*    !* margin-bottom:0 *!*/
 /*}*/
@@ -202,8 +209,7 @@ body {
 .wrapper {
     width: 990px;
     margin: 0 auto;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding: 10px;
 }
 
 .loader-small {
@@ -257,6 +263,7 @@ body {
 .wrapper-content {
     display: flex;
     justify-content: space-between;
+    padding: 0 10px;
 }
 
 .place-logo {
@@ -1116,47 +1123,47 @@ body {
 }
 
 
-@media (max-width: 1000px) {
-    .wrapper {
-        width: auto;
-        padding: 10px;
-    }
+/*@media (max-width: 1000px) {*/
+/*    .wrapper {*/
+/*        width: auto;*/
+/*        padding: 10px;*/
+/*    }*/
 
-    .place-logo {
-        font-size: 40px;
-    }
+/*    .place-logo {*/
+/*        font-size: 40px;*/
+/*    }*/
 
-    .logo-img {
-        max-width: 45px;
-    }
+/*    .logo-img {*/
+/*        max-width: 45px;*/
+/*    }*/
 
-    .wrapper-auth {
-        justify-content: center;
-        align-items: center;
-    }
+/*    .wrapper-auth {*/
+/*        justify-content: center;*/
+/*        align-items: center;*/
+/*    }*/
 
-    .button-light {
-        font-size: 25px;
-        padding: 10px 20px;
-    }
+/*    .button-light {*/
+/*        font-size: 25px;*/
+/*        padding: 10px 20px;*/
+/*    }*/
 
-    .wrapper-header {
-        /*padding: 15px;*/
-        display: flex;
-        justify-content: space-between;
-        box-sizing: border-box;
-        width: 100%;
-    }
-    html {
-        width: 100%;
-        box-sizing: border-box;
-    }
+/*    .wrapper-header {*/
+/*        !*padding: 15px;*!*/
+/*        display: flex;*/
+/*        justify-content: space-between;*/
+/*        box-sizing: border-box;*/
+/*        width: 100%;*/
+/*    }*/
+/*    html {*/
+/*        width: 100%;*/
+/*        box-sizing: border-box;*/
+/*    }*/
 
-    .header-bg {
-        width: 100%;
-    }
+/*    .header-bg {*/
+/*        width: 100%;*/
+/*    }*/
 
-    body {
-        font-size: 25px;
-    }
-}
+/*    body {*/
+/*        font-size: 25px;*/
+/*    }*/
+/*}*/

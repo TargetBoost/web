@@ -98,7 +98,7 @@ class Targets extends Component{
         let data = {
             icon: this.state.select,
             total: String(this.state.total),
-            cost: this.state.cost,
+            cost: Number(this.state.cost),
             type: this.state.type,
             link: this.state.link,
         }
@@ -191,6 +191,13 @@ class Targets extends Component{
         }
     }
 
+    changeSwitcherPrice = (e) => {
+        this.setState({userCost: !this.state.userCost})
+        if (!this.state.userCost === false) {
+            this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost, fullPrice: this.countExecute.current.value * this.state.optionsDeepTarget[this.state.select][0].cost})
+        }
+    }
+
     updateTask = (e) => {
         let data = {
             id: parseInt(e.target.getAttribute("target")),
@@ -245,14 +252,6 @@ class Targets extends Component{
                 })
             });
     }
-
-    changeSwitcherPrice = (e) => {
-        this.setState({userCost: !this.state.userCost})
-        if (!this.state.userCost === false) {
-            this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost, fullPrice: this.countExecute.current.value * this.state.optionsDeepTarget[this.state.select][0].cost})
-        }
-    }
-
 
     render() {
         let store = this.state.store.getState()

@@ -178,7 +178,7 @@ class Targets extends Component{
             this.state.store.dispatch({
                 type: "set_error", value: "Цена должна быть больше минимальной",
             })
-            this.setState({cost: this.state.optionsDeepTarget[this.state.select].cost})
+            this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost})
         }else{
             this.setState({cost: e.target.value})
         }

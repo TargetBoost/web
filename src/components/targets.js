@@ -171,6 +171,7 @@ class Targets extends Component{
     };
 
     handleChangeUserCost = (e) => {
+        console.log(this.state.optionsDeepTarget, this.state.select, this.state.type)
         let priceConst = this.state.optionsDeepTarget[this.state.select][this.state.type].cost
         if (e.target.value < priceConst) {
             this.state.store.dispatch({

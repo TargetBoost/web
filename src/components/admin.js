@@ -578,7 +578,7 @@ class Admin extends Component{
                                                             filterUser(this.state.targets, false).map(t =>
                                                                 <div className="task-item">
                                                                     <div className="task-item-value">ID: {t.id}</div>
-                                                                    <div className="task-item-value"><a href={`https://t.me/${t.tg.replace("@", "")}`}>telegram</a></div>
+                                                                    <div className="task-item-value"><a target={"_blank"} href={`https://t.me/${t.tg.replace("@", "")}`}>telegram</a></div>
                                                                     <div className="task-item-value">balance: {(parseInt(t.balance)).toLocaleString('ru') } ₽</div>
                                                                     <div className="task-item-value">execute: { t.execute.toString() }</div>
 

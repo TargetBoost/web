@@ -246,8 +246,9 @@ class Targets extends Component{
             });
     }
 
-    changeSwitcherPrice(){
-        if (this.state.userCost === false) {
+    changeSwitcherPrice = (e) =>{
+        this.setState({userCost: e.target.getAttribute("isUserCost")})
+        if (e.target.getAttribute("isUserCost") === false) {
             this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost, fullPrice: this.countExecute.current.value * this.state.optionsDeepTarget[this.state.select][0].cost})
         }
     }
@@ -542,10 +543,7 @@ class Targets extends Component{
                                                                                                         <FormGroup>
                                                                                                             <FormControlLabel
                                                                                                                 control={
-                                                                                                                    <Switch checked={this.state.userCost} onChange={()=>{
-                                                                                                                        this.setState({userCost: !this.state.userCost})
-                                                                                                                        this.changeSwitcherPrice()
-                                                                                                                    }} name="count" />
+                                                                                                                    <Switch checked={this.state.userCost} isUserCost={this.state.userCost} onChange={this.changeSwitcherPrice} name="count" />
                                                                                                                 }
                                                                                                                 label="Хотите указать свою цену за одну подписку?"
                                                                                                             />

@@ -248,7 +248,7 @@ class Targets extends Component{
 
     changeSwitcherPrice = (e) => {
         this.setState({userCost: !e.target.getAttribute("isUserCost")})
-        if (e.target.getAttribute("isUserCost") === false) {
+        if (!e.target.getAttribute("isUserCost") === false) {
             this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost, fullPrice: this.countExecute.current.value * this.state.optionsDeepTarget[this.state.select][0].cost})
         }
     }

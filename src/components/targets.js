@@ -512,7 +512,7 @@ class Targets extends Component{
                                                                         {/*<div className="task-item">Настройки платформы</div>*/}
                                                                         <div className="settings">
                                                                             <div className="wrapper-input">
-                                                                                <div className="title-pop-up">Данные кампании</div>
+                                                                                <div className="title-pop-up">Данные рекламной кампании</div>
                                                                             </div>
                                                                             <div className="wrapper-input">
                                                                                 <Select

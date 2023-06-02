@@ -516,9 +516,13 @@ class Targets extends Component{
                                                                                                 options={this.state.optionsDeepTarget[this.state.select]}
                                                                                             />
                                                                                         </div>
+
                                                                                         {
                                                                                             this.state.cost !== null ?
                                                                                                 <>
+                                                                                                    <div className="wrapper-input">
+                                                                                                        <input className="input-default" type="number" placeholder="Количество исполнителей" onChange={this.handleChangeCount}/>
+                                                                                                    </div>
                                                                                                     <div className="wrapper-input">
                                                                                                         <FormGroup>
                                                                                                             <FormControlLabel
@@ -538,9 +542,6 @@ class Targets extends Component{
                                                                                                             null
 
                                                                                                     }
-                                                                                                    <div className="wrapper-input">
-                                                                                                        <input className="input-default" type="number" placeholder="Количество исполнителей" onChange={this.handleChangeCount}/>
-                                                                                                    </div>
                                                                                                     <div className="wrapper-input color-blue">
                                                                                                         Стоимость: { (Number(this.state.fullPrice)).toLocaleString('ru') } ₽
                                                                                                     </div>

@@ -171,7 +171,7 @@ class Targets extends Component{
     };
 
     handleChangeUserCost = (e) => {
-        let priceConst = this.state.optionsDeepTarget[this.state.select].cost
+        let priceConst = this.state.optionsDeepTarget[this.state.select][this.state.type].cost
         if (e.target.value < priceConst) {
             this.state.store.dispatch({
                 type: "set_error", value: "Цена должна быть больше минимальной",

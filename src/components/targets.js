@@ -53,6 +53,8 @@ class Targets extends Component{
         })
     }
 
+    countExecute = React.createRef();
+
     urlPatternValidation = URL => {
         const regex = new RegExp('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?');
         return regex.test(URL);
@@ -95,7 +97,7 @@ class Targets extends Component{
     createTarget = () => {
         let data = {
             icon: this.state.select,
-            total: String(this.state.total),
+            total: String(this.state.fullPrice),
             cost: this.state.cost,
             type: this.state.type,
             link: this.state.link,
@@ -528,7 +530,7 @@ class Targets extends Component{
                                                                                             this.state.cost !== null ?
                                                                                                 <>
                                                                                                     <div className="wrapper-input">
-                                                                                                        <input className="input-default" type="number" placeholder="Количество исполнителей" onChange={this.handleChangeCount}/>
+                                                                                                        <input className="input-default" type="number" placeholder="Количество исполнителей" ref={this.countExecute} onChange={this.handleChangeCount}/>
                                                                                                     </div>
                                                                                                     <div className="wrapper-input">
                                                                                                         <FormGroup>
@@ -537,7 +539,7 @@ class Targets extends Component{
                                                                                                                     <Switch checked={this.state.userCost} onChange={()=>{
                                                                                                                         this.setState({userCost: !this.state.userCost})
                                                                                                                         if (this.state.userCost === false) {
-                                                                                                                            this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost})
+                                                                                                                            this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost, fullPrice: this.countExecute.current.value * this.state.optionsDeepTarget[this.state.select][0].cost})
                                                                                                                         }
                                                                                                                     }} name="count" />
                                                                                                                 }

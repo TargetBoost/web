@@ -170,6 +170,17 @@ class Targets extends Component{
         this.setState({link: e.target.value})
     };
 
+    handleChangeUserCost = (e) => {
+        let priceNow = this.state.optionsDeepTarget[this.state.select].cost
+        if (e.target.value <= priceNow) {
+            this.state.store.dispatch({
+                type: "set_error", value: "Цена должна быть больше минимальной",
+            })
+        }else{
+            this.setState({cost: e.target.value})
+        }
+    }
+
     updateTask = (e) => {
         let data = {
             id: parseInt(e.target.getAttribute("target")),
@@ -506,32 +517,32 @@ class Targets extends Component{
                                                                                         </div>
                                                                                         {
                                                                                             this.state.cost !== null ?
-                                                                                                this.state.userCost === 0 ?
-                                                                                                    <FormGroup>
-                                                                                                        <FormControlLabel
-                                                                                                            control={
-                                                                                                                <Switch checked={false} target="snow" name="count" />
-                                                                                                            }
-                                                                                                            label="Хотите указать цену за одну подписку?"
-                                                                                                        />
-                                                                                                    </FormGroup>
-                                                                                                    // <>
-                                                                                                    //     <div className="wrapper-input">
-                                                                                                    //         <input className="input-default" type="number" placeholder="Количество исполнителей" onChange={this.handleChangeCount}/>
-                                                                                                    //     </div>
-                                                                                                    //     <div className="wrapper-input color-blue">
-                                                                                                    //         Стоимость: { (Number(this.state.fullPrice)).toLocaleString('ru') } ₽
-                                                                                                    //     </div>
-                                                                                                    // </>
-                                                                                                :
-                                                                                                    <>
+                                                                                                <>
+                                                                                                    <div className="wrapper-input">
+                                                                                                        <FormGroup>
+                                                                                                            <FormControlLabel
+                                                                                                                control={
+                                                                                                                    <Switch checked={false} onChange={()=>this.setState({userCost: 1 })} name="count" />
+                                                                                                                }
+                                                                                                                label="Хотите указать цену за одну подписку?"
+                                                                                                            />
+                                                                                                        </FormGroup>
+                                                                                                    </div>
+                                                                                                    {
+                                                                                                        this.state.userCost === 1 ?
+                                                                                                            <div className="wrapper-input">
+                                                                                                                <input className="input-default" type="number" placeholder={`Укажите свою цену не ниже минимума ${this.state.cost} руб`} onChange={this.handleChangeUserCost}/>
+                                                                                                            </div>
+                                                                                                        :
+                                                                                                            null
 
-                                                                                                        <div className="wrapper-input">
-                                                                                                            <input className="input-default" type="number" placeholder="Количество исполнителей" onChange={this.handleChangeCount}/>
-                                                                                                        </div>
-                                                                                                        <div className="wrapper-input color-blue">
-                                                                                                            Стоимость: { (Number(this.state.fullPrice)).toLocaleString('ru') } ₽
-                                                                                                        </div>
+                                                                                                    }
+                                                                                                    <div className="wrapper-input">
+                                                                                                        <input className="input-default" type="number" placeholder="Количество исполнителей" onChange={this.handleChangeCount}/>
+                                                                                                    </div>
+                                                                                                    <div className="wrapper-input color-blue">
+                                                                                                        Стоимость: { (Number(this.state.fullPrice)).toLocaleString('ru') } ₽
+                                                                                                    </div>
                                                                                                     </>
                                                                                             :
                                                                                                 null

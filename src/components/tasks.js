@@ -223,7 +223,7 @@ class Tasks extends Component{
                     store.user.load === false ?
                         store.user.auth === false || store.user.execute === false || store.user.block === true  ?
                             store.user.block === true ?
-                                <div className="wrapper-error">
+                                <div className="wrapper-error" >
                                     <div className="error">Ваш профиль был заблокирован по решению Администрации сайта.</div>
                                     <div className="error small-text">Причина: {store.user.cause}</div>
                                     <br/>

@@ -267,7 +267,7 @@ class App extends Component{
             })
             .catch(error => {
                 console.log(error)
-            });
+            })
 
         fetch(`/core/v1/system/is_auth`, {
             method: "GET",

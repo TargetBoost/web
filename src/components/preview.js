@@ -4,6 +4,7 @@ import background_tg from "../img/dd.png"
 import background_auth from "../img/ddd_d.png"
 
 import InputMask from "react-input-mask";
+import Video from "./video";
 
 
 
@@ -271,9 +272,7 @@ class Preview extends Component{
                                             </p>
                                         </div>
                                     </>
-
                             }
-
                         </div>
                     </div>
                     {/*<div className="navigation-preview">*/}
@@ -283,6 +282,9 @@ class Preview extends Component{
                     {/*    <div className="button-light pre-add unselectable">Посмотреть видео на Youtube 1 руб.</div>*/}
                     {/*</div>*/}
                 </div>
+                {/*<div className="block-default-pre">*/}
+                {/*    <Video store={this.state.store}/>*/}
+                {/*</div>*/}
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background_tg})`,
                     backgroundPosition: "left -100px top 50%",

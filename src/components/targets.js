@@ -4,6 +4,9 @@ import youtube from "../icon/youtube.png"
 import telegram from "../icon/telegram.png"
 import Select from 'react-select';
 import 'react-input-range/lib/css/index.css';
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
+import {FormGroup} from "@mui/material";
 
 class Targets extends Component{
     constructor(props) {
@@ -42,12 +45,15 @@ class Targets extends Component{
             fullPrice: 0,
             type: null,
             link: "",
+            userCost: false,
         }
 
         this.state.store.subscribe(() => {
             this.setState(this.state.store.getState())
         })
     }
+
+    countExecute = React.createRef();
 
     urlPatternValidation = URL => {
         const regex = new RegExp('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?');
@@ -92,7 +98,7 @@ class Targets extends Component{
         let data = {
             icon: this.state.select,
             total: String(this.state.total),
-            cost: this.state.cost,
+            cost: Number(this.state.cost),
             type: this.state.type,
             link: this.state.link,
         }
@@ -166,6 +172,32 @@ class Targets extends Component{
         this.setState({link: e.target.value})
     };
 
+    handleChangeUserCost = (e) => {
+        // TODO: ИСПРАВИТЬ!!!!!!!
+        // console.log(this.state.optionsDeepTarget, this.state.select, this.state.type)
+        let priceConst = this.state.optionsDeepTarget[this.state.select][0].cost
+        if (e.target.value < priceConst ) {
+            if (e.target.value < 0) {
+                this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost, fullPrice: this.state.optionsDeepTarget[this.state.select][0].cost * this.countExecute.current.value})
+
+            }else{
+                this.state.store.dispatch({
+                    type: "set_error", value: "Цена должна быть больше минимальной",
+                })
+                this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost, fullPrice: this.state.optionsDeepTarget[this.state.select][0].cost * this.countExecute.current.value })
+            }
+        }else{
+            this.setState({cost: e.target.value, fullPrice: e.target.value * this.countExecute.current.value})
+        }
+    }
+
+    changeSwitcherPrice = (e) => {
+        this.setState({userCost: !this.state.userCost})
+        if (!this.state.userCost === false) {
+            this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost, fullPrice: this.countExecute.current.value * this.state.optionsDeepTarget[this.state.select][0].cost})
+        }
+    }
+
     updateTask = (e) => {
         let data = {
             id: parseInt(e.target.getAttribute("target")),
@@ -220,7 +252,6 @@ class Targets extends Component{
                 })
             });
     }
-
 
     render() {
         let store = this.state.store.getState()
@@ -405,9 +436,9 @@ class Targets extends Component{
                                                                         <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
 
                                                                         <div className="task-item-value">На проверке</div>
-                                                                        <div className="task-item-value">
-                                                                            <div className="button-default">Изменить</div>
-                                                                        </div>
+                                                                        {/*<div className="task-item-value">*/}
+                                                                        {/*    <div className="button-default">Изменить</div>*/}
+                                                                        {/*</div>*/}
                                                                     </div>
 
                                                                 )
@@ -481,11 +512,11 @@ class Targets extends Component{
                                                                         {/*<div className="task-item">Настройки платформы</div>*/}
                                                                         <div className="settings">
                                                                             <div className="wrapper-input">
-                                                                                <div className="title-pop-up">Данные кампании</div>
+                                                                                <div className="title-pop-up">Данные рекламной кампании</div>
                                                                             </div>
                                                                             <div className="wrapper-input">
                                                                                 <Select
-                                                                                    placeholder="Платформа"
+                                                                                    placeholder="Выберите Платформу"
                                                                                     onChange={this.handleChange}
                                                                                     options={this.state.optionsTypeTarget}
                                                                                 />
@@ -495,21 +526,42 @@ class Targets extends Component{
                                                                                     <>
                                                                                         <div className="wrapper-input">
                                                                                             <Select
-                                                                                                placeholder="Цель рекламной кампании"
+                                                                                                placeholder="Выберите цель рекламной кампании"
                                                                                                 onChange={this.handleChangeDeep}
                                                                                                 options={this.state.optionsDeepTarget[this.state.select]}
                                                                                             />
                                                                                         </div>
+
                                                                                         {
                                                                                             this.state.cost !== null ?
                                                                                                 <>
                                                                                                     <div className="wrapper-input">
-                                                                                                        <input className="input-default" type="number" placeholder="Количество исполнителей" onChange={this.handleChangeCount}/>
+                                                                                                        <input className="input-default" type="number" placeholder="Количество исполнителей" ref={this.countExecute} onChange={this.handleChangeCount}/>
                                                                                                     </div>
+                                                                                                    <div className="wrapper-input">
+                                                                                                        <FormGroup>
+                                                                                                            <FormControlLabel
+                                                                                                                control={
+                                                                                                                    <Switch checked={this.state.userCost} onChange={this.changeSwitcherPrice} name="count" />
+                                                                                                                }
+                                                                                                                label="Хотите указать свою цену за одну подписку?"
+                                                                                                            />
+                                                                                                        </FormGroup>
+                                                                                                    </div>
+                                                                                                    {
+                                                                                                        this.state.userCost === true ?
+                                                                                                            <div className="wrapper-input">
+                                                                                                                {/*TODO : ИСПРАВИТЬ!!!*/}
+                                                                                                                <input className="input-default" type="number" placeholder={`Укажите свою цену не ниже минимума ${this.state.optionsDeepTarget[this.state.select][0].cost} руб`} onChange={this.handleChangeUserCost}/>
+                                                                                                            </div>
+                                                                                                        :
+                                                                                                            null
+
+                                                                                                    }
                                                                                                     <div className="wrapper-input color-blue">
                                                                                                         Стоимость: { (Number(this.state.fullPrice)).toLocaleString('ru') } ₽
                                                                                                     </div>
-                                                                                                </>
+                                                                                                    </>
                                                                                             :
                                                                                                 null
                                                                                         }
@@ -529,11 +581,11 @@ class Targets extends Component{
 
                                                                             {
                                                                                 this.state.link !== "" ?
-                                                                                    <div className="sing-wrapper">
+                                                                                    <div className="wrapper-input">
                                                                                         <div onClick={this.createTarget} className="button-any blue unselectable" >GO 👍</div>
                                                                                     </div>
                                                                                 :
-                                                                                    <div className="sing-wrapper">
+                                                                                    <div className="wrapper-input">
                                                                                         <div className="button-any grey unselectable" >Еще не все...</div>
                                                                                     </div>
                                                                             }

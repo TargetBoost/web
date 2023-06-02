@@ -543,7 +543,8 @@ class Targets extends Component{
                                                                                                     {
                                                                                                         this.state.userCost === true ?
                                                                                                             <div className="wrapper-input">
-                                                                                                                <input className="input-default" type="number" placeholder={`Укажите свою цену не ниже минимума ${this.state.cost} руб`} onChange={this.handleChangeUserCost}/>
+                                                                                                                {/*TODO : ИСПРАВИТЬ!!!*/}
+                                                                                                                <input className="input-default" type="number" placeholder={`Укажите свою цену не ниже минимума ${this.state.optionsDeepTarget[this.state.select][0].cost} руб`} onChange={this.handleChangeUserCost}/>
                                                                                                             </div>
                                                                                                         :
                                                                                                             null

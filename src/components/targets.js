@@ -529,7 +529,7 @@ class Targets extends Component{
                                                                                                         <FormGroup>
                                                                                                             <FormControlLabel
                                                                                                                 control={
-                                                                                                                    <Switch checked={this.state.userCost} onChange={()=>this.setState({userCost: !this.state.userCost })} name="count" />
+                                                                                                                    <Switch checked={this.state.userCost} onChange={()=>{this.setState({userCost: !this.state.userCost}); !this.state.userCost ? this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost}) : null}} name="count" />
                                                                                                                 }
                                                                                                                 label="Хотите указать цену за одну подписку?"
                                                                                                             />

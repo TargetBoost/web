@@ -45,7 +45,7 @@ class Targets extends Component{
             fullPrice: 0,
             type: null,
             link: "",
-            userCost: 0,
+            userCost: false,
         }
 
         this.state.store.subscribe(() => {
@@ -522,7 +522,7 @@ class Targets extends Component{
                                                                                                         <FormGroup>
                                                                                                             <FormControlLabel
                                                                                                                 control={
-                                                                                                                    <Switch checked={false} onChange={()=>this.setState({userCost: 1 })} name="count" />
+                                                                                                                    <Switch checked={this.state.userCost} onChange={()=>this.setState({userCost: true })} name="count" />
                                                                                                                 }
                                                                                                                 label="Хотите указать цену за одну подписку?"
                                                                                                             />

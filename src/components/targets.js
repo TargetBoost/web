@@ -522,14 +522,14 @@ class Targets extends Component{
                                                                                                         <FormGroup>
                                                                                                             <FormControlLabel
                                                                                                                 control={
-                                                                                                                    <Switch checked={this.state.userCost} onChange={()=>this.setState({userCost: true })} name="count" />
+                                                                                                                    <Switch checked={this.state.userCost} onChange={()=>this.setState({userCost: !this.state.userCost })} name="count" />
                                                                                                                 }
                                                                                                                 label="Хотите указать цену за одну подписку?"
                                                                                                             />
                                                                                                         </FormGroup>
                                                                                                     </div>
                                                                                                     {
-                                                                                                        this.state.userCost === 1 ?
+                                                                                                        this.state.userCost === true ?
                                                                                                             <div className="wrapper-input">
                                                                                                                 <input className="input-default" type="number" placeholder={`Укажите свою цену не ниже минимума ${this.state.cost} руб`} onChange={this.handleChangeUserCost}/>
                                                                                                             </div>

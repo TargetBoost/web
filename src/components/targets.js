@@ -172,13 +172,18 @@ class Targets extends Component{
 
     handleChangeUserCost = (e) => {
         // TODO: ИСПРАВИТЬ!!!!!!!
-        console.log(this.state.optionsDeepTarget, this.state.select, this.state.type)
+        // console.log(this.state.optionsDeepTarget, this.state.select, this.state.type)
         let priceConst = this.state.optionsDeepTarget[this.state.select][0].cost
-        if (e.target.value < priceConst) {
-            this.state.store.dispatch({
-                type: "set_error", value: "Цена должна быть больше минимальной",
-            })
-            this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost})
+        if (e.target.value < priceConst ) {
+            if (e.target.value < 0) {
+                this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost})
+
+            }else{
+                this.state.store.dispatch({
+                    type: "set_error", value: "Цена должна быть больше минимальной",
+                })
+                this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost})
+            }
         }else{
             this.setState({cost: e.target.value, fullPrice: e.target.value * this.state.cost})
         }

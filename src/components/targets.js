@@ -247,9 +247,8 @@ class Targets extends Component{
     }
 
     changeSwitcherPrice = (e) => {
-        console.log(e.target.getAttribute("isUserCost"))
-        this.setState({userCost: !e.checked})
-        if (!e.checked === false) {
+        this.setState({userCost: !this.state.userCost})
+        if (!this.state.userCost === false) {
             this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost, fullPrice: this.countExecute.current.value * this.state.optionsDeepTarget[this.state.select][0].cost})
         }
     }
@@ -544,7 +543,7 @@ class Targets extends Component{
                                                                                                         <FormGroup>
                                                                                                             <FormControlLabel
                                                                                                                 control={
-                                                                                                                    <Switch checked={this.state.userCost} isUserCost={this.state.userCost} onChange={this.changeSwitcherPrice} name="count" />
+                                                                                                                    <Switch checked={this.state.userCost} onChange={this.changeSwitcherPrice} name="count" />
                                                                                                                 }
                                                                                                                 label="Хотите указать свою цену за одну подписку?"
                                                                                                             />

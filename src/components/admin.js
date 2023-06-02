@@ -605,8 +605,9 @@ class Admin extends Component{
                                                                     filterUser(this.state.targets, true).map(t =>
                                                                         <div className="task-item">
                                                                             <div className="task-item-value">ID: {t.id}</div>
-                                                                            <div className="task-item-value">login: {t.login}</div>
+                                                                            <div className="task-item-value">tg: {t.tg}</div>
                                                                             <div className="task-item-value">balance: {(parseInt(t.balance)).toLocaleString('ru') } ₽</div>
+                                                                            <div className="task-item-value">execute: { t.execute.toString() }</div>
                                                                             {/*<div className="task-item-value">{t.count}/{t.total}</div>*/}
                                                                             {/*<div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>*/}
                                                                             <div className="task-item-value">

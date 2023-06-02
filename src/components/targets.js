@@ -489,7 +489,7 @@ class Targets extends Component{
                                                                             </div>
                                                                             <div className="wrapper-input">
                                                                                 <Select
-                                                                                    placeholder="Платформа"
+                                                                                    placeholder="Выберите Платформу"
                                                                                     onChange={this.handleChange}
                                                                                     options={this.state.optionsTypeTarget}
                                                                                 />
@@ -499,7 +499,7 @@ class Targets extends Component{
                                                                                     <>
                                                                                         <div className="wrapper-input">
                                                                                             <Select
-                                                                                                placeholder="Цель рекламной кампании"
+                                                                                                placeholder="Выберите цель рекламной кампании"
                                                                                                 onChange={this.handleChangeDeep}
                                                                                                 options={this.state.optionsDeepTarget[this.state.select]}
                                                                                             />

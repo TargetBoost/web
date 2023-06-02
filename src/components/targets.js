@@ -563,11 +563,11 @@ class Targets extends Component{
 
                                                                             {
                                                                                 this.state.link !== "" ?
-                                                                                    <div className="sing-wrapper">
+                                                                                    <div className="wrapper-input">
                                                                                         <div onClick={this.createTarget} className="button-any blue unselectable" >GO 👍</div>
                                                                                     </div>
                                                                                 :
-                                                                                    <div className="sing-wrapper">
+                                                                                    <div className="wrapper-input">
                                                                                         <div className="button-any grey unselectable" >Еще не все...</div>
                                                                                     </div>
                                                                             }

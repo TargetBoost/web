@@ -543,7 +543,7 @@ class Targets extends Component{
                                                                                                                         }
                                                                                                                     }} name="count" />
                                                                                                                 }
-                                                                                                                label="Хотите указать цену за одну подписку?"
+                                                                                                                label="Хотите указать свою цену за одну подписку?"
                                                                                                             />
                                                                                                         </FormGroup>
                                                                                                     </div>

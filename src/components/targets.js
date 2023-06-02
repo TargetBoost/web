@@ -534,7 +534,12 @@ class Targets extends Component{
                                                                                                         <FormGroup>
                                                                                                             <FormControlLabel
                                                                                                                 control={
-                                                                                                                    <Switch checked={this.state.userCost} onChange={()=>{this.setState({userCost: !this.state.userCost}); !this.state.userCost ? this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost}) : null}} name="count" />
+                                                                                                                    <Switch checked={this.state.userCost} onChange={()=>{
+                                                                                                                        this.setState({userCost: !this.state.userCost})
+                                                                                                                        if (this.state.userCost === false) {
+                                                                                                                            this.setState({cost: this.state.optionsDeepTarget[this.state.select][0].cost})
+                                                                                                                        }
+                                                                                                                    }} name="count" />
                                                                                                                 }
                                                                                                                 label="Хотите указать цену за одну подписку?"
                                                                                                             />

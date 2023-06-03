@@ -195,7 +195,7 @@
 }
 
 .task-item-wrapper {
-    box-shadow: 0 0 13px -2px rgba(88, 88, 92, 0.2);
+    box-shadow: 0 0 5px -2px rgba(88, 88, 92, 0.2);
     border-radius: 15px;
     margin-bottom: 15px;
 }

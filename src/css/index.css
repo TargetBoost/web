@@ -191,6 +191,10 @@
     border-bottom: 1px solid #fafafa;
 }
 
+.wrapper-image-icon {
+    margin-right: 10px;
+}
+
 /*.ui.menu:last-child {*/
 /*    !* margin-bottom:0 *!*/
 /*}*/

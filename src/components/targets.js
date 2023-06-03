@@ -360,7 +360,7 @@ class Targets extends Component{
                                                                     </div>
                                                                     <div className="info-task-wrapper">
                                                                         <div className="image-wrapper-bio">
-                                                                            <div>
+                                                                            <div className="wrapper-image-icon">
                                                                                 {
                                                                                     t.cm_file_id !== "" ?
                                                                                         <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>

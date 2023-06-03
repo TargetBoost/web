@@ -137,8 +137,9 @@
     box-sizing: border-box;
     margin-bottom: 5px;
     width: 100%;
-    box-shadow: 0 8px 13px -2px rgba(88, 88, 92, 0.2);
-    border-radius: 15px;
+    /*box-shadow: 0 8px 13px -2px rgba(88, 88, 92, 0.2);*/
+    /*border-radius: 15px;*/
+    border-bottom: 1px solid #e9f3ff;
 }
 
 .orange {

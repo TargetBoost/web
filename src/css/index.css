@@ -134,7 +134,6 @@
 }
 
 .task-item {
-    border-bottom: 1px solid #fafafa;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 5px;
@@ -189,6 +188,7 @@
 
 .info-task-wrapper {
     padding: 10px;
+    border-bottom: 1px solid #fafafa;
 }
 
 /*.ui.menu:last-child {*/

@@ -370,7 +370,7 @@ class Targets extends Component{
                                                                                 }
                                                                             </div>
                                                                             <div className="info-company-bio">
-                                                                                <div className="title-block">title</div>
+                                                                                <div className="title-block">{t.link.split('/')[t.link.split('/').length - 1]}</div>
                                                                                 <div>bio</div>
                                                                             </div>
                                                                         </div>

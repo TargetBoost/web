@@ -137,6 +137,7 @@
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 5px;
+    border-bottom: 1px solid #fafafa;
 }
 
 .orange {
@@ -192,7 +193,7 @@
 }
 
 .wrapper-image-icon {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 /*.ui.menu:last-child {*/

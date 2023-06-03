@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import vk from "../icon/vk.png";
+import noImg from "../icon/no_img.png"
 import youtube from "../icon/youtube.png"
 import telegram from "../icon/telegram.png"
 import Select from 'react-select';
@@ -364,7 +365,7 @@ class Targets extends Component{
                                                                                     t.cm_file_id !== "" ?
                                                                                         <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
                                                                                         :
-                                                                                        <img className="img-channel" src={`/core/v1/file_ch/no_img.png`} alt={"img"}/>
+                                                                                        <img className="img-channel" src={noImg} alt={"img"}/>
 
                                                                                 }
                                                                             </div>

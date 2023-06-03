@@ -544,7 +544,7 @@ class Targets extends Component{
                                                                                 <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
 
                                                                                 <div className="task-item-value red">
-                                                                                    Не соответствует правилам сайта
+                                                                                    Не соответствует правилам
                                                                                 </div>
                                                                                 {/*<div className="task-item-value">*/}
                                                                                 {/*    <div className="button-default">Изменить</div>*/}

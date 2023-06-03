@@ -65,10 +65,12 @@ class Settings extends Component{
                                     {/*    Логин: { store.user.login }*/}
                                     {/*    /!*<input className="input-default" id="login" placeholder="Логин"/>*!/*/}
                                     {/*</div>*/}
-                                    {/*<div className="wrapper-input">*/}
-                                    {/*    Телефон: +{ store.user.number_phone }*/}
-                                    {/*    /!*<input className="input-default" id="login" placeholder="Логин"/>*!/*/}
-                                    {/*</div>*/}
+                                    <div className="wrapper-input">
+                                        Телефон: <div className="button-default" onClick={()=>{
+                                            window.location.href = `https://oauth.vk.com/authorize?client_id=51666136&display=page&redirect_uri=http://targetboost.ru/core/v1/callback_vk&scope=groups&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`
+                                    }}>Авторизоваться VK</div>
+                                        {/*<input className="input-default" id="login" placeholder="Логин"/>*/}
+                                    </div>
                                     <div className="wrapper-input">
                                         Телеграм: { store.user.tg }
                                         {/*<input className="input-default" id="login" placeholder="Логин"/>*/}

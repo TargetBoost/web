@@ -100,6 +100,11 @@
     justify-content: space-between;
 }
 
+.image-wrapper-bio {
+    display: flex;
+    justify-content: space-between;
+}
+
 .underline {
     text-decoration: underline;
     cursor: pointer;

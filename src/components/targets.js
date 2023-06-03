@@ -359,13 +359,18 @@ class Targets extends Component{
                                                                     </div>
                                                                     <div className="info-task-wrapper">
                                                                         <div className="image-wrapper-bio">
-                                                                            {
-                                                                                t.cm_file_id !== "" ?
-                                                                                    <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
-                                                                                    :
-                                                                                    <img className="img-channel" src={`/core/v1/file_ch/no_img.png`} alt={"img"}/>
+                                                                            <div>
+                                                                                {
+                                                                                    t.cm_file_id !== "" ?
+                                                                                        <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
+                                                                                        :
+                                                                                        <img className="img-channel" src={`/core/v1/file_ch/no_img.png`} alt={"img"}/>
 
-                                                                            }
+                                                                                }
+                                                                            </div>
+                                                                            <div>
+                                                                                test
+                                                                            </div>
                                                                         </div>
 
                                                                     </div>

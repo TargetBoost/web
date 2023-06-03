@@ -173,6 +173,15 @@
     border-radius: .28571429rem!important;
 }
 
+.img-channel {
+    border-radius: 50%;
+    max-width: 200px;
+}
+
+.info-task-wrapper {
+    padding: 10px;
+}
+
 /*.ui.menu:last-child {*/
 /*    !* margin-bottom:0 *!*/
 /*}*/

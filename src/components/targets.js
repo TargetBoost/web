@@ -320,40 +320,50 @@ class Targets extends Component{
                                                     {
                                                         filterTarget(this.state.targets, 1).length > 0 ?
                                                             filterTarget(this.state.targets, 1).map(t =>
-                                                                <div className="task-item">
-                                                                    <div className="task-item-value task-item-icon-box">
-                                                                        {
-                                                                            t.icon === "vk" ?
-                                                                                <img className="icon-task-small" src={vk} alt="item"/>
-                                                                            :
-                                                                                t.icon === "yt" ?
-                                                                                    <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                <div className="task-item-wrapper">
+                                                                    <div className="task-item">
+                                                                        <div className="task-item-value task-item-icon-box">
+                                                                            {
+                                                                                t.icon === "vk" ?
+                                                                                    <img className="icon-task-small" src={vk} alt="item"/>
                                                                                 :
-                                                                                    t.icon === "tg" ?
-                                                                                        <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                    t.icon === "yt" ?
+                                                                                        <img className="icon-task-small" src={youtube} alt="item"/>
                                                                                     :
-                                                                                        null
-                                                                        }
+                                                                                        t.icon === "tg" ?
+                                                                                            <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                        :
+                                                                                            null
+                                                                            }
 
-                                                                    </div>
-                                                                    <div className="task-item-value">{t.title}</div>
-                                                                    <div className="task-item-value">{t.count}/{t.total}</div>
-                                                                    <div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>
-                                                                    {
-                                                                        t.status === "check" ?
-                                                                            <div className="task-item-value orange">На проверке</div>
-                                                                        :
-                                                                            t.status === "end" ?
-                                                                                <div className="task-item-value">Завершена</div>
+                                                                        </div>
+                                                                        <div className="task-item-value">{t.title}</div>
+                                                                        <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                        <div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>
+                                                                        {
+                                                                            t.status === "check" ?
+                                                                                <div className="task-item-value orange">На проверке</div>
                                                                             :
-                                                                                t.status === "active" ?
-                                                                                    <div className="task-item-value green-color">Активна</div>
-                                                                                    :
-                                                                                    null
+                                                                                t.status === "end" ?
+                                                                                    <div className="task-item-value">Завершена</div>
+                                                                                :
+                                                                                    t.status === "active" ?
+                                                                                        <div className="task-item-value green-color">Активна</div>
+                                                                                        :
+                                                                                        null
 
-                                                                    }
-                                                                    <div className="task-item-value">
-                                                                        <div className="button-default" target={t.id} status="3" onClick={this.updateTask}>Завершить</div>
+                                                                        }
+                                                                        <div className="task-item-value">
+                                                                            <div className="button-default" target={t.id} status="3" onClick={this.updateTask}>Завершить</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="info-task-wrapper">
+                                                                        {
+                                                                            t.cm_file_id !== "" ?
+                                                                                <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
+                                                                            :
+                                                                                null
+                                                                        }
                                                                     </div>
                                                                 </div>
                                                             )

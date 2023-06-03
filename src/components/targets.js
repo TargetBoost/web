@@ -369,8 +369,8 @@ class Targets extends Component{
 
                                                                                 }
                                                                             </div>
-                                                                            <div>
-                                                                                <div>title</div>
+                                                                            <div className="info-company-bio">
+                                                                                <div className="title-block">title</div>
                                                                                 <div>bio</div>
                                                                             </div>
                                                                         </div>

@@ -375,7 +375,7 @@ class Targets extends Component{
                                                                                         {t.link.split('/')[t.link.split('/').length - 1]}
                                                                                     </a>
                                                                                 </div>
-                                                                                <div className="text-info-bio">bio</div>
+                                                                                <div className="text-info-bio">{t.bio}</div>
                                                                             </div>
                                                                         </div>
 
@@ -439,7 +439,7 @@ class Targets extends Component{
                                                                                             {t.link.split('/')[t.link.split('/').length - 1]}
                                                                                         </a>
                                                                                     </div>
-                                                                                    <div className="text-info-bio">bio</div>
+                                                                                    <div className="text-info-bio">{t.bio}</div>
                                                                                 </div>
                                                                             </div>
 
@@ -502,7 +502,7 @@ class Targets extends Component{
                                                                                             {t.link.split('/')[t.link.split('/').length - 1]}
                                                                                         </a>
                                                                                     </div>
-                                                                                    <div className="text-info-bio">bio</div>
+                                                                                    <div className="text-info-bio">{t.bio}</div>
                                                                                 </div>
                                                                             </div>
 
@@ -567,7 +567,7 @@ class Targets extends Component{
                                                                                                 {t.link.split('/')[t.link.split('/').length - 1]}
                                                                                             </a>
                                                                                         </div>
-                                                                                        <div className="text-info-bio">bio</div>
+                                                                                        <div className="text-info-bio">{t.bio}</div>
                                                                                     </div>
                                                                                 </div>
 

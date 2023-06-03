@@ -134,10 +134,11 @@
 }
 
 .task-item {
-    width: 100%;
     box-sizing: border-box;
     margin-bottom: 5px;
-    border-bottom: 1px solid #fafafa;
+    width: 100%;
+    box-shadow: 0 0 13px -2px rgba(88, 88, 92, 0.2);
+    border-radius: 15px;
 }
 
 .orange {

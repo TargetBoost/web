@@ -358,12 +358,16 @@ class Targets extends Component{
                                                                         </div>
                                                                     </div>
                                                                     <div className="info-task-wrapper">
-                                                                        {
-                                                                            t.cm_file_id !== "" ?
-                                                                                <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
-                                                                            :
-                                                                                null
-                                                                        }
+                                                                        <div className="image-wrapper-bio">
+                                                                            {
+                                                                                t.cm_file_id !== "" ?
+                                                                                    <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
+                                                                                    :
+                                                                                    <img className="img-channel" src={`/core/v1/file_ch/no_img.png`} alt={"img"}/>
+
+                                                                            }
+                                                                        </div>
+
                                                                     </div>
 
                                                                 </div>

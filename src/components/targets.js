@@ -380,7 +380,6 @@ class Targets extends Component{
                                                                         </div>
 
                                                                     </div>
-
                                                                 </div>
                                                             )
                                                         :
@@ -397,8 +396,7 @@ class Targets extends Component{
                                                         {
                                                             filterTarget(this.state.targets, 3).length > 0 ?
                                                                 filterTarget(this.state.targets, 3).map(t =>
-
-
+                                                                    <div className="task-item-wrapper">
                                                                         <div className="task-item">
                                                                             <div className="task-item-value task-item-icon-box">
                                                                                 {
@@ -424,7 +422,29 @@ class Targets extends Component{
                                                                             {/*    <div className="button-default" target={t.id} status="3" onClick={this.updateTask}></div>*/}
                                                                             {/*</div>*/}
                                                                         </div>
+                                                                        <div className="info-task-wrapper">
+                                                                            <div className="image-wrapper-bio">
+                                                                                <div className="wrapper-image-icon">
+                                                                                    {
+                                                                                        t.cm_file_id !== "" ?
+                                                                                            <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
+                                                                                            :
+                                                                                            <img className="img-channel" src={noImg} alt={"img"}/>
 
+                                                                                    }
+                                                                                </div>
+                                                                                <div className="info-company-bio">
+                                                                                    <div className="title-block" style={{fontWeight: "bold"}}>
+                                                                                        <a href={t.link} target={"_blank"}>
+                                                                                            {t.link.split('/')[t.link.split('/').length - 1]}
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div className="text-info-bio">bio</div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
                                                                 )
                                                                 :
                                                                 <div className="alert">
@@ -439,49 +459,7 @@ class Targets extends Component{
                                                         {
                                                             filterTarget(this.state.targets, 0).length > 0 ?
                                                                 filterTarget(this.state.targets, 0).map(t =>
-
-
-                                                                    <div className="task-item">
-                                                                        <div className="task-item-value task-item-icon-box">
-                                                                            {
-                                                                                t.icon === "vk" ?
-                                                                                    <img className="icon-task-small" src={vk} alt="item"/>
-                                                                                    :
-                                                                                    t.icon === "yt" ?
-                                                                                        <img className="icon-task-small" src={youtube} alt="item"/>
-                                                                                        :
-                                                                                        t.icon === "tg" ?
-                                                                                            <img className="icon-task-small" src={telegram} alt="item"/>
-                                                                                            :
-                                                                                            null
-                                                                            }
-
-                                                                        </div>
-                                                                        <div className="task-item-value">{t.title}</div>
-                                                                        <div className="task-item-value">{t.count}/{t.total}</div>
-                                                                        <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
-
-                                                                        <div className="task-item-value">На проверке</div>
-                                                                        {/*<div className="task-item-value">*/}
-                                                                        {/*    <div className="button-default">Изменить</div>*/}
-                                                                        {/*</div>*/}
-                                                                    </div>
-
-                                                                )
-                                                                :
-                                                                <div className="alert">
-                                                                    Кампаний на проверке нет
-                                                                </div>
-                                                        }
-                                                    </div>
-                                                    :
-                                                    this.state.executor === "rejection" ?
-                                                        <div className="block-default-pre">
-                                                            {
-                                                                filterTarget(this.state.targets, 2).length > 0 ?
-                                                                    filterTarget(this.state.targets, 2).map(t =>
-
-
+                                                                    <div className="task-item-wrapper">
                                                                         <div className="task-item">
                                                                             <div className="task-item-value task-item-icon-box">
                                                                                 {
@@ -502,14 +480,99 @@ class Targets extends Component{
                                                                             <div className="task-item-value">{t.count}/{t.total}</div>
                                                                             <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
 
-                                                                            <div className="task-item-value red">
-                                                                                Не соответствует правилам сайта
-                                                                            </div>
+                                                                            <div className="task-item-value">На проверке</div>
                                                                             {/*<div className="task-item-value">*/}
                                                                             {/*    <div className="button-default">Изменить</div>*/}
                                                                             {/*</div>*/}
                                                                         </div>
+                                                                        <div className="info-task-wrapper">
+                                                                            <div className="image-wrapper-bio">
+                                                                                <div className="wrapper-image-icon">
+                                                                                    {
+                                                                                        t.cm_file_id !== "" ?
+                                                                                            <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
+                                                                                            :
+                                                                                            <img className="img-channel" src={noImg} alt={"img"}/>
 
+                                                                                    }
+                                                                                </div>
+                                                                                <div className="info-company-bio">
+                                                                                    <div className="title-block" style={{fontWeight: "bold"}}>
+                                                                                        <a href={t.link} target={"_blank"}>
+                                                                                            {t.link.split('/')[t.link.split('/').length - 1]}
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div className="text-info-bio">bio</div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                                :
+                                                                <div className="alert">
+                                                                    Кампаний на проверке нет
+                                                                </div>
+                                                        }
+                                                    </div>
+                                                    :
+                                                    this.state.executor === "rejection" ?
+                                                        <div className="block-default-pre">
+                                                            {
+                                                                filterTarget(this.state.targets, 2).length > 0 ?
+                                                                    filterTarget(this.state.targets, 2).map(t =>
+
+                                                                        <div className="task-item-wrapper">
+                                                                            <div className="task-item">
+                                                                                <div className="task-item-value task-item-icon-box">
+                                                                                    {
+                                                                                        t.icon === "vk" ?
+                                                                                            <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                            :
+                                                                                            t.icon === "yt" ?
+                                                                                                <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                                :
+                                                                                                t.icon === "tg" ?
+                                                                                                    <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                                    :
+                                                                                                    null
+                                                                                    }
+
+                                                                                </div>
+                                                                                <div className="task-item-value">{t.title}</div>
+                                                                                <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                                <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
+
+                                                                                <div className="task-item-value red">
+                                                                                    Не соответствует правилам сайта
+                                                                                </div>
+                                                                                {/*<div className="task-item-value">*/}
+                                                                                {/*    <div className="button-default">Изменить</div>*/}
+                                                                                {/*</div>*/}
+                                                                            </div>
+                                                                            <div className="info-task-wrapper">
+                                                                                <div className="image-wrapper-bio">
+                                                                                    <div className="wrapper-image-icon">
+                                                                                        {
+                                                                                            t.cm_file_id !== "" ?
+                                                                                                <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
+                                                                                                :
+                                                                                                <img className="img-channel" src={noImg} alt={"img"}/>
+
+                                                                                        }
+                                                                                    </div>
+                                                                                    <div className="info-company-bio">
+                                                                                        <div className="title-block" style={{fontWeight: "bold"}}>
+                                                                                            <a href={t.link} target={"_blank"}>
+                                                                                                {t.link.split('/')[t.link.split('/').length - 1]}
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        <div className="text-info-bio">bio</div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
                                                                     )
                                                                     :
                                                                     <div className="alert">

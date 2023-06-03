@@ -1115,6 +1115,11 @@ body {
     font-size: 15px;
 }
 
+.text-info-bio {
+    padding: 10px 10px 10px 0;
+    font-size: 13px;
+}
+
 ._3Ifyx {
     /*margin-top: 1rem;*/
     /*margin-bottom: 1rem;*/

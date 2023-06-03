@@ -370,8 +370,8 @@ class Targets extends Component{
                                                                                 }
                                                                             </div>
                                                                             <div className="info-company-bio">
-                                                                                <div className="title-block">{t.link.split('/')[t.link.split('/').length - 1]}</div>
-                                                                                <div>bio</div>
+                                                                                <div className="title-block" style={{fontWeight: "bold"}}>{t.link.split('/')[t.link.split('/').length - 1]}</div>
+                                                                                <div className="text-info-bio">bio</div>
                                                                             </div>
                                                                         </div>
 

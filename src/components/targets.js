@@ -372,7 +372,7 @@ class Targets extends Component{
                                                                             <div className="info-company-bio">
                                                                                 <div className="title-block" style={{fontWeight: "bold"}}>
                                                                                     <a href={t.link} target={"_blank"}>
-                                                                                        {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#fafafa"}}>({t.count_sub})</span>
+                                                                                        {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                     </a>
                                                                                 </div>
                                                                                 <div className="text-info-bio">{t.bio}</div>

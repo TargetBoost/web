@@ -370,7 +370,8 @@ class Targets extends Component{
                                                                                 }
                                                                             </div>
                                                                             <div>
-                                                                                test
+                                                                                <div>title</div>
+                                                                                <div>bio</div>
                                                                             </div>
                                                                         </div>
 

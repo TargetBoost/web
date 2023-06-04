@@ -97,6 +97,7 @@ class App extends Component{
                                                 block: res.data.block,
                                                 cause: res.data.cause,
                                                 tg: res.data.tg,
+                                                vkToken: res.data.vkToken,
                                             },
                                         })
                                     }else{
@@ -181,6 +182,7 @@ class App extends Component{
                                                 block: res.data.block,
                                                 cause: res.data.cause,
                                                 tg: res.data.tg,
+                                                vkToken: res.data.vkToken,
                                             },
                                         })
                                     }else{
@@ -304,6 +306,7 @@ class App extends Component{
                                         block: res.data.block,
                                         cause: res.data.cause,
                                         tg: res.data.tg,
+                                        vkToken: res.data.vkToken,
                                     },
                                 })
                             }else{

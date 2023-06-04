@@ -18,6 +18,7 @@ const initState = {
         block: false,
         cause: "",
         tg: "",
+        vkToken: "",
     },
     settings: {
         snow: false,
@@ -44,6 +45,7 @@ function reducer(state = initState, action) {
                 block: action.value.block,
                 cause: action.value.cause,
                 tg: action.value.tg,
+                vkToken: action.value.vkToken,
             }
 
             return state

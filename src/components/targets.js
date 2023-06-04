@@ -18,7 +18,7 @@ class Targets extends Component{
             executor: "all",
             targets: [],
             optionsTypeTarget: [
-                // { value: 'vk', label: 'VK' },
+                { value: 'vk', label: 'VK' },
                 { value: 'tg', label: 'Telegram' },
                 // { value: 'yt', label: 'Youtube' },
 
@@ -26,8 +26,8 @@ class Targets extends Component{
             optionsDeepTarget: {
                 vk: [
                     { value: 'vk_community', cost: 2, label: 'Вступить в сообщество' },
-                    { value: 'vk_like', cost: 2, label: 'Поставить лайк на запись' },
-                    { value: 'vk_add_friends', cost: 2, label: 'Добавить в друзья' },
+                    // { value: 'vk_like', cost: 2, label: 'Поставить лайк на запись' },
+                    // { value: 'vk_add_friends', cost: 2, label: 'Добавить в друзья' },
                 ],
                 tg: [
                     { value: 'tg_community', cost: 2, label: 'Подписаться на канал' },

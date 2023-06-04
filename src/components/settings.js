@@ -54,7 +54,10 @@ class Settings extends Component{
                             <div className="block-default-pre">
                                 <div className="block-default-pre">
                                     <h2>Профиль VK</h2>
-                                    <div>
+                                    {}
+                                    <div style={{
+                                        width: "200px"
+                                    }}>
                                         <div className="button-default" onClick={()=>{
                                         window.location.href = `https://oauth.vk.com/authorize?client_id=51666148&display=page&redirect_uri=https://targetboost.ru/core/v1/callback_vk&scope=groups,offline&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`
                                     }}>Авторизоваться VK</div>

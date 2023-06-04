@@ -97,7 +97,9 @@ class App extends Component{
                                                 block: res.data.block,
                                                 cause: res.data.cause,
                                                 tg: res.data.tg,
-                                                vkToken: res.data.vkToken,
+                                                vkToken: res.data.vk_token,
+                                                vkUserFirstName: res.data.vk_user_first_name,
+                                                vkUserLastName: res.data.vk_user_last_name,
                                             },
                                         })
                                     }else{
@@ -182,7 +184,9 @@ class App extends Component{
                                                 block: res.data.block,
                                                 cause: res.data.cause,
                                                 tg: res.data.tg,
-                                                vkToken: res.data.vkToken,
+                                                vkToken: res.data.vk_token,
+                                                vkUserFirstName: res.data.vk_user_first_name,
+                                                vkUserLastName: res.data.vk_user_last_name,
                                             },
                                         })
                                     }else{
@@ -306,7 +310,9 @@ class App extends Component{
                                         block: res.data.block,
                                         cause: res.data.cause,
                                         tg: res.data.tg,
-                                        vkToken: res.data.vkToken,
+                                        vkToken: res.data.vk_token,
+                                        vkUserFirstName: res.data.vk_user_first_name,
+                                        vkUserLastName: res.data.vk_user_last_name,
                                     },
                                 })
                             }else{

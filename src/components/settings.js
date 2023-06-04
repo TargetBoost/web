@@ -54,7 +54,7 @@ class Settings extends Component{
                             <div className="block-default-pre">
                                 <div className="block-default-pre">
                                     <h2>Профиль VK</h2>
-                                    <div className="wrapper-input">
+                                    <div>
                                         <div className="button-default" onClick={()=>{
                                         window.location.href = `https://oauth.vk.com/authorize?client_id=51666148&display=page&redirect_uri=https://targetboost.ru/core/v1/callback_vk&scope=groups,offline&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`
                                     }}>Авторизоваться VK</div>
@@ -74,12 +74,7 @@ class Settings extends Component{
                                     {/*    Логин: { store.user.login }*/}
                                     {/*    /!*<input className="input-default" id="login" placeholder="Логин"/>*!/*/}
                                     {/*</div>*/}
-                                    <div className="wrapper-input">
-                                        Телефон: <div className="button-default" onClick={()=>{
-                                            window.location.href = `https://oauth.vk.com/authorize?client_id=51666148&display=page&redirect_uri=https://targetboost.ru/core/v1/callback_vk&scope=groups,offline&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`
-                                    }}>Авторизоваться VK</div>
                                         {/*<input className="input-default" id="login" placeholder="Логин"/>*/}
-                                    </div>
                                     <div className="wrapper-input">
                                         Телеграм: { store.user.tg }
                                         {/*<input className="input-default" id="login" placeholder="Логин"/>*/}

@@ -25,6 +25,7 @@ import Settings from "./settings";
 import WalletUser from "./walletUser";
 import Pay from "./pay_s";
 import Agreement from "./agreement";
+import AuthVK from "./error_auth_vk";
 
 
 class App extends Component{
@@ -45,6 +46,7 @@ class App extends Component{
             '/wallet' : route({view: <Wallet store={this.state.store}/>}),
             '/withdrawal' : route({view: <WalletUser store={this.state.store}/>}),
             '/s/pay' : route({view: <Pay store={this.state.store}/>}),
+            '/error_auth_vk' : route({view: <AuthVK store={this.state.store}/>}),
             '/settings' : route({view: <Settings store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
             '/agreement' : route({view: <Agreement store={this.state.store}/>}),

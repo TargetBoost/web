@@ -67,7 +67,7 @@ class Settings extends Component{
                                     {/*</div>*/}
                                     <div className="wrapper-input">
                                         Телефон: <div className="button-default" onClick={()=>{
-                                            window.location.href = `https://oauth.vk.com/authorize?client_id=51666148&display=page&redirect_uri=https://targetboost.ru/core/v1/callback_vk&scope=groups&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`
+                                            window.location.href = `https://oauth.vk.com/authorize?client_id=51666148&display=page&redirect_uri=https://targetboost.ru/core/v1/callback_vk&scope=groups,offline&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`
                                     }}>Авторизоваться VK</div>
                                         {/*<input className="input-default" id="login" placeholder="Логин"/>*/}
                                     </div>

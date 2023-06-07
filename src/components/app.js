@@ -50,19 +50,18 @@ class App extends Component{
             '/settings' : route({view: <Settings store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
             '/agreement' : route({view: <Agreement store={this.state.store}/>}),
-
             '/targets' : route( request => {
 
-                fetch("/core/v1/system/settings", {
-                    method: "GET",
-                })
-                    .then(response => response.json())
-                    .then(res => {
-                        this.setState({snow: res.data.snow})
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    });
+                // fetch("/core/v1/system/settings", {
+                //     method: "GET",
+                // })
+                //     .then(response => response.json())
+                //     .then(res => {
+                //         this.setState({snow: res.data.snow})
+                //     })
+                //     .catch(error => {
+                //         console.log(error)
+                //     });
 
                 // fetch(`/core/v1/system/is_auth`, {
                 //     method: "GET",
@@ -140,16 +139,16 @@ class App extends Component{
                 }
             }),
             '/tasks' : route( request => {
-                fetch("/core/v1/system/settings", {
-                    method: "GET",
-                })
-                    .then(response => response.json())
-                    .then(res => {
-                        this.setState({snow: res.data.snow})
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    });
+                // fetch("/core/v1/system/settings", {
+                //     method: "GET",
+                // })
+                //     .then(response => response.json())
+                //     .then(res => {
+                //         this.setState({snow: res.data.snow})
+                //     })
+                //     .catch(error => {
+                //         console.log(error)
+                //     });
 
 
 

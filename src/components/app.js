@@ -13,10 +13,7 @@ import Targets from "./targets";
 import Contact from "./contact";
 import {toast, ToastContainer} from 'react-toastify';
 import ReactRain from 'react-rain-animation';
-
 import 'react-toastify/dist/ReactToastify.css';
-
-// import all the styles
 import "react-rain-animation/lib/style.css";
 import Admin from "./admin";
 import Tasks from "./tasks";
@@ -236,7 +233,7 @@ class App extends Component{
     }
 
     componentDidMount () {
-        fetch("/core/v1/system/settings", {
+        fetch("/core/v1/settings", {
             method: "GET",
         })
             .then(response => response.json())

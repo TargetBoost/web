@@ -20,16 +20,15 @@ class Preview extends Component{
         }
     }
 
-    auth = () => {
+    login = () => {
         // let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
-
 
         let data = {
             tg: document.getElementById("tg").value,
             password: document.getElementById("password").value
         }
 
-        fetch("/core/v1/system/auth", {
+        fetch("/core/v1/login", {
             method: "POST",
             body: JSON.stringify(data)
         })
@@ -70,13 +69,6 @@ class Preview extends Component{
             tg: document.getElementById("tg").value
         }
 
-        // if (!this.urlPatternValidation(data.tg)) {
-        //     this.state.store.dispatch({
-        //         type: "set_error", value: "Телеграм может быть только ссылкой",
-        //     })
-        //     return
-        // }
-
         if (data.password !== '' && data.tg !== '') {
             if (document.getElementById("re_password").value !== data.password){
                 this.state.store.dispatch({
@@ -86,7 +78,7 @@ class Preview extends Component{
             }
             this.setState({nextStep: "load"})
             if (document.getElementById("re_password").value === data.password) {
-                fetch("/core/v1/system/registration", {
+                fetch("/core/v1/registration", {
                     method: "POST",
                     body: JSON.stringify(data)
                 })
@@ -162,7 +154,7 @@ class Preview extends Component{
 
     handleKeyDownAuth = (event) => {
         if (event.key === 'Enter') {
-            this.auth()
+            this.login()
         }
     }
 
@@ -232,7 +224,7 @@ class Preview extends Component{
                                             <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
                                         </div>
                                         <div className="sing-wrapper-main">
-                                            <div className="button-default unselectable" onClick={this.auth}>Войти</div>
+                                            <div className="button-default unselectable" onClick={this.login}>Войти</div>
                                             <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": true})}}>Зарегистрироваться</div>
 
                                             {/*<div className="title-main underline unselectable">Забыли пароль?</div>*/}

@@ -25,7 +25,7 @@ class Targets extends Component{
             ],
             optionsDeepTarget: {
                 vk: [
-                    { value: 'vk_community', cost: 2, label: 'Вступить в сообщество' },
+                    { value: 'vk_community', cost: 6, label: 'Вступить в сообщество' },
                     // { value: 'vk_like', cost: 2, label: 'Поставить лайк на запись' },
                     // { value: 'vk_add_friends', cost: 2, label: 'Добавить в друзья' },
                 ],

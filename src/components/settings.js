@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import 'react-input-range/lib/css/index.css';
 import CurrencyInput from "react-currency-input-field";
-import vk from "../icon/vk.png";
+import noImg from "../icon/no_img.png"
 
 class Settings extends Component{
     constructor(props) {
@@ -74,7 +74,7 @@ class Settings extends Component{
                                             }}>
                                                 <div style={{display: "flex"}}>
                                                     <div className="wrapper-input">
-                                                        <img className="icon-task-small" src={vk} alt="item"/>
+                                                        <img className="icon-task-small" src={noImg} alt="item"/>
                                                     </div>
                                                     <div className="wrapper-input">
                                                         {store.user.vkUserFirstName} {store.user.vkUserLastName}

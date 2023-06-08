@@ -384,7 +384,7 @@ class Targets extends Component{
                                                             )
                                                         :
                                                             <div className="alert">
-                                                                Активных кампаний нет
+                                                                Вы не еще не создали ни одной кампании
                                                             </div>
                                                     }
                                                 </div>

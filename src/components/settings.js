@@ -53,7 +53,7 @@ class Settings extends Component{
                             </div>
                             <div className="block-default-pre">
                                 <div className="block-auth-external">
-                                    <h2>Профиль VK</h2>
+                                    <div>VK</div>
                                     {
                                         store.user.vkToken === "" ?
                                             <div style={{

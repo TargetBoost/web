@@ -296,7 +296,9 @@ class Preview extends Component{
                 {/*<div className="block-default-pre">*/}
                 {/*    <Video store={this.state.store}/>*/}
                 {/*</div>*/}
-                <div className="block-default-pre mrg-tag" data-ad-client="ad-1298930" data-ad-slot="1298930">
+                <div className="block-default-pre">
+                    <ins className="mrg-tag" style="display:block;text-decoration: none;" data-ad-client="ad-1298930"
+                         data-ad-slot="1298930"/>
                 </div>
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background_tg})`,

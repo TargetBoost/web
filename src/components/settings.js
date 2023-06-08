@@ -57,6 +57,7 @@ class Settings extends Component{
                                     <div className="wrapper-input">
                                         <img className="icon-task-small" src={vk} alt="item"/>
                                     </div>
+                                    <div>
                                     {
                                         store.user.vkToken === "" ?
                                             <div className="wrapper-input">
@@ -86,8 +87,8 @@ class Settings extends Component{
                                                     </div>
                                                 </div>
                                             </div>
-
                                     }
+                                    </div>
                                 </div>
                                 {/*<div className="wrapper-input">*/}
                                 {/*    <div className="preview-inside-block">*/}

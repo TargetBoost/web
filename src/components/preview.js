@@ -171,6 +171,7 @@ class Preview extends Component{
             this.registration()
         }
     }
+    MRGtag;
 
     componentDidMount() {
         const script = document.createElement("script");
@@ -179,10 +180,10 @@ class Preview extends Component{
         script.async = true;
 
         document.body.appendChild(script);
+        (this.MRGtag = window.MRGtag || []).push({})
     }
 
     render() {
-        let MRGtag = (window.MRGtag || []).push({})
         return (
             <>
                 <div className="block-default-pre" style={{

@@ -73,9 +73,9 @@ class Settings extends Component{
 
                                             }}>
                                                 <div style={{display: "flex"}}>
-                                                    <div className="wrapper-input">
-                                                        <img className="icon-task-small" src={noImg} alt="item"/>
-                                                    </div>
+                                                    {/*<div className="wrapper-input">*/}
+                                                    {/*    <img className="icon-task-small" src={noImg} alt="item"/>*/}
+                                                    {/*</div>*/}
                                                     <div className="wrapper-input">
                                                         {store.user.vkUserFirstName} {store.user.vkUserLastName}
                                                     </div>

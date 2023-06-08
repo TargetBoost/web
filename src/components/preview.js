@@ -172,7 +172,17 @@ class Preview extends Component{
         }
     }
 
+    componentDidMount() {
+        const script = document.createElement("script");
+
+        script.src = "https://ad.mail.ru/static/ads-async.js";
+        script.async = true;
+
+        document.body.appendChild(script);
+    }
+
     render() {
+        let MRGtag = (window.MRGtag || []).push({})
         return (
             <>
                 <div className="block-default-pre" style={{

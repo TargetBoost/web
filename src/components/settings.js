@@ -48,11 +48,11 @@ class Settings extends Component{
                     store.user.load === false ?
                         <>
                             <div className="block-default-pre">
-                                <h2>Профиль</h2>
+                                <h2>Профиль {store.user.tg}</h2>
                                 {/*<h3>Ваш баланс: { store.user.balance } ₽</h3>*/}
                             </div>
                             <div className="block-default-pre">
-                                <div className="block-default-pre">
+                                <div className="block-auth-external">
                                     <h2>Профиль VK</h2>
                                     {
                                         store.user.vkToken === "" ?

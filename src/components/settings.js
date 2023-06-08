@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import 'react-input-range/lib/css/index.css';
 import CurrencyInput from "react-currency-input-field";
+import vk from "../icon/vk.png";
 
 class Settings extends Component{
     constructor(props) {
@@ -53,7 +54,9 @@ class Settings extends Component{
                             </div>
                             <div className="block-default-pre">
                                 <div className="block-auth-external">
-                                    <div>VK</div>
+                                    <div>
+                                        <img className="icon-task-small" src={vk} alt="item"/>
+                                    </div>
                                     {
                                         store.user.vkToken === "" ?
                                             <div className="wrapper-input">

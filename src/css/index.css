@@ -1112,6 +1112,7 @@ body {
 }
 
 .block-auth-external {
+    display: flex;
     box-shadow: 0 0 5px -2px rgba(88, 88, 92, 0.2);
     padding: 10px;
     border-radius: 10px;

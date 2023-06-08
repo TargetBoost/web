@@ -174,13 +174,13 @@ class Preview extends Component{
     MRGtag;
 
     componentDidMount() {
-        const script = document.createElement("script");
-
-        script.src = "https://ad.mail.ru/static/ads-async.js";
-        script.async = true;
-
-        document.body.appendChild(script);
-        (this.MRGtag = window.MRGtag || []).push({})
+        // const script = document.createElement("script");
+        //
+        // script.src = "https://ad.mail.ru/static/ads-async.js";
+        // script.async = true;
+        //
+        // document.body.appendChild(script);
+        // (this.MRGtag = window.MRGtag || []).push({})
     }
 
     render() {
@@ -297,8 +297,10 @@ class Preview extends Component{
                 {/*    <Video store={this.state.store}/>*/}
                 {/*</div>*/}
                 <div className="block-default-pre">
+                    <script async src="https://ad.mail.ru/static/ads-async.js"></script>
                     <ins className="mrg-tag" style="display:block;text-decoration: none;" data-ad-client="ad-1298930"
                          data-ad-slot="1298930"/>
+                    <script>(MRGtag = window.MRGtag || []).push({})</script>
                 </div>
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background_tg})`,

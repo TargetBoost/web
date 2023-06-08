@@ -54,10 +54,8 @@ class Settings extends Component{
                             </div>
                             <div className="block-default-pre">
                                 <div className="block-auth-external">
-                                    <div className="wrapper-input">
-                                        <img className="icon-task-small" src={vk} alt="item"/>
-                                    </div>
-                                    <div>
+
+
                                     {
                                         store.user.vkToken === "" ?
                                             <div className="wrapper-input">
@@ -74,8 +72,13 @@ class Settings extends Component{
                                                 width: "200px"
 
                                             }}>
-                                                <div className="wrapper-input">
-                                                    {store.user.vkUserFirstName} {store.user.vkUserLastName}
+                                                <div style={{display: "flex"}}>
+                                                    <div className="wrapper-input">
+                                                        <img className="icon-task-small" src={vk} alt="item"/>
+                                                    </div>
+                                                    <div className="wrapper-input">
+                                                        {store.user.vkUserFirstName} {store.user.vkUserLastName}
+                                                    </div>
                                                 </div>
                                                 <div className="wrapper-input">
                                                     <div style={{
@@ -83,12 +86,12 @@ class Settings extends Component{
                                                     }}>
                                                         <div className="button-default" onClick={()=>{
                                                             window.location.href = `https://oauth.vk.com/authorize?client_id=51666148&display=page&redirect_uri=https://targetboost.ru/core/v1/callback_vk&scope=groups,offline&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`
-                                                        }}>Авторизоваться заново</div>
+                                                        }}>Авторизоваться VK заново</div>
                                                     </div>
                                                 </div>
                                             </div>
                                     }
-                                    </div>
+
                                 </div>
                                 {/*<div className="wrapper-input">*/}
                                 {/*    <div className="preview-inside-block">*/}

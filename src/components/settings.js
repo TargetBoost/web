@@ -54,7 +54,7 @@ class Settings extends Component{
                             </div>
                             <div className="block-default-pre">
                                 <div className="block-auth-external">
-                                    <div>
+                                    <div className="wrapper-input">
                                         <img className="icon-task-small" src={vk} alt="item"/>
                                     </div>
                                     {

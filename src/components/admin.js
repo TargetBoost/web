@@ -15,7 +15,8 @@ class Admin extends Component{
             store: this.props.store,
             id: this.props.id,
             type: this.props.type,
-            executor: "ca"
+            executor: "ca",
+            profit: 0
         }
 
         this.state.store.subscribe(() => {
@@ -34,6 +35,29 @@ class Admin extends Component{
             .then(res => {
                 if (res.status.message === null) {
                     this.setState({targets: res.data})
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+                this.state.store.dispatch({
+                    type: "set_error", value: error,
+                })
+            });
+
+        fetch(`/core/v1/admin/profit`, {
+            method: "GET",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            }
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message === null) {
+                    this.setState({profit: res.data.profit})
                 }else{
                     this.state.store.dispatch({
                         type: "set_error", value: res.status.message,
@@ -405,6 +429,9 @@ class Admin extends Component{
                             </div>
                             :
                                 <>
+                                    <div className="block-default-pre" style={{fontSize: "13px", background: "#f2e4a8"}}>
+                                        Зароботок проекта: {this.state.profit}
+                                    </div>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
                                             <div className="button-light active-white" target="ca" onClick={this.swapButtonTask}>Кампании на проверку</div>

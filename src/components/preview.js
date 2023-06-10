@@ -258,10 +258,10 @@ class Preview extends Component{
                                                 '*': '.*'
                                             }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм без @" />                                        </div>
                                         <div className="wrapper-input-main">
-                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
+                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
                                         </div>
                                         <div className="wrapper-input-main">
-                                            <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
+                                            <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
                                         </div>
                                         <div className="wrapper-input-main">
                                             <div className="wrapper-input-checkbox-wr-input">

@@ -334,7 +334,7 @@ class Tasks extends Component{
                                                                                         {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                     </a>
                                                                                 </div>
-                                                                                <div className="text-info-bio">{t.bio}</div>
+                                                                                <div className="text-info-bio">Описание канала: {t.bio}</div>
                                                                             </div>
                                                                         </div>
 
@@ -396,7 +396,7 @@ class Tasks extends Component{
                                                                                         {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                     </a>
                                                                                 </div>
-                                                                                <div className="text-info-bio">{t.bio}</div>
+                                                                                <div className="text-info-bio">Описание канала: {t.bio}</div>
                                                                             </div>
                                                                         </div>
 

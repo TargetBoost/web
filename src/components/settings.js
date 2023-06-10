@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import 'react-input-range/lib/css/index.css';
 import CurrencyInput from "react-currency-input-field";
+import noImg from "../icon/no_img.png"
 
 class Settings extends Component{
     constructor(props) {
@@ -48,10 +49,50 @@ class Settings extends Component{
                     store.user.load === false ?
                         <>
                             <div className="block-default-pre">
-                                <h2>Профиль</h2>
+                                <h2>Профиль {store.user.tg}</h2>
                                 {/*<h3>Ваш баланс: { store.user.balance } ₽</h3>*/}
                             </div>
                             <div className="block-default-pre">
+                                <div className="block-auth-external">
+
+
+                                    {
+                                        store.user.vkToken === "" ?
+                                            <div className="wrapper-input">
+                                                <div style={{
+                                                    width: "200px"
+                                                }}>
+                                                    <div className="button-default" onClick={()=>{
+                                                        window.location.href = `https://oauth.vk.com/authorize?client_id=51666148&display=page&redirect_uri=https://targetboost.ru/core/v1/callback_vk&scope=groups,offline&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`
+                                                    }}>Авторизоваться VK</div>
+                                                </div>
+                                            </div>
+                                        :
+                                            <div style={{
+                                                width: "200px"
+
+                                            }}>
+                                                <div style={{display: "flex"}}>
+                                                    {/*<div className="wrapper-input">*/}
+                                                    {/*    <img className="icon-task-small" src={noImg} alt="item"/>*/}
+                                                    {/*</div>*/}
+                                                    <div className="wrapper-input">
+                                                        {store.user.vkUserFirstName} {store.user.vkUserLastName}
+                                                    </div>
+                                                </div>
+                                                <div className="wrapper-input">
+                                                    <div style={{
+                                                        width: "200px"
+                                                    }}>
+                                                        <div className="button-default" onClick={()=>{
+                                                            window.location.href = `https://oauth.vk.com/authorize?client_id=51666148&display=page&redirect_uri=https://targetboost.ru/core/v1/callback_vk&scope=groups,offline&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`
+                                                        }}>Авторизоваться VK заново</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    }
+
+                                </div>
                                 {/*<div className="wrapper-input">*/}
                                 {/*    <div className="preview-inside-block">*/}
                                 {/*        <p>*/}
@@ -65,10 +106,7 @@ class Settings extends Component{
                                     {/*    Логин: { store.user.login }*/}
                                     {/*    /!*<input className="input-default" id="login" placeholder="Логин"/>*!/*/}
                                     {/*</div>*/}
-                                    {/*<div className="wrapper-input">*/}
-                                    {/*    Телефон: +{ store.user.number_phone }*/}
-                                    {/*    /!*<input className="input-default" id="login" placeholder="Логин"/>*!/*/}
-                                    {/*</div>*/}
+                                        {/*<input className="input-default" id="login" placeholder="Логин"/>*/}
                                     <div className="wrapper-input">
                                         Телеграм: { store.user.tg }
                                         {/*<input className="input-default" id="login" placeholder="Логин"/>*/}

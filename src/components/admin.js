@@ -24,7 +24,7 @@ class Admin extends Component{
     }
 
     componentDidMount() {
-        fetch(`/core/v1/service/admin/target`, {
+        fetch(`/core/v1/admin/target`, {
             method: "GET",
             headers: {
                 "Authorization": window.localStorage.getItem("token")
@@ -54,7 +54,7 @@ class Admin extends Component{
 
         let target = e.target.getAttribute("target")
         if (target === "ca"){
-            fetch(`/core/v1/service/admin/target`, {
+            fetch(`/core/v1/admin/target`, {
                 method: "GET",
                 headers: {
                     "Authorization": window.localStorage.getItem("token")
@@ -77,7 +77,7 @@ class Admin extends Component{
                     })
                 });
         } else if (target === "users") {
-            fetch(`/core/v1/service/users`, {
+            fetch(`/core/v1/admin/users`, {
                 method: "GET",
                 headers: {
                     "Authorization": window.localStorage.getItem("token")
@@ -100,7 +100,7 @@ class Admin extends Component{
                     })
                 });
         }else if (target === "caa") {
-            fetch(`/core/v1/service/admin/target`, {
+            fetch(`/core/v1/admin/target`, {
                 method: "GET",
                 headers: {
                     "Authorization": window.localStorage.getItem("token")
@@ -123,7 +123,7 @@ class Admin extends Component{
                     })
                 });
         }else if (target === "caar") {
-            fetch(`/core/v1/service/admin/target`, {
+            fetch(`/core/v1/admin/target`, {
                 method: "GET",
                 headers: {
                     "Authorization": window.localStorage.getItem("token")
@@ -146,7 +146,7 @@ class Admin extends Component{
                     })
                 });
         }else if (target === "block") {
-            fetch(`/core/v1/service/users`, {
+            fetch(`/core/v1/admin/users`, {
                 method: "GET",
                 headers: {
                     "Authorization": window.localStorage.getItem("token")
@@ -169,7 +169,7 @@ class Admin extends Component{
                     })
                 });
         }else if (target === "withdrawal") {
-            fetch(`/core/v1/service/admin/task_cashes`, {
+            fetch(`/core/v1/admin/task_cashes`, {
                 method: "GET",
                 headers: {
                     "Authorization": window.localStorage.getItem("token")
@@ -207,7 +207,7 @@ class Admin extends Component{
             status: parseInt(e.target.getAttribute("status"))
         }
 
-        fetch(`/core/v1/service/admin/target`, {
+        fetch(`/core/v1/admin/target`, {
             method: "PUT",
             headers: {
                 "Authorization": window.localStorage.getItem("token")
@@ -225,7 +225,7 @@ class Admin extends Component{
                         type: "set_info", value: `Кампания id:${data.id} переведена в новый статус`,
                     })
 
-                    fetch(`/core/v1/service/admin/target`, {
+                    fetch(`/core/v1/admin/target`, {
                         method: "GET",
                         headers: {
                             "Authorization": window.localStorage.getItem("token")
@@ -262,7 +262,7 @@ class Admin extends Component{
             status: parseInt(e.target.getAttribute("status"))
         }
 
-        fetch(`/core/v1/service/admin/task_cashes`, {
+        fetch(`/core/v1/admin/task_cashes`, {
             method: "PUT",
             headers: {
                 "Authorization": window.localStorage.getItem("token")
@@ -280,7 +280,7 @@ class Admin extends Component{
                         type: "set_info", value: `Заявка id:${data.id} переведена в новый статус`,
                     })
 
-                    fetch(`/core/v1/service/admin/task_cashes`, {
+                    fetch(`/core/v1/admin/task_cashes`, {
                         method: "GET",
                         headers: {
                             "Authorization": window.localStorage.getItem("token")
@@ -337,7 +337,7 @@ class Admin extends Component{
             rain: store.settings.rain
         }
 
-        fetch(`/core/v1/system/settings`, {
+        fetch(`/core/v1/admin/settings`, {
             method: "POST",
             headers: {
                 "Authorization": window.localStorage.getItem("token")

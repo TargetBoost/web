@@ -13,10 +13,7 @@ import Targets from "./targets";
 import Contact from "./contact";
 import {toast, ToastContainer} from 'react-toastify';
 import ReactRain from 'react-rain-animation';
-
 import 'react-toastify/dist/ReactToastify.css';
-
-// import all the styles
 import "react-rain-animation/lib/style.css";
 import Admin from "./admin";
 import Tasks from "./tasks";
@@ -25,6 +22,7 @@ import Settings from "./settings";
 import WalletUser from "./walletUser";
 import Pay from "./pay_s";
 import Agreement from "./agreement";
+import AuthVK from "./error_auth_vk";
 
 
 class App extends Component{
@@ -45,89 +43,92 @@ class App extends Component{
             '/wallet' : route({view: <Wallet store={this.state.store}/>}),
             '/withdrawal' : route({view: <WalletUser store={this.state.store}/>}),
             '/s/pay' : route({view: <Pay store={this.state.store}/>}),
+            '/error_auth_vk' : route({view: <AuthVK store={this.state.store}/>}),
             '/settings' : route({view: <Settings store={this.state.store}/>}),
             '/registration' : route({view: <Registration store={this.state.store}/>}),
             '/agreement' : route({view: <Agreement store={this.state.store}/>}),
-
             '/targets' : route( request => {
 
-                fetch("/core/v1/system/settings", {
-                    method: "GET",
-                })
-                    .then(response => response.json())
-                    .then(res => {
-                        this.setState({snow: res.data.snow})
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    });
+                // fetch("/core/v1/system/settings", {
+                //     method: "GET",
+                // })
+                //     .then(response => response.json())
+                //     .then(res => {
+                //         this.setState({snow: res.data.snow})
+                //     })
+                //     .catch(error => {
+                //         console.log(error)
+                //     });
 
-                fetch(`/core/v1/system/is_auth`, {
-                    method: "GET",
-                    headers: {
-                        "Authorization": window.localStorage.getItem("token")
-                    }
-                })
-                    .then(response => response.json())
-                    .then(res => {
-                        if (res.status.message === null) {
-
-                            fetch(`/core/v1/service/user/${res.data.id}`, {
-                                method: "GET",
-                                headers: {
-                                    "Authorization": window.localStorage.getItem("token")
-                                }
-                            })
-                                .then(response => response.json())
-                                .then(res => {
-                                    if (res.status.message === null) {
-                                        this.state.store.dispatch({
-                                            type: "update_user", value: {
-                                                load: false,
-                                                id: res.data.id,
-                                                number: res.data.number_phone,
-                                                login: res.data.login,
-                                                auth: true,
-                                                execute: res.data.execute,
-                                                admin: res.data.admin,
-                                                balance: res.data.balance,
-                                                number_phone: res.data.number_phone,
-                                                block: res.data.block,
-                                                cause: res.data.cause,
-                                                tg: res.data.tg,
-                                            },
-                                        })
-                                    }else{
-                                        this.state.store.dispatch({
-                                            type: "update_user", value: {
-                                                load: false,
-                                                id: 0,
-                                                number: 0,
-                                                login: null,
-                                                auth: false
-                                            },
-                                        })
-                                    }
-
-                                })
-                                .catch(error => {
-                                    console.log(error)
-                                });
-                        }else{
-                            this.state.store.dispatch({
-                                type: "update_user", value: {
-                                    load: false,
-                                    id: 0,
-                                    number: 0,
-                                    login: null,
-                                    auth: false
-                                },
-                            })
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    });
+                // fetch(`/core/v1/system/is_auth`, {
+                //     method: "GET",
+                //     headers: {
+                //         "Authorization": window.localStorage.getItem("token")
+                //     }
+                // })
+                //     .then(response => response.json())
+                //     .then(res => {
+                //         if (res.status.message === null) {
+                //
+                //             fetch(`/core/v1/service/user/${res.data.id}`, {
+                //                 method: "GET",
+                //                 headers: {
+                //                     "Authorization": window.localStorage.getItem("token")
+                //                 }
+                //             })
+                //                 .then(response => response.json())
+                //                 .then(res => {
+                //                     if (res.status.message === null) {
+                //                         this.state.store.dispatch({
+                //                             type: "update_user", value: {
+                //                                 load: false,
+                //                                 id: res.data.id,
+                //                                 number: res.data.number_phone,
+                //                                 login: res.data.login,
+                //                                 auth: true,
+                //                                 execute: res.data.execute,
+                //                                 admin: res.data.admin,
+                //                                 balance: res.data.balance,
+                //                                 number_phone: res.data.number_phone,
+                //                                 block: res.data.block,
+                //                                 cause: res.data.cause,
+                //                                 tg: res.data.tg,
+                //                                 vkToken: res.data.vk_token,
+                //                                 vkUserFirstName: res.data.vk_user_first_name,
+                //                                 vkUserLastName: res.data.vk_user_last_name,
+                //                             },
+                //                         })
+                //                     }else{
+                //                         this.state.store.dispatch({
+                //                             type: "update_user", value: {
+                //                                 load: false,
+                //                                 id: 0,
+                //                                 number: 0,
+                //                                 login: null,
+                //                                 auth: false
+                //                             },
+                //                         })
+                //                     }
+                //
+                //                 })
+                //                 .catch(error => {
+                //                     console.log(error)
+                //                 });
+                //         }else{
+                //             this.state.store.dispatch({
+                //                 type: "update_user", value: {
+                //                     load: false,
+                //                     id: 0,
+                //                     number: 0,
+                //                     login: null,
+                //                     auth: false
+                //                 },
+                //             })
+                //         }
+                //     })
+                //     .catch(error => {
+                //         console.log(error)
+                //     });
 
                 return {
                     title: `user`,
@@ -135,83 +136,63 @@ class App extends Component{
                 }
             }),
             '/tasks' : route( request => {
-                fetch("/core/v1/system/settings", {
-                    method: "GET",
-                })
-                    .then(response => response.json())
-                    .then(res => {
-                        this.setState({snow: res.data.snow})
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    });
+                // fetch("/core/v1/system/settings", {
+                //     method: "GET",
+                // })
+                //     .then(response => response.json())
+                //     .then(res => {
+                //         this.setState({snow: res.data.snow})
+                //     })
+                //     .catch(error => {
+                //         console.log(error)
+                //     });
 
-                fetch(`/core/v1/system/is_auth`, {
-                    method: "GET",
-                    headers: {
-                        "Authorization": window.localStorage.getItem("token")
-                    }
-                })
-                    .then(response => response.json())
-                    .then(res => {
-                        if (res.status.message === null) {
 
-                            fetch(`/core/v1/service/user/${res.data.id}`, {
-                                method: "GET",
-                                headers: {
-                                    "Authorization": window.localStorage.getItem("token")
-                                }
-                            })
-                                .then(response => response.json())
-                                .then(res => {
-                                    if (res.status.message === null) {
-                                        this.state.store.dispatch({
-                                            type: "update_user", value: {
-                                                load: false,
-                                                id: res.data.id,
-                                                number: res.data.number_phone,
-                                                login: res.data.login,
-                                                auth: true,
-                                                execute: res.data.execute,
-                                                admin: res.data.admin,
-                                                balance: res.data.balance,
-                                                number_phone: res.data.number_phone,
-                                                block: res.data.block,
-                                                cause: res.data.cause,
-                                                tg: res.data.tg,
-                                            },
-                                        })
-                                    }else{
-                                        this.state.store.dispatch({
-                                            type: "update_user", value: {
-                                                load: false,
-                                                id: 0,
-                                                number: 0,
-                                                login: null,
-                                                auth: false
-                                            },
-                                        })
-                                    }
 
-                                })
-                                .catch(error => {
-                                    console.log(error)
-                                });
-                        }else{
-                            this.state.store.dispatch({
-                                type: "update_user", value: {
-                                    load: false,
-                                    id: 0,
-                                    number: 0,
-                                    login: null,
-                                    auth: false
-                                },
-                            })
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    });
+                // fetch(`/core/v1/service/user/${res.data.id}`, {
+                //     method: "GET",
+                //     headers: {
+                //         "Authorization": window.localStorage.getItem("token")
+                //     }
+                // })
+                //     .then(response => response.json())
+                //     .then(res => {
+                //         if (res.status.message === null) {
+                //             this.state.store.dispatch({
+                //                 type: "update_user", value: {
+                //                     load: false,
+                //                     id: res.data.id,
+                //                     number: res.data.number_phone,
+                //                     login: res.data.login,
+                //                     auth: true,
+                //                     execute: res.data.execute,
+                //                     admin: res.data.admin,
+                //                     balance: res.data.balance,
+                //                     number_phone: res.data.number_phone,
+                //                     block: res.data.block,
+                //                     cause: res.data.cause,
+                //                     tg: res.data.tg,
+                //                     vkToken: res.data.vk_token,
+                //                     vkUserFirstName: res.data.vk_user_first_name,
+                //                     vkUserLastName: res.data.vk_user_last_name,
+                //                 },
+                //             })
+                //         }else{
+                //             this.state.store.dispatch({
+                //                 type: "update_user", value: {
+                //                     load: false,
+                //                     id: 0,
+                //                     number: 0,
+                //                     login: null,
+                //                     auth: false
+                //                 },
+                //             })
+                //         }
+                //
+                //     })
+                //     .catch(error => {
+                //         console.log(error)
+                //     });
 
                 return {
                     title: `user`,
@@ -252,7 +233,7 @@ class App extends Component{
     }
 
     componentDidMount () {
-        fetch("/core/v1/system/settings", {
+        fetch("/core/v1/settings", {
             method: "GET",
         })
             .then(response => response.json())
@@ -269,7 +250,7 @@ class App extends Component{
                 console.log(error)
             })
 
-        fetch(`/core/v1/system/is_auth`, {
+        fetch(`/core/v1/service/user/${window.localStorage.getItem("token")}`, {
             method: "GET",
             headers: {
                 "Authorization": window.localStorage.getItem("token")
@@ -278,48 +259,25 @@ class App extends Component{
             .then(response => response.json())
             .then(res => {
                 if (res.status.message === null) {
-
-                    fetch(`/core/v1/service/user/${res.data.id}`, {
-                        method: "GET",
-                        headers: {
-                            "Authorization": window.localStorage.getItem("token")
-                        }
+                    this.state.store.dispatch({
+                        type: "update_user", value: {
+                            load: false,
+                            id: res.data.id,
+                            number: res.data.number_phone,
+                            login: res.data.login,
+                            auth: true,
+                            execute: res.data.execute,
+                            admin: res.data.admin,
+                            balance: res.data.balance,
+                            number_phone: res.data.number_phone,
+                            block: res.data.block,
+                            cause: res.data.cause,
+                            tg: res.data.tg,
+                            vkToken: res.data.vk_token,
+                            vkUserFirstName: res.data.vk_user_first_name,
+                            vkUserLastName: res.data.vk_user_last_name,
+                        },
                     })
-                        .then(response => response.json())
-                        .then(res => {
-                            if (res.status.message === null) {
-                                this.state.store.dispatch({
-                                    type: "update_user", value: {
-                                        load: false,
-                                        id: res.data.id,
-                                        number: res.data.number_phone,
-                                        login: res.data.login,
-                                        auth: true,
-                                        execute: res.data.execute,
-                                        admin: res.data.admin,
-                                        balance: res.data.balance,
-                                        number_phone: res.data.number_phone,
-                                        block: res.data.block,
-                                        cause: res.data.cause,
-                                        tg: res.data.tg,
-                                    },
-                                })
-                            }else{
-                                this.state.store.dispatch({
-                                    type: "update_user", value: {
-                                        load: false,
-                                        id: 0,
-                                        number: 0,
-                                        login: null,
-                                        auth: false
-                                    },
-                                })
-                            }
-
-                        })
-                        .catch(error => {
-                            console.log(error)
-                        });
                 }else{
                     this.state.store.dispatch({
                         type: "update_user", value: {
@@ -331,6 +289,7 @@ class App extends Component{
                         },
                     })
                 }
+
             })
             .catch(error => {
                 console.log(error)

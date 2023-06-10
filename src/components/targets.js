@@ -18,16 +18,16 @@ class Targets extends Component{
             executor: "all",
             targets: [],
             optionsTypeTarget: [
-                // { value: 'vk', label: 'VK' },
+                { value: 'vk', label: 'VK' },
                 { value: 'tg', label: 'Telegram' },
                 // { value: 'yt', label: 'Youtube' },
 
             ],
             optionsDeepTarget: {
                 vk: [
-                    { value: 'vk_community', cost: 2, label: 'Вступить в сообщество' },
-                    { value: 'vk_like', cost: 2, label: 'Поставить лайк на запись' },
-                    { value: 'vk_add_friends', cost: 2, label: 'Добавить в друзья' },
+                    { value: 'vk_community', cost: 6, label: 'Вступить в сообщество' },
+                    // { value: 'vk_like', cost: 2, label: 'Поставить лайк на запись' },
+                    // { value: 'vk_add_friends', cost: 2, label: 'Добавить в друзья' },
                 ],
                 tg: [
                     { value: 'tg_community', cost: 2, label: 'Подписаться на канал' },
@@ -375,7 +375,7 @@ class Targets extends Component{
                                                                                         {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                     </a>
                                                                                 </div>
-                                                                                <div className="text-info-bio">{t.bio}</div>
+                                                                                <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>
                                                                             </div>
                                                                         </div>
 
@@ -384,7 +384,7 @@ class Targets extends Component{
                                                             )
                                                         :
                                                             <div className="alert">
-                                                                Активных кампаний нет
+                                                                Вы не еще не создали ни одной рекламной кампании
                                                             </div>
                                                     }
                                                 </div>
@@ -439,7 +439,7 @@ class Targets extends Component{
                                                                                             {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                         </a>
                                                                                     </div>
-                                                                                    <div className="text-info-bio">{t.bio}</div>
+                                                                                    <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>
                                                                                 </div>
                                                                             </div>
 
@@ -502,7 +502,7 @@ class Targets extends Component{
                                                                                             {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                         </a>
                                                                                     </div>
-                                                                                    <div className="text-info-bio">{t.bio}</div>
+                                                                                    <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>
                                                                                 </div>
                                                                             </div>
 
@@ -567,7 +567,7 @@ class Targets extends Component{
                                                                                                 {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                             </a>
                                                                                         </div>
-                                                                                        <div className="text-info-bio">{t.bio}</div>
+                                                                                        <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>
                                                                                     </div>
                                                                                 </div>
 

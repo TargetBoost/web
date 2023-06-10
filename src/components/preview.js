@@ -229,13 +229,13 @@ class Preview extends Component{
                                                 '9': '[0-9]',
                                                 'a': '[A-Za-z]',
                                                 '*': '.*'
-                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм без @" onKeyDown={this.handleKeyDownReg}/>
+                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм без @" onKeyDown={this.handleKeyDownAuth}/>
                                         </div>
                                         <div className="wrapper-input-main">
-                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
+                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
                                         </div>
                                         <div className="sing-wrapper-main">
-                                            <div className="button-default unselectable" onClick={this.auth}>Войти</div>
+                                            <div className="button-default unselectable" onClick={this.login}>Войти</div>
                                             <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": true})}}>У Вас еще нет аккаунта?</div>
 
                                             {/*<div className="title-main underline unselectable">Забыли пароль?</div>*/}

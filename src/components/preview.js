@@ -163,6 +163,17 @@ class Preview extends Component{
             this.registration()
         }
     }
+    MRGtag;
+
+    componentDidMount() {
+        // const script = document.createElement("script");
+        //
+        // script.src = "https://ad.mail.ru/static/ads-async.js";
+        // script.async = true;
+        //
+        // document.body.appendChild(script);
+        // (this.MRGtag = window.MRGtag || []).push({})
+    }
 
     render() {
         return (
@@ -239,10 +250,10 @@ class Preview extends Component{
                                                 '*': '.*'
                                             }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм без @" />                                        </div>
                                         <div className="wrapper-input-main">
-                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
+                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
                                         </div>
                                         <div className="wrapper-input-main">
-                                            <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
+                                            <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
                                         </div>
                                         <div className="wrapper-input-main">
                                             <div className="wrapper-input-checkbox-wr-input">
@@ -277,6 +288,9 @@ class Preview extends Component{
                 {/*<div className="block-default-pre">*/}
                 {/*    <Video store={this.state.store}/>*/}
                 {/*</div>*/}
+                <div className="block-default-pre">
+                    <div id="adman-ads"></div>
+                </div>
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background_tg})`,
                     backgroundPosition: "left -100px top 50%",

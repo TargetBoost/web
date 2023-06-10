@@ -6,6 +6,7 @@ import update from "../icon/update.png";
 
 import Select from 'react-select';
 import 'react-input-range/lib/css/index.css';
+import noImg from "../icon/no_img.png";
 
 class Tasks extends Component{
     constructor(props) {
@@ -292,27 +293,51 @@ class Tasks extends Component{
                                                     {
                                                         filterTarget(this.state.targets, 1).length > 0 ?
                                                             filterTarget(this.state.targets, 1).map(t =>
-                                                                <div className="task-item">
-                                                                    <div className="task-item-value task-item-icon-box">
-                                                                        {
-                                                                            t.icon === "vk" ?
-                                                                                <img className="icon-task-small" src={vk} alt="item"/>
-                                                                                :
-                                                                                t.icon === "yt" ?
-                                                                                    <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                <div className="task-item-wrapper">
+                                                                    <div className="task-item">
+                                                                        <div className="task-item-value task-item-icon-box">
+                                                                            {
+                                                                                t.icon === "vk" ?
+                                                                                    <img className="icon-task-small" src={vk} alt="item"/>
                                                                                     :
-                                                                                    t.icon === "tg" ?
-                                                                                        <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                    t.icon === "yt" ?
+                                                                                        <img className="icon-task-small" src={youtube} alt="item"/>
                                                                                         :
-                                                                                        null
-                                                                        }
+                                                                                        t.icon === "tg" ?
+                                                                                            <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                            :
+                                                                                            null
+                                                                            }
 
+                                                                        </div>
+                                                                        <div className="task-item-value">{t.title}</div>
+                                                                        <div className="task-item-value">{t.cost}₽</div>
+                                                                        <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
+                                                                        <div className="task-item-value">
+                                                                            <div className="button-default" target={t.id} id={t.tid} onClick={this.checkSub}>Проверить</div>
+                                                                        </div>
                                                                     </div>
-                                                                    <div className="task-item-value">{t.title}</div>
-                                                                    <div className="task-item-value">{t.cost}₽</div>
-                                                                    <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
-                                                                    <div className="task-item-value">
-                                                                        <div className="button-default" target={t.id} id={t.tid} onClick={this.checkSub}>Проверить</div>
+                                                                    <div className="info-task-wrapper">
+                                                                        <div className="image-wrapper-bio">
+                                                                            <div className="wrapper-image-icon">
+                                                                                {
+                                                                                    t.cm_file_id !== "" ?
+                                                                                        <img className="img-channel" src={`/core/v1/file_ch/${t.photo_link}`} alt={"img"}/>
+                                                                                        :
+                                                                                        <img className="img-channel" src={noImg} alt={"img"}/>
+
+                                                                                }
+                                                                            </div>
+                                                                            <div className="info-company-bio">
+                                                                                <div className="title-block" style={{fontWeight: "bold"}}>
+                                                                                    <a href={t.link} target={"_blank"}>
+                                                                                        {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div className="text-info-bio">{t.bio}</div>
+                                                                            </div>
+                                                                        </div>
+
                                                                     </div>
                                                                 </div>
                                                             )
@@ -330,7 +355,8 @@ class Tasks extends Component{
                                                     {
                                                         filterTarget(this.state.targets, 3).length > 0 ?
                                                             filterTarget(this.state.targets, 3).map(t =>
-                                                                <div className="task-item">
+                                                                <div className="task-item-wrapper">
+                                                                    <div className="task-item">
                                                                     <div className="task-item-value task-item-icon-box">
                                                                         {
                                                                             t.icon === "vk" ?
@@ -351,6 +377,29 @@ class Tasks extends Component{
                                                                     <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
                                                                     <div className="task-item-value">
                                                                         <div className="button-default grey">Выполнено</div>
+                                                                    </div>
+                                                                </div>
+                                                                    <div className="info-task-wrapper">
+                                                                        <div className="image-wrapper-bio">
+                                                                            <div className="wrapper-image-icon">
+                                                                                {
+                                                                                    t.cm_file_id !== "" ?
+                                                                                        <img className="img-channel" src={`/core/v1/file_ch/${t.photo_link}`} alt={"img"}/>
+                                                                                        :
+                                                                                        <img className="img-channel" src={noImg} alt={"img"}/>
+
+                                                                                }
+                                                                            </div>
+                                                                            <div className="info-company-bio">
+                                                                                <div className="title-block" style={{fontWeight: "bold"}}>
+                                                                                    <a href={t.link} target={"_blank"}>
+                                                                                        {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div className="text-info-bio">{t.bio}</div>
+                                                                            </div>
+                                                                        </div>
+
                                                                     </div>
                                                                 </div>
                                                             )

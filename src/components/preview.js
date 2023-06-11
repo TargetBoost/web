@@ -286,7 +286,11 @@ class Preview extends Component{
                     {/*</div>*/}
                 </div>
                 <div className="block-default-pre">
-                    <Video store={this.state.store}/>
+                    {/*<Video store={this.state.store}/>*/}
+                    <iframe width="100%" height="600px" src="https://www.youtube.com/embed/BItVmRpz1sQ"
+                            title="YouTube video player" frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen></iframe>
                 </div>
                 {/*<div className="block-default-pre">*/}
                 {/*    <div id="adman-ads"></div>*/}

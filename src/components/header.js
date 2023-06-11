@@ -139,6 +139,7 @@ class Header extends Component{
                                                 }
                                                     {store.user.tg}
                                                 </>
+
                                             </MenuItem>
                                             <Divider />
                                             {

@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import play from "../icon/play-button-arrowhead-2.png"
 import pause from "../icon/pause-2.png"
 import logo from "../icon/tb.png"
-import poster from "../img/img.png"
+import poster from "../img/I.png"
 
 import 'react-input-range/lib/css/index.css';
 
@@ -11,7 +11,7 @@ class Video extends Component{
         super(props);
         this.state = {
             store: this.props.store,
-            urls: ['https://doc-00-0s-docs.googleusercontent.com/docs/securesc/3geh2so02s6t8jcdrmggbqqk4cvsrk2u/rtbkcshtcv28mfmsivtc1h9h86lfhpnj/1686519450000/05369733668984668853/05369733668984668853/1VhjzWAUwOEsZwxmsbaT6BXqzKIeTdIkQ?e=download&ax=ADWCPKAhMMP73nBsgyILPxgg-iyOfbMpsL957ON2K4t14KmPkVjX4dTrEZ8e4eq_iBwJ_YvFhw4ptxQZ844gtg66DCZWPAzxnQJnueKPwnDIvh14KD9QUb9ChWXaDDu02NuK3Q15lAhsv-Laa-fwC1sRDz9Oyy1hFPxi_4buR-NTviu-SqIMP5eBTNb6bSaiYHfjdSQ7IuG35ljuF7bDL_eJya1IpDNWyPzQVYuAn_HI-WzIltd9Vb5-QNZbkASIbaDU0eJzjsRSw_I9o2bg_TY_XlNDHLAV_nLAmN-2gvCW98Rt0gTe5eZzljNBami6QR33w_LwPCiTo-XdkznbasAV-H7SbU4llSkIK7LYtVUemoB6fLje_Ky84MJ6Mh8GnEqW0c_pxUmUAqa7I7BBLswgdGrLX6nuY4VjgbkVguuB-lcH5bX1V4EtU72W9JJO_3EwrtQfsOVKfCf-FH2Gy_mcHn2bQgwS0XvsQRMWQ6FBBhkl7w-AYW-zk5Y_yZnKEvrB7Oobd3eWHDohdhSLTbDQJMPMEpYJq9mfYEpv8_acuYPXcz1QYmYOyomoR5pNEIRzLmJhBR_J0FXIAPsHByv7PVbv5VMQa5B1rvkvQ3GAb-sj45lLtha3F5SkHePbxqlJlIVaRjTHG4LN4GzJtIaN4iRmTCjITAUKbiTN2S1EjXOMYkLWw6arviCqcWVGw3B2nK5FINKX1cC4-E5g_IWoElNLDK_2DSELz9Jvt-MBQE_-l9S--WeYlgJ_ggvGfJf1Z4lnJCanT_qTFzLgmuQNXE2_Tnm4aeOBxPG0h3h9vp63tOOQbg-LwkGnEoiA1vtovd-kBw0j46FkcQ_Q8stOx9EhqHsABAF2XWJ6pcGtRZ2if9dafYm_-QcitCl-i-NE2w&uuid=7f709a30-52ea-4deb-b601-8096793f23ec&authuser=0'],
+            urls: ['https://docs.google.com/uc?id=1VhjzWAUwOEsZwxmsbaT6BXqzKIeTdIkQ'],
             status: "other",
             source: "",
             currentTime: 0,
@@ -178,7 +178,7 @@ class Video extends Component{
                 <div className="video-wrapper"  ref={this.fullScreen} >
                     <video onContextMenu={(event)=>{event.preventDefault()}} poster={poster} ref={this.obj} width="100%" id="video" controls={false} onPlay={this.play} onTimeUpdate={this.timerUpdate} onLoadedData={()=>{this.setState({actionState: "load"})}}>
                         <source
-                            src="https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1VhjzWAUwOEsZwxmsbaT6BXqzKIeTdIkQ"
+                            src="https://s390vla.storage.yandex.net/rdisk/9dff96757ebc83ca32c62aa817c53084b6203643c4668edc56f4c6f13f24f16d/64867d78/KfhL80NxC1wu9pr_DU2KpkrLuhp-OUzsqhNMrSnWgyucBChK1otiQMrX0Hi0ZRuhcHH8QKwCL95wg6vr04DYGg==?uid=1352638364&filename=Инструкция.mp4&disposition=attachment&hash=&limit=0&content_type=video%2Fmp4&owner_uid=1352638364&fsize=44303335&hid=b5f05f5c518ba159f1760a49c3751d07&media_type=video&tknv=v2&etag=70301d599c0ca55aaebe5e65e9c000c3&rtoken=wKZPy2AtwM3Z&force_default=yes&ycrid=na-5423cb7618a61e6610b2e97d5010eb75-downloader23f&ts=5fde528004e00&s=1660aac85deadb897223aaa6ad5741b7690fdf1c288ccd7326233ab25d25dded&pb=U2FsdGVkX1_zunRtRFHKJY4r0zM0P8jqcXQLH3HghtXv72fhxtYSXgMjhMn4FDbDUhr51ySLoo8N3Y6OLmlsgDuNr8DWTG30J3CJVpo2OQM"
                             type="video/mp4"
                         />
                         Your browser doesn't support HTML5 video tag.

@@ -84,7 +84,13 @@ class Header extends Component{
                                                     aria-haspopup="true"
                                                     aria-expanded={this.state.openMenu ? "true" : undefined}
                                                 >
-                                                    <Avatar sx={{ width: 30, height: 30 }}></Avatar>
+                                                    {
+                                                        store.user.mainPhoto !== "" ?
+                                                            <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 30, height: 30 }}></Avatar>
+
+                                                            :
+                                                            <Avatar sx={{ width: 30, height: 30 }}></Avatar>
+                                                    }
                                                 </IconButton>
                                             </Tooltip>
                                         </Box>

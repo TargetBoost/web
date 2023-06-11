@@ -18,7 +18,7 @@ class Targets extends Component{
             executor: "all",
             targets: [],
             optionsTypeTarget: [
-                { value: 'vk', label: 'VK' },
+                // { value: 'vk', label: 'VK' },
                 { value: 'tg', label: 'Telegram' },
                 // { value: 'yt', label: 'Youtube' },
 

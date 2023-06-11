@@ -288,9 +288,9 @@ class Preview extends Component{
                 {/*<div className="block-default-pre">*/}
                 {/*    <Video store={this.state.store}/>*/}
                 {/*</div>*/}
-                <div className="block-default-pre">
-                    <div id="adman-ads"></div>
-                </div>
+                {/*<div className="block-default-pre">*/}
+                {/*    <div id="adman-ads"></div>*/}
+                {/*</div>*/}
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background_tg})`,
                     backgroundPosition: "left -100px top 50%",

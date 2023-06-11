@@ -21,6 +21,7 @@ const initState = {
         vkToken: "",
         vkUserFirstName: "",
         vkUserLastName: "",
+        mainPhoto: "",
     },
     settings: {
         snow: false,
@@ -50,6 +51,7 @@ function reducer(state = initState, action) {
                 vkToken: action.value.vkToken,
                 vkUserFirstName: action.value.vkUserFirstName,
                 vkUserLastName: action.value.vkUserLastName,
+                mainPhoto: action.value.mainPhoto,
             }
 
             return state

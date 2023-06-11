@@ -276,6 +276,7 @@ class App extends Component{
                             vkToken: res.data.vk_token,
                             vkUserFirstName: res.data.vk_user_first_name,
                             vkUserLastName: res.data.vk_user_last_name,
+                            mainPhoto: res.data.main_image,
                         },
                     })
                 }else{

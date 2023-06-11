@@ -11,7 +11,7 @@ class Video extends Component{
         super(props);
         this.state = {
             store: this.props.store,
-            urls: ['https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'],
+            urls: ['https://doc-00-0s-docs.googleusercontent.com/docs/securesc/3geh2so02s6t8jcdrmggbqqk4cvsrk2u/rtbkcshtcv28mfmsivtc1h9h86lfhpnj/1686519450000/05369733668984668853/05369733668984668853/1VhjzWAUwOEsZwxmsbaT6BXqzKIeTdIkQ?e=download&ax=ADWCPKAhMMP73nBsgyILPxgg-iyOfbMpsL957ON2K4t14KmPkVjX4dTrEZ8e4eq_iBwJ_YvFhw4ptxQZ844gtg66DCZWPAzxnQJnueKPwnDIvh14KD9QUb9ChWXaDDu02NuK3Q15lAhsv-Laa-fwC1sRDz9Oyy1hFPxi_4buR-NTviu-SqIMP5eBTNb6bSaiYHfjdSQ7IuG35ljuF7bDL_eJya1IpDNWyPzQVYuAn_HI-WzIltd9Vb5-QNZbkASIbaDU0eJzjsRSw_I9o2bg_TY_XlNDHLAV_nLAmN-2gvCW98Rt0gTe5eZzljNBami6QR33w_LwPCiTo-XdkznbasAV-H7SbU4llSkIK7LYtVUemoB6fLje_Ky84MJ6Mh8GnEqW0c_pxUmUAqa7I7BBLswgdGrLX6nuY4VjgbkVguuB-lcH5bX1V4EtU72W9JJO_3EwrtQfsOVKfCf-FH2Gy_mcHn2bQgwS0XvsQRMWQ6FBBhkl7w-AYW-zk5Y_yZnKEvrB7Oobd3eWHDohdhSLTbDQJMPMEpYJq9mfYEpv8_acuYPXcz1QYmYOyomoR5pNEIRzLmJhBR_J0FXIAPsHByv7PVbv5VMQa5B1rvkvQ3GAb-sj45lLtha3F5SkHePbxqlJlIVaRjTHG4LN4GzJtIaN4iRmTCjITAUKbiTN2S1EjXOMYkLWw6arviCqcWVGw3B2nK5FINKX1cC4-E5g_IWoElNLDK_2DSELz9Jvt-MBQE_-l9S--WeYlgJ_ggvGfJf1Z4lnJCanT_qTFzLgmuQNXE2_Tnm4aeOBxPG0h3h9vp63tOOQbg-LwkGnEoiA1vtovd-kBw0j46FkcQ_Q8stOx9EhqHsABAF2XWJ6pcGtRZ2if9dafYm_-QcitCl-i-NE2w&uuid=7f709a30-52ea-4deb-b601-8096793f23ec&authuser=0'],
             status: "other",
             source: "",
             currentTime: 0,
@@ -84,16 +84,16 @@ class Video extends Component{
             this.setState({action: "play"})
 
             this.obj.current.play()
-            // let elem = this.fullScreen.current
-            // if (elem.requestFullscreen) {
-            //     elem.requestFullscreen();
-            // } else if (elem.mozRequestFullScreen) {
-            //     elem.mozRequestFullScreen();
-            // } else if (elem.webkitRequestFullscreen) {
-            //     elem.webkitRequestFullscreen();
-            // } else if (elem.msRequestFullscreen) {
-            //     elem.msRequestFullscreen();
-            // }
+            let elem = this.fullScreen.current
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
 
         }else if (e.target.getAttribute("action") === "pause") {
             this.setState({action: "pause"})
@@ -178,7 +178,7 @@ class Video extends Component{
                 <div className="video-wrapper"  ref={this.fullScreen} >
                     <video onContextMenu={(event)=>{event.preventDefault()}} poster={poster} ref={this.obj} width="100%" id="video" controls={false} onPlay={this.play} onTimeUpdate={this.timerUpdate} onLoadedData={()=>{this.setState({actionState: "load"})}}>
                         <source
-                            src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                            src="https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1VhjzWAUwOEsZwxmsbaT6BXqzKIeTdIkQ"
                             type="video/mp4"
                         />
                         Your browser doesn't support HTML5 video tag.
@@ -229,8 +229,8 @@ class Video extends Component{
                                         </>
                                 }
                             </div>
-                            <div className="logo-video">
-                                <img src={logo} action="pause" className="logo-video-img" alt="logo"/>
+                            <div className="logo-video" onClick={()=>{window.location.href = "https://targetboost.ru"}}>
+                                <img src={logo} className="logo-video-img" alt="logo"/>
                             </div>
                         </div>
                     </div>

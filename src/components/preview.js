@@ -285,9 +285,9 @@ class Preview extends Component{
                     {/*    <div className="button-light pre-add unselectable">Посмотреть видео на Youtube 1 руб.</div>*/}
                     {/*</div>*/}
                 </div>
-                {/*<div className="block-default-pre">*/}
-                {/*    <Video store={this.state.store}/>*/}
-                {/*</div>*/}
+                <div className="block-default-pre">
+                    <Video store={this.state.store}/>
+                </div>
                 {/*<div className="block-default-pre">*/}
                 {/*    <div id="adman-ads"></div>*/}
                 {/*</div>*/}

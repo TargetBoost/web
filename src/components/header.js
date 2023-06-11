@@ -135,7 +135,7 @@ class Header extends Component{
                                                     store.user.mainPhoto !== "" ?
                                                         <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 30, height: 30 }}></Avatar>
                                                     :
-                                                        <Avatar sx={{ width: 30, height: 30 }}></Avatar>
+                                                        <Avatar sx={{ width: 60, height: 60 }}></Avatar>
                                                 }
                                                     {store.user.tg}
                                                 </>

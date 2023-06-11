@@ -430,7 +430,7 @@ class Admin extends Component{
                             :
                                 <>
                                     <div className="block-default-pre" style={{fontSize: "13px", background: "#f2e4a8"}}>
-                                        Зароботок проекта: {this.state.profit} руб.
+                                        Заработок проекта: {this.state.profit} руб.
                                     </div>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">

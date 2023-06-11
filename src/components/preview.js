@@ -15,7 +15,7 @@ class Preview extends Component{
         this.state = {
             auth: this.props.auth,
             executor: "executer",
-            regShow: false,
+            regShow: true,
             store: this.props.store
         }
     }

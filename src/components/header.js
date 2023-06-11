@@ -178,12 +178,16 @@ class Header extends Component{
                                             }
                                             {
                                                 store.user.admin === true ?
-                                                    <MenuItem onClick={()=>{window.location.href = '/admin'}}>
-                                                        <ListItemIcon>
-                                                            <People fontSize="small" />
-                                                        </ListItemIcon>
-                                                        Администратор
-                                                    </MenuItem>
+                                                    <>
+                                                        <Divider />
+                                                        <MenuItem onClick={()=>{window.location.href = '/admin'}}>
+                                                            <ListItemIcon>
+                                                                <People fontSize="small" />
+                                                            </ListItemIcon>
+                                                            Администратор
+                                                        </MenuItem>
+                                                        <Divider />
+                                                    </>
                                                 :
                                                     null
                                             }

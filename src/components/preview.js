@@ -229,7 +229,7 @@ class Preview extends Component{
                                                 '9': '[0-9]',
                                                 'a': '[A-Za-z]',
                                                 '*': '.*'
-                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм без @" onKeyDown={this.handleKeyDownAuth}/>
+                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм" onKeyDown={this.handleKeyDownAuth}/>
                                         </div>
                                         <div className="wrapper-input-main">
                                             <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
@@ -248,7 +248,7 @@ class Preview extends Component{
                                                 '9': '[0-9]',
                                                 'a': '[A-Za-z]',
                                                 '*': '.*'
-                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм без @" />                                        </div>
+                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграмм" />                                        </div>
                                         <div className="wrapper-input-main">
                                             <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
                                         </div>

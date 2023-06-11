@@ -239,8 +239,9 @@ body {
 
 .wrapper {
     width: 990px;
-    margin: 0 auto;
+    margin: 60px auto auto 0;
     padding: 10px;
+    /*margin-top: 60px;*/
 }
 
 .loader-small {
@@ -354,8 +355,13 @@ body {
 
 
 .header-bg {
-    background: var(--white);
-    /*height: 95px;*/
+    /*background: var(--white);*/
+    /*!*height: 95px;*!*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(255 255 255 / 0.4);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow: 1px -3px 10px 2px rgba(34, 60, 80, 0.2);
 }
 

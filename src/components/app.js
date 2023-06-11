@@ -353,7 +353,7 @@ class App extends Component{
                                                        style={{textDecoration: "underline", cursor: "pointer"}}
                                                        onClick={() => {window.history.go(-1)}}>Назад</div></div>
                                                </div>
-                                           </div>}>
+                                           </div>} >
                                            <Suspense fallback={false}>
                                                <View />
                                            </Suspense>

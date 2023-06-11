@@ -130,7 +130,15 @@ class Header extends Component{
                                             anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
                                         >
                                             <MenuItem onClick={()=>{window.location.href = '/settings'}}>
-                                                <Avatar />  {store.user.tg}
+                                                <>
+                                                {
+                                                    store.user.mainPhoto !== "" ?
+                                                        <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 30, height: 30 }}></Avatar>
+                                                    :
+                                                        <Avatar sx={{ width: 30, height: 30 }}></Avatar>
+                                                }
+                                                    {store.user.tg}
+                                                </>
                                             </MenuItem>
                                             <Divider />
                                             {

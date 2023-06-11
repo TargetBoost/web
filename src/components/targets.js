@@ -295,12 +295,6 @@ class Targets extends Component{
                                 </div>
                             :
                                 <>
-                                    <div className="block-default-pre" style={{fontSize: "13px", background: "#f2e4a8"}}>
-                                        Добавьте нашего бота (<a href="https://t.me/targetBoostBot" target="_blank" className="underline">@targetBoostBot</a>) администратором в Ваш телеграм канал, чтобы мы могли отслеживать, каких подписчиков привели мы.
-                                    </div>
-                                    <div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>
-                                        Созданные рекламные кампании запустятся после того, как их проверят наши администраторы в течение 1-3 часов.
-                                    </div>
                                     <div className="navigation-preview">
                                         <div className="flex-left-right">
                                             <div className="unselectable button-light active-white" target="all" onClick={this.swapButtonTask}>Активные</div>
@@ -684,12 +678,12 @@ class Targets extends Component{
                                                                     null
 
                                     }
-                                    {/*<div className="block-default-pre" style={{fontSize: "13px", background: "#f2e4a8"}}>*/}
-                                    {/*    Добавьте нашего бота (<a href="https://t.me/targetBoostBot" target="_blank" className="underline">@targetBoostBot</a>) администратором в Ваш телеграм канал, чтобы мы могли отслеживать, каких подписчиков привели мы.*/}
-                                    {/*</div>*/}
-                                    {/*<div className="block-default-pre" style={{fontSize: "12px", background: "#f2e4a8"}}>*/}
-                                    {/*    Созданные рекламные кампании запустятся после того, как их проверят наши администраторы в течение 1-3 часов.*/}
-                                    {/*</div>*/}
+                                    <div className="block-default-pre" style={{fontSize: "13px", background: "#fcf3e2"}}>
+                                        Добавьте нашего бота (<a href="https://t.me/targetBoostBot" target="_blank" className="underline">@targetBoostBot</a>) администратором в Ваш телеграм канал, чтобы мы могли отслеживать, каких подписчиков привели мы.
+                                    </div>
+                                    <div className="block-default-pre" style={{fontSize: "12px", background: "#fcf3e2"}}>
+                                        Созданные рекламные кампании запустятся после того, как их проверят наши администраторы в течение 1-3 часов.
+                                    </div>
                                 </>
 
                     :

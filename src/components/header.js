@@ -75,12 +75,12 @@ class Header extends Component{
                                     <React.Fragment>
                                         <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
                                             <Typography sx={{ minWidth: 100 }}>Ваш баланс: { (parseFloat(store.user.balance)).toLocaleString('ru')  } ₽</Typography>
-                                            <Tooltip title="Account settings">
+                                            <Tooltip title="Настройки">
                                                 <IconButton
                                                     onClick={this.handleClick}
                                                     size="small"
                                                     sx={{ ml: 2 }}
-                                                    aria-controls={this.state.openMenu ? "Настройки" : undefined}
+                                                    aria-controls={this.state.openMenu ? "account-menu" : undefined}
                                                     aria-haspopup="true"
                                                     aria-expanded={this.state.openMenu ? "true" : undefined}
                                                 >

@@ -236,6 +236,7 @@ class Preview extends Component{
                                         </div>
                                         <div className="sing-wrapper-main">
                                             <div className="button-default unselectable" onClick={this.login}>Войти</div>
+
                                             <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": true})}}>У Вас еще нет аккаунта?</div>
 
                                             {/*<div className="title-main underline unselectable">Забыли пароль?</div>*/}

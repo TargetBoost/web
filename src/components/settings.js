@@ -55,35 +55,35 @@ class Settings extends Component{
                             <div className="block-default-pre">
                                 {/*<div className="block-auth-external">*/}
 
-                                //
+
                                 {/*    {*/}
-                                //         store.user.vkToken === "" ?
-                                //             <div className="wrapper-input">
-                                //                 <div style={{
-                                //                     width: "200px"
-                                //                 }}>
-                                //                     <div className="button-default" onClick={()=>{
-                                //                         window.location.href = `https://oauth.vk.com/authorize?client_id=51666148&display=page&redirect_uri=https://targetboost.ru/core/v1/callback_vk&scope=groups,offline&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`
-                                //                     }}>Авторизоваться VK</div>
-                                //                 </div>
-                                //             </div>
-                                //         :
-                                //             <div style={{
-                                //                 width: "200px"
-                                //
+                                {/*        store.user.vkToken === "" ?*/}
+                                {/*            <div className="wrapper-input">*/}
+                                {/*                <div style={{*/}
+                                {/*                    width: "200px"*/}
+                                {/*                }}>*/}
+                                {/*                    <div className="button-default" onClick={()=>{*/}
+                                {/*                        window.location.href = `https://oauth.vk.com/authorize?client_id=51666148&display=page&redirect_uri=https://targetboost.ru/core/v1/callback_vk&scope=groups,offline&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`*/}
+                                {/*                    }}>Авторизоваться VK</div>*/}
+                                {/*                </div>*/}
+                                {/*            </div>*/}
+                                {/*        :*/}
+                                {/*            <div style={{*/}
+                                {/*                width: "200px"*/}
+
                                 {/*            }}>*/}
-                                //                 <div style={{display: "flex"}}>
-                                //                     {/*<div className="wrapper-input">*/}
-                                //                     {/*    <img className="icon-task-small" src={noImg} alt="item"/>*/}
-                                //                     {/*</div>*/}
-                                //                     <div className="wrapper-input">
-                                //                         {store.user.vkUserFirstName} {store.user.vkUserLastName}
-                                //                     </div>
-                                //                 </div>
-                                //                 <div className="wrapper-input">
-                                //                     <div style={{
-                                //                         width: "200px"
-                                //                     }}>
+                                {/*                <div style={{display: "flex"}}>*/}
+                                {/*                    /!*<div className="wrapper-input">*!/*/}
+                                {/*                    /!*    <img className="icon-task-small" src={noImg} alt="item"/>*!/*/}
+                                {/*                    /!*</div>*!/*/}
+                                {/*                    <div className="wrapper-input">*/}
+                                {/*                        {store.user.vkUserFirstName} {store.user.vkUserLastName}*/}
+                                {/*                    </div>*/}
+                                {/*                </div>*/}
+                                {/*                <div className="wrapper-input">*/}
+                                {/*                    <div style={{*/}
+                                {/*                        width: "200px"*/}
+                                {/*                    }}>*/}
                                 {/*                        <div className="button-default" onClick={()=>{*/}
                                 {/*                            window.location.href = `https://oauth.vk.com/authorize?client_id=51666148&display=page&redirect_uri=https://targetboost.ru/core/v1/callback_vk&scope=groups,offline&response_type=code&v=5.131&state=${window.localStorage.getItem("token")}`*/}
                                 {/*                        }}>Авторизоваться VK заново</div>*/}

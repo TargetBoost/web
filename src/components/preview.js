@@ -163,16 +163,9 @@ class Preview extends Component{
             this.registration()
         }
     }
-    MRGtag;
 
     componentDidMount() {
-        // const script = document.createElement("script");
-        //
-        // script.src = "https://ad.mail.ru/static/ads-async.js";
-        // script.async = true;
-        //
-        // document.body.appendChild(script);
-        // (this.MRGtag = window.MRGtag || []).push({})
+
     }
 
     render() {
@@ -199,12 +192,6 @@ class Preview extends Component{
                             Мы автоматически проверяем выполненные задания и сразу зачисляем оплату на Ваш баланс.
                         </p>
                     </div>
-                    {/*<div className="navigation-preview">*/}
-                    {/*    <div className="button-light pre-add unselectable">Подписка VK 2 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Лайк VK 1,5 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Подписка на канал Youtube 1 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Посмотреть видео на Youtube 1 руб.</div>*/}
-                    {/*</div>*/}
                 </div>
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background_auth})`,
@@ -278,23 +265,7 @@ class Preview extends Component{
                             }
                         </div>
                     </div>
-                    {/*<div className="navigation-preview">*/}
-                    {/*    <div className="button-light pre-add unselectable">Подписка VK 2 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Лайк VK 1,5 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Подписка на канал Youtube 1 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Посмотреть видео на Youtube 1 руб.</div>*/}
-                    {/*</div>*/}
                 </div>
-                <div className="block-default-pre">
-                    {/*<Video store={this.state.store}/>*/}
-                    <iframe width="100%" height="600px" src="https://www.youtube.com/embed/BItVmRpz1sQ"
-                            title="YouTube video player" frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen></iframe>
-                </div>
-                {/*<div className="block-default-pre">*/}
-                {/*    <div id="adman-ads"></div>*/}
-                {/*</div>*/}
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background_tg})`,
                     backgroundPosition: "left -100px top 50%",
@@ -308,9 +279,6 @@ class Preview extends Component{
                 }}>
                     <h2>Что дает продвижение?</h2>
                     <div className="navigation-preview">
-                        {/*<div className="block-default-icon">*/}
-                        {/*    <img className="default-icon" src={telegram} alt="telegram"/>*/}
-                        {/*</div>*/}
                         <div className="block-text-pre">
                             Каналы Telegram - на данный момент самый популярный способ получения информации. Большое количество подписчиков канала даст Вам доверие потенциальной аудитории к каналу и, как следствие, более выраженный, но при этом естественный прирост подписчиков.
                             <br/>
@@ -324,81 +292,6 @@ class Preview extends Component{
                         </div>
                     </div>
                 </div>
-                {/*<div className="block-default-pre">*/}
-                {/*    <h2>Накрутка каналов Telegram</h2>*/}
-                {/*    <div className="navigation-preview">*/}
-                {/*        <div className="block-default-icon">*/}
-                {/*            <img className="default-icon" src={telegram} alt="telegram"/>*/}
-                {/*        </div>*/}
-                {/*        <div className="block-text-pre">*/}
-                {/*            Каналы Telegram - на данный момент самый популярный способ получения информации. Большое количество подписчиков канала даст вам доверие потенциальной аудитории к каналу и как следствие более выраженный, но при этом естественный прирост подписчиков.                                    </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="block-default-pre">*/}
-                {/*    <h3>Раскрутка каналов Youtube</h3>*/}
-                {/*    <div className="navigation-preview">*/}
-                {/*        <div className="block-default-icon">*/}
-                {/*            <img className="default-icon" src={youtube} alt="youtube"/>*/}
-                {/*        </div>*/}
-                {/*        <div className="block-text-pre">*/}
-                {/*            Покупка лайков/просмотров на Youtube является эффективным способом повышения популярности видео, не важно будь это музыкальное видео, обзор продукта или ваш персональный блог.*/}
-                {/*            Подписчики Youtube так же являются важным критерием ранжирования и влияют на рекомендацию Ваших роликов, но Youtube очень пристально следит за резкими изменениями этого показателя, поэтому мы осуществляем постепенное увеличение подписчиков, чтобы обойти их алгоритмы выявления накрутки.*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="block-default-pre">*/}
-                {/*    <h3>Раскрутка сообществ VK</h3>*/}
-                {/*    <div className="navigation-preview">*/}
-                {/*        <div className="block-default-icon">*/}
-                {/*            <img className="default-icon" src={vk} alt="vk"/>*/}
-                {/*        </div>*/}
-                {/*        <div className="block-text-pre">*/}
-                {/*            Раскрутка сообществ VK - актуальная тема в 2022 году. Сегодня можно увидеть тысячи различных сообществ разной тематики. Одни создают группу как хобби, другие для продажи товаров и предоставления услуг, третьи для заработка на рекламе.*/}
-                {/*            Чтобы Ваше сообщество стало заметным и популярным нужно приложить время и усилия. Вы должны придерживаться наших рекомендаций и раскрутить группу в VK станет намного проще, эффективнее и быстрее.*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
-
-                {/*<div className="block-default-pre">*/}
-                {/*    <h3>Заработок на заданиях в социальных сетях</h3>*/}
-                {/*    <div className="preview-inside-block">*/}
-                {/*        <p>*/}
-                {/*            Зарабатывай выполняя задания по подпискам/лайкам и прочим действиям в социальных сетях.*/}
-                {/*        </p>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="block-default-pre">*/}
-                {/*    <div className="preview-inside-block">*/}
-                {/*        <p>*/}
-                {/*            Мы автоматически проверяем выполненные задания и сразу зачисляем оплату на Ваш баланс.*/}
-                {/*        </p>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="block-default-pre" style={{fontSize: "13px", background: "#f2e4a8"}}>*/}
-                {/*    Мы запустились в тестовом режиме.<br/>*/}
-                {/*    У нас уже есть задания которые можно выполнить!<br/>*/}
-                {/*</div>*/}
-                {/*<div className="block-default-pre">*/}
-                {/*    <h2>Способы вывода средств</h2>*/}
-                {/*    <div className="preview-inside-block">*/}
-                {/*        <p>*/}
-                {/*            Вывод средств осуществляется от 5 руб посредствам создания заявки в личном кабиенете.*/}
-                {/*        </p>*/}
-                {/*    </div>*/}
-                {/*    <div className="navigation-preview">*/}
-                {/*        <div className="flex-left-right">*/}
-                {/*            /!*<div className="block-default-icon-many">*!/*/}
-                {/*            /!*    <img className="default-icon-many" src={io} alt="io"/>*!/*/}
-                {/*            /!*    <div className="title-default-icon-many">ЮMoney</div>*!/*/}
-                {/*            /!*</div>*!/*/}
-                {/*            <div className="block-default-icon-many">*/}
-                {/*                <img className="default-icon-many" src={qiwi} alt="qiwi"/>*/}
-                {/*                <div className="title-default-icon-many">QIWI</div>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
             </>
         )
     }

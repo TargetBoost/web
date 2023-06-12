@@ -241,7 +241,9 @@ class Preview extends Component{
                                         <div className="wrapper-input-main">
                                             <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
                                         </div>
-                                        <div className="wrapper-input-main">
+                                        <div className="wrapper-input-main" style={{
+                                            height: "60px",
+                                        }}>
                                             <div className="wrapper-input-checkbox-wr-input">
                                                 <input className="input-default-checkbox" type="checkbox" id="im_read"/>
                                             </div>

@@ -65,7 +65,7 @@ class Preview extends Component{
             // number_phone: Number(phone),
             // login: document.getElementById("login").value,
             password: document.getElementById("password").value,
-            execute: !document.getElementById("im_read").checked,
+            execute: document.getElementById("im_read").checked,
             tg: document.getElementById("tg").value
         }
 
@@ -248,7 +248,7 @@ class Preview extends Component{
                                             <div className="wrapper-input-checkbox-wr-input-text unselectable" onClick={()=> {
                                                 let check = document.getElementById("im_read").checked
                                                 document.getElementById("im_read").checked = !check;
-                                            }}>Я рекламодатель</div>
+                                            }}>У меня есть площадка для рекламы</div>
                                         </div>
 
                                         <div className="sing-wrapper-main">

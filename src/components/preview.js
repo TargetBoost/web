@@ -215,7 +215,7 @@ class Preview extends Component{
                                                 '9': '[0-9]',
                                                 'a': '[A-Za-z]',
                                                 '*': '.*'
-                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграм" onKeyDown={this.handleKeyDownAuth}/>
+                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин telegram" onKeyDown={this.handleKeyDownAuth}/>
                                         </div>
                                         <div className="wrapper-input-main">
                                             <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
@@ -234,7 +234,7 @@ class Preview extends Component{
                                                 '9': '[0-9]',
                                                 'a': '[A-Za-z]',
                                                 '*': '.*'
-                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграм" />                                        </div>
+                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин telegram" />                                        </div>
                                         <div className="wrapper-input-main">
                                             <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
                                         </div>

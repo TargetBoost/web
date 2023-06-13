@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import target from "../icon/target.png"
+import target from "../icon/target.webp"
 // import { Dropdown, Menu } from 'semantic-ui-react'
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";

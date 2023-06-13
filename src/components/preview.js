@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import background from "../img/d.png"
-import background_tg from "../img/dd.png"
-import background_auth from "../img/ddd_d.png"
+import background from "../img/ddd.webp"
+import background_tg from "../img/ddd.webp"
+import background_auth from "../img/ddd_d.webp"
 
 import InputMask from "react-input-mask";
 import Video from "./video";

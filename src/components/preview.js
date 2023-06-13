@@ -4,7 +4,7 @@ import background_tg from "../img/dd.webp"
 import background_auth from "../img/ddd_d.webp"
 
 import InputMask from "react-input-mask";
-import Video from "./video";
+// import Video from "./video";
 
 
 

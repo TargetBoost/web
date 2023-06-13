@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import background from "../img/ddd.webp"
-import background_tg from "../img/ddd.webp"
+import background from "../img/d.webp"
+import background_tg from "../img/dd.webp"
 import background_auth from "../img/ddd_d.webp"
 
 import InputMask from "react-input-mask";

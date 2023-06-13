@@ -45,7 +45,7 @@ class App extends Component{
             '/s/pay' : route({view: <Pay store={this.state.store}/>}),
             '/error_auth_vk' : route({view: <AuthVK store={this.state.store}/>}),
             '/settings' : route({view: <Settings store={this.state.store}/>}),
-            '/registration' : route({view: <Registration store={this.state.store}/>}),
+            // '/registration' : route({view: <Registration store={this.state.store}/>}),
             '/agreement' : route({view: <Agreement store={this.state.store}/>}),
             '/targets' : route( request => {
 

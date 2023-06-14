@@ -386,7 +386,7 @@ body {
 
 .button-default-big {
     width: 150px;
-    background: var(--logo);
+
     color: #fff;
     padding: 8px 12px;
     border-radius: 3px;
@@ -400,6 +400,11 @@ body {
 
 .button-default-big:active {
     transform: scale(.98);
+}
+
+.button-default-big:hover {
+    color: #fff;
+    background: var(--logo);
 }
 
 .button-default-no-background {

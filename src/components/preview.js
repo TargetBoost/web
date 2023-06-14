@@ -241,9 +241,7 @@ class Preview extends Component{
                                         <div className="wrapper-input-main">
                                             <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
                                         </div>
-                                        <div className="wrapper-input-main" style={{
-                                            height: "60px",
-                                        }}>
+                                        <div className="wrapper-input-main">
                                             <div className="wrapper-input-checkbox-wr-input">
                                                 <input className="input-default-checkbox" type="checkbox" id="im_read"/>
                                             </div>
@@ -264,6 +262,23 @@ class Preview extends Component{
                                     </>
                             }
                         </div>
+                    </div>
+                </div>
+                <div className="block-default-pre" style={{
+                    // backgroundImage: `url(${background_auth})`,
+                    // backgroundPosition: "right 0px top 21%",
+                    // backgroundAttachment: "fixed",
+                    // backgroundSize: "1000px, auto",
+                    // backgroundRepeat: "no-repeat",
+                    // color: "#000",
+                    // paddingRight: "600px",
+                    // paddingLeft: "30px",
+                    // height: "430px"
+                }}>
+                    <div className="preview-inside-block">
+                        {/*<h2>Наши статьи</h2>*/}
+                        <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="targetboostpublic/19" data-width="100%" />
+
                     </div>
                 </div>
                 <div className="block-default-pre" style={{

@@ -74,7 +74,7 @@ class Header extends Component{
                                     <div className="unselectable button-light active-white" target="all" onClick={(e) => {
                                         e.preventDefault();
                                         window.location.href = '/'
-                                    }}>Главная</div>
+                                    }}>Рекламная платформа</div>
                                     <div className="unselectable button-light" target="history" >Монетезация</div>
                                     <div className="unselectable button-light" target="history" >Блог</div>
                                 </div>

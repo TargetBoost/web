@@ -212,7 +212,7 @@ class Preview extends Component{
                                         {
                                             store.user.auth ?
                                                 <>
-                                                    <div>
+                                                    <div style={{display: "flex"}}>
                                                             <>
                                                                 {
                                                                     store.user.mainPhoto !== "" ?
@@ -220,9 +220,8 @@ class Preview extends Component{
                                                                         :
                                                                         <Avatar sx={{ width: 60, height: 60 }}></Avatar>
                                                                 }
-                                                                {store.user.tg}
+                                                                <div className="name-account">{store.user.tg}</div>
                                                             </>
-
                                                     </div>
                                                 </>
                                             :

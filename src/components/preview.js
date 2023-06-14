@@ -268,7 +268,9 @@ class Preview extends Component{
                                 </div>
                                 <div className="wrapper-absolute">
                                     <div className="underline unselectable" onClick={()=>{
-                                        this.setState({showPopUp: false})
+                                        this.state.store.dispatch({
+                                            type: "set_pop_up", value: false,
+                                        })
                                     }}>Закрать</div>
                                 </div>
                             </div>

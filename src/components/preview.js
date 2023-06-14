@@ -4,7 +4,6 @@ import background_tg from "../img/dd.webp"
 import background_auth from "../img/ddd_d.webp"
 
 import InputMask from "react-input-mask";
-// import Video from "./video";
 
 
 
@@ -19,6 +18,10 @@ class Preview extends Component{
             store: this.props.store,
             showPopUp: false,
         }
+
+        this.state.store.subscribe(() => {
+            this.setState(this.state.store.getState())
+        })
     }
 
     refTG = React.createRef();
@@ -171,6 +174,12 @@ class Preview extends Component{
 
     }
 
+    showPop = () =>  {
+        this.state.store.dispatch({
+            type: "set_pop_up", value: true,
+        })
+    }
+
     swapButtonTask = (e) => {
 
         this.setState({executor: e.target.getAttribute("target")})
@@ -184,10 +193,12 @@ class Preview extends Component{
     }
 
     render() {
+        let store = this.state.store.getState()
+
         return (
             <>
                 {
-                    this.state.showPopUp ?
+                    store.showPopUp.test ?
                         <div className="pop-up">
                             <div className="block-default-pre" style={{
                                 backgroundImage: `url(${background_auth})`,
@@ -262,7 +273,9 @@ class Preview extends Component{
                                 </div>
                                 <div className="wrapper-absolute">
                                     <div className="underline unselectable" onClick={()=>{
-                                        this.setState({showPopUp: false})
+                                        this.state.store.dispatch({
+                                            type: "set_pop_up", value: true,
+                                        })
                                     }}>Закрать</div>
                                 </div>
                             </div>
@@ -296,9 +309,7 @@ class Preview extends Component{
                             Наша команда гарантирует высокое качество услуг и прозрачность в работе.
                             <br/>
                             <br/>
-                            <div className="button-default-big unselectable" onClick={()=>{
-                                this.setState({showPopUp: true})
-                            }}>Заказать услугу</div>
+                            <div className="button-default-big unselectable" onClick={this.showPop}>Заказать услугу</div>
 
                         </p>
                     </div>

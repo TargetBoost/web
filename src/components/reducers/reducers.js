@@ -26,7 +26,8 @@ const initState = {
     settings: {
         snow: false,
         rain: false,
-    }
+    },
+    showPopUp: false,
 }
 
 function reducer(state = initState, action) {
@@ -62,6 +63,10 @@ function reducer(state = initState, action) {
                 errorText: action.value
             }
 
+            return state
+
+        case "set_pop_up":
+            state.showPopUp = action.value
             return state
 
         case "set_info":

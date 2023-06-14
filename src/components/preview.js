@@ -225,7 +225,18 @@ class Preview extends Component{
                                                                 <div className="name-account">
                                                                     <div>{store.user.tg}</div>
                                                                     <div style={{fontSize: "10px"}}>Вы уже вошли</div>
-                                                                    <div className="underline" style={{fontSize: "13px", marginTop: "10px"}}>Перейти в личный кабинет</div>
+                                                                    <div className="underline" style={{fontSize: "13px", marginTop: "10px"}} onClick={(e) => {
+                                                                        e.preventDefault();
+                                                                        if (store.user.auth) {
+                                                                            if (store.user.execute === true) {
+                                                                                window.location.href = '/tasks/'
+                                                                            } else {
+                                                                                window.location.href = '/targets/'
+                                                                            }
+                                                                        }else{
+                                                                            window.location.href = '/'
+                                                                        }
+                                                                    }}>Перейти в личный кабинет</div>
                                                                 </div>
                                                             </>
                                                     </div>

@@ -221,8 +221,8 @@ class Preview extends Component{
                                                                         <Avatar sx={{ width: 60, height: 60 }}></Avatar>
                                                                 }
                                                                 <div className="name-account">
-                                                                    <span>{store.user.tg}</span>
-                                                                    <span style={{fontSize: "10px"}}>Вы уже вошли</span>
+                                                                    <div>{store.user.tg}</div>
+                                                                    <div style={{fontSize: "10px"}}>Вы уже вошли</div>
                                                                 </div>
                                                             </>
                                                     </div>

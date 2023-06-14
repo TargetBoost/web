@@ -96,7 +96,6 @@ class Header extends Component{
                                             }}>Монетезация</div>
                                     }
                                     {
-
                                         store.page === "b" ?
                                             <div className="unselectable button-light active-white" target="history" onClick={(e) => {
                                                 e.preventDefault();

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import background from "../img/view1.jpg"
-import background_tg from "../img/view2.jpg"
+// import background_tg from "../img/view2.jpg"
 import background_auth from "../img/ddd_d.webp"
 
 import InputMask from "react-input-mask";
@@ -324,7 +324,6 @@ class Publishers extends Component{
                     position: "relative",
                     height: "250px"
                 }}>
-
                     <h1 style={{fontSize: "40px"}}>Получайте доход от социальных сетей</h1>
                     <h2>Telegram, VK</h2>
                     <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none"}} onClick={()=>{

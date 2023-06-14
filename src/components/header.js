@@ -220,7 +220,9 @@ class Header extends Component{
                                 :
                                     <>
                                         <div className="button-default-big unselectable" onClick={()=>{
-                                            this.setState({showPopUp: true})
+                                            this.state.store.dispatch({
+                                                type: "set_pop_up", value: true,
+                                            })
                                         }}>Войти</div>
                                     </>
                             :

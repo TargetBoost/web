@@ -221,7 +221,7 @@ class Header extends Component{
                                     <>
                                         <div className="button-default-big unselectable" onClick={()=>{
                                             this.setState({showPopUp: true})
-                                        }}>Заказать услугу</div>
+                                        }}>Войти</div>
                                     </>
                             :
                                 <div className="loader-small"/>

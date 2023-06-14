@@ -223,6 +223,7 @@ class Preview extends Component{
                                                                 <div className="name-account">
                                                                     <div>{store.user.tg}</div>
                                                                     <div style={{fontSize: "10px"}}>Вы уже вошли</div>
+                                                                    <div className="underline"} style={{fontSize: "10px", marginTop: "10px"}}>Перейти в личный кабинет</div>
                                                                 </div>
                                                             </>
                                                     </div>

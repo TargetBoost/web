@@ -214,12 +214,14 @@ class Preview extends Component{
                                                 <>
                                                     <div style={{display: "flex"}}>
                                                             <>
-                                                                {
-                                                                    store.user.mainPhoto !== "" ?
-                                                                        <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 60, height: 60 }}></Avatar>
-                                                                        :
-                                                                        <Avatar sx={{ width: 60, height: 60 }}></Avatar>
-                                                                }
+                                                                <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                                    {
+                                                                        store.user.mainPhoto !== "" ?
+                                                                            <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 60, height: 60 }}></Avatar>
+                                                                            :
+                                                                            <Avatar sx={{ width: 60, height: 60 }}></Avatar>
+                                                                    }
+                                                                </div>
                                                                 <div className="name-account">
                                                                     <div>{store.user.tg}</div>
                                                                     <div style={{fontSize: "10px"}}>Вы уже вошли</div>

@@ -208,7 +208,7 @@ class Preview extends Component{
         return (
             <>
                 {
-                    store.showPopUp.test ?
+                    store.showPopUp ?
                         <div className="pop-up">
                             <div className="block-default-pre" style={{
                                 backgroundImage: `url(${background_auth})`,

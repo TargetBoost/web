@@ -75,8 +75,14 @@ class Header extends Component{
                                         e.preventDefault();
                                         window.location.href = '/'
                                     }}>Рекламная платформа</div>
-                                    <div className="unselectable button-light" target="history" >Монетезация</div>
-                                    <div className="unselectable button-light" target="history" >Блог</div>
+                                    <div className="unselectable button-light" target="history" onClick={(e) => {
+                                        e.preventDefault();
+                                        window.location.href = '/publishers'
+                                    }}>Монетезация</div>
+                                    <div className="unselectable button-light" target="history" onClick={(e) => {
+                                        e.preventDefault();
+                                        window.location.href = '/blog'
+                                    }}>Блог</div>
                                 </div>
                             </div>
                         </div>

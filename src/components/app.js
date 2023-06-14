@@ -22,6 +22,8 @@ import WalletUser from "./walletUser";
 import Pay from "./pay_s";
 import Agreement from "./agreement";
 import AuthVK from "./error_auth_vk";
+import Publishers from "./publishers";
+import Blog from "./blog";
 
 
 class App extends Component{
@@ -35,6 +37,8 @@ class App extends Component{
 
         this.routes = mount({
             '/' : route({view: <Content store={this.state.store}/>}),
+            '/publishers' : route({view: <Publishers store={this.state.store}/>}),
+            '/blog' : route({view: <Blog store={this.state.store}/>}),
             '/jobs' : route({view: <Jobs store={this.state.store}/>}),
             '/login' : route({view: <Login store={this.state.store}/>}),
             '/about' : route({view: <Contact store={this.state.store}/>}),

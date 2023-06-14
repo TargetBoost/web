@@ -250,7 +250,7 @@ class Preview extends Component{
                                             <div className="wrapper-input-checkbox-wr-input-text unselectable" onClick={()=> {
                                                 let check = document.getElementById("im_read").checked
                                                 document.getElementById("im_read").checked = !check;
-                                            }}>У меня есть площадка для размещения рекламы</div>
+                                            }}>Я Publisher</div>
                                         </div>
                                         <div className="sing-wrapper-main">
                                             <div className="button-default unselectable" onClick={this.registration}>Поехали! 🚀</div>

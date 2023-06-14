@@ -216,47 +216,12 @@ class Header extends Component{
                                             </MenuItem>
                                         </Menu>
                                     </React.Fragment>
-                                    // <Menu>
-                                    //     <Dropdown text={store.user.tg} floating labeled button className='icon'>
-                                    //         <Dropdown.Menu>
-                                    //             <Dropdown.Header>Ваш баланс: { (parseFloat(store.user.balance)).toLocaleString('ru')  } ₽</Dropdown.Header>
-                                    //             {
-                                    //                 store.user.execute === true ?
-                                    //                     <Dropdown.Item onClick={()=>{window.location.href = '/tasks'}}>Ваши задания</Dropdown.Item>
-                                    //                 :
-                                    //                     <Dropdown.Item onClick={()=>{window.location.href = '/targets'}}>Рекламные кампании</Dropdown.Item>
-                                    //
-                                    //             }
-                                    //             {
-                                    //                 store.user.execute === true ?
-                                    //                     <Dropdown.Item onClick={()=>{window.location.href = '/withdrawal'}}>Заявка на вывод средств</Dropdown.Item>
-                                    //                     :
-                                    //                     <Dropdown.Item onClick={()=>{window.location.href = '/wallet'}}>Пополнить баланс</Dropdown.Item>
-                                    //
-                                    //             }
-                                    //             <Dropdown.Item onClick={()=>{window.location.href = '/settings'}}>Профиль</Dropdown.Item>
-                                    //             {
-                                    //                 store.user.admin === true ?
-                                    //                     <>
-                                    //                         <Dropdown.Divider />
-                                    //                         <Dropdown.Item onClick={()=>{window.location.href = '/admin'}}>Панель Администратора</Dropdown.Item>
-                                    //                     </>
-                                    //                 :
-                                    //                     null
-                                    //
-                                    //             }
-                                    //             <Dropdown.Divider />
-                                    //             <Dropdown.Item onClick={()=>{
-                                    //                 window.localStorage.removeItem('token')
-                                    //                 window.location.href = '/'
-                                    //             }}>Выйти</Dropdown.Item>
-                                    //         </Dropdown.Menu>
-                                    //     </Dropdown>
-                                    // </Menu>
+
                                 :
                                     <>
-                                        {/*<div className="button-default unselectable" onClick={()=>{window.location.href = "/login"}}>Войти</div>*/}
-                                        {/*<div className="button-default unselectable" onClick={()=>{window.location.href = "/registration"}}>Регистрация</div>*/}
+                                        <div className="button-default-big unselectable" onClick={()=>{
+                                            this.setState({showPopUp: true})
+                                        }}>Заказать услугу</div>
                                     </>
                             :
                                 <div className="loader-small"/>

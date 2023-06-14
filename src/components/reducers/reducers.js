@@ -79,7 +79,7 @@ function reducer(state = initState, action) {
             return state
 
         case "set_page":
-            state.error = action.value
+            state.page = action.value
             return state
 
         case "set_settings":

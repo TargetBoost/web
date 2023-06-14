@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import background from "../img/d.webp"
-import background_tg from "../img/dd.webp"
+import background from "../img/view1.jpg"
+import background_tg from "../img/view2.jpg"
 import background_auth from "../img/ddd_d.webp"
 
 import InputMask from "react-input-mask";
@@ -172,9 +172,9 @@ class Publishers extends Component{
     }
 
     componentDidMount() {
-        this.state.store.dispatch({
-            type: "set_page", value: "p",
-        })
+        // this.state.store.dispatch({
+        //     type: "set_page", value: "p",
+        // })
     }
 
     swapButtonTask = (e) => {
@@ -314,148 +314,74 @@ class Publishers extends Component{
 
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background})`,
-                    backgroundPosition: "right 0px top 50%",
+                    backgroundPosition: "left 0px top 0px",
                     // backgroundAttachment: "fixed",
-                    backgroundSize: "1000px, auto",
+                    backgroundSize: "600px, auto",
                     backgroundRepeat: "no-repeat",
-                    color: "#000",
-                    paddingLeft: "400px",
+                    color: "#fff",
+                    backgroundColor: "#0F171D",
+                    paddingLeft: "530px",
                     position: "relative",
-                    // height: "500px"
+                    height: "250px"
                 }}>
 
-                    <h1 style={{fontSize: "40px"}}>Рекламируйте товары и услуги в соцсетях</h1>
+                    <h1 style={{fontSize: "40px"}}>Получайте доход от социальных сетей</h1>
                     <h2>Telegram, VK</h2>
-                    <div className="preview-inside-block">
-                        <p>
-                            Наш сервис предоставляет услуги по размещению контекстной рекламы в социальных сетях, таких как Telegram, VK. Мы помогаем рекламодателям оптимизировать инвестиции в рекламу и привлекать новых клиентов.
-                            <br/>
-                            <br/>
-                            Наши услуги включают подбор наилучших платформ для размещения рекламы, подготовку рекламного контента и настройку таргетинга, чтобы реклама была показана только нужным пользователям. Мы также проводим анализ результатов размещения рекламы и корректируем стратегию в соответствии с полученными данными.
-                            <br/>
-                            <br/>
-                            Наша команда гарантирует высокое качество услуг и прозрачность в работе.
-                            <br/>
-                            <br/>
-                            <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff" }} onClick={()=>{
-                                this.state.store.dispatch({
-                                    type: "set_pop_up", value: true,
-                                })
-                            }}>Заказать услугу</div>
+                    <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none"}} onClick={()=>{
+                        this.state.store.dispatch({
+                            type: "set_pop_up", value: true,
+                        })
+                    }}>Заказать услугу</div>
+                    {/*<div className="preview-inside-block">*/}
+                    {/*    <p>*/}
+                    {/*        Наш сервис предоставляет услуги по размещению контекстной рекламы в социальных сетях, таких как Telegram, VK. Мы помогаем рекламодателям оптимизировать инвестиции в рекламу и привлекать новых клиентов.*/}
+                    {/*        <br/>*/}
+                    {/*        <br/>*/}
+                    {/*        Наши услуги включают подбор наилучших платформ для размещения рекламы, подготовку рекламного контента и настройку таргетинга, чтобы реклама была показана только нужным пользователям. Мы также проводим анализ результатов размещения рекламы и корректируем стратегию в соответствии с полученными данными.*/}
+                    {/*        <br/>*/}
+                    {/*        <br/>*/}
+                    {/*        Наша команда гарантирует высокое качество услуг и прозрачность в работе.*/}
+                    {/*        <br/>*/}
+                    {/*        <br/>*/}
+                    {/*        <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff" }} onClick={()=>{*/}
+                    {/*            this.state.store.dispatch({*/}
+                    {/*                type: "set_pop_up", value: true,*/}
+                    {/*            })*/}
+                    {/*        }}>Заказать услугу</div>*/}
 
-                        </p>
-                    </div>
+                    {/*    </p>*/}
+                    {/*</div>*/}
                 </div>
-                {/*<div className="block-default-pre" style={{*/}
-                {/*    backgroundImage: `url(${background_auth})`,*/}
-                {/*    backgroundPosition: "right 0px top 21%",*/}
-                {/*    // backgroundAttachment: "fixed",*/}
-                {/*    backgroundSize: "1000px, auto",*/}
-                {/*    backgroundRepeat: "no-repeat",*/}
-                {/*    color: "#000",*/}
-                {/*    paddingRight: "600px",*/}
-                {/*    paddingLeft: "30px",*/}
-                {/*    height: "430px"*/}
-                {/*}}>*/}
-                {/*    <div className="preview-inside-block">*/}
-                {/*        <div className="white-block-border">*/}
-                {/*            {*/}
-                {/*                !this.state.regShow ?*/}
-                {/*                    <>*/}
-                {/*                        <div className="wrapper-input-main">*/}
-                {/*                            <InputMask className="input-main" formatChars={{*/}
-                {/*                                '9': '[0-9]',*/}
-                {/*                                'a': '[A-Za-z]',*/}
-                {/*                                '*': '.*'*/}
-                {/*                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин telegram" onKeyDown={this.handleKeyDownAuth}/>*/}
-                {/*                        </div>*/}
-                {/*                        <div className="wrapper-input-main">*/}
-                {/*                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>*/}
-                {/*                        </div>*/}
-                {/*                        <div className="sing-wrapper-main">*/}
-                {/*                            <div className="button-default unselectable" onClick={this.login}>Войти</div>*/}
-                {/*                            <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": true})}}>У Вас еще нет аккаунта?</div>*/}
-
-                {/*                            /!*<div className="title-main underline unselectable">Забыли пароль?</div>*!/*/}
-                {/*                        </div>*/}
-                {/*                    </>*/}
-                {/*                :*/}
-                {/*                    <>*/}
-                {/*                        <div className="wrapper-input-main">*/}
-                {/*                            <InputMask className="input-main" formatChars={{*/}
-                {/*                                '9': '[0-9]',*/}
-                {/*                                'a': '[A-Za-z]',*/}
-                {/*                                '*': '.*'*/}
-                {/*                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин telegram" />                                        </div>*/}
-                {/*                        <div className="wrapper-input-main">*/}
-                {/*                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>*/}
-                {/*                        </div>*/}
-                {/*                        <div className="wrapper-input-main">*/}
-                {/*                            <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownReg}/>*/}
-                {/*                        </div>*/}
-                {/*                        <div className="wrapper-input-main">*/}
-                {/*                            <div className="wrapper-input-checkbox-wr-input">*/}
-                {/*                                <input className="input-default-checkbox" type="checkbox" id="im_read"/>*/}
-                {/*                            </div>*/}
-                {/*                            <div className="wrapper-input-checkbox-wr-input-text unselectable" onClick={()=> {*/}
-                {/*                                let check = document.getElementById("im_read").checked*/}
-                {/*                                document.getElementById("im_read").checked = !check;*/}
-                {/*                            }}>Я Publisher</div>*/}
-                {/*                        </div>*/}
-                {/*                        <div className="sing-wrapper-main">*/}
-                {/*                            <div className="button-default unselectable" onClick={this.registration}>Поехали! 🚀</div>*/}
-                {/*                            <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": false})}}>У Вас уже есть аккаунт?</div>*/}
-                {/*                        </div>*/}
-                {/*                        <div className="info-auth-main">*/}
-                {/*                            <p>*/}
-                {/*                                Регистрируясь Вы подтверждаете что согласны с <a href="/agreement" target="_blank">правилами</a> сайта.*/}
-                {/*                            </p>*/}
-                {/*                        </div>*/}
-                {/*                    </>*/}
-                {/*            }*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="block-default-pre" style={{*/}
-                {/*    // backgroundImage: `url(${background_auth})`,*/}
-                {/*    // backgroundPosition: "right 0px top 21%",*/}
-                {/*    // backgroundAttachment: "fixed",*/}
-                {/*    // backgroundSize: "1000px, auto",*/}
-                {/*    // backgroundRepeat: "no-repeat",*/}
-                {/*    // color: "#000",*/}
-                {/*    // paddingRight: "600px",*/}
-                {/*    // paddingLeft: "30px",*/}
-                {/*    // height: "430px"*/}
-                {/*}}>*/}
-                {/*    <div className="preview-inside-block">*/}
-                {/*        /!*<h2>Наши статьи</h2>*!/*/}
-                {/*    </div>*/}
-
-                {/*</div>*/}
                 <div className="block-default-pre" style={{
-                    backgroundImage: `url(${background_tg})`,
+                    // backgroundImage: `url(${background_tg})`,
                     backgroundPosition: "left -100px top 50%",
                     // backgroundAttachment: "fixed",
                     backgroundSize: "1100px, auto",
                     backgroundRepeat: "no-repeat",
                     color: "#000",
-                    paddingLeft: "400px",
-                    height: "365px",
+                    // backgroundColor: "#3788c5",
+                    // paddingLeft: "400px",
+                    // height: "600px",
 
                 }}>
-                    <h2>Что дает контекстная реклама?</h2>
+                    <h2>Как начать получать доход от социальныз сетей?</h2>
                     <div className="navigation-preview">
                         <div className="block-text-pre">
-                            Контекстная реклама позволяет достигать целевой аудитории, которая подписана на Telegram каналы или паблики VK определенной тематики. Она дает следующие преимущества:
+                            Услуга получения дохода от Telegram-канала за размещение рекламы - это способ заработка денег на своем канале в Telegram. Суть услуги заключается в том, что владелец канала получает деньги за размещение рекламных постов на своей странице.
                             <br/>
                             <br/>
-                            1. Точное попадание в целевую аудиторию - реклама появляется перед пользователями, которые заинтересованы в товарах или услугах.
+                            Как это работает? Рекламодатели обращаются к владельцам каналов с предложением разместить рекламу на их страницах. Владелец канала может выбрать, какую рекламу публиковать и какую сумму за это получать.
                             <br/>
                             <br/>
-                            2. Возможность оптимизации затрат - контекстная реклама позволяет установить множество параметров рекламной кампании, благодаря чему можно контролировать траты и оптимизировать их.
+                            Для заработка на размещении рекламы на канале необходимо иметь активную аудиторию. Чем больше подписчиков и живых комментариев на канале, тем больше возможности заработать на рекламе.
                             <br/>
                             <br/>
-                            3. Широкий охват - контекстная реклама появляется в Telegram каналах, пабликах VK и на партнерских сайтах, что позволяет добраться до широкой аудитории.
+                            Владельцы каналов могут выкладывать рекламные посты как в текстовом, так и в графическом виде. Каждый раз, когда пользователи переходят по ссылке на рекламу, владелец канала получает дополнительный доход.
+                            <br/>
+                            <br/>
+                            Также стоит учитывать, что размещать рекламу нужно умеренно, чтобы не потерять своих подписчиков и не навредить репутации своего канала. Лучше всего составить чёткие правила размещения рекламы и не отклоняться от них.
+
+                            В общем, получение дохода от Telegram-канала за размещение рекламы - это хороший способ получать дополнительный доход, если у вас есть активная аудитория на канале и вы знаете, как правильно размещать рекламу.
                         </div>
                     </div>
                 </div>

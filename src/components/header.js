@@ -48,26 +48,39 @@ class Header extends Component{
         return (
             <div className="header-bg">
                 <div className="wrapper-header">
-                    <div className="place-logo" onClick={(e) => {
-                        e.preventDefault();
-                        if (store.user.auth) {
-                            if (store.user.execute === true) {
-                                window.location.href = '/tasks/'
-                            } else {
-                                window.location.href = '/targets/'
+                    <div className="place-logo" >
+                        <div className="place-logo" onClick={(e) => {
+                            e.preventDefault();
+                            if (store.user.auth) {
+                                if (store.user.execute === true) {
+                                    window.location.href = '/tasks/'
+                                } else {
+                                    window.location.href = '/targets/'
+                                }
+                            }else{
+                                window.location.href = '/'
                             }
-                        }else{
-                            window.location.href = '/'
-                        }
-                    }}>
-                        <div className="wrapper-logo-img">
-                            <img src={target} className="logo-img" alt="logo"/>
+                        }}>
+                            <div className="wrapper-logo-img">
+                                <img src={target} className="logo-img" alt="logo"/>
+                            </div>
+                            <div className="logo-text-t">Target Boost</div>
                         </div>
-                        <div className="logo-text-t">Target Boost</div>
+
+                        <div className="wrapper-navigation">
+                            <div className="navigation-preview">
+                                <div className="flex-left-right">
+
+                                    <div className="unselectable button-light active-white" target="all" onClick={(e) => {
+                                        e.preventDefault();
+                                        window.location.href = '/'
+                                    }}>Главная</div>
+                                    <div className="unselectable button-light" target="history" >Монетезация</div>
+                                    <div className="unselectable button-light" target="history" >Блог</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    {/*<div className="wrapper-auth">*/}
-                    {/*    Ваш баланс: { store.user.balance } ₽*/}
-                    {/*</div>*/}
                     <div className="wrapper-auth">
                         {
                             store.user.load === false ?

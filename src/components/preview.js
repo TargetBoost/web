@@ -4,6 +4,8 @@ import background_tg from "../img/dd.webp"
 import background_auth from "../img/ddd_d.webp"
 
 import InputMask from "react-input-mask";
+import {toast} from "react-toastify";
+// import Video from "./video";
 
 
 
@@ -175,9 +177,17 @@ class Preview extends Component{
     }
 
     showPop = () =>  {
+        console.log(this.state.store)
         this.state.store.dispatch({
             type: "set_pop_up", value: true,
         })
+
+        // this.state.store.dispatch({
+        //     type: "set_pop_up", value: {
+        //         snow: true,
+        //         // rain: res.data.rain
+        //     },
+        // })
     }
 
     swapButtonTask = (e) => {
@@ -273,9 +283,7 @@ class Preview extends Component{
                                 </div>
                                 <div className="wrapper-absolute">
                                     <div className="underline unselectable" onClick={()=>{
-                                        this.state.store.dispatch({
-                                            type: "set_pop_up", value: true,
-                                        })
+                                        this.setState({showPopUp: false})
                                     }}>Закрать</div>
                                 </div>
                             </div>
@@ -309,7 +317,11 @@ class Preview extends Component{
                             Наша команда гарантирует высокое качество услуг и прозрачность в работе.
                             <br/>
                             <br/>
-                            <div className="button-default-big unselectable" onClick={this.showPop}>Заказать услугу</div>
+                            <div className="button-default-big unselectable" onClick={()=>{
+                                this.state.store.dispatch({
+                                    type: "set_pop_up", value: true,
+                                })
+                            }}>Заказать услугу</div>
 
                         </p>
                     </div>

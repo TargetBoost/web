@@ -212,57 +212,62 @@ class Preview extends Component{
                                     <div className="white-block-border">
                                         {
                                             !this.state.regShow ?
-                                                <>
-                                                    <div className="wrapper-input-main">
-                                                        <InputMask className="input-main" formatChars={{
-                                                            '9': '[0-9]',
-                                                            'a': '[A-Za-z]',
-                                                            '*': '.*'
-                                                        }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин telegram" onKeyDown={this.handleKeyDownAuth}/>
-                                                    </div>
-                                                    <div className="wrapper-input-main">
-                                                        <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
-                                                    </div>
-                                                    <div className="sing-wrapper-main">
-                                                        <div className="button-default unselectable" onClick={this.login}>Войти</div>
-                                                        <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": true})}}>У Вас еще нет аккаунта?</div>
-
-                                                        {/*<div className="title-main underline unselectable">Забыли пароль?</div>*/}
-                                                    </div>
-                                                </>
+                                                this.state.user.auth ?
+                                                    <>
+                                                        <div>test</div>
+                                                    </>
                                                 :
-                                                <>
-                                                    <div className="wrapper-input-main">
-                                                        <InputMask className="input-main" formatChars={{
-                                                            '9': '[0-9]',
-                                                            'a': '[A-Za-z]',
-                                                            '*': '.*'
-                                                        }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин telegram" />                                        </div>
-                                                    <div className="wrapper-input-main">
-                                                        <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
-                                                    </div>
-                                                    <div className="wrapper-input-main">
-                                                        <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
-                                                    </div>
-                                                    <div className="wrapper-input-main">
-                                                        <div className="wrapper-input-checkbox-wr-input">
-                                                            <input className="input-default-checkbox" type="checkbox" id="im_read"/>
+                                                    <>
+                                                        <div className="wrapper-input-main">
+                                                            <InputMask className="input-main" formatChars={{
+                                                                '9': '[0-9]',
+                                                                'a': '[A-Za-z]',
+                                                                '*': '.*'
+                                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин telegram" onKeyDown={this.handleKeyDownAuth}/>
                                                         </div>
-                                                        <div className="wrapper-input-checkbox-wr-input-text unselectable" onClick={()=> {
-                                                            let check = document.getElementById("im_read").checked
-                                                            document.getElementById("im_read").checked = !check;
-                                                        }}>Я Publisher</div>
-                                                    </div>
-                                                    <div className="sing-wrapper-main">
-                                                        <div className="button-default unselectable" onClick={this.registration}>Поехали! 🚀</div>
-                                                        <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": false})}}>У Вас уже есть аккаунт?</div>
-                                                    </div>
-                                                    <div className="info-auth-main">
-                                                        <p>
-                                                            Регистрируясь Вы подтверждаете что согласны с <a href="/agreement" target="_blank">правилами</a> сайта.
-                                                        </p>
-                                                    </div>
-                                                </>
+                                                        <div className="wrapper-input-main">
+                                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
+                                                        </div>
+                                                        <div className="sing-wrapper-main">
+                                                            <div className="button-default unselectable" onClick={this.login}>Войти</div>
+                                                            <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": true})}}>У Вас еще нет аккаунта?</div>
+
+                                                            {/*<div className="title-main underline unselectable">Забыли пароль?</div>*/}
+                                                        </div>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <div className="wrapper-input-main">
+                                                            <InputMask className="input-main" formatChars={{
+                                                                '9': '[0-9]',
+                                                                'a': '[A-Za-z]',
+                                                                '*': '.*'
+                                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин telegram" />                                        </div>
+                                                        <div className="wrapper-input-main">
+                                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
+                                                        </div>
+                                                        <div className="wrapper-input-main">
+                                                            <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
+                                                        </div>
+                                                        <div className="wrapper-input-main">
+                                                            <div className="wrapper-input-checkbox-wr-input">
+                                                                <input className="input-default-checkbox" type="checkbox" id="im_read"/>
+                                                            </div>
+                                                            <div className="wrapper-input-checkbox-wr-input-text unselectable" onClick={()=> {
+                                                                let check = document.getElementById("im_read").checked
+                                                                document.getElementById("im_read").checked = !check;
+                                                            }}>Я Publisher</div>
+                                                        </div>
+                                                        <div className="sing-wrapper-main">
+                                                            <div className="button-default unselectable" onClick={this.registration}>Поехали! 🚀</div>
+                                                            <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": false})}}>У Вас уже есть аккаунт?</div>
+                                                        </div>
+                                                        <div className="info-auth-main">
+                                                            <p>
+                                                                Регистрируясь Вы подтверждаете что согласны с <a href="/agreement" target="_blank">правилами</a> сайта.
+                                                            </p>
+                                                        </div>
+                                                    </>
                                         }
                                     </div>
                                 </div>

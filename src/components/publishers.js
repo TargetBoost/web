@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import background from "../img/view1.jpg"
 // import background_tg from "../img/view2.jpg"
 import background_auth from "../img/ddd_d.webp"
+import target from "../icon/target_new.png"
 
 import InputMask from "react-input-mask";
 import Avatar from "@mui/material/Avatar";
@@ -351,39 +352,72 @@ class Publishers extends Component{
                     {/*    </p>*/}
                     {/*</div>*/}
                 </div>
-                <div className="block-default-pre" style={{
-                    // backgroundImage: `url(${background_tg})`,
-                    backgroundPosition: "left -100px top 50%",
-                    // backgroundAttachment: "fixed",
-                    backgroundSize: "1100px, auto",
-                    backgroundRepeat: "no-repeat",
-                    color: "#000",
-                    // backgroundColor: "#3788c5",
-                    // paddingLeft: "400px",
-                    // height: "600px",
+                <div className="wrapper-view-place">
+                    <div className="block-default-pre" style={{
+                        // backgroundImage: `url(${background_tg})`,
+                        backgroundPosition: "left -100px top 50%",
+                        // backgroundAttachment: "fixed",
+                        backgroundSize: "1100px, auto",
+                        backgroundRepeat: "no-repeat",
+                        color: "#000",
+                        // backgroundColor: "#3788c5",
+                        // paddingLeft: "400px",
+                        // height: "600px",
+                        marginRight: "20px"
 
-                }}>
-                    <h2>Как начать получать доход от социальныз сетей?</h2>
-                    <div className="navigation-preview">
-                        <div className="block-text-pre">
-                            Услуга получения дохода от Telegram-канала за размещение рекламы - это способ заработка денег на своем канале в Telegram. Суть услуги заключается в том, что владелец канала получает деньги за размещение рекламных постов на своей странице.
-                            <br/>
-                            <br/>
-                            Как это работает? Рекламодатели обращаются к владельцам каналов с предложением разместить рекламу на их страницах. Владелец канала может выбрать, какую рекламу публиковать и какую сумму за это получать.
-                            <br/>
-                            <br/>
-                            Для заработка на размещении рекламы на канале необходимо иметь активную аудиторию. Чем больше подписчиков и живых комментариев на канале, тем больше возможности заработать на рекламе.
-                            <br/>
-                            <br/>
-                            Владельцы каналов могут выкладывать рекламные посты как в текстовом, так и в графическом виде. Каждый раз, когда пользователи переходят по ссылке на рекламу, владелец канала получает дополнительный доход.
-                            <br/>
-                            <br/>
-                            Также стоит учитывать, что размещать рекламу нужно умеренно, чтобы не потерять своих подписчиков и не навредить репутации своего канала. Лучше всего составить чёткие правила размещения рекламы и не отклоняться от них.
+                    }}>
+                        <h2>Как начать получать доход от социальныз сетей?</h2>
+                        <div className="navigation-preview">
+                            <div className="block-text-pre">
+                                Услуга получения дохода от Telegram-канала за размещение рекламы - это способ заработка денег на своем канале в Telegram. Суть услуги заключается в том, что владелец канала получает деньги за размещение рекламных постов на своей странице.
+                                <br/>
+                                <br/>
+                                Как это работает? Рекламодатели обращаются к владельцам каналов с предложением разместить рекламу на их страницах. Владелец канала может выбрать, какую рекламу публиковать и какую сумму за это получать.
+                                <br/>
+                                <br/>
+                                Для заработка на размещении рекламы на канале необходимо иметь активную аудиторию. Чем больше подписчиков и живых комментариев на канале, тем больше возможности заработать на рекламе.
+                                <br/>
+                                <br/>
+                                Владельцы каналов могут выкладывать рекламные посты как в текстовом, так и в графическом виде. Каждый раз, когда пользователи переходят по ссылке на рекламу, владелец канала получает дополнительный доход.
+                                <br/>
+                                <br/>
+                                Также стоит учитывать, что размещать рекламу нужно умеренно, чтобы не потерять своих подписчиков и не навредить репутации своего канала. Лучше всего составить чёткие правила размещения рекламы и не отклоняться от них.
 
-                            В общем, получение дохода от Telegram-канала за размещение рекламы - это хороший способ получать дополнительный доход, если у вас есть активная аудитория на канале и вы знаете, как правильно размещать рекламу.
+                                В общем, получение дохода от Telegram-канала за размещение рекламы - это хороший способ получать дополнительный доход, если у вас есть активная аудитория на канале и вы знаете, как правильно размещать рекламу.
+                            </div>
+                        </div>
+                    </div>
+                    <div className="block-default-pre" style={{
+                        // backgroundImage: `url(${background_tg})`,
+                        backgroundPosition: "left -100px top 50%",
+                        // backgroundAttachment: "fixed",
+                        backgroundSize: "1100px, auto",
+                        backgroundRepeat: "no-repeat",
+                        color: "#000",
+                        width: "300px",
+                        // backgroundColor: "#3788c5",
+                        // paddingLeft: "400px",
+                        height: "130px",
+
+                    }}>
+                        <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                            <div style={{display: "flex", width: "300px", background: "#fafafa", padding: "10px", borderRadius: "20px"}}>
+                                <>
+                                    <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                        <Avatar src={target} sx={{ width: 70, height: 70, border: "1px solid #fafafa" }}></Avatar>
+                                    </div>
+                                    <div className="name-account">
+                                        <div>@targetBoost</div>
+                                        <div style={{fontSize: "10px", color: "#609eee"}}>В сети</div>
+
+                                    </div>
+                                </>
+                            </div>
+
                         </div>
                     </div>
                 </div>
+
             </>
         )
     }

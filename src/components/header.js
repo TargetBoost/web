@@ -70,19 +70,44 @@ class Header extends Component{
                         <div className="wrapper-navigation">
                             <div className="navigation-preview">
                                 <div className="flex-left-right">
+                                    {
+                                        store.page === "g" ?
+                                            <div className="unselectable button-light active-white" target="all" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/'
+                                            }}>Рекламная платформа</div>
+                                        :
+                                            <div className="unselectable button-light" target="all" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/'
+                                            }}>Рекламная платформа</div>
 
-                                    <div className="unselectable button-light" target="all" onClick={(e) => {
-                                        e.preventDefault();
-                                        window.location.href = '/'
-                                    }}>Рекламная платформа</div>
-                                    <div className="unselectable button-light" target="history" onClick={(e) => {
-                                        e.preventDefault();
-                                        window.location.href = '/publishers'
-                                    }}>Монетезация</div>
-                                    <div className="unselectable button-light" target="history" onClick={(e) => {
-                                        e.preventDefault();
-                                        window.location.href = '/blog'
-                                    }}>Блог</div>
+                                    }
+                                    {
+                                        store.page === "p" ?
+                                            <div className="unselectable button-light active-white" target="history" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/publishers'
+                                            }}>Монетезация</div>
+                                        :
+                                            <div className="unselectable button-light" target="history" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/publishers'
+                                            }}>Монетезация</div>
+                                    }
+                                    {
+
+                                        store.page === "b" ?
+                                            <div className="unselectable button-light active-white" target="history" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/blog'
+                                            }}>Блог</div>
+                                            :
+                                            <div className="unselectable button-light" target="history" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/blog'
+                                            }}>Блог</div>
+                                    }
                                 </div>
                             </div>
                         </div>

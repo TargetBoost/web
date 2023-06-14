@@ -28,6 +28,7 @@ const initState = {
         rain: false,
     },
     showPopUp: false,
+    page: "",
 }
 
 function reducer(state = initState, action) {
@@ -75,6 +76,10 @@ function reducer(state = initState, action) {
                 infoText: action.value
             }
 
+            return state
+
+        case "set_page":
+            state.error = action.value
             return state
 
         case "set_settings":

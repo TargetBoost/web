@@ -172,7 +172,9 @@ class Publishers extends Component{
     }
 
     componentDidMount() {
-
+        this.state.store.dispatch({
+            type: "set_page", value: "p",
+        })
     }
 
     swapButtonTask = (e) => {

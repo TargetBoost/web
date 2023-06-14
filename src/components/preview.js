@@ -176,20 +176,6 @@ class Preview extends Component{
 
     }
 
-    showPop = () =>  {
-        console.log(this.state.store)
-        this.state.store.dispatch({
-            type: "set_pop_up", value: true,
-        })
-
-        // this.state.store.dispatch({
-        //     type: "set_pop_up", value: {
-        //         snow: true,
-        //         // rain: res.data.rain
-        //     },
-        // })
-    }
-
     swapButtonTask = (e) => {
 
         this.setState({executor: e.target.getAttribute("target")})
@@ -204,7 +190,6 @@ class Preview extends Component{
 
     render() {
         let store = this.state.store.getState()
-        console.log(store)
         return (
             <>
                 {

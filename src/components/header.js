@@ -71,7 +71,7 @@ class Header extends Component{
                             <div className="navigation-preview">
                                 <div className="flex-left-right">
 
-                                    <div className="unselectable button-light active-white" target="all" onClick={(e) => {
+                                    <div className="unselectable button-light" target="all" onClick={(e) => {
                                         e.preventDefault();
                                         window.location.href = '/'
                                     }}>Рекламная платформа</div>

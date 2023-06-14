@@ -388,9 +388,9 @@ body {
     width: 150px;
     background: var(--logo);
     color: #fff;
-    padding: 10px 12px;
+    padding: 8px 12px;
     border-radius: 3px;
-    font-size: 14px;
+    font-size: 13px;
     cursor: pointer;
     transition: 0.02s;
     display: flex;

@@ -318,7 +318,7 @@ class Preview extends Component{
                             Наша команда гарантирует высокое качество услуг и прозрачность в работе.
                             <br/>
                             <br/>
-                            <div className="button-default-big unselectable" style={{background: "#0072FC"}} onClick={()=>{
+                            <div className="button-default-big unselectable" style={{background: "#0072FC" }} onClick={()=>{
                                 this.state.store.dispatch({
                                     type: "set_pop_up", value: true,
                                 })

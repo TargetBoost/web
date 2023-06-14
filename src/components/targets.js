@@ -93,6 +93,10 @@ class Targets extends Component{
             .catch(error => {
                 console.log(error)
             });
+
+        this.state.store.dispatch({
+            type: "set_page", value: "",
+        })
     }
 
     createTarget = () => {

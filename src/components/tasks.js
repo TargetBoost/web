@@ -88,6 +88,10 @@ class Tasks extends Component{
                     type: "set_error", value: error,
                 })
             });
+
+        this.state.store.dispatch({
+            type: "set_page", value: "",
+        })
     }
 
     checkSub = (e) => {

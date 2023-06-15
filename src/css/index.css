@@ -394,7 +394,8 @@ body {
 }
 
 .button-default-big {
-    width: 150px;
+    font-weight: 700;
+    width: 200px;
     color: #000;
     padding: 8px 12px;
     border-radius: 25px;

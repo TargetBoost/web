@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import background from "../img/d.webp"
+import background from "../img/z.webp"
 
 // import background_tg from "../img/view2.jpg"
 // import background_tg from "../img/dd.webp"
@@ -7,7 +7,7 @@ import background_auth from "../img/ddd_d.webp"
 
 import InputMask from "react-input-mask";
 import Avatar from "@mui/material/Avatar";
-import background_tg from "../img/dd.webp";
+// import background_tg from "../img/dd.webp";
 
 
 
@@ -175,9 +175,9 @@ class Publishers extends Component{
     }
 
     componentDidMount() {
-        this.state.store.dispatch({
-            type: "set_page", value: "p",
-        })
+        // this.state.store.dispatch({
+        //     type: "set_page", value: "p",
+        // })
     }
 
     swapButtonTask = (e) => {
@@ -317,30 +317,22 @@ class Publishers extends Component{
 
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background})`,
-                    backgroundPosition: "right 0px top 50%",
+                    backgroundPosition: "right 0 top 50%",
                     // backgroundAttachment: "fixed",
                     backgroundSize: "1000px, auto",
                     backgroundRepeat: "no-repeat",
-                    color: "#000",
-                    paddingLeft: "400px",
+                    color: "#fff",
+                    paddingLeft: "500px",
                     position: "relative",
+                    backgroundColor: "#C25863",
                     // height: "500px"
                 }}>
 
-                    <h1 style={{fontSize: "40px"}}>Рекламируйте товары и услуги в соцсетях</h1>
+                    <h1 style={{fontSize: "40px"}}>Монетезация Ваших социальных сетей</h1>
                     <h2>Telegram, VK</h2>
                     <div className="preview-inside-block">
                         <p>
-                            Наш сервис предоставляет услуги по размещению контекстной рекламы в социальных сетях, таких как Telegram, VK. Мы помогаем рекламодателям оптимизировать инвестиции в рекламу и привлекать новых клиентов.
-                            <br/>
-                            <br/>
-                            Наши услуги включают подбор наилучших платформ для размещения рекламы, подготовку рекламного контента и настройку таргетинга, чтобы реклама была показана только нужным пользователям. Мы также проводим анализ результатов размещения рекламы и корректируем стратегию в соответствии с полученными данными.
-                            <br/>
-                            <br/>
-                            Наша команда гарантирует высокое качество услуг и прозрачность в работе.
-                            <br/>
-                            <br/>
-                            <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff" }} onClick={()=>{
+                            <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none" }} onClick={()=>{
                                 this.state.store.dispatch({
                                     type: "set_pop_up", value: true,
                                 })
@@ -349,6 +341,42 @@ class Publishers extends Component{
                         </p>
                     </div>
                 </div>
+                <div className="block-default-pre" style={{
+                    // backgroundImage: `url(${background})`,
+                    backgroundPosition: "right 0px top 50%",
+                    // backgroundAttachment: "fixed",
+                    backgroundSize: "1000px, auto",
+                    backgroundRepeat: "no-repeat",
+                    color: "#000",
+                    // paddingLeft: "400px",
+                    position: "relative",
+                    backgroundColor: "#E9E9E9",
+                    // height: "500px"
+                }}>
+
+                    <h2 style={{fontSize: "40px"}}>Как работает наша услуга?</h2>
+                    {/*<h3>Telegram, VK</h3>*/}
+                    <div className="preview-inside-block">
+                        <p>
+                            Мы определим тематику Вашего контента и лояльность Вашей аудитории. В личном кабинете Вам будут приходить подходящие для Вашей аудитории рекламные кампании на основе нашего анализа.
+                            <br/>
+                            <br/>
+                            Вы сами выбираете какую рекламу размещать. После выбора и настройки наш бот будет сам постить рекламу в Вашем Telegram канале или VK сообществе.
+                            <br/>
+                            <br/>
+                            Наша команда очень тщательно отбирает рекламные кампании и гарантирует высокое качество услуг.
+                            <br/>
+                            <br/>
+                            <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none" }} onClick={()=>{
+                                this.state.store.dispatch({
+                                    type: "set_pop_up", value: true,
+                                })
+                            }}>Начать</div>
+
+                        </p>
+                    </div>
+                </div>
+
                 {/*<div className="block-default-pre" style={{*/}
                 {/*    backgroundImage: `url(${background_auth})`,*/}
                 {/*    backgroundPosition: "right 0px top 21%",*/}
@@ -435,33 +463,32 @@ class Publishers extends Component{
                 {/*    </div>*/}
 
                 {/*</div>*/}
-                <div className="block-default-pre" style={{
-                    backgroundImage: `url(${background_tg})`,
-                    backgroundPosition: "left -100px top 50%",
-                    // backgroundAttachment: "fixed",
-                    backgroundSize: "1100px, auto",
-                    backgroundRepeat: "no-repeat",
-                    color: "#000",
-                    paddingLeft: "400px",
-                    height: "365px",
+                {/*<div className="block-default-pre" style={{*/}
+                {/*    backgroundImage: `url(${background_tg})`,*/}
+                {/*    backgroundPosition: "left -100px top 50%",*/}
+                {/*    // backgroundAttachment: "fixed",*/}
+                {/*    backgroundSize: "1100px, auto",*/}
+                {/*    backgroundRepeat: "no-repeat",*/}
+                {/*    color: "#000",*/}
+                {/*    paddingLeft: "400px",*/}
+                {/*    height: "365px",*/}
 
-                }}>
-                    <h2>Что дает контекстная реклама?</h2>
-                    <div className="navigation-preview">
-                        <div className="block-text-pre">
-                            Контекстная реклама позволяет достигать целевой аудитории, которая подписана на Telegram каналы или паблики VK определенной тематики. Она дает следующие преимущества:
-                            <br/>
-                            <br/>
-                            1. Точное попадание в целевую аудиторию - реклама появляется перед пользователями, которые заинтересованы в товарах или услугах.
-                            <br/>
-                            <br/>
-                            2. Возможность оптимизации затрат - контекстная реклама позволяет установить множество параметров рекламной кампании, благодаря чему можно контролировать траты и оптимизировать их.
-                            <br/>
-                            <br/>
-                            3. Широкий охват - контекстная реклама появляется в Telegram каналах, пабликах VK и на партнерских сайтах, что позволяет добраться до широкой аудитории.
-                        </div>
-                    </div>
-                </div>
+                {/*}}>*/}
+                {/*    <h2>Что дает контекстная реклама?</h2>*/}
+                {/*    <div className="navigation-preview">*/}
+                {/*        <div className="block-text-pre">*/}
+                {/*            <br/>*/}
+                {/*            <br/>*/}
+                {/*            1. Точное попадание в целевую аудиторию - реклама появляется перед пользователями, которые заинтересованы в товарах или услугах.*/}
+                {/*            <br/>*/}
+                {/*            <br/>*/}
+                {/*            2. Возможность оптимизации затрат - контекстная реклама позволяет установить множество параметров рекламной кампании, благодаря чему можно контролировать траты и оптимизировать их.*/}
+                {/*            <br/>*/}
+                {/*            <br/>*/}
+                {/*            3. Широкий охват - контекстная реклама появляется в Telegram каналах, пабликах VK и на партнерских сайтах, что позволяет добраться до широкой аудитории.*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </>
         )
     }

@@ -326,6 +326,7 @@ class Publishers extends Component{
                     position: "relative",
                     backgroundColor: "#C25863",
                     // height: "500px"
+                    height: "295px"
                 }}>
 
                     <h1 style={{fontSize: "40px"}}>Монетезация Ваших социальных сетей</h1>

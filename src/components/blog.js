@@ -358,7 +358,7 @@ class Blog extends Component{
                                 height: "295px"
                             }}>
                                 <h1 style={{fontSize: "40px"}}>Контекстная реклама это просто</h1>
-                                <h2>Telegram, VK</h2>
+                                <h2>c TargetBoost!</h2>
                                 <div style={{position: "absolute", right: "20px", bottom: "20px"}}>
                                     <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none"}} onClick={()=>{
                                         this.state.store.dispatch({

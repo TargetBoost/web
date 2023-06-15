@@ -399,8 +399,8 @@ class Blog extends Component{
                         // backgroundColor: "#3788c5",
                         // paddingLeft: "400px",
                         // height: "600px",
-                        marginRight: "20px"
-
+                        marginRight: "20px",
+                        backgroundColor: "#EFEFEF",
                     }}>
                         <h2>Как начать получать доход от социальных сетей?</h2>
                         <div className="navigation-preview">

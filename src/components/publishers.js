@@ -350,7 +350,7 @@ class Publishers extends Component{
                     color: "#000",
                     // paddingLeft: "400px",
                     position: "relative",
-                    backgroundColor: "#E9E9E9",
+                    backgroundColor: "#EFEFEF",
                     // height: "500px"
                 }}>
 

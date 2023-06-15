@@ -450,7 +450,7 @@ class Blog extends Component{
                                                 }
                                             </div>
                                             <div className="name-account">
-                                                <div>@targetBoost</div>
+                                                <div>{store.user.tg}</div>
                                                 <div style={{fontSize: "10px", color: "#609eee"}}>В сети</div>
                                             </div>
                                         </>

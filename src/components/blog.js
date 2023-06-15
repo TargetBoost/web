@@ -36,7 +36,7 @@ class Blog extends Component{
         speed: 2000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplaySpeed: 6000,
+        autoplaySpeed: 12000,
         autoplay: true,
         fade: true,
         padding: "0",

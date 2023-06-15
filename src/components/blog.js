@@ -455,7 +455,7 @@ class Blog extends Component{
                                     <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
                                         {
                                             store.user.mainPhoto !== "" ?
-                                                <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 70, height: 70 }}></Avatar>
+                                                <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 40, height: 40 }}></Avatar>
                                                 :
                                                 <Avatar sx={{ width: 40, height: 40 }}></Avatar>
                                         }
@@ -518,7 +518,7 @@ class Blog extends Component{
                                     <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
                                         {
                                             store.user.mainPhoto !== "" ?
-                                                <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 70, height: 70 }}></Avatar>
+                                                <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 40, height: 40 }}></Avatar>
                                                 :
                                                 <Avatar sx={{ width: 40, height: 40 }}></Avatar>
                                         }

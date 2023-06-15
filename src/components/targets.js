@@ -369,7 +369,7 @@ class Targets extends Component{
                                                                             </div>
                                                                             <div className="info-company-bio">
                                                                                 <div className="title-block" style={{fontWeight: "bold"}}>
-                                                                                    <a href={t.link} target={"_blank"}>
+                                                                                    <a href={t.link} target={"_blank"} rel="noreferrer">
                                                                                         {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                     </a>
                                                                                 </div>
@@ -433,7 +433,7 @@ class Targets extends Component{
                                                                                 </div>
                                                                                 <div className="info-company-bio">
                                                                                     <div className="title-block" style={{fontWeight: "bold"}}>
-                                                                                        <a href={t.link} target={"_blank"}>
+                                                                                        <a href={t.link} target={"_blank"} rel="noreferrer">
                                                                                             {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                         </a>
                                                                                     </div>
@@ -496,7 +496,7 @@ class Targets extends Component{
                                                                                 </div>
                                                                                 <div className="info-company-bio">
                                                                                     <div className="title-block" style={{fontWeight: "bold"}}>
-                                                                                        <a href={t.link} target={"_blank"}>
+                                                                                        <a href={t.link} target={"_blank"} rel="noreferrer">
                                                                                             {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                         </a>
                                                                                     </div>
@@ -561,7 +561,7 @@ class Targets extends Component{
                                                                                     </div>
                                                                                     <div className="info-company-bio">
                                                                                         <div className="title-block" style={{fontWeight: "bold"}}>
-                                                                                            <a href={t.link} target={"_blank"}>
+                                                                                            <a href={t.link} target={"_blank"} rel="noreferrer">
                                                                                                 {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                             </a>
                                                                                         </div>
@@ -683,7 +683,7 @@ class Targets extends Component{
 
                                     }
                                     <div className="block-default-pre" style={{fontSize: "13px", background: "#fcf3e2"}}>
-                                        Добавьте нашего бота (<a href="https://t.me/targetBoostBot" target="_blank" className="underline">@targetBoostBot</a>) администратором в Ваш телеграм канал, чтобы мы могли отслеживать, каких подписчиков привели мы.
+                                        Добавьте нашего бота (<a href="https://t.me/targetBoostBot" target="_blank" rel="noreferrer" className="underline">@targetBoostBot</a>) администратором в Ваш телеграм канал, чтобы мы могли отслеживать, каких подписчиков привели мы.
                                     </div>
                                     <div className="block-default-pre" style={{fontSize: "12px", background: "#fcf3e2"}}>
                                         Созданные рекламные кампании запустятся после того, как их проверят наши администраторы в течение 1-3 часов.

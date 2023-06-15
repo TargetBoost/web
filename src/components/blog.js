@@ -1,5 +1,10 @@
 import React, {Component} from "react";
+
+import Slider from 'react-slick';
+
 import background from "../img/view1.webp"
+import background_two from "../img/z.webp"
+
 import background_auth from "../img/ddd_d.webp"
 import target from "../icon/target_new.png"
 
@@ -24,6 +29,18 @@ class Blog extends Component{
             this.setState(this.state.store.getState())
         })
     }
+
+    settings = {
+        dots: false,
+        infinite: true,
+        speed: 2000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplaySpeed: 6000,
+        autoplay: true,
+        fade: true,
+        padding: "0",
+    };
 
     refTG = React.createRef();
 
@@ -172,9 +189,9 @@ class Blog extends Component{
     }
 
     componentDidMount() {
-        this.state.store.dispatch({
-            type: "set_page", value: "b",
-        })
+        // this.state.store.dispatch({
+        //     type: "set_page", value: "b",
+        // })
     }
 
     swapButtonTask = (e) => {
@@ -311,46 +328,66 @@ class Blog extends Component{
                         :
                         null
                 }
+                {/*<div className="block-default-pre">*/}
+                    <Slider {...this.settings}>
+                        <div>
+                            <div className="block-default-pre ad-view" style={{
+                                backgroundImage: `url(${background})`,
+                                backgroundPosition: "left 0px top 0px",
+                                // backgroundAttachment: "fixed",
+                                backgroundSize: "600px, auto",
+                                backgroundRepeat: "no-repeat",
+                                color: "#fff",
+                                backgroundColor: "#0F171D",
+                                paddingLeft: "530px",
+                                position: "relative",
+                                height: "295px"
+                            }}>
+                                <h1 style={{fontSize: "40px"}}>Получайте доход от социальных сетей</h1>
+                                <h2>Telegram, VK</h2>
+                                <div style={{position: "absolute", right: "20px", bottom: "20px"}}>
+                                    <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none"}} onClick={()=>{
+                                        this.state.store.dispatch({
+                                            type: "set_pop_up", value: true,
+                                        })
+                                    }}>Заказать услугу</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="block-default-pre" style={{
+                                backgroundImage: `url(${background_two})`,
+                                backgroundPosition: "right 0 top 50%",
+                                // backgroundAttachment: "fixed",
+                                backgroundSize: "1000px, auto",
+                                backgroundRepeat: "no-repeat",
+                                color: "#fff",
+                                paddingLeft: "500px",
+                                position: "relative",
+                                backgroundColor: "#C25863",
+                                height: "295px"
+                            }}>
 
-                <div className="block-default-pre" style={{
-                    backgroundImage: `url(${background})`,
-                    backgroundPosition: "left 0px top 0px",
-                    // backgroundAttachment: "fixed",
-                    backgroundSize: "600px, auto",
-                    backgroundRepeat: "no-repeat",
-                    color: "#fff",
-                    backgroundColor: "#0F171D",
-                    paddingLeft: "530px",
-                    position: "relative",
-                    height: "250px"
-                }}>
-                    <h1 style={{fontSize: "40px"}}>Получайте доход от социальных сетей</h1>
-                    <h2>Telegram, VK</h2>
-                    <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none"}} onClick={()=>{
-                        this.state.store.dispatch({
-                            type: "set_pop_up", value: true,
-                        })
-                    }}>Заказать услугу</div>
-                    {/*<div className="preview-inside-block">*/}
-                    {/*    <p>*/}
-                    {/*        Наш сервис предоставляет услуги по размещению контекстной рекламы в социальных сетях, таких как Telegram, VK. Мы помогаем рекламодателям оптимизировать инвестиции в рекламу и привлекать новых клиентов.*/}
-                    {/*        <br/>*/}
-                    {/*        <br/>*/}
-                    {/*        Наши услуги включают подбор наилучших платформ для размещения рекламы, подготовку рекламного контента и настройку таргетинга, чтобы реклама была показана только нужным пользователям. Мы также проводим анализ результатов размещения рекламы и корректируем стратегию в соответствии с полученными данными.*/}
-                    {/*        <br/>*/}
-                    {/*        <br/>*/}
-                    {/*        Наша команда гарантирует высокое качество услуг и прозрачность в работе.*/}
-                    {/*        <br/>*/}
-                    {/*        <br/>*/}
-                    {/*        <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff" }} onClick={()=>{*/}
-                    {/*            this.state.store.dispatch({*/}
-                    {/*                type: "set_pop_up", value: true,*/}
-                    {/*            })*/}
-                    {/*        }}>Заказать услугу</div>*/}
+                                <h1 style={{fontSize: "40px"}}>Монетезация Ваших социальных сетей</h1>
+                                <h2>Telegram, VK</h2>
+                                <div className="preview-inside-block">
+                                    <div style={{position: "absolute", right: "20px", bottom: "20px"}}>
+                                        <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none" }} onClick={()=>{
+                                            this.state.store.dispatch({
+                                                type: "set_pop_up", value: true,
+                                            })
+                                        }}>Заказать услугу</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Slider>
+                {/*</div>*/}
 
-                    {/*    </p>*/}
-                    {/*</div>*/}
-                </div>
+
+
+
+
                 <div className="wrapper-view-place">
                     <div className="block-default-pre" style={{
                         // backgroundImage: `url(${background_tg})`,

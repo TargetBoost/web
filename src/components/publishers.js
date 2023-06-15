@@ -175,9 +175,9 @@ class Publishers extends Component{
     }
 
     componentDidMount() {
-        // this.state.store.dispatch({
-        //     type: "set_page", value: "p",
-        // })
+        this.state.store.dispatch({
+            type: "set_page", value: "p",
+        })
     }
 
     swapButtonTask = (e) => {
@@ -331,14 +331,13 @@ class Publishers extends Component{
                     <h1 style={{fontSize: "40px"}}>Монетезация Ваших социальных сетей</h1>
                     <h2>Telegram, VK</h2>
                     <div className="preview-inside-block">
-                        <p>
+                        <div style={{position: "absolute", right: "20px", bottom: "20px"}}>
                             <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none" }} onClick={()=>{
                                 this.state.store.dispatch({
                                     type: "set_pop_up", value: true,
                                 })
                             }}>Заказать услугу</div>
-
-                        </p>
+                        </div>
                     </div>
                 </div>
                 <div className="block-default-pre" style={{

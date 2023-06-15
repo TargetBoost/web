@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import 'react-input-range/lib/css/index.css';
-import CurrencyInput from "react-currency-input-field";
-import noImg from "../icon/no_img.png"
+// import CurrencyInput from "react-currency-input-field";
+// import noImg from "../icon/no_img.png"
 
 class Settings extends Component{
     constructor(props) {

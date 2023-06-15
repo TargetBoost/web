@@ -4,7 +4,7 @@ import youtube from "../icon/youtube.png"
 import telegram from "../icon/telegram.png"
 import update from "../icon/update.png";
 
-import Select from 'react-select';
+// import Select from 'react-select';
 import 'react-input-range/lib/css/index.css';
 import noImg from "../icon/no_img.png";
 
@@ -313,7 +313,7 @@ class Tasks extends Component{
                                                                         </div>
                                                                         <div className="task-item-value">{t.title}</div>
                                                                         <div className="task-item-value">{t.cost}₽</div>
-                                                                        <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
+                                                                        <div className="task-item-value underline click"><a target="_blank" rel="noreferrer" href={t.link} >Перейти к заданию</a></div>
                                                                         <div className="task-item-value">
                                                                             <div className="button-default" target={t.id} id={t.tid} onClick={this.checkSub}>Проверить</div>
                                                                         </div>
@@ -331,7 +331,7 @@ class Tasks extends Component{
                                                                             </div>
                                                                             <div className="info-company-bio">
                                                                                 <div className="title-block" style={{fontWeight: "bold"}}>
-                                                                                    <a href={t.link} target={"_blank"}>
+                                                                                    <a href={t.link} target={"_blank"} rel="noreferrer">
                                                                                         {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                     </a>
                                                                                 </div>
@@ -375,7 +375,7 @@ class Tasks extends Component{
                                                                     </div>
                                                                     <div className="task-item-value">{t.title}</div>
                                                                     <div className="task-item-value">{t.cost}₽</div>
-                                                                    <div className="task-item-value underline click"><a target="_blank" href={t.link} >Перейти к заданию</a></div>
+                                                                    <div className="task-item-value underline click"><a target="_blank"  rel="noreferrer" href={t.link} >Перейти к заданию</a></div>
                                                                     <div className="task-item-value">
                                                                         <div className="button-default grey">Выполнено</div>
                                                                     </div>
@@ -393,7 +393,7 @@ class Tasks extends Component{
                                                                             </div>
                                                                             <div className="info-company-bio">
                                                                                 <div className="title-block" style={{fontWeight: "bold"}}>
-                                                                                    <a href={t.link} target={"_blank"}>
+                                                                                    <a href={t.link} target={"_blank"} rel="noreferrer">
                                                                                         {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
                                                                                     </a>
                                                                                 </div>
@@ -454,7 +454,7 @@ class Tasks extends Component{
                                                                         null
                                     }
                                     <div className="block-default-pre" style={{fontSize: "13px", background: "#f2e4a8"}}>
-                                        Напишите нашему боту (<a href="https://t.me/targetBoostBot" target="_blank" className="underline">@targetBoostBot</a>) в телеграм, чтобы начать выполнять задания.
+                                        Напишите нашему боту (<a href="https://t.me/targetBoostBot" target="_blank" rel="noreferrer" className="underline">@targetBoostBot</a>) в телеграм, чтобы начать выполнять задания.
                                     </div>
                                 </>
                     :

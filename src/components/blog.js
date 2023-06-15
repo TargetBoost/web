@@ -438,18 +438,42 @@ class Blog extends Component{
                     }}>
                         <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                             <div style={{display: "flex", width: "300px", background: "#fafafa", padding: "10px", borderRadius: "20px"}}>
-                                <>
-                                    <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                                        <Avatar src={target} sx={{ width: 70, height: 70, border: "1px solid #fafafa" }}></Avatar>
-                                    </div>
-                                    <div className="name-account">
-                                        <div>@targetBoost</div>
-                                        <div style={{fontSize: "10px", color: "#609eee"}}>В сети</div>
-
-                                    </div>
-                                </>
+                                {
+                                    store.user.auth ?
+                                        <>
+                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                {
+                                                    store.user.mainPhoto !== "" ?
+                                                        <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 70, height: 70 }}></Avatar>
+                                                        :
+                                                        <Avatar sx={{ width: 70, height: 70 }}></Avatar>
+                                                }
+                                            </div>
+                                            <div className="name-account">
+                                                <div>@targetBoost</div>
+                                                <div style={{fontSize: "10px", color: "#609eee"}}>В сети</div>
+                                            </div>
+                                        </>
+                                    :
+                                        <>
+                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                {
+                                                    store.user.mainPhoto !== "" ?
+                                                        <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 70, height: 70 }}></Avatar>
+                                                        :
+                                                        <Avatar sx={{ width: 70, height: 70 }}></Avatar>
+                                                }
+                                            </div>
+                                            <div className="name-account">
+                                                <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none" }} onClick={()=>{
+                                                    this.state.store.dispatch({
+                                                        type: "set_pop_up", value: true,
+                                                    })
+                                                }}>Войти</div>
+                                            </div>
+                                        </>
+                                }
                             </div>
-
                         </div>
                     </div>
                 </div>

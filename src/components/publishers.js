@@ -1,8 +1,9 @@
 import React, {Component} from "react";
-import background from "../img/view1.webp"
+import background from "../img/d.webp"
+
 // import background_tg from "../img/view2.jpg"
+// import background_tg from "../img/dd.webp"
 import background_auth from "../img/ddd_d.webp"
-import target from "../icon/target_new.png"
 
 import InputMask from "react-input-mask";
 import Avatar from "@mui/material/Avatar";

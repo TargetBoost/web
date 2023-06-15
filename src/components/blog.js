@@ -6,7 +6,7 @@ import background from "../img/view1.webp"
 import background_two from "../img/z.webp"
 
 import background_auth from "../img/ddd_d.webp"
-import target from "../icon/target_new.png"
+// import target from "../icon/target_new.png"
 
 import InputMask from "react-input-mask";
 import Avatar from "@mui/material/Avatar";
@@ -42,7 +42,7 @@ class Blog extends Component{
         padding: "0",
     };
 
-    refTG = React.createRef();
+    refObj = React.createRef();
 
     login = () => {
         // let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
@@ -192,6 +192,7 @@ class Blog extends Component{
         this.state.store.dispatch({
             type: "set_page", value: "b",
         })
+        window.addEventListener('scroll', this.handleScroll)
     }
 
     swapButtonTask = (e) => {
@@ -205,6 +206,19 @@ class Blog extends Component{
         }
         e.target.classList.add("active-white")
     }
+
+    handleScroll = () => {
+        const position = window.pageYOffset;
+        // console.log(position)
+        if (position >= 314){
+            if (this.refObj.current.style !== undefined){
+                this.refObj.current.style.position = "fixed"
+                this.refObj.current.style.top = "80px"
+            }
+        }else{
+            this.refObj.current.style.position = ""
+        }
+    };
 
     render() {
         let store = this.state.store.getState()
@@ -389,90 +403,182 @@ class Blog extends Component{
 
 
                 <div className="wrapper-view-place">
-                    <div className="block-default-pre" style={{
-                        // backgroundImage: `url(${background_tg})`,
-                        backgroundPosition: "left -100px top 50%",
-                        // backgroundAttachment: "fixed",
-                        backgroundSize: "1100px, auto",
-                        backgroundRepeat: "no-repeat",
-                        color: "#000",
-                        // backgroundColor: "#3788c5",
-                        // paddingLeft: "400px",
-                        // height: "600px",
-                        marginRight: "20px",
-                        backgroundColor: "#EFEFEF",
-                    }}>
-                        <h2>Как начать получать доход от социальных сетей?</h2>
-                        <div className="navigation-preview">
-                            <div className="block-text-pre">
-                                Услуга получения дохода от Telegram-канала за размещение рекламы - это способ заработка денег на своем канале в Telegram. Суть услуги заключается в том, что владелец канала получает деньги за размещение рекламных постов на своей странице.
-                                <br/>
-                                <br/>
-                                Как это работает? Рекламодатели обращаются к владельцам каналов с предложением разместить рекламу на их страницах. Владелец канала может выбрать, какую рекламу публиковать и какую сумму за это получать.
-                                <br/>
-                                <br/>
-                                Для заработка на размещении рекламы на канале необходимо иметь активную аудиторию. Чем больше подписчиков и живых комментариев на канале, тем больше возможности заработать на рекламе.
-                                <br/>
-                                <br/>
-                                Владельцы каналов могут выкладывать рекламные посты как в текстовом, так и в графическом виде. Каждый раз, когда пользователи переходят по ссылке на рекламу, владелец канала получает дополнительный доход.
-                                <br/>
-                                <br/>
-                                Также стоит учитывать, что размещать рекламу нужно умеренно, чтобы не потерять своих подписчиков и не навредить репутации своего канала. Лучше всего составить чёткие правила размещения рекламы и не отклоняться от них.
+                    <div>
+                        <div className="block-default-pre" style={{
+                            // backgroundImage: `url(${background_tg})`,
+                            backgroundPosition: "left -100px top 50%",
+                            // backgroundAttachment: "fixed",
+                            backgroundSize: "1100px, auto",
+                            backgroundRepeat: "no-repeat",
+                            color: "#000",
+                            // backgroundColor: "#3788c5",
+                            // paddingLeft: "400px",
+                            // height: "600px",
+                            marginRight: "20px",
+                            backgroundColor: "#EFEFEF",
+                        }}>
+                            <h2>Как начать получать доход от социальных сетей?</h2>
+                            <div className="navigation-preview">
+                                <div className="block-text-pre">
+                                    Услуга получения дохода от Telegram-канала за размещение рекламы - это способ заработка денег на своем канале в Telegram. Суть услуги заключается в том, что владелец канала получает деньги за размещение рекламных постов на своей странице.
+                                    <br/>
+                                    <br/>
+                                    Как это работает? Рекламодатели обращаются к владельцам каналов с предложением разместить рекламу на их страницах. Владелец канала может выбрать, какую рекламу публиковать и какую сумму за это получать.
+                                    <br/>
+                                    <br/>
+                                    Для заработка на размещении рекламы на канале необходимо иметь активную аудиторию. Чем больше подписчиков и живых комментариев на канале, тем больше возможности заработать на рекламе.
+                                    <br/>
+                                    <br/>
+                                    Владельцы каналов могут выкладывать рекламные посты как в текстовом, так и в графическом виде. Каждый раз, когда пользователи переходят по ссылке на рекламу, владелец канала получает дополнительный доход.
+                                    <br/>
+                                    <br/>
+                                    Также стоит учитывать, что размещать рекламу нужно умеренно, чтобы не потерять своих подписчиков и не навредить репутации своего канала. Лучше всего составить чёткие правила размещения рекламы и не отклоняться от них.
 
-                                В общем, получение дохода от Telegram-канала за размещение рекламы - это хороший способ получать дополнительный доход, если у вас есть активная аудитория на канале и вы знаете, как правильно размещать рекламу.
+                                    В общем, получение дохода от Telegram-канала за размещение рекламы - это хороший способ получать дополнительный доход, если у вас есть активная аудитория на канале и вы знаете, как правильно размещать рекламу.
+                                </div>
+                            </div>
+                        </div>
+                        <div className="block-default-pre" style={{
+                            // backgroundImage: `url(${background_tg})`,
+                            backgroundPosition: "left -100px top 50%",
+                            // backgroundAttachment: "fixed",
+                            backgroundSize: "1100px, auto",
+                            backgroundRepeat: "no-repeat",
+                            color: "#000",
+                            // backgroundColor: "#3788c5",
+                            // paddingLeft: "400px",
+                            // height: "600px",
+                            marginRight: "20px",
+                            backgroundColor: "#EFEFEF",
+                        }}>
+                            <h2>Как начать получать доход от социальных сетей?</h2>
+                            <div className="navigation-preview">
+                                <div className="block-text-pre">
+                                    Услуга получения дохода от Telegram-канала за размещение рекламы - это способ заработка денег на своем канале в Telegram. Суть услуги заключается в том, что владелец канала получает деньги за размещение рекламных постов на своей странице.
+                                    <br/>
+                                    <br/>
+                                    Как это работает? Рекламодатели обращаются к владельцам каналов с предложением разместить рекламу на их страницах. Владелец канала может выбрать, какую рекламу публиковать и какую сумму за это получать.
+                                    <br/>
+                                    <br/>
+                                    Для заработка на размещении рекламы на канале необходимо иметь активную аудиторию. Чем больше подписчиков и живых комментариев на канале, тем больше возможности заработать на рекламе.
+                                    <br/>
+                                    <br/>
+                                    Владельцы каналов могут выкладывать рекламные посты как в текстовом, так и в графическом виде. Каждый раз, когда пользователи переходят по ссылке на рекламу, владелец канала получает дополнительный доход.
+                                    <br/>
+                                    <br/>
+                                    Также стоит учитывать, что размещать рекламу нужно умеренно, чтобы не потерять своих подписчиков и не навредить репутации своего канала. Лучше всего составить чёткие правила размещения рекламы и не отклоняться от них.
+
+                                    В общем, получение дохода от Telegram-канала за размещение рекламы - это хороший способ получать дополнительный доход, если у вас есть активная аудитория на канале и вы знаете, как правильно размещать рекламу.
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="block-default-pre" style={{
-                        // backgroundImage: `url(${background_tg})`,
-                        backgroundPosition: "left -100px top 50%",
-                        // backgroundAttachment: "fixed",
-                        backgroundSize: "1100px, auto",
-                        backgroundRepeat: "no-repeat",
-                        color: "#000",
-                        width: "300px",
-                        // backgroundColor: "#3788c5",
-                        // paddingLeft: "400px",
-                        height: "130px",
+                    <div className="wrapper-fixed">
+                        <div className="block-default-pre" style={{
+                            // backgroundImage: `url(${background_tg})`,
+                            backgroundPosition: "left -100px top 50%",
+                            // backgroundAttachment: "fixed",
+                            backgroundSize: "1100px, auto",
+                            backgroundRepeat: "no-repeat",
+                            color: "#000",
+                            width: "300px",
+                            // backgroundColor: "#3788c5",
+                            // paddingLeft: "400px",
+                            height: "130px",
 
-                    }}>
-                        <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                            <div style={{display: "flex", width: "300px", background: "#fafafa", padding: "10px", borderRadius: "20px"}}>
-                                {
-                                    store.user.auth ?
-                                        <>
-                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                                                {
-                                                    store.user.mainPhoto !== "" ?
-                                                        <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 70, height: 70 }}></Avatar>
-                                                        :
-                                                        <Avatar sx={{ width: 70, height: 70 }}></Avatar>
-                                                }
-                                            </div>
-                                            <div className="name-account">
-                                                <div>{store.user.tg}</div>
-                                                <div style={{fontSize: "10px", color: "#609eee"}}>Это Вы</div>
-                                            </div>
-                                        </>
-                                    :
-                                        <>
-                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                                                {
-                                                    store.user.mainPhoto !== "" ?
-                                                        <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 70, height: 70 }}></Avatar>
-                                                        :
-                                                        <Avatar sx={{ width: 70, height: 70 }}></Avatar>
-                                                }
-                                            </div>
-                                            <div className="name-account">
-                                                <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none" }} onClick={()=>{
-                                                    this.state.store.dispatch({
-                                                        type: "set_pop_up", value: true,
-                                                    })
-                                                }}>Войти</div>
-                                            </div>
-                                        </>
-                                }
+                        }} ref={this.refObj}>
+                            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                <div style={{display: "flex", width: "300px", background: "#fafafa", padding: "10px", borderRadius: "20px"}}>
+                                    {
+                                        store.user.auth ?
+                                            <>
+                                                <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                    {
+                                                        store.user.mainPhoto !== "" ?
+                                                            <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 70, height: 70 }}></Avatar>
+                                                            :
+                                                            <Avatar sx={{ width: 70, height: 70 }}></Avatar>
+                                                    }
+                                                </div>
+                                                <div className="name-account">
+                                                    <div>{store.user.tg}</div>
+                                                    <div style={{fontSize: "10px", color: "#609eee"}}>Это Вы</div>
+                                                </div>
+                                            </>
+                                            :
+                                            <>
+                                                <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                    {
+                                                        store.user.mainPhoto !== "" ?
+                                                            <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 70, height: 70 }}></Avatar>
+                                                            :
+                                                            <Avatar sx={{ width: 70, height: 70 }}></Avatar>
+                                                    }
+                                                </div>
+                                                <div className="name-account">
+                                                    <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none", width: "130px"}} onClick={()=>{
+                                                        this.state.store.dispatch({
+                                                            type: "set_pop_up", value: true,
+                                                        })
+                                                    }}>Войти</div>
+                                                </div>
+                                            </>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div className="block-default-pre" style={{
+                            // backgroundImage: `url(${background_tg})`,
+                            backgroundPosition: "left -100px top 50%",
+                            // backgroundAttachment: "fixed",
+                            backgroundSize: "1100px, auto",
+                            backgroundRepeat: "no-repeat",
+                            color: "#000",
+                            width: "300px",
+                            // backgroundColor: "#3788c5",
+                            // paddingLeft: "400px",
+                            height: "130px",
+                            opacity: "0",
+
+                        }}>
+                            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                <div style={{display: "flex", width: "300px", background: "#fafafa", padding: "10px", borderRadius: "20px"}}>
+                                    {
+                                        store.user.auth ?
+                                            <>
+                                                <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                    {
+                                                        store.user.mainPhoto !== "" ?
+                                                            <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 70, height: 70 }}></Avatar>
+                                                            :
+                                                            <Avatar sx={{ width: 70, height: 70 }}></Avatar>
+                                                    }
+                                                </div>
+                                                <div className="name-account">
+                                                    <div>{store.user.tg}</div>
+                                                    <div style={{fontSize: "10px", color: "#609eee"}}>Это Вы</div>
+                                                </div>
+                                            </>
+                                            :
+                                            <>
+                                                <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                    {
+                                                        store.user.mainPhoto !== "" ?
+                                                            <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 70, height: 70 }}></Avatar>
+                                                            :
+                                                            <Avatar sx={{ width: 70, height: 70 }}></Avatar>
+                                                    }
+                                                </div>
+                                                <div className="name-account">
+                                                    <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none", width: "130px"}} onClick={()=>{
+                                                        this.state.store.dispatch({
+                                                            type: "set_pop_up", value: true,
+                                                        })
+                                                    }}>Войти</div>
+                                                </div>
+                                            </>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>

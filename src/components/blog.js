@@ -189,9 +189,9 @@ class Blog extends Component{
     }
 
     componentDidMount() {
-        // this.state.store.dispatch({
-        //     type: "set_page", value: "b",
-        // })
+        this.state.store.dispatch({
+            type: "set_page", value: "b",
+        })
     }
 
     swapButtonTask = (e) => {

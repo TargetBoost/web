@@ -343,7 +343,7 @@ class Blog extends Component{
                                 position: "relative",
                                 height: "295px"
                             }}>
-                                <h1 style={{fontSize: "40px"}}>Получайте доход от социальных сетей</h1>
+                                <h1 style={{fontSize: "40px"}}>Контекстная реклама это просто</h1>
                                 <h2>Telegram, VK</h2>
                                 <div style={{position: "absolute", right: "20px", bottom: "20px"}}>
                                     <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff", border: "none"}} onClick={()=>{

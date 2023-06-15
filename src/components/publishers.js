@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import background from "../img/view1.jpg"
+import background from "../img/view1.webp"
 // import background_tg from "../img/view2.jpg"
 import background_auth from "../img/ddd_d.webp"
 import target from "../icon/target_new.png"

@@ -354,7 +354,7 @@ class Publishers extends Component{
                     // height: "500px"
                 }}>
 
-                    <h2 style={{fontSize: "40px"}}>Как работает наша услуга?</h2>
+                    <h2 style={{fontSize: "30px"}}>Как работает наша услуга?</h2>
                     {/*<h3>Telegram, VK</h3>*/}
                     <div className="preview-inside-block">
                         <p>

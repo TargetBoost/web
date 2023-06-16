@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import TextareaAutosize from 'react-textarea-autosize';
 
 import Slider from 'react-slick';
 
@@ -42,7 +43,13 @@ class Blog extends Component{
         padding: "0",
     };
 
+    settingsTextArea = {
+        minRows: 1,
+    }
+
     refObj = React.createRef();
+    refTextArea = React.createRef();
+
 
     login = () => {
         // let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
@@ -342,8 +349,7 @@ class Blog extends Component{
                         :
                         null
                 }
-                {/*<div className="block-default-pre">*/}
-                    <Slider {...this.settings}>
+                <Slider {...this.settings}>
                         <div>
                             <div className="block-default-pre ad-view" style={{
                                 backgroundImage: `url(${background})`,
@@ -396,16 +402,35 @@ class Blog extends Component{
                             </div>
                         </div>
                     </Slider>
-                {/*</div>*/}
-
-
-
-
-
                 <div className="wrapper-view-place">
                     <div style={{
                         marginRight: "20px",
                     }}>
+                        {
+                            store.user.admin === true ?
+                                <div className="wrapper-edit-post">
+                                    <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
+                                        <div style={{display: "flex", justifyContent: "center", marginRight: "10px"}}>
+                                            {
+                                                store.user.mainPhoto !== "" ?
+                                                    <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                    :
+                                                    <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                            }
+                                        </div>
+                                        {/*<div>*/}
+                                        {/*    <input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />*/}
+
+                                        {/*</div>*/}
+                                        <TextareaAutosize placeholder="Напишите новый пост" {...this.settingsTextArea}  onFocus={(e)=>{
+                                            this.settingsTextArea.minRows = 4
+                                        }} className="textarea-auto-size" />
+                                    </div>
+                                </div>
+                            :
+                                null
+                        }
+
                         <div className="wrapper-post">
                             <div style={{display: "flex", background: "#fafafa", padding: "10px", borderRadius: "20px 20px 0 0 "}}>
                                 <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>

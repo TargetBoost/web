@@ -384,6 +384,13 @@ body {
     align-items: center;
 }
 
+.wrapper-edit-post {
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
 .name-account {
     font-size: 16px;
     font-weight: 600;
@@ -391,6 +398,16 @@ body {
     /*justify-content: center;*/
     /*align-items: center;*/
     padding: 20px;
+}
+
+.textarea-auto-size {
+    font-size: 14px;
+    padding: 12px;
+    outline: none;
+    border-radius: 20px;
+    resize: none;
+    width: 100%;
+    border: 1px solid #dcdcdc;
 }
 
 .button-default-big {
@@ -993,6 +1010,7 @@ body {
     font-weight: 400;
     /*line-height: 24px;*/
     letter-spacing: 0;
+    margin-top: 20px;
 }
 
 

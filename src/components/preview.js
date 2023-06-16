@@ -324,7 +324,7 @@ class Preview extends Component{
                     // height: "500px"
                 }}>
 
-                    <h1 style={{fontSize: "40px"}}>Рекламируйте свой бизнес в соцсетях</h1>
+                    <h1 style={{fontSize: "40px"}}>Рекламируйте свой бизнес в социальных сетях</h1>
                     <h2>Telegram, VK</h2>
                     <div className="preview-inside-block">
                         <p>

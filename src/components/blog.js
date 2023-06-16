@@ -464,7 +464,7 @@ class Blog extends Component{
                                         store.user.auth ?
                                             <input className="input-default-comment" placeholder="Напишите здесь свой комментарий"/>
                                             :
-                                            <input className="input-default-comment" placeholder="Напишите здесь свой комментарий" disabled/>
+                                            <input className="input-default-comment" placeholder="Войдите в аккаунт чтобы написать комментарий" disabled/>
 
                                     }
                                 </div>
@@ -527,7 +527,7 @@ class Blog extends Component{
                                         store.user.auth ?
                                             <input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />
                                         :
-                                            <input className="input-default-comment" placeholder="Напишите здесь свой комментарий" disabled/>
+                                            <input className="input-default-comment" placeholder="Войдите в аккаунт чтобы написать комментарий" disabled/>
 
                                     }
                                 </div>

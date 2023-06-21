@@ -516,7 +516,11 @@ class Blog extends Component{
                                     </div>
                                 )
                                 :
-                                null
+                                <div className="wrapper-post">
+                                    <div className="alert">
+                                        Новостей пока нет
+                                    </div>
+                                </div>
                         }
 
                     </div>

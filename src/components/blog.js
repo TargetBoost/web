@@ -252,7 +252,7 @@ class Blog extends Component{
 
     createComment = () => {
         let data = {
-            text: this.refCommentInput.current.text
+            text: this.refCommentInput.current.value
         }
 
         fetch("/core/v1/service/blog/comment", {

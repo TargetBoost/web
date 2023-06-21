@@ -118,6 +118,10 @@
     cursor: pointer;
 }
 
+p {
+    white-space: pre;
+}
+
 .alert {
     padding: 20px;
     display: flex;

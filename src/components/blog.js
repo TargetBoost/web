@@ -8,6 +8,7 @@ import background_two from "../img/z.webp"
 
 import background_auth from "../img/ddd_d.webp"
 import target from "../icon/target_new.png"
+import  send from  "../icon/send.png"
 
 import InputMask from "react-input-mask";
 import Avatar from "@mui/material/Avatar";
@@ -425,6 +426,9 @@ class Blog extends Component{
                                         <TextareaAutosize placeholder="Напишите новый пост" {...this.settingsTextArea}  onFocus={(e)=>{
                                             this.settingsTextArea.minRows = 4
                                         }} className="textarea-auto-size" />
+                                        <div className="send-message">
+                                            <img src={send} style={{maxWidth: "40px"}} alt="send"/>
+                                        </div>
                                     </div>
                                 </div>
                             :
@@ -487,7 +491,12 @@ class Blog extends Component{
                                     </div>
                                     {
                                         store.user.auth ?
-                                            <input className="input-default-comment" placeholder="Напишите здесь свой комментарий"/>
+                                            <>
+                                                <input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />
+                                                <div className="send-message">
+                                                    <img src={send} style={{maxWidth: "40px"}} alt="send"/>
+                                                </div>
+                                            </>
                                             :
                                             <input className="input-default-comment" placeholder="Войдите в аккаунт чтобы написать комментарий" disabled/>
 
@@ -550,11 +559,17 @@ class Blog extends Component{
                                     </div>
                                     {
                                         store.user.auth ?
-                                            <input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />
+                                            <>
+                                                <input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />
+                                                <div className="send-message">
+                                                    <img src={send} style={{maxWidth: "40px"}} alt="send"/>
+                                                </div>
+                                            </>
                                         :
                                             <input className="input-default-comment" placeholder="Войдите в аккаунт чтобы написать комментарий" disabled/>
 
                                     }
+
                                 </div>
                             </div>
                         </div>

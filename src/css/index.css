@@ -1013,6 +1013,18 @@ body {
     margin-top: 20px;
 }
 
+.send-message {
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.send-message:active {
+    transform: scale(0.9);
+}
+
 
 .pre-add {
     background: #fff;

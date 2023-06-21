@@ -555,7 +555,7 @@ class Blog extends Component{
                                                 t.comments.length > 0 ?
                                                     t.comments.map(c =>
                                                         c.parent ?
-                                                            <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
+                                                            <div className="comment-wrapper" style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
                                                                 <div style={{ marginRight: "10px", padding: "8px"}}>
                                                                     {
                                                                         c.main_image !== "" ?

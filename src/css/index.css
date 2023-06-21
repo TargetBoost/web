@@ -489,6 +489,10 @@ body {
     /*border-radius: 20px;*/
 }
 
+.comment-wrapper:hover {
+    background: #fafafa;
+}
+
 .wrapper-post {
     background: #fff;
     border-radius: 20px;

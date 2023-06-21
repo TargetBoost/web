@@ -507,8 +507,8 @@ class Blog extends Component{
                                                         //     {c.text}
                                                         // </div>
 
-                                                        <div style={{display: "flex", background: "#fafafa", padding: "10px", borderRadius: "20px"}}>
-                                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                        <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
+                                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
                                                                 {
                                                                     store.user.mainPhoto !== "" ?
                                                                         <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>

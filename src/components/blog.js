@@ -516,7 +516,7 @@ class Blog extends Component{
                                                                         <Avatar sx={{ width: 40, height: 40 }}></Avatar>
                                                                 }
                                                             </div>
-                                                            <div className="name-account">
+                                                            <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
                                                                 <div>{c.login}</div>
                                                                 <div style={{fontSize: "10px"}}>{c.text}</div>
                                                             </div>

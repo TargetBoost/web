@@ -18,7 +18,7 @@ class Agreement extends Component{
     }
 
     render() {
-        let store = this.state.store.getState()
+        // let store = this.state.store.getState()
         return (
             <>
                 <div className="block-default-pre">

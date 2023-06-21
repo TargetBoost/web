@@ -1,10 +1,10 @@
 import React, {Component} from "react";
-import background from "../img/d.png"
-import background_tg from "../img/dd.png"
-import background_auth from "../img/ddd_d.png"
+import background from "../img/d.webp"
+import background_tg from "../img/dd.webp"
+import background_auth from "../img/ddd_d.webp"
 
 import InputMask from "react-input-mask";
-import Video from "./video";
+import Avatar from "@mui/material/Avatar";
 
 
 
@@ -16,9 +16,16 @@ class Preview extends Component{
             auth: this.props.auth,
             executor: "executer",
             regShow: true,
-            store: this.props.store
+            store: this.props.store,
+            showPopUp: false,
         }
+
+        this.state.store.subscribe(() => {
+            this.setState(this.state.store.getState())
+        })
     }
+
+    refTG = React.createRef();
 
     login = () => {
         // let phone = document.getElementById("phone").value.replace(/\s/g, '').replace('+', '')
@@ -65,7 +72,7 @@ class Preview extends Component{
             // number_phone: Number(phone),
             // login: document.getElementById("login").value,
             password: document.getElementById("password").value,
-            execute: !document.getElementById("im_read").checked,
+            execute: document.getElementById("im_read").checked,
             tg: document.getElementById("tg").value
         }
 
@@ -163,21 +170,148 @@ class Preview extends Component{
             this.registration()
         }
     }
-    MRGtag;
 
     componentDidMount() {
-        // const script = document.createElement("script");
-        //
-        // script.src = "https://ad.mail.ru/static/ads-async.js";
-        // script.async = true;
-        //
-        // document.body.appendChild(script);
-        // (this.MRGtag = window.MRGtag || []).push({})
+        this.state.store.dispatch({
+            type: "set_page", value: "g",
+        })
     }
 
+    // swapButtonTask = (e) => {
+    //
+    //     this.setState({executor: e.target.getAttribute("target")})
+    //
+    //     let childrenCollection = document.getElementsByClassName("button-light")
+    //
+    //     for (let i=0; i !== childrenCollection.length; i++) {
+    //         childrenCollection[i].classList.remove('active-white')
+    //     }
+    //     e.target.classList.add("active-white")
+    // }
+
     render() {
+        let store = this.state.store.getState()
         return (
             <>
+                {
+                    store.showPopUp ?
+                        <div className="pop-up">
+                            <div className="block-default-pre" style={{
+                                backgroundImage: `url(${background_auth})`,
+                                backgroundPosition: "right 0px top 21%",
+                                // backgroundAttachment: "fixed",
+                                backgroundSize: "1000px, auto",
+                                backgroundRepeat: "no-repeat",
+                                color: "#000",
+                                paddingRight: "600px",
+                                paddingLeft: "30px",
+                                height: "430px",
+                                width: "970px",
+                                position: "relative"
+                            }}>
+                                <div className="preview-inside-block">
+                                    <div className="white-block-border">
+                                        {
+                                            store.user.auth ?
+                                                <>
+                                                    <div style={{display: "flex"}}>
+                                                            <>
+                                                                <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                                    {
+                                                                        store.user.mainPhoto !== "" ?
+                                                                            <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 60, height: 60 }}></Avatar>
+                                                                            :
+                                                                            <Avatar sx={{ width: 60, height: 60 }}></Avatar>
+                                                                    }
+                                                                </div>
+                                                                <div className="name-account">
+                                                                    <div>{store.user.tg}</div>
+                                                                    <div style={{fontSize: "10px"}}>Вы уже вошли</div>
+                                                                    <div className="underline" style={{fontSize: "11px", marginTop: "2px"}} onClick={(e) => {
+                                                                        e.preventDefault();
+                                                                        if (store.user.auth) {
+                                                                            if (store.user.execute === true) {
+                                                                                window.location.href = '/tasks/'
+                                                                            } else {
+                                                                                window.location.href = '/targets/'
+                                                                            }
+                                                                        }else{
+                                                                            window.location.href = '/'
+                                                                        }
+                                                                    }}>Перейти в личный кабинет</div>
+                                                                </div>
+                                                            </>
+                                                    </div>
+                                                </>
+                                            :
+                                                !this.state.regShow ?
+                                                        <>
+                                                            <div className="wrapper-input-main">
+                                                                <InputMask className="input-main" formatChars={{
+                                                                    '9': '[0-9]',
+                                                                    'a': '[A-Za-z]',
+                                                                    '*': '.*'
+                                                                }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин telegram" onKeyDown={this.handleKeyDownAuth}/>
+                                                            </div>
+                                                            <div className="wrapper-input-main">
+                                                                <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
+                                                            </div>
+                                                            <div className="sing-wrapper-main">
+                                                                <div className="button-default unselectable" onClick={this.login}>Войти</div>
+                                                                <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": true})}}>У Вас еще нет аккаунта?</div>
+
+                                                                {/*<div className="title-main underline unselectable">Забыли пароль?</div>*/}
+                                                            </div>
+                                                        </>
+                                                    :
+                                                        <>
+                                                            <div className="wrapper-input-main">
+                                                                <InputMask className="input-main" formatChars={{
+                                                                    '9': '[0-9]',
+                                                                    'a': '[A-Za-z]',
+                                                                    '*': '.*'
+                                                                }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин telegram" />                                        </div>
+                                                            <div className="wrapper-input-main">
+                                                                <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
+                                                            </div>
+                                                            <div className="wrapper-input-main">
+                                                                <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
+                                                            </div>
+                                                            {/*<div className="wrapper-input-main">*/}
+                                                            {/*    <div className="wrapper-input-checkbox-wr-input">*/}
+                                                            {/*        <input className="input-default-checkbox" type="checkbox" id="im_read"/>*/}
+                                                            {/*    </div>*/}
+                                                            {/*    /!*<div className="wrapper-input-checkbox-wr-input-text unselectable" onClick={()=> {*!/*/}
+                                                            {/*    /!*    let check = document.getElementById("im_read").checked*!/*/}
+                                                            {/*    /!*    document.getElementById("im_read").checked = !check;*!/*/}
+                                                            {/*    /!*}}></div>*!/*/}
+                                                            {/*</div>*/}
+                                                            <div className="sing-wrapper-main">
+                                                                <div className="button-default unselectable" onClick={this.registration}>Поехали! 🚀</div>
+                                                                <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": false})}}>У Вас уже есть аккаунт?</div>
+                                                            </div>
+                                                            <div className="info-auth-main">
+                                                                <p>
+                                                                    Регистрируясь Вы подтверждаете что согласны с <a href="/agreement" target="_blank">правилами</a> сайта.
+                                                                </p>
+                                                            </div>
+                                                        </>
+                                        }
+                                    </div>
+                                </div>
+                                <div className="wrapper-absolute">
+                                    <div className="underline unselectable" onClick={()=>{
+                                        this.state.store.dispatch({
+                                            type: "set_pop_up", value: false,
+                                        })
+                                    }}>Закрать</div>
+                                </div>
+                            </div>
+                        </div>
+                    :
+                        null
+                }
+
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background})`,
                     backgroundPosition: "right 0px top 50%",
@@ -185,116 +319,32 @@ class Preview extends Component{
                     backgroundSize: "1000px, auto",
                     backgroundRepeat: "no-repeat",
                     color: "#000",
-                    paddingLeft: "400px"
+                    paddingLeft: "400px",
+                    position: "relative",
+                    // height: "500px"
                 }}>
-                    <h1>Продвижение в социальных сетях</h1>
-                    <h2>Telegram, Youtube, VK</h2>
+
+                    <h1 style={{fontSize: "40px"}}>Рекламируйте свой бизнес в социальных сетях</h1>
+                    <h2>Как работает наш сервис</h2>
                     <div className="preview-inside-block">
                         <p>
-                            Наша платформа помогает продвигать социальные сети, такие как Telegram, Youtube, VK.
-                            Начать очень просто: зарегистрируйтесь, создайте первую рекламную кампанию уже сейчас и получите столько трафика и просмотров, сколько Вам необходимо.
+                            Наш сервис предоставляет услуги по размещению контекстной рекламы в социальных сетях, таких как Telegram, VK. Мы помогаем рекламодателям оптимизировать инвестиции в рекламу и привлекать новых клиентов.
                             <br/>
                             <br/>
-                            Зарабатывай вместе с нами, выполняйте задания по продвижению и прочим действиям в социальных сетях.
-                            Мы автоматически проверяем выполненные задания и сразу зачисляем оплату на Ваш баланс.
+                            Наши услуги включают подбор наилучших платформ для размещения рекламы, подготовку рекламного контента и настройку таргетинга, чтобы реклама была показана только нужным пользователям. Мы также проводим анализ результатов размещения рекламы и корректируем стратегию в соответствии с полученными данными.
+                            <br/>
+                            <br/>
+                            Наша команда гарантирует высокое качество услуг и прозрачность в работе.
+                            <br/>
+                            <br/>
+                            <div className="button-default-big unselectable" style={{background: "#0072FC", color: "#fff" }} onClick={()=>{
+                                this.state.store.dispatch({
+                                    type: "set_pop_up", value: true,
+                                })
+                            }}>Заказать услугу</div>
                         </p>
                     </div>
-                    {/*<div className="navigation-preview">*/}
-                    {/*    <div className="button-light pre-add unselectable">Подписка VK 2 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Лайк VK 1,5 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Подписка на канал Youtube 1 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Посмотреть видео на Youtube 1 руб.</div>*/}
-                    {/*</div>*/}
                 </div>
-                <div className="block-default-pre" style={{
-                    backgroundImage: `url(${background_auth})`,
-                    backgroundPosition: "right 0px top 21%",
-                    // backgroundAttachment: "fixed",
-                    backgroundSize: "1000px, auto",
-                    backgroundRepeat: "no-repeat",
-                    color: "#000",
-                    paddingRight: "600px",
-                    paddingLeft: "30px",
-                    height: "430px"
-                }}>
-                    {/*<h1>Накрутка в социальных сетях</h1>*/}
-                    {/*<h2>Telegram, Youtube, VK</h2>*/}
-                    <div className="preview-inside-block">
-                        <div className="white-block-border">
-                            {
-                                !this.state.regShow ?
-                                    <>
-                                        <div className="wrapper-input-main">
-                                            <InputMask className="input-main" formatChars={{
-                                                '9': '[0-9]',
-                                                'a': '[A-Za-z]',
-                                                '*': '.*'
-                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграм" onKeyDown={this.handleKeyDownAuth}/>
-                                        </div>
-                                        <div className="wrapper-input-main">
-                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownAuth}/>
-                                        </div>
-                                        <div className="sing-wrapper-main">
-                                            <div className="button-default unselectable" onClick={this.login}>Войти</div>
-                                            <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": true})}}>У Вас еще нет аккаунта?</div>
-
-                                            {/*<div className="title-main underline unselectable">Забыли пароль?</div>*/}
-                                        </div>
-                                    </>
-                                :
-                                    <>
-                                        <div className="wrapper-input-main">
-                                            <InputMask className="input-main" formatChars={{
-                                                '9': '[0-9]',
-                                                'a': '[A-Za-z]',
-                                                '*': '.*'
-                                            }} id="tg" mask="@***********************************************" maskChar={null} alwaysShowMask={false} placeholder="Логин телеграм" />                                        </div>
-                                        <div className="wrapper-input-main">
-                                            <input id="password" className="input-main" placeholder="Пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
-                                        </div>
-                                        <div className="wrapper-input-main">
-                                            <input id="re_password" className="input-main" placeholder="Повторите пароль" type="password" onKeyDown={this.handleKeyDownReg}/>
-                                        </div>
-                                        <div className="wrapper-input-main">
-                                            <div className="wrapper-input-checkbox-wr-input">
-                                                <input className="input-default-checkbox" type="checkbox" id="im_read"/>
-                                            </div>
-                                            <div className="wrapper-input-checkbox-wr-input-text unselectable" onClick={()=> {
-                                                let check = document.getElementById("im_read").checked
-                                                document.getElementById("im_read").checked = !check;
-                                            }}>Я рекламодатель</div>
-                                        </div>
-
-                                        <div className="sing-wrapper-main">
-                                            <div className="button-default unselectable" onClick={this.registration}>Поехали! 🚀</div>
-                                            <div className="title-main underline unselectable" onClick={() => {this.setState({"regShow": false})}}>У Вас уже есть аккаунт?</div>
-                                        </div>
-                                        <div className="info-auth-main">
-                                            <p>
-                                                Регистрируясь Вы подтверждаете что согласны с <a href="/agreement" target="_blank">правилами</a> сайта.
-                                            </p>
-                                        </div>
-                                    </>
-                            }
-                        </div>
-                    </div>
-                    {/*<div className="navigation-preview">*/}
-                    {/*    <div className="button-light pre-add unselectable">Подписка VK 2 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Лайк VK 1,5 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Подписка на канал Youtube 1 руб.</div>*/}
-                    {/*    <div className="button-light pre-add unselectable">Посмотреть видео на Youtube 1 руб.</div>*/}
-                    {/*</div>*/}
-                </div>
-                <div className="block-default-pre">
-                    {/*<Video store={this.state.store}/>*/}
-                    <iframe width="100%" height="600px" src="https://www.youtube.com/embed/BItVmRpz1sQ"
-                            title="YouTube video player" frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen></iframe>
-                </div>
-                {/*<div className="block-default-pre">*/}
-                {/*    <div id="adman-ads"></div>*/}
-                {/*</div>*/}
                 <div className="block-default-pre" style={{
                     backgroundImage: `url(${background_tg})`,
                     backgroundPosition: "left -100px top 50%",
@@ -303,102 +353,25 @@ class Preview extends Component{
                     backgroundRepeat: "no-repeat",
                     color: "#000",
                     paddingLeft: "400px",
-                    height: "335px",
+                    height: "365px",
 
                 }}>
-                    <h2>Что дает продвижение?</h2>
+                    <h2>Что дает контекстная реклама?</h2>
                     <div className="navigation-preview">
-                        {/*<div className="block-default-icon">*/}
-                        {/*    <img className="default-icon" src={telegram} alt="telegram"/>*/}
-                        {/*</div>*/}
                         <div className="block-text-pre">
-                            Каналы Telegram - на данный момент самый популярный способ получения информации. Большое количество подписчиков канала даст Вам доверие потенциальной аудитории к каналу и, как следствие, более выраженный, но при этом естественный прирост подписчиков.
+                            Контекстная реклама позволяет достигать целевой аудитории, которая подписана на Telegram каналы или паблики VK определенной тематики. Она дает следующие преимущества:
                             <br/>
                             <br/>
-                            Youtube является эффективным способом повышения популярности видео, не важно, будь это музыкальное видео, обзор продукта или Ваш персональный блог.
+                            1. Точное попадание в целевую аудиторию - реклама появляется перед пользователями, которые заинтересованы в товарах или услугах.
                             <br/>
                             <br/>
-                            Подписчики Youtube также являются важным критерием ранжирования и влияют на рекомендацию Ваших роликов.
+                            2. Возможность оптимизации затрат - контекстная реклама позволяет установить множество параметров рекламной кампании, благодаря чему можно контролировать траты и оптимизировать их.
                             <br/>
                             <br/>
+                            3. Широкий охват - контекстная реклама появляется в Telegram каналах, пабликах VK и на партнерских сайтах, что позволяет добраться до широкой аудитории.
                         </div>
                     </div>
                 </div>
-                {/*<div className="block-default-pre">*/}
-                {/*    <h2>Накрутка каналов Telegram</h2>*/}
-                {/*    <div className="navigation-preview">*/}
-                {/*        <div className="block-default-icon">*/}
-                {/*            <img className="default-icon" src={telegram} alt="telegram"/>*/}
-                {/*        </div>*/}
-                {/*        <div className="block-text-pre">*/}
-                {/*            Каналы Telegram - на данный момент самый популярный способ получения информации. Большое количество подписчиков канала даст вам доверие потенциальной аудитории к каналу и как следствие более выраженный, но при этом естественный прирост подписчиков.                                    </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="block-default-pre">*/}
-                {/*    <h3>Раскрутка каналов Youtube</h3>*/}
-                {/*    <div className="navigation-preview">*/}
-                {/*        <div className="block-default-icon">*/}
-                {/*            <img className="default-icon" src={youtube} alt="youtube"/>*/}
-                {/*        </div>*/}
-                {/*        <div className="block-text-pre">*/}
-                {/*            Покупка лайков/просмотров на Youtube является эффективным способом повышения популярности видео, не важно будь это музыкальное видео, обзор продукта или ваш персональный блог.*/}
-                {/*            Подписчики Youtube так же являются важным критерием ранжирования и влияют на рекомендацию Ваших роликов, но Youtube очень пристально следит за резкими изменениями этого показателя, поэтому мы осуществляем постепенное увеличение подписчиков, чтобы обойти их алгоритмы выявления накрутки.*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="block-default-pre">*/}
-                {/*    <h3>Раскрутка сообществ VK</h3>*/}
-                {/*    <div className="navigation-preview">*/}
-                {/*        <div className="block-default-icon">*/}
-                {/*            <img className="default-icon" src={vk} alt="vk"/>*/}
-                {/*        </div>*/}
-                {/*        <div className="block-text-pre">*/}
-                {/*            Раскрутка сообществ VK - актуальная тема в 2022 году. Сегодня можно увидеть тысячи различных сообществ разной тематики. Одни создают группу как хобби, другие для продажи товаров и предоставления услуг, третьи для заработка на рекламе.*/}
-                {/*            Чтобы Ваше сообщество стало заметным и популярным нужно приложить время и усилия. Вы должны придерживаться наших рекомендаций и раскрутить группу в VK станет намного проще, эффективнее и быстрее.*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
-
-                {/*<div className="block-default-pre">*/}
-                {/*    <h3>Заработок на заданиях в социальных сетях</h3>*/}
-                {/*    <div className="preview-inside-block">*/}
-                {/*        <p>*/}
-                {/*            Зарабатывай выполняя задания по подпискам/лайкам и прочим действиям в социальных сетях.*/}
-                {/*        </p>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="block-default-pre">*/}
-                {/*    <div className="preview-inside-block">*/}
-                {/*        <p>*/}
-                {/*            Мы автоматически проверяем выполненные задания и сразу зачисляем оплату на Ваш баланс.*/}
-                {/*        </p>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="block-default-pre" style={{fontSize: "13px", background: "#f2e4a8"}}>*/}
-                {/*    Мы запустились в тестовом режиме.<br/>*/}
-                {/*    У нас уже есть задания которые можно выполнить!<br/>*/}
-                {/*</div>*/}
-                {/*<div className="block-default-pre">*/}
-                {/*    <h2>Способы вывода средств</h2>*/}
-                {/*    <div className="preview-inside-block">*/}
-                {/*        <p>*/}
-                {/*            Вывод средств осуществляется от 5 руб посредствам создания заявки в личном кабиенете.*/}
-                {/*        </p>*/}
-                {/*    </div>*/}
-                {/*    <div className="navigation-preview">*/}
-                {/*        <div className="flex-left-right">*/}
-                {/*            /!*<div className="block-default-icon-many">*!/*/}
-                {/*            /!*    <img className="default-icon-many" src={io} alt="io"/>*!/*/}
-                {/*            /!*    <div className="title-default-icon-many">ЮMoney</div>*!/*/}
-                {/*            /!*</div>*!/*/}
-                {/*            <div className="block-default-icon-many">*/}
-                {/*                <img className="default-icon-many" src={qiwi} alt="qiwi"/>*/}
-                {/*                <div className="title-default-icon-many">QIWI</div>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
             </>
         )
     }

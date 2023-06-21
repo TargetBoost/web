@@ -2,9 +2,9 @@ import React, {Component} from "react";
 import CurrencyInput from 'react-currency-input-field';
 import 'react-input-range/lib/css/index.css';
 import InputMask from "react-input-mask";
-import vk from "../icon/vk.png";
-import youtube from "../icon/youtube.png";
-import telegram from "../icon/telegram.png";
+// import vk from "../icon/vk.png";
+// import youtube from "../icon/youtube.png";
+// import telegram from "../icon/telegram.png";
 
 class WalletUser extends Component{
     constructor(props) {
@@ -115,17 +115,17 @@ class WalletUser extends Component{
     render() {
         let store = this.state.store.getState()
 
-        function filterTask(targets, f) {
-            let target = []
-
-            for (const property in targets) {
-                if (targets[property].status === f) {
-                    target.push(targets[property])
-                }
-            }
-
-            return target
-        }
+        // function filterTask(targets, f) {
+        //     let target = []
+        //
+        //     for (const property in targets) {
+        //         if (targets[property].status === f) {
+        //             target.push(targets[property])
+        //         }
+        //     }
+        //
+        //     return target
+        // }
 
         return (
             <>

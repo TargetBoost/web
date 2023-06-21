@@ -55,7 +55,7 @@ class Contact extends Component{
                                             <br/>
                                             Так же мы занимаемся контекстной рекламой и pre-roll вставками через наш видеоплеер. <br/>
                                             <br/>
-                                            Всю дополнительную информацию по работе платформы Вы можете получить через <a className="button-text" target="_blank" href="https://t.me/targetboostchat">чат с поддержкой.</a>
+                                            Всю дополнительную информацию по работе платформы Вы можете получить через <a className="button-text" target="_blank" rel="noreferrer" href="https://t.me/targetboostchat">чат с поддержкой.</a>
                                         </p>
                                     </div>
                                     {/*<div className="block-default-icon">*/}
@@ -66,11 +66,11 @@ class Contact extends Component{
                             <div className="block-default-pre">
                                 <div className="end">
                                     Основатель<br/>
-                                    <a className="button-text" target="_blank" href="https://t.me/andrey_shsh">Андрей</a>
+                                    <a className="button-text" rel="noreferrer" target="_blank" href="https://t.me/andrey_shsh">Андрей</a>
                                     <br/>
                                     <br/>
                                     Основатель и финансовый директор<br/>
-                                    <a className="button-text" target="_blank" href="https://t.me/Grigoriy_zol">Григорий</a>
+                                    <a className="button-text" rel="noreferrer" target="_blank" href="https://t.me/Grigoriy_zol">Григорий</a>
                                 </div>
                             </div>
                         </>

@@ -8,7 +8,6 @@ import {mount, route} from 'navi'
 import Content from "./content";
 import Jobs from "./jobs";
 import Login from "./login";
-import Registration from "./registration";
 import Targets from "./targets";
 import Contact from "./contact";
 import {toast, ToastContainer} from 'react-toastify';
@@ -23,6 +22,8 @@ import WalletUser from "./walletUser";
 import Pay from "./pay_s";
 import Agreement from "./agreement";
 import AuthVK from "./error_auth_vk";
+import Publishers from "./publishers";
+import Blog from "./blog";
 
 
 class App extends Component{
@@ -36,6 +37,8 @@ class App extends Component{
 
         this.routes = mount({
             '/' : route({view: <Content store={this.state.store}/>}),
+            '/publishers' : route({view: <Publishers store={this.state.store}/>}),
+            '/blog' : route({view: <Blog store={this.state.store}/>}),
             '/jobs' : route({view: <Jobs store={this.state.store}/>}),
             '/login' : route({view: <Login store={this.state.store}/>}),
             '/about' : route({view: <Contact store={this.state.store}/>}),
@@ -45,7 +48,7 @@ class App extends Component{
             '/s/pay' : route({view: <Pay store={this.state.store}/>}),
             '/error_auth_vk' : route({view: <AuthVK store={this.state.store}/>}),
             '/settings' : route({view: <Settings store={this.state.store}/>}),
-            '/registration' : route({view: <Registration store={this.state.store}/>}),
+            // '/registration' : route({view: <Registration store={this.state.store}/>}),
             '/agreement' : route({view: <Agreement store={this.state.store}/>}),
             '/targets' : route( request => {
 
@@ -323,6 +326,7 @@ class App extends Component{
                         :
                             null
                 }
+                <div className="elfsight-app-9ed18806-c12b-4431-974a-29a1f9cb022f"/>
                 <Header auth={false} store={this.state.store}/>
                 <div className="wrapper">
                     <BrowserRouter>

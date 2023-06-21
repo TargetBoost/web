@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import target from "../icon/target.png"
+import target from "../icon/target.webp"
 // import { Dropdown, Menu } from 'semantic-ui-react'
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
@@ -10,8 +10,8 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
+// import PersonAdd from "@mui/icons-material/PersonAdd";
+// import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import Dns from '@mui/icons-material/Dns';
 import People from '@mui/icons-material/People';
@@ -48,26 +48,69 @@ class Header extends Component{
         return (
             <div className="header-bg">
                 <div className="wrapper-header">
-                    <div className="place-logo" onClick={(e) => {
-                        e.preventDefault();
-                        if (store.user.auth) {
-                            if (store.user.execute === true) {
-                                window.location.href = '/tasks/'
-                            } else {
-                                window.location.href = '/targets/'
+                    <div className="place-logo" >
+                        <div className="place-logo" onClick={(e) => {
+                            e.preventDefault();
+                            if (store.user.auth) {
+                                if (store.user.execute === true) {
+                                    window.location.href = '/tasks/'
+                                } else {
+                                    window.location.href = '/targets/'
+                                }
+                            }else{
+                                window.location.href = '/'
                             }
-                        }else{
-                            window.location.href = '/'
-                        }
-                    }}>
-                        <div className="wrapper-logo-img">
-                            <img src={target} className="logo-img" alt="logo"/>
+                        }}>
+                            <div className="wrapper-logo-img">
+                                <img src={target} className="logo-img" alt="logo"/>
+                            </div>
+                            <div className="logo-text-t">Target Boost</div>
                         </div>
-                        <div className="logo-text-t">Target Boost</div>
+
+                        <div className="wrapper-navigation">
+                            <div className="navigation-preview">
+                                <div className="flex-left-right">
+                                    {
+                                        store.page === "g" ?
+                                            <div className="unselectable button-light active-white" target="all" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/'
+                                            }}>Рекламная платформа</div>
+                                        :
+                                            <div className="unselectable button-light" target="all" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/'
+                                            }}>Рекламная платформа</div>
+
+                                    }
+                                    {
+                                        store.page === "p" ?
+                                            <div className="unselectable button-light active-white" target="history" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/publishers'
+                                            }}>Монетезация</div>
+                                        :
+                                            <div className="unselectable button-light" target="history" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/publishers'
+                                            }}>Монетезация</div>
+                                    }
+                                    {
+                                        store.page === "b" ?
+                                            <div className="unselectable button-light active-white" target="history" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/blog'
+                                            }}>Наш Блог</div>
+                                            :
+                                            <div className="unselectable button-light" target="history" onClick={(e) => {
+                                                e.preventDefault();
+                                                window.location.href = '/blog'
+                                            }}>Наш Блог</div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    {/*<div className="wrapper-auth">*/}
-                    {/*    Ваш баланс: { store.user.balance } ₽*/}
-                    {/*</div>*/}
                     <div className="wrapper-auth">
                         {
                             store.user.load === false ?
@@ -203,47 +246,14 @@ class Header extends Component{
                                             </MenuItem>
                                         </Menu>
                                     </React.Fragment>
-                                    // <Menu>
-                                    //     <Dropdown text={store.user.tg} floating labeled button className='icon'>
-                                    //         <Dropdown.Menu>
-                                    //             <Dropdown.Header>Ваш баланс: { (parseFloat(store.user.balance)).toLocaleString('ru')  } ₽</Dropdown.Header>
-                                    //             {
-                                    //                 store.user.execute === true ?
-                                    //                     <Dropdown.Item onClick={()=>{window.location.href = '/tasks'}}>Ваши задания</Dropdown.Item>
-                                    //                 :
-                                    //                     <Dropdown.Item onClick={()=>{window.location.href = '/targets'}}>Рекламные кампании</Dropdown.Item>
-                                    //
-                                    //             }
-                                    //             {
-                                    //                 store.user.execute === true ?
-                                    //                     <Dropdown.Item onClick={()=>{window.location.href = '/withdrawal'}}>Заявка на вывод средств</Dropdown.Item>
-                                    //                     :
-                                    //                     <Dropdown.Item onClick={()=>{window.location.href = '/wallet'}}>Пополнить баланс</Dropdown.Item>
-                                    //
-                                    //             }
-                                    //             <Dropdown.Item onClick={()=>{window.location.href = '/settings'}}>Профиль</Dropdown.Item>
-                                    //             {
-                                    //                 store.user.admin === true ?
-                                    //                     <>
-                                    //                         <Dropdown.Divider />
-                                    //                         <Dropdown.Item onClick={()=>{window.location.href = '/admin'}}>Панель Администратора</Dropdown.Item>
-                                    //                     </>
-                                    //                 :
-                                    //                     null
-                                    //
-                                    //             }
-                                    //             <Dropdown.Divider />
-                                    //             <Dropdown.Item onClick={()=>{
-                                    //                 window.localStorage.removeItem('token')
-                                    //                 window.location.href = '/'
-                                    //             }}>Выйти</Dropdown.Item>
-                                    //         </Dropdown.Menu>
-                                    //     </Dropdown>
-                                    // </Menu>
+
                                 :
                                     <>
-                                        {/*<div className="button-default unselectable" onClick={()=>{window.location.href = "/login"}}>Войти</div>*/}
-                                        {/*<div className="button-default unselectable" onClick={()=>{window.location.href = "/registration"}}>Регистрация</div>*/}
+                                        <div className="button-default-big unselectable" onClick={()=>{
+                                            this.state.store.dispatch({
+                                                type: "set_pop_up", value: true,
+                                            })
+                                        }}>Войти</div>
                                     </>
                             :
                                 <div className="loader-small"/>

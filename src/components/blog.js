@@ -572,7 +572,7 @@ class Blog extends Component{
 
                                                             <input className="input-default-comment" ref={this.refCommentInput} placeholder="Напишите здесь свой комментарий" />
                                                             <div className="send-message" id={t.id} onClick={this.createComment}>
-                                                                <img src={send} style={{maxWidth: "40px"}} alt="send"/>
+                                                                <img src={send} style={{maxWidth: "40px"}} id={t.id}  alt="send"/>
                                                             </div>
                                                         </>
                                                         :

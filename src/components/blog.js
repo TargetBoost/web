@@ -204,19 +204,19 @@ class Blog extends Component{
         window.addEventListener('scroll', this.handleScroll)
 
         fetch("/core/v1/blog", {
-            method: "POST",
-            body: JSON.stringify(data)
+            method: "GET"
         })
             .then(response => response.json())
             .then(res => {
                 if (res.status.message == null) {
                     this.setState({blog: res.data})
                 }else{
-                    this.state.store.dispatch({
-                        type: "set_error", value: "Не правельный логин или пароль",
-                    })
-
-                    document.getElementById("password").value = ""
+                    console.log(res)
+                    // this.state.store.dispatch({
+                    //     type: "set_error", value: "Не правельный логин или пароль",
+                    // })
+                    //
+                    // document.getElementById("password").value = ""
                 }
             })
             .catch(error => {

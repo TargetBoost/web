@@ -504,13 +504,16 @@ class Blog extends Component{
                                                 {
                                                     store.user.auth ?
                                                         <>
-                                                            <input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />
-                                                            <div className="send-message">
-                                                                <img src={send} style={{maxWidth: "40px"}} alt="send"/>
-                                                            </div>
+                                                            <input className="input-default-comment" placeholder="Прокоментировать пока нельзя" disabled/>
+
+                                                            {/*<input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />*/}
+                                                            {/*<div className="send-message">*/}
+                                                            {/*    <img src={send} style={{maxWidth: "40px"}} alt="send"/>*/}
+                                                            {/*</div>*/}
                                                         </>
                                                         :
                                                         <input className="input-default-comment" placeholder="Войдите в аккаунт чтобы написать комментарий" disabled/>
+
 
                                                 }
                                             </div>

@@ -25,6 +25,7 @@ class Blog extends Component{
             regShow: true,
             store: this.props.store,
             showPopUp: false,
+            blog: [],
         }
 
         this.state.store.subscribe(() => {
@@ -201,6 +202,26 @@ class Blog extends Component{
             type: "set_page", value: "b",
         })
         window.addEventListener('scroll', this.handleScroll)
+
+        fetch("/core/v1/blog", {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message == null) {
+                    this.setState({blog: res.data})
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: "Не правельный логин или пароль",
+                    })
+
+                    document.getElementById("password").value = ""
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
     }
 
     swapButtonTask = (e) => {
@@ -435,144 +456,70 @@ class Blog extends Component{
                                 null
                         }
 
-                        <div className="wrapper-post">
-                            <div style={{display: "flex", background: "#fafafa", padding: "10px", borderRadius: "20px 20px 0 0 "}}>
-                                <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                                    <Avatar src={target} sx={{ width: 70, height: 70 }}></Avatar>
-                                </div>
-                                <div className="name-account">
-                                    <div>@targetboost</div>
-                                    <div style={{fontSize: "10px", color: "#609eee"}}>Администратор</div>
-                                </div>
-                            </div>
-                            <div className="block-default-pre" style={{
-                                // backgroundImage: `url(${background_tg})`,
-                                backgroundPosition: "left -100px top 50%",
-                                // backgroundAttachment: "fixed",
-                                backgroundSize: "1100px, auto",
-                                backgroundRepeat: "no-repeat",
-                                color: "#000",
-                                // backgroundColor: "#3788c5",
-                                // paddingLeft: "400px",
-                                // height: "600px",
-                                backgroundColor: "#fff",
-                            }}>
+                        {
+                            this.state.blog.length > 0 ?
+                                this.state.blog.map(t =>
+                                    <div className="wrapper-post">
+                                        <div style={{display: "flex", background: "#fafafa", padding: "10px", borderRadius: "20px 20px 0 0 "}}>
+                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                <Avatar src={target} sx={{ width: 70, height: 70 }}></Avatar>
+                                            </div>
+                                            <div className="name-account">
+                                                <div>@targetboost</div>
+                                                <div style={{fontSize: "10px", color: "#609eee"}}>Администратор</div>
+                                            </div>
+                                        </div>
 
-                                <h2>Как начать получать доход от социальных сетей?</h2>
-                                <div className="navigation-preview">
-                                    <div className="block-text-pre">
-                                        Услуга получения дохода от Telegram-канала за размещение рекламы - это способ заработка денег на своем канале в Telegram. Суть услуги заключается в том, что владелец канала получает деньги за размещение рекламных постов на своей странице.
-                                        <br/>
-                                        <br/>
-                                        Как это работает? Рекламодатели обращаются к владельцам каналов с предложением разместить рекламу на их страницах. Владелец канала может выбрать, какую рекламу публиковать и какую сумму за это получать.
-                                        <br/>
-                                        <br/>
-                                        Для заработка на размещении рекламы на канале необходимо иметь активную аудиторию. Чем больше подписчиков и живых комментариев на канале, тем больше возможности заработать на рекламе.
-                                        <br/>
-                                        <br/>
-                                        Владельцы каналов могут выкладывать рекламные посты как в текстовом, так и в графическом виде. Каждый раз, когда пользователи переходят по ссылке на рекламу, владелец канала получает дополнительный доход.
-                                        <br/>
-                                        <br/>
-                                        Также стоит учитывать, что размещать рекламу нужно умеренно, чтобы не потерять своих подписчиков и не навредить репутации своего канала. Лучше всего составить чёткие правила размещения рекламы и не отклоняться от них.
+                                        <div className="block-default-pre" style={{
+                                            // backgroundImage: `url(${background_tg})`,
+                                            backgroundPosition: "left -100px top 50%",
+                                            // backgroundAttachment: "fixed",
+                                            backgroundSize: "1100px, auto",
+                                            backgroundRepeat: "no-repeat",
+                                            color: "#000",
+                                            // backgroundColor: "#3788c5",
+                                            // paddingLeft: "400px",
+                                            // height: "600px",
+                                            backgroundColor: "#fff",
+                                        }}>
 
-                                        В общем, получение дохода от Telegram-канала за размещение рекламы - это хороший способ получать дополнительный доход, если у вас есть активная аудитория на канале и вы знаете, как правильно размещать рекламу.
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="wrapper-comment">
-                                <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                    <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
-                                        {
-                                            store.user.mainPhoto !== "" ?
-                                                <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 40, height: 40 }}></Avatar>
-                                                :
-                                                <Avatar sx={{ width: 40, height: 40 }}></Avatar>
-                                        }
-                                    </div>
-                                    {
-                                        store.user.auth ?
-                                            <>
-                                                <input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />
-                                                <div className="send-message">
-                                                    <img src={send} style={{maxWidth: "40px"}} alt="send"/>
+                                            <h2>Как начать получать доход от социальных сетей?</h2>
+                                            <div className="navigation-preview">
+                                                <div className="block-text-pre">
+                                                    {t.text}
                                                 </div>
-                                            </>
-                                            :
-                                            <input className="input-default-comment" placeholder="Войдите в аккаунт чтобы написать комментарий" disabled/>
-
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                        <div className="wrapper-post">
-                            <div style={{display: "flex", background: "#fafafa", padding: "10px", borderRadius: "20px 20px 0 0 "}}>
-                                <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                                    <Avatar src={target} sx={{ width: 70, height: 70 }}></Avatar>
-                                </div>
-                                <div className="name-account">
-                                    <div>@targetboost</div>
-                                    <div style={{fontSize: "10px", color: "#609eee"}}>Администратор</div>
-                                </div>
-                            </div>
-                            <div className="block-default-pre" style={{
-                                // backgroundImage: `url(${background_tg})`,
-                                backgroundPosition: "left -100px top 50%",
-                                // backgroundAttachment: "fixed",
-                                backgroundSize: "1100px, auto",
-                                backgroundRepeat: "no-repeat",
-                                color: "#000",
-                                // backgroundColor: "#3788c5",
-                                // paddingLeft: "400px",
-                                // height: "600px",
-                                backgroundColor: "#fff",
-                            }}>
-                                <h2>Как начать получать доход от социальных сетей?</h2>
-                                <div className="navigation-preview">
-                                    <div className="block-text-pre">
-                                        Услуга получения дохода от Telegram-канала за размещение рекламы - это способ заработка денег на своем канале в Telegram. Суть услуги заключается в том, что владелец канала получает деньги за размещение рекламных постов на своей странице.
-                                        <br/>
-                                        <br/>
-                                        Как это работает? Рекламодатели обращаются к владельцам каналов с предложением разместить рекламу на их страницах. Владелец канала может выбрать, какую рекламу публиковать и какую сумму за это получать.
-                                        <br/>
-                                        <br/>
-                                        Для заработка на размещении рекламы на канале необходимо иметь активную аудиторию. Чем больше подписчиков и живых комментариев на канале, тем больше возможности заработать на рекламе.
-                                        <br/>
-                                        <br/>
-                                        Владельцы каналов могут выкладывать рекламные посты как в текстовом, так и в графическом виде. Каждый раз, когда пользователи переходят по ссылке на рекламу, владелец канала получает дополнительный доход.
-                                        <br/>
-                                        <br/>
-                                        Также стоит учитывать, что размещать рекламу нужно умеренно, чтобы не потерять своих подписчиков и не навредить репутации своего канала. Лучше всего составить чёткие правила размещения рекламы и не отклоняться от них.
-
-                                        В общем, получение дохода от Telegram-канала за размещение рекламы - это хороший способ получать дополнительный доход, если у вас есть активная аудитория на канале и вы знаете, как правильно размещать рекламу.
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="wrapper-comment">
-                                <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                    <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
-                                        {
-                                            store.user.mainPhoto !== "" ?
-                                                <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 40, height: 40 }}></Avatar>
-                                                :
-                                                <Avatar sx={{ width: 40, height: 40 }}></Avatar>
-                                        }
-                                    </div>
-                                    {
-                                        store.user.auth ?
-                                            <>
-                                                <input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />
-                                                <div className="send-message">
-                                                    <img src={send} style={{maxWidth: "40px"}} alt="send"/>
+                                            </div>
+                                        </div>
+                                        <div className="wrapper-comment">
+                                            <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
+                                                <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                    {
+                                                        store.user.mainPhoto !== "" ?
+                                                            <Avatar src={`/core/v1/file_ch/${store.user.mainPhoto}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                            :
+                                                            <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                    }
                                                 </div>
-                                            </>
-                                        :
-                                            <input className="input-default-comment" placeholder="Войдите в аккаунт чтобы написать комментарий" disabled/>
+                                                {
+                                                    store.user.auth ?
+                                                        <>
+                                                            <input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />
+                                                            <div className="send-message">
+                                                                <img src={send} style={{maxWidth: "40px"}} alt="send"/>
+                                                            </div>
+                                                        </>
+                                                        :
+                                                        <input className="input-default-comment" placeholder="Войдите в аккаунт чтобы написать комментарий" disabled/>
 
-                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                                :
+                                null
+                        }
 
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div className="wrapper-fixed">
                         <div className="block-default-pre" style={{

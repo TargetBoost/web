@@ -128,6 +128,7 @@ p {
     justify-content: center;
     align-items: center;
     height: 200px;
+    white-space: pre-wrap;
 }
 
 .task-wall {

@@ -482,7 +482,7 @@ class Blog extends Component{
                                             // height: "600px",
                                             backgroundColor: "#fff",
                                         }}>
-                                            <h2>Как начать получать доход от социальных сетей?</h2>
+                                            <h2>{t.subject}</h2>
                                             <div className="navigation-preview">
                                                 <div className="block-text-pre">
                                                     <p>

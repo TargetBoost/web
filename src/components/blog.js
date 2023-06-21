@@ -484,8 +484,9 @@ class Blog extends Component{
                                             <h2>Как начать получать доход от социальных сетей?</h2>
                                             <div className="navigation-preview">
                                                 <div className="block-text-pre">
-
-                                                    {t.text}
+                                                    <p>
+                                                        {t.text}
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>

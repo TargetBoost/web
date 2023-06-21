@@ -495,7 +495,17 @@ class Blog extends Component{
                                             {
                                                 t.comments.length > 0 ?
                                                     t.comments.map(c =>
-                                                        <p>{c.text}</p>
+                                                        <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
+                                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                                {
+                                                                    store.user.mainPhoto !== "" ?
+                                                                        <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                                        :
+                                                                        <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                                }
+                                                            </div>
+                                                            {c.text}
+                                                        </div>
                                                     )
                                                 :
                                                     <div className="alert-small">

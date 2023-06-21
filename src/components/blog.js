@@ -518,7 +518,7 @@ class Blog extends Component{
                                                             </div>
                                                             <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
                                                                 <div>{c.login}</div>
-                                                                <div style={{fontSize: "10px"}}>{c.text}</div>
+                                                                <div style={{fontSize: "14px"}}>{c.text}</div>
                                                             </div>
                                                         </div>
                                                     )

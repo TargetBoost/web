@@ -255,7 +255,7 @@ class Blog extends Component{
             text: this.refCommentInput.current.text
         }
 
-        fetch("/core/v1/blog/comment", {
+        fetch("/core/v1/service/blog/comment", {
             method: "POST",
             body: JSON.stringify(data)
         })

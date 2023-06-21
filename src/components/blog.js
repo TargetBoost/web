@@ -556,7 +556,7 @@ class Blog extends Component{
                                                     t.comments.map(c =>
                                                         c.parent ?
                                                             <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                                                <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                                <div style={{ marginRight: "10px"}}>
                                                                     {
                                                                         c.main_image !== "" ?
                                                                             <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
@@ -564,11 +564,11 @@ class Blog extends Component{
                                                                             <Avatar sx={{ width: 40, height: 40 }}></Avatar>
                                                                     }
                                                                 </div>
-                                                                <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
+                                                                <div className="name-account" style={{fontSize: "13px", padding: "8px", width: "100%"}}>
                                                                     <div>{c.login}</div>
                                                                     {/*parent*/}
-                                                                    <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                                                        <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                                    <div style={{display: "flex", padding: "10px", borderRadius: "20px", width: "100%", background: "#fafafa", margin: "5px 0 5px 0"}}>
+                                                                        <div style={{ marginRight: "10px"}}>
                                                                             {
                                                                                 c.parent.main_image !== "" ?
                                                                                     <Avatar src={`/core/v1/file_ch/${c.parent.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
@@ -576,7 +576,7 @@ class Blog extends Component{
                                                                                     <Avatar sx={{ width: 40, height: 40 }}></Avatar>
                                                                             }
                                                                         </div>
-                                                                        <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
+                                                                        <div className="name-account" style={{fontSize: "13px", padding: "8px", width: "100%"}}>
                                                                             <div>{c.parent.login}</div>
                                                                             <div style={{fontSize: "14px"}}>{c.parent.text}</div>
                                                                         </div>
@@ -586,8 +586,8 @@ class Blog extends Component{
                                                                 </div>
                                                             </div>
                                                         :
-                                                            <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                                                <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                            <div style={{display: "flex", padding: "10px", borderRadius: "20px", width: "100%"}}>
+                                                                <div style={{marginRight: "10px"}}>
                                                                     {
                                                                         c.main_image !== "" ?
                                                                             <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
@@ -595,7 +595,7 @@ class Blog extends Component{
                                                                             <Avatar sx={{ width: 40, height: 40 }}></Avatar>
                                                                     }
                                                                 </div>
-                                                                <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
+                                                                <div className="name-account" style={{fontSize: "13px", padding: "8px", width: "100%"}}>
                                                                     <div>{c.login}</div>
                                                                     <div style={{fontSize: "14px"}}>{c.text}</div>
                                                                 </div>

@@ -495,7 +495,7 @@ class Blog extends Component{
                                             {
                                                 t.comments.length > 0 ?
                                                     t.comments.map(c =>
-                                                        <p>{c}</p>
+                                                        <p>{c.text}</p>
                                                     )
                                                 :
                                                     <div className="alert-small">

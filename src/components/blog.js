@@ -250,6 +250,12 @@ class Blog extends Component{
         }
     };
 
+    handleKeyDownComment = (event) => {
+        if (event.key === 'Enter') {
+            this.createComment(e)
+        }
+    }
+
     createComment = (e) => {
         let ref = this.refCommentInput.current
         let data = {
@@ -594,7 +600,7 @@ class Blog extends Component{
                                                         <>
                                                             {/*<input className="input-default-comment" placeholder="Комментировать пока нельзя" disabled/>*/}
 
-                                                            <input className="input-default-comment" ref={this.refCommentInput} placeholder="Напишите здесь свой комментарий" />
+                                                            <input className="input-default-comment" ref={this.refCommentInput} target={t.ID} onKeyDown={this.handleKeyDownComment} placeholder="Напишите здесь свой комментарий" />
                                                             <div className="send-message" target={t.ID} onClick={this.createComment}>
                                                                 <img src={send} style={{maxWidth: "40px"}} target={t.ID}  alt="send"/>
                                                             </div>

@@ -492,6 +492,16 @@ class Blog extends Component{
                                             </div>
                                         </div>
                                         <div className="wrapper-comment">
+                                            {
+                                                t.comments.length > 0 ?
+                                                    t.comments.map(c =>
+                                                        <p>{c}</p>
+                                                    )
+                                                :
+                                                    <div className="alert">
+                                                        Комментариев пока нет
+                                                    </div>
+                                            }
                                             <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
                                                 <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
                                                     {

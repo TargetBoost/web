@@ -257,6 +257,9 @@ class Blog extends Component{
             cid: Number(e.target.getAttribute("target"))
         }
 
+        if (data.text.length < 1){
+            return
+        }
 
         fetch("/core/v1/service/blog/comment", {
             method: "POST",

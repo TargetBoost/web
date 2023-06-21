@@ -427,6 +427,7 @@ class Blog extends Component{
                 <div className="wrapper-view-place">
                     <div style={{
                         marginRight: "20px",
+                        width: "100%"
                     }}>
                         {
                             store.user.admin === true ?

@@ -498,7 +498,7 @@ class Blog extends Component{
                                                         <p>{c}</p>
                                                     )
                                                 :
-                                                    <div className="alert">
+                                                    <div className="alert-small">
                                                         Комментариев пока нет
                                                     </div>
                                             }

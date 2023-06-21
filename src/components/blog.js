@@ -586,7 +586,7 @@ class Blog extends Component{
                                                                 </div>
                                                             </div>
                                                         :
-                                                            <div style={{display: "flex", padding: "10px", borderRadius: "20px", width: "100%"}}>
+                                                            <div className="comment-wrapper"  style={{display: "flex", padding: "10px", borderRadius: "20px", width: "100%"}}>
                                                                 <div style={{marginRight: "10px", padding: "8px"}}>
                                                                     {
                                                                         c.main_image !== "" ?

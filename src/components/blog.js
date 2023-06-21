@@ -556,7 +556,7 @@ class Blog extends Component{
                                                     t.comments.map(c =>
                                                         c.parent ?
                                                             <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                                                <div style={{ marginRight: "10px"}}>
+                                                                <div style={{ marginRight: "10px", padding: "8px"}}>
                                                                     {
                                                                         c.main_image !== "" ?
                                                                             <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
@@ -568,7 +568,7 @@ class Blog extends Component{
                                                                     <div>{c.login}</div>
                                                                     {/*parent*/}
                                                                     <div style={{display: "flex", padding: "10px", borderRadius: "20px", width: "100%", background: "#fafafa", margin: "5px 0 5px 0"}}>
-                                                                        <div style={{ marginRight: "10px"}}>
+                                                                        <div style={{ marginRight: "10px", padding: "8px"}}>
                                                                             {
                                                                                 c.parent.main_image !== "" ?
                                                                                     <Avatar src={`/core/v1/file_ch/${c.parent.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
@@ -587,7 +587,7 @@ class Blog extends Component{
                                                             </div>
                                                         :
                                                             <div style={{display: "flex", padding: "10px", borderRadius: "20px", width: "100%"}}>
-                                                                <div style={{marginRight: "10px"}}>
+                                                                <div style={{marginRight: "10px", padding: "8px"}}>
                                                                     {
                                                                         c.main_image !== "" ?
                                                                             <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>

@@ -257,6 +257,7 @@ class Blog extends Component{
             c_id: e.target.getAttribute("id")
         }
 
+
         fetch("/core/v1/service/blog/comment", {
             method: "POST",
             headers: {
@@ -572,8 +573,8 @@ class Blog extends Component{
                                                             {/*<input className="input-default-comment" placeholder="Комментировать пока нельзя" disabled/>*/}
 
                                                             <input className="input-default-comment" ref={this.refCommentInput} placeholder="Напишите здесь свой комментарий" />
-                                                            <div className="send-message" id={t.id} onClick={this.createComment}>
-                                                                <img src={send} style={{maxWidth: "40px"}} id={t.id}  alt="send"/>
+                                                            <div className="send-message" target={t.ID} onClick={this.createComment}>
+                                                                <img src={send} style={{maxWidth: "40px"}} target={t.ID}  alt="send"/>
                                                             </div>
                                                         </>
                                                         :

@@ -554,55 +554,52 @@ class Blog extends Component{
                                             {
                                                 t.comments.length > 0 ?
                                                     t.comments.map(c =>
-                                                        {
-                                                            c.parent !== null ?
-                                                                <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                                                    <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
-                                                                        {
-                                                                            c.main_image !== "" ?
-                                                                                <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
-                                                                                :
-                                                                                <Avatar sx={{ width: 40, height: 40 }}></Avatar>
-                                                                        }
-                                                                    </div>
-                                                                    <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
-                                                                        <div>{c.login}</div>
-                                                                        {/*parent*/}
-                                                                        <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
-                                                                                {
-                                                                                    c.parent.main_image !== "" ?
-                                                                                        <Avatar src={`/core/v1/file_ch/${c.parent.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
-                                                                                        :
-                                                                                        <Avatar sx={{ width: 40, height: 40 }}></Avatar>
-                                                                                }
-                                                                            </div>
-                                                                            <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
-                                                                                <div>{c.parent.login}</div>
-                                                                                <div style={{fontSize: "14px"}}>{c.parent.text}</div>
-                                                                            </div>
+                                                        c.parent ?
+                                                            <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
+                                                                <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                                    {
+                                                                        c.main_image !== "" ?
+                                                                            <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                                            :
+                                                                            <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                                    }
+                                                                </div>
+                                                                <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
+                                                                    <div>{c.login}</div>
+                                                                    {/*parent*/}
+                                                                    <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
+                                                                        <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                                            {
+                                                                                c.parent.main_image !== "" ?
+                                                                                    <Avatar src={`/core/v1/file_ch/${c.parent.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                                                    :
+                                                                                    <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                                            }
                                                                         </div>
-                                                                        {/*parent*/}
-                                                                        <div style={{fontSize: "14px"}}>{c.text}</div>
+                                                                        <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
+                                                                            <div>{c.parent.login}</div>
+                                                                            <div style={{fontSize: "14px"}}>{c.parent.text}</div>
+                                                                        </div>
                                                                     </div>
+                                                                    {/*parent*/}
+                                                                    <div style={{fontSize: "14px"}}>{c.text}</div>
                                                                 </div>
-                                                            :
-                                                                <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                                                    <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
-                                                                        {
-                                                                            c.main_image !== "" ?
-                                                                                <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
-                                                                                :
-                                                                                <Avatar sx={{ width: 40, height: 40 }}></Avatar>
-                                                                        }
-                                                                    </div>
-                                                                    <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
-                                                                        <div>{c.login}</div>
-                                                                        <div style={{fontSize: "14px"}}>{c.text}</div>
-                                                                    </div>
+                                                            </div>
+                                                        :
+                                                            <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
+                                                                <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                                    {
+                                                                        c.main_image !== "" ?
+                                                                            <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                                            :
+                                                                            <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                                    }
                                                                 </div>
-                                                        }
-
+                                                                <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
+                                                                    <div>{c.login}</div>
+                                                                    <div style={{fontSize: "14px"}}>{c.text}</div>
+                                                                </div>
+                                                            </div>
                                                     )
                                                 :
                                                     <div className="alert-small">

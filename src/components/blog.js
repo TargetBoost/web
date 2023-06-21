@@ -250,9 +250,10 @@ class Blog extends Component{
         }
     };
 
-    createComment = () => {
+    createComment = (e) => {
         let data = {
-            text: this.refCommentInput.current.value
+            text: this.refCommentInput.current.value,
+            c_id: e.target.getAttribute("id")
         }
 
         fetch("/core/v1/service/blog/comment", {
@@ -570,7 +571,7 @@ class Blog extends Component{
                                                             {/*<input className="input-default-comment" placeholder="Комментировать пока нельзя" disabled/>*/}
 
                                                             <input className="input-default-comment" ref={this.refCommentInput} placeholder="Напишите здесь свой комментарий" />
-                                                            <div className="send-message" onClick={this.createComment}>
+                                                            <div className="send-message" id={t.id} onClick={this.createComment}>
                                                                 <img src={send} style={{maxWidth: "40px"}} alt="send"/>
                                                             </div>
                                                         </>

@@ -493,7 +493,7 @@ class Blog extends Component{
                                         </div>
                                         <div className="wrapper-comment">
                                             {
-                                                t.comments !== null ?
+                                                t.comments > 0 ?
                                                     t.comments.map(c =>
                                                         <p>{c}</p>
                                                     )

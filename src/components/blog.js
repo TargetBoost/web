@@ -51,6 +51,7 @@ class Blog extends Component{
 
     refObj = React.createRef();
     refTextArea = React.createRef();
+    refCommentInput = React.createRef();
 
 
     login = () => {
@@ -248,6 +249,30 @@ class Blog extends Component{
             this.refObj.current.style.position = ""
         }
     };
+
+    createComment = () => {
+        let data = {
+            text: this.refCommentInput.current.text
+        }
+
+        fetch("/core/v1/blog/comment", {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message == null) {
+
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
 
     render() {
         let store = this.state.store.getState()
@@ -539,12 +564,12 @@ class Blog extends Component{
                                                 {
                                                     store.user.auth ?
                                                         <>
-                                                            <input className="input-default-comment" placeholder="Комментировать пока нельзя" disabled/>
+                                                            {/*<input className="input-default-comment" placeholder="Комментировать пока нельзя" disabled/>*/}
 
-                                                            {/*<input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />*/}
-                                                            {/*<div className="send-message">*/}
-                                                            {/*    <img src={send} style={{maxWidth: "40px"}} alt="send"/>*/}
-                                                            {/*</div>*/}
+                                                            <input className="input-default-comment" ref={this.refCommentInput} placeholder="Напишите здесь свой комментарий" />
+                                                            <div className="send-message" onClick={this.createComment}>
+                                                                <img src={send} style={{maxWidth: "40px"}} alt="send"/>
+                                                            </div>
                                                         </>
                                                         :
                                                         <input className="input-default-comment" placeholder="Войдите в аккаунт чтобы написать комментарий" disabled/>

@@ -251,8 +251,9 @@ class Blog extends Component{
     };
 
     createComment = (e) => {
+        let ref = this.refCommentInput.current
         let data = {
-            text: this.refCommentInput.current.value,
+            text: ref.value,
             c_id: e.target.getAttribute("id")
         }
 
@@ -266,7 +267,7 @@ class Blog extends Component{
             .then(response => response.json())
             .then(res => {
                 if (res.status.message == null) {
-
+                    ref.value = ""
                 }else{
                     this.state.store.dispatch({
                         type: "set_error", value: res.status.message,

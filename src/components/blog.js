@@ -254,7 +254,7 @@ class Blog extends Component{
         let ref = this.refCommentInput.current
         let data = {
             text: ref.value,
-            cid: e.target.getAttribute("target")
+            cid: Number(e.target.getAttribute("target"))
         }
 
 

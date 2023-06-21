@@ -507,7 +507,7 @@ class Blog extends Component{
                                                         //     {c.text}
                                                         // </div>
 
-                                                        <div style={{display: "flex", background: "#fafafa", padding: "10px", borderRadius: "20px 20px 0 0 "}}>
+                                                        <div style={{display: "flex", background: "#fafafa", padding: "10px", borderRadius: "20px"}}>
                                                             <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                                                                 {
                                                                     store.user.mainPhoto !== "" ?

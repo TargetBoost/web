@@ -51,6 +51,7 @@ class Blog extends Component{
 
     refObj = React.createRef();
     refTextArea = React.createRef();
+    refCommentInput = React.createRef();
 
 
     login = () => {
@@ -248,6 +249,64 @@ class Blog extends Component{
             this.refObj.current.style.position = ""
         }
     };
+
+    handleKeyDownComment = (event) => {
+        if (event.key === 'Enter') {
+            this.createComment()
+        }
+    }
+
+    createComment = (e) => {
+        let ref = this.refCommentInput.current
+        let data = {
+            text: ref.value,
+            cid: Number(e.target.getAttribute("target"))
+        }
+
+        if (data.text.length < 1){
+            return
+        }
+
+        fetch("/core/v1/service/blog/comment", {
+            method: "POST",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(res => {
+                if (res.status.message == null) {
+                    ref.value = ""
+                    fetch("/core/v1/blog", {
+                        method: "GET"
+                    })
+                        .then(response => response.json())
+                        .then(res => {
+                            if (res.status.message == null) {
+                                this.setState({blogs: res.data})
+                            }else{
+                                console.log(res)
+                                // this.state.store.dispatch({
+                                //     type: "set_error", value: "Не правельный логин или пароль",
+                                // })
+                                //
+                                // document.getElementById("password").value = ""
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        });
+                }else{
+                    this.state.store.dispatch({
+                        type: "set_error", value: res.status.message,
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
 
     render() {
         let store = this.state.store.getState()
@@ -492,6 +551,41 @@ class Blog extends Component{
                                             </div>
                                         </div>
                                         <div className="wrapper-comment">
+                                            {
+                                                t.comments.length > 0 ?
+                                                    t.comments.map(c =>
+                                                        // <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
+                                                        //     <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                        //         {
+                                                        //             store.user.mainPhoto !== "" ?
+                                                        //                 <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                        //                 :
+                                                        //                 <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                        //         }
+                                                        //     </div>
+                                                        //     {c.text}
+                                                        // </div>
+
+                                                        <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
+                                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                                {
+                                                                    store.user.mainPhoto !== "" ?
+                                                                        <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                                        :
+                                                                        <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                                }
+                                                            </div>
+                                                            <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
+                                                                <div>{c.login}</div>
+                                                                <div style={{fontSize: "14px"}}>{c.text}</div>
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                :
+                                                    <div className="alert-small">
+                                                        Комментариев пока нет
+                                                    </div>
+                                            }
                                             <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
                                                 <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
                                                     {
@@ -504,12 +598,12 @@ class Blog extends Component{
                                                 {
                                                     store.user.auth ?
                                                         <>
-                                                            <input className="input-default-comment" placeholder="Комментировать пока нельзя" disabled/>
+                                                            {/*<input className="input-default-comment" placeholder="Комментировать пока нельзя" disabled/>*/}
 
-                                                            {/*<input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />*/}
-                                                            {/*<div className="send-message">*/}
-                                                            {/*    <img src={send} style={{maxWidth: "40px"}} alt="send"/>*/}
-                                                            {/*</div>*/}
+                                                            <input className="input-default-comment" ref={this.refCommentInput} target={t.ID} onKeyDown={this.handleKeyDownComment} placeholder="Напишите здесь свой комментарий" />
+                                                            <div className="send-message" target={t.ID} onClick={this.createComment}>
+                                                                <img src={send} style={{maxWidth: "40px"}} target={t.ID}  alt="send"/>
+                                                            </div>
                                                         </>
                                                         :
                                                         <input className="input-default-comment" placeholder="Войдите в аккаунт чтобы написать комментарий" disabled/>

@@ -257,6 +257,9 @@ class Blog extends Component{
 
         fetch("/core/v1/service/blog/comment", {
             method: "POST",
+            headers: {
+                "Authorization": window.localStorage.getItem("token")
+            },
             body: JSON.stringify(data)
         })
             .then(response => response.json())

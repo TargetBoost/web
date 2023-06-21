@@ -567,7 +567,10 @@ class Blog extends Component{
                                                                 <div className="name-account" style={{fontSize: "13px", padding: "8px", width: "100%"}}>
                                                                     <div>{c.login}</div>
                                                                     {/*parent*/}
-                                                                    <div style={{display: "flex", padding: "10px", borderRadius: "20px", width: "100%", background: "#fafafa", margin: "5px 0 5px 0"}}>
+                                                                    <div style={{display: "flex", padding: "10px", borderRadius: "20px", width: "100%", margin: "5px 0 5px 0"}}>
+                                                                        <div style={{marginRight: "10px", padding: "8px", background: "#dcdcdc", width: "10px", height: "100%"}}>
+
+                                                                        </div>
                                                                         <div style={{ marginRight: "10px", padding: "8px"}}>
                                                                             {
                                                                                 c.parent.main_image !== "" ?

@@ -504,7 +504,7 @@ class Blog extends Component{
                                                 {
                                                     store.user.auth ?
                                                         <>
-                                                            <input className="input-default-comment" placeholder="Прокоментировать пока нельзя" disabled/>
+                                                            <input className="input-default-comment" placeholder="Комментировать пока нельзя" disabled/>
 
                                                             {/*<input className="input-default-comment" placeholder="Напишите здесь свой комментарий" />*/}
                                                             {/*<div className="send-message">*/}

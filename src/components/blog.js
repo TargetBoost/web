@@ -269,6 +269,25 @@ class Blog extends Component{
             .then(res => {
                 if (res.status.message == null) {
                     ref.value = ""
+                    fetch("/core/v1/blog", {
+                        method: "GET"
+                    })
+                        .then(response => response.json())
+                        .then(res => {
+                            if (res.status.message == null) {
+                                this.setState({blogs: res.data})
+                            }else{
+                                console.log(res)
+                                // this.state.store.dispatch({
+                                //     type: "set_error", value: "Не правельный логин или пароль",
+                                // })
+                                //
+                                // document.getElementById("password").value = ""
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        });
                 }else{
                     this.state.store.dispatch({
                         type: "set_error", value: res.status.message,

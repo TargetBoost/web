@@ -495,8 +495,20 @@ class Blog extends Component{
                                             {
                                                 t.comments.length > 0 ?
                                                     t.comments.map(c =>
-                                                        <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                        // <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
+                                                        //     <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
+                                                        //         {
+                                                        //             store.user.mainPhoto !== "" ?
+                                                        //                 <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                        //                 :
+                                                        //                 <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                        //         }
+                                                        //     </div>
+                                                        //     {c.text}
+                                                        // </div>
+
+                                                        <div style={{display: "flex", background: "#fafafa", padding: "10px", borderRadius: "20px 20px 0 0 "}}>
+                                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                                                                 {
                                                                     store.user.mainPhoto !== "" ?
                                                                         <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
@@ -504,7 +516,10 @@ class Blog extends Component{
                                                                         <Avatar sx={{ width: 40, height: 40 }}></Avatar>
                                                                 }
                                                             </div>
-                                                            {c.text}
+                                                            <div className="name-account">
+                                                                <div>{c.login}</div>
+                                                                <div style={{fontSize: "10px"}}>{c.text}</div>
+                                                            </div>
                                                         </div>
                                                     )
                                                 :

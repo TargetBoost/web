@@ -252,7 +252,7 @@ class Blog extends Component{
 
     handleKeyDownComment = (event) => {
         if (event.key === 'Enter') {
-            this.createComment(e)
+            this.createComment()
         }
     }
 

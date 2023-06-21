@@ -426,7 +426,7 @@ class Blog extends Component{
                     </Slider>
                 <div className="wrapper-view-place">
                     <div style={{
-                        marginRight: "20px",
+                        marginRight: "10px",
                         width: "100%"
                     }}>
                         {

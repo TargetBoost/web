@@ -685,7 +685,7 @@ class Targets extends Component{
 
                                     <div className="block-default-pre">
                                         <div className="alert">
-                                               Скоро мы запустим бета тестирование
+                                               Скоро мы запустим бета-тестирование
                                          </div>
                                     </div>
                                     {/*<div className="block-default-pre" style={{fontSize: "13px", background: "#fcf3e2"}}>*/}

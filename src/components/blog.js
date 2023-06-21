@@ -25,7 +25,7 @@ class Blog extends Component{
             regShow: true,
             store: this.props.store,
             showPopUp: false,
-            blog: [],
+            blogs: [],
         }
 
         this.state.store.subscribe(() => {
@@ -209,7 +209,7 @@ class Blog extends Component{
             .then(response => response.json())
             .then(res => {
                 if (res.status.message == null) {
-                    this.setState({blog: res.data})
+                    this.setState({blogs: res.data})
                 }else{
                     console.log(res)
                     // this.state.store.dispatch({
@@ -457,8 +457,8 @@ class Blog extends Component{
                         }
 
                         {
-                            this.state.blog.length > 0 ?
-                                this.state.blog.map(t =>
+                            this.state.blogs.length > 0 ?
+                                this.state.blogs.map(t =>
                                     <div className="wrapper-post">
                                         <div style={{display: "flex", background: "#fafafa", padding: "10px", borderRadius: "20px 20px 0 0 "}}>
                                             <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
@@ -469,7 +469,6 @@ class Blog extends Component{
                                                 <div style={{fontSize: "10px", color: "#609eee"}}>Администратор</div>
                                             </div>
                                         </div>
-
                                         <div className="block-default-pre" style={{
                                             // backgroundImage: `url(${background_tg})`,
                                             backgroundPosition: "left -100px top 50%",
@@ -482,10 +481,10 @@ class Blog extends Component{
                                             // height: "600px",
                                             backgroundColor: "#fff",
                                         }}>
-
                                             <h2>Как начать получать доход от социальных сетей?</h2>
                                             <div className="navigation-preview">
                                                 <div className="block-text-pre">
+
                                                     {t.text}
                                                 </div>
                                             </div>

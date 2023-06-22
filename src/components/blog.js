@@ -634,7 +634,7 @@ class Blog extends Component{
                                                             <div>{this.state.parent.login}</div>
                                                             <div style={{fontSize: "14px"}}>{this.state.parent.text}</div>
                                                         </div>
-                                                        <div style={{ marginRight: "10px", padding: "8px"}}>
+                                                        <div style={{ marginRight: "10px", padding: "8px", width: "106px"}}>
                                                             <div className="underline unselectable" onClick={()=> this.setState({isParent: false, parent: null})}>Отменить</div>
                                                         </div>
                                                     </div>

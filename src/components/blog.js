@@ -617,9 +617,9 @@ class Blog extends Component{
                                             {
                                                 this.state.isParent ?
                                                     <div style={{display: "flex", padding: "10px", background: "#fafafa", width: "100%", margin: "5px 0 5px 0", wordBreak: "break-all"}}>
-                                                        <div style={{padding: "8px", marginRight: "10px"}}>
-                                                            <img src={re} style={{maxWidth: "25px"}}  alt="re"/>
-                                                        </div>
+                                                        {/*<div style={{padding: "8px", marginRight: "10px"}}>*/}
+                                                        {/*    <img src={re} style={{maxWidth: "25px"}}  alt="re"/>*/}
+                                                        {/*</div>*/}
                                                         <div style={{marginRight: "10px", background: "#dcdcdc", width: "3px"}}>
 
                                                         </div>

@@ -316,7 +316,6 @@ class Blog extends Component{
 
     render() {
         let store = this.state.store.getState()
-        console.log(this.state.parent)
         return (
             <>
                 {

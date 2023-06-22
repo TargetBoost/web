@@ -9,11 +9,10 @@ import background_two from "../img/z.webp"
 import background_auth from "../img/ddd_d.webp"
 import target from "../icon/target_new.png"
 import  send from  "../icon/send.png"
+import re from "../icon/re.png"
 
 import InputMask from "react-input-mask";
 import Avatar from "@mui/material/Avatar";
-
-
 
 
 class Blog extends Component{
@@ -561,7 +560,7 @@ class Blog extends Component{
                                                 t.comments.length > 0 ?
                                                     t.comments.map(c =>
                                                         c.parent ?
-                                                            <div className="comment-wrapper" style={{display: "flex", padding: "10px", borderRadius: "20px", wordBreak: "break-all"}} onClick={()=> this.setState({isParent: true, parent: c})}>
+                                                            <div className="comment-wrapper" style={{display: "flex", borderRadius: "20px", wordBreak: "break-all"}} onClick={()=> this.setState({isParent: true, parent: c})}>
                                                                 <div style={{ marginRight: "10px", padding: "8px"}}>
                                                                     {
                                                                         c.main_image !== "" ?
@@ -595,7 +594,7 @@ class Blog extends Component{
                                                                 </div>
                                                             </div>
                                                         :
-                                                            <div className="comment-wrapper"  style={{display: "flex", padding: "10px", borderRadius: "20px", width: "100%", wordBreak: "break-all"}} onClick={()=> this.setState({isParent: true, parent: c})}>
+                                                            <div className="comment-wrapper"  style={{display: "flex", borderRadius: "20px", width: "100%", wordBreak: "break-all"}} onClick={()=> this.setState({isParent: true, parent: c})}>
                                                                 <div style={{marginRight: "10px", padding: "8px"}}>
                                                                     {
                                                                         c.main_image !== "" ?
@@ -618,6 +617,9 @@ class Blog extends Component{
                                             {
                                                 this.state.isParent ?
                                                     <div style={{display: "flex", padding: "10px", background: "#fafafa", width: "100%", margin: "5px 0 5px 0", wordBreak: "break-all"}}>
+                                                        <div style={{padding: "8px", marginRight: "10px"}}>
+                                                            <img src={re} style={{maxWidth: "25px"}}  alt="re"/>
+                                                        </div>
                                                         <div style={{marginRight: "10px", background: "#dcdcdc", width: "3px"}}>
 
                                                         </div>
@@ -633,7 +635,7 @@ class Blog extends Component{
                                                             <div>{this.state.parent.login}</div>
                                                             <div style={{fontSize: "14px"}}>{this.state.parent.text}</div>
                                                         </div>
-                                                        <div style={{ padding: "8px", width: "106px"}}>
+                                                        <div style={{ padding: "8px", width: "116px"}}>
                                                             <div className="underline unselectable" onClick={()=> this.setState({isParent: false, parent: null})}>Отменить</div>
                                                         </div>
                                                     </div>

@@ -652,7 +652,7 @@ class Blog extends Component{
                                                             {/*<input className="input-default-comment" placeholder="Комментировать пока нельзя" disabled/>*/}
 
                                                             <input className="input-default-comment" ref={this.refCommentInput} target={t.ID} parent={this.state.parent?.ID} onKeyDown={this.handleKeyDownComment} placeholder="Напишите здесь свой комментарий" />
-                                                            <div className="send-message" target={t.ID} onClick={this.createComment}>
+                                                            <div className="send-message" target={t.ID} parent={this.state.parent?.ID}  onClick={this.createComment}>
                                                                 <img src={send} style={{maxWidth: "40px"}} target={t.ID}  alt="send"/>
                                                             </div>
                                                         </>

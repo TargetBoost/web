@@ -618,7 +618,7 @@ class Blog extends Component{
                                             }
                                             {
                                                 this.state.isParent ?
-                                                    <div style={{display: "flex", padding: "10px", background: "#fafafa", width: "100%", margin: "5px 0 5px 0"}}>
+                                                    <div style={{display: "flex", padding: "10px", background: "#fafafa", width: "100%", margin: "5px 0 5px 0", wordBreak: "break-all"}}>
                                                         <div style={{marginRight: "10px", background: "#dcdcdc", width: "3px"}}>
 
                                                         </div>

@@ -245,7 +245,7 @@ class Blog extends Component{
         if (position >= 314){
             if (this.refObj.current.style !== undefined){
                 this.refObj.current.style.position = "fixed"
-                this.refObj.current.style.top = "80px"
+                this.refObj.current.style.top = "70px"
             }
         }else{
             this.refObj.current.style.position = ""

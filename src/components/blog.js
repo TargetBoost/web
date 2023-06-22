@@ -26,6 +26,8 @@ class Blog extends Component{
             store: this.props.store,
             showPopUp: false,
             blogs: [],
+            isParent: false,
+            parent: null,
         }
 
         this.state.store.subscribe(() => {
@@ -243,7 +245,7 @@ class Blog extends Component{
         if (position >= 314){
             if (this.refObj.current.style !== undefined){
                 this.refObj.current.style.position = "fixed"
-                this.refObj.current.style.top = "80px"
+                this.refObj.current.style.top = "70px"
             }
         }else{
             this.refObj.current.style.position = ""
@@ -252,7 +254,7 @@ class Blog extends Component{
 
     handleKeyDownComment = (event) => {
         if (event.key === 'Enter') {
-            this.createComment()
+            this.createComment(event)
         }
     }
 
@@ -260,12 +262,15 @@ class Blog extends Component{
         let ref = this.refCommentInput.current
         let data = {
             text: ref.value,
-            cid: Number(e.target.getAttribute("target"))
+            cid: Number(e.target.getAttribute("target")),
+            parent_id: Number(e.target.getAttribute("parent") ? e.target.getAttribute("parent") : 0)
         }
 
         if (data.text.length < 1){
             return
         }
+
+
 
         fetch("/core/v1/service/blog/comment", {
             method: "POST",
@@ -278,6 +283,7 @@ class Blog extends Component{
             .then(res => {
                 if (res.status.message == null) {
                     ref.value = ""
+                    this.setState({isParent: false, parent: null})
                     fetch("/core/v1/blog", {
                         method: "GET"
                     })
@@ -310,6 +316,7 @@ class Blog extends Component{
 
     render() {
         let store = this.state.store.getState()
+        console.log(this.state.parent)
         return (
             <>
                 {
@@ -554,37 +561,85 @@ class Blog extends Component{
                                             {
                                                 t.comments.length > 0 ?
                                                     t.comments.map(c =>
-                                                        // <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                                        //     <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
-                                                        //         {
-                                                        //             store.user.mainPhoto !== "" ?
-                                                        //                 <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
-                                                        //                 :
-                                                        //                 <Avatar sx={{ width: 40, height: 40 }}></Avatar>
-                                                        //         }
-                                                        //     </div>
-                                                        //     {c.text}
-                                                        // </div>
+                                                        c.parent ?
+                                                            <div className="comment-wrapper" style={{display: "flex", padding: "10px", borderRadius: "20px"}} onClick={()=> this.setState({isParent: true, parent: c})}>
+                                                                <div style={{ marginRight: "10px", padding: "8px"}}>
+                                                                    {
+                                                                        c.main_image !== "" ?
+                                                                            <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                                            :
+                                                                            <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                                    }
+                                                                </div>
+                                                                <div className="name-account" style={{fontSize: "13px", padding: "8px", width: "100%"}}>
+                                                                    <div>{c.login}</div>
+                                                                    {/*parent*/}
+                                                                    <div style={{display: "flex", padding: "10px", background: "#fafafa", width: "100%", margin: "5px 0 5px 0"}}>
+                                                                        <div style={{marginRight: "10px", background: "#dcdcdc", width: "3px"}}>
 
-                                                        <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
-                                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
-                                                                {
-                                                                    store.user.mainPhoto !== "" ?
-                                                                        <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
-                                                                        :
-                                                                        <Avatar sx={{ width: 40, height: 40 }}></Avatar>
-                                                                }
+                                                                        </div>
+                                                                        <div style={{ marginRight: "10px", padding: "8px"}}>
+                                                                            {
+                                                                                c.parent.main_image !== "" ?
+                                                                                    <Avatar src={`/core/v1/file_ch/${c.parent.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                                                    :
+                                                                                    <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                                            }
+                                                                        </div>
+                                                                        <div className="name-account" style={{fontSize: "13px", padding: "8px", width: "100%"}}>
+                                                                            <div>{c.parent.login}</div>
+                                                                            <div style={{fontSize: "14px"}}>{c.parent.text}</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    {/*parent*/}
+                                                                    <div style={{fontSize: "14px"}}>{c.text}</div>
+                                                                </div>
                                                             </div>
-                                                            <div className="name-account" style={{fontSize: "13px", padding: "8px"}}>
-                                                                <div>{c.login}</div>
-                                                                <div style={{fontSize: "14px"}}>{c.text}</div>
+                                                        :
+                                                            <div className="comment-wrapper"  style={{display: "flex", padding: "10px", borderRadius: "20px", width: "100%"}} onClick={()=> this.setState({isParent: true, parent: c})}>
+                                                                <div style={{marginRight: "10px", padding: "8px"}}>
+                                                                    {
+                                                                        c.main_image !== "" ?
+                                                                            <Avatar src={`/core/v1/file_ch/${c.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                                            :
+                                                                            <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                                    }
+                                                                </div>
+                                                                <div className="name-account" style={{fontSize: "13px", padding: "8px", width: "100%"}}>
+                                                                    <div>{c.login}</div>
+                                                                    <div style={{fontSize: "14px"}}>{c.text}</div>
+                                                                </div>
                                                             </div>
-                                                        </div>
                                                     )
                                                 :
                                                     <div className="alert-small">
                                                         Комментариев пока нет
                                                     </div>
+                                            }
+                                            {
+                                                this.state.isParent ?
+                                                    <div style={{display: "flex", padding: "10px", background: "#fafafa", width: "100%", margin: "5px 0 5px 0"}}>
+                                                        <div style={{marginRight: "10px", background: "#dcdcdc", width: "3px"}}>
+
+                                                        </div>
+                                                        <div style={{ marginRight: "10px", padding: "8px"}}>
+                                                            {
+                                                                this.state.parent.main_image !== "" ?
+                                                                    <Avatar src={`/core/v1/file_ch/${this.state.parent.main_image}`} sx={{ width: 40, height: 40 }}></Avatar>
+                                                                    :
+                                                                    <Avatar sx={{ width: 40, height: 40 }}></Avatar>
+                                                            }
+                                                        </div>
+                                                        <div className="name-account" style={{fontSize: "13px", padding: "8px", width: "100%"}}>
+                                                            <div>{this.state.parent.login}</div>
+                                                            <div style={{fontSize: "14px"}}>{this.state.parent.text}</div>
+                                                        </div>
+                                                        <div style={{ marginRight: "10px", padding: "8px"}}>
+                                                            <div className="underline unselectable" onClick={()=> this.setState({isParent: false, parent: null})}>Отменить</div>
+                                                        </div>
+                                                    </div>
+                                                    :
+                                                    null
                                             }
                                             <div style={{display: "flex", padding: "10px", borderRadius: "20px"}}>
                                                 <div style={{display: "flex", alignItems: "center", justifyContent: "center", marginRight: "10px"}}>
@@ -600,9 +655,9 @@ class Blog extends Component{
                                                         <>
                                                             {/*<input className="input-default-comment" placeholder="Комментировать пока нельзя" disabled/>*/}
 
-                                                            <input className="input-default-comment" ref={this.refCommentInput} target={t.ID} onKeyDown={this.handleKeyDownComment} placeholder="Напишите здесь свой комментарий" />
-                                                            <div className="send-message" target={t.ID} onClick={this.createComment}>
-                                                                <img src={send} style={{maxWidth: "40px"}} target={t.ID}  alt="send"/>
+                                                            <input className="input-default-comment" ref={this.refCommentInput} target={t.ID} parent={this.state.parent?.id} onKeyDown={this.handleKeyDownComment} placeholder="Напишите здесь свой комментарий" />
+                                                            <div className="send-message" target={t.ID} parent={this.state.parent?.id}  onClick={this.createComment}>
+                                                                <img src={send} style={{maxWidth: "40px"}} target={t.ID} parent={this.state.parent?.id}   alt="send"/>
                                                             </div>
                                                         </>
                                                         :

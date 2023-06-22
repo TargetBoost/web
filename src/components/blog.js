@@ -620,7 +620,7 @@ class Blog extends Component{
                                                         {/*<div style={{padding: "8px", marginRight: "10px"}}>*/}
                                                         {/*    <img src={re} style={{maxWidth: "25px"}}  alt="re"/>*/}
                                                         {/*</div>*/}
-                                                        <div style={{marginRight: "10px", background: "#dcdcdc", width: "3px"}}>
+                                                        <div style={{marginRight: "10px", background: "#dcdcdc", width: "3px", borderRadius: "10px"}}>
 
                                                         </div>
                                                         <div style={{ marginRight: "10px", padding: "8px"}}>

@@ -289,7 +289,8 @@ class App extends Component{
                             id: 0,
                             number: 0,
                             login: null,
-                            auth: false
+                            auth: false,
+                            admin: false,
                         },
                     })
                 }

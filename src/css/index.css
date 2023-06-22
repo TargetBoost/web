@@ -491,6 +491,7 @@ body {
 
 .comment-wrapper:hover {
     background: #fafafa;
+    word-break: break-all;
 }
 
 .wrapper-post {

@@ -9,11 +9,10 @@ import background_two from "../img/z.webp"
 import background_auth from "../img/ddd_d.webp"
 import target from "../icon/target_new.png"
 import  send from  "../icon/send.png"
+import re from "../icon/re.png"
 
 import InputMask from "react-input-mask";
 import Avatar from "@mui/material/Avatar";
-
-
 
 
 class Blog extends Component{
@@ -618,6 +617,9 @@ class Blog extends Component{
                                             {
                                                 this.state.isParent ?
                                                     <div style={{display: "flex", padding: "10px", background: "#fafafa", width: "100%", margin: "5px 0 5px 0", wordBreak: "break-all"}}>
+                                                        <div>
+                                                            <img src={re} style={{marginRight: "10px", background: "#dcdcdc", maxWidth: "40px"}}  alt="re"/>
+                                                        </div>
                                                         <div style={{marginRight: "10px", background: "#dcdcdc", width: "3px"}}>
 
                                                         </div>

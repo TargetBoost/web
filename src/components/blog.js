@@ -262,7 +262,8 @@ class Blog extends Component{
         let ref = this.refCommentInput.current
         let data = {
             text: ref.value,
-            cid: Number(e.target.getAttribute("target"))
+            cid: Number(e.target.getAttribute("target")),
+            parent_id: Number(e.target.getAttribute("parent") ? e.target.getAttribute("parent") : 0)
         }
 
         if (data.text.length < 1){

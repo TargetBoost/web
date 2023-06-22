@@ -617,8 +617,8 @@ class Blog extends Component{
                                             {
                                                 this.state.isParent ?
                                                     <div style={{display: "flex", padding: "10px", background: "#fafafa", width: "100%", margin: "5px 0 5px 0", wordBreak: "break-all"}}>
-                                                        <div>
-                                                            <img src={re} style={{marginRight: "10px", maxWidth: "40px"}}  alt="re"/>
+                                                        <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginRight: "10px"}}>
+                                                            <img src={re} style={{maxWidth: "25px"}}  alt="re"/>
                                                         </div>
                                                         <div style={{marginRight: "10px", background: "#dcdcdc", width: "3px"}}>
 
@@ -635,7 +635,7 @@ class Blog extends Component{
                                                             <div>{this.state.parent.login}</div>
                                                             <div style={{fontSize: "14px"}}>{this.state.parent.text}</div>
                                                         </div>
-                                                        <div style={{ padding: "8px", width: "106px"}}>
+                                                        <div style={{ padding: "8px", width: "116px"}}>
                                                             <div className="underline unselectable" onClick={()=> this.setState({isParent: false, parent: null})}>Отменить</div>
                                                         </div>
                                                     </div>

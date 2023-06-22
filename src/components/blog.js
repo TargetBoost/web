@@ -270,6 +270,8 @@ class Blog extends Component{
             return
         }
 
+
+
         fetch("/core/v1/service/blog/comment", {
             method: "POST",
             headers: {
@@ -281,6 +283,7 @@ class Blog extends Component{
             .then(res => {
                 if (res.status.message == null) {
                     ref.value = ""
+                    this.setState({isParent: false, parent: null})
                     fetch("/core/v1/blog", {
                         method: "GET"
                     })

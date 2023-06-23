@@ -628,18 +628,18 @@ class Targets extends Component{
                                                                                 this.state.select !== null ?
                                                                                     <>
                                                                                         <div className="wrapper-input">
-                                                                                            {/*<Select*/}
-                                                                                            {/*    placeholder="Выберите цель рекламной кампании"*/}
-                                                                                            {/*    onChange={this.handleChangeDeep}*/}
-                                                                                            {/*    options={this.state.optionsDeepTarget[this.state.select]}*/}
-                                                                                            {/*/>*/}
-                                                                                            <input className="input-default" type="text" placeholder="Заголовок рекламной кампании" onChange={this.handleChangeNameCompany}/>
-
+                                                                                            <div style={{padding: "10px"}}>Заголовок рекламной кампании</div>
+                                                                                            <div className="wrapper-input">
+                                                                                                <input className="input-default" type="text" placeholder="Заголовок рекламной кампании" onChange={this.handleChangeNameCompany}/>
+                                                                                            </div>
                                                                                         </div>
                                                                                         {
                                                                                             this.state.nameCompany !== null ?
                                                                                                 <div className="wrapper-input">
-                                                                                                    <TextareaAutosize placeholder="Описание рекламной кампании" {...this.settingsTextArea} className="input-default" />
+                                                                                                    <div style={{padding: "10px"}}>Описание рекламной кампании</div>
+                                                                                                    <div className="wrapper-input">
+                                                                                                        <TextareaAutosize placeholder="Описание рекламной кампании" {...this.settingsTextArea} className="input-default" />
+                                                                                                    </div>
                                                                                                 </div>
                                                                                             : null
                                                                                         }

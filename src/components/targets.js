@@ -46,7 +46,7 @@ class Targets extends Component{
             total: 0,
             fullPrice: 0,
             type: null,
-            link: "",
+            link: null,
             userCost: false,
         }
 
@@ -93,11 +93,8 @@ class Targets extends Component{
     };
 
     swapButtonTask = (e) => {
-
-        this.setState({executor: e.target.getAttribute("target")})
-
+        this.setState({executor: e.target.getAttribute("target"), select: null, nameCompany: null, descriptionCompany: null, link: null})
         let childrenCollection = document.getElementsByClassName("button-light")
-
         for (let i=0; i !== childrenCollection.length; i++) {
             childrenCollection[i].classList.remove('active-white')
         }

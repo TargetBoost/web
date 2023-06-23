@@ -5,9 +5,7 @@ import youtube from "../icon/youtube.png"
 import telegram from "../icon/telegram.png"
 import Select from 'react-select';
 import 'react-input-range/lib/css/index.css';
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
-import {FormGroup} from "@mui/material";
+import chroma from 'chroma-js';
 import TextareaAutosize from "react-textarea-autosize";
 
 class Targets extends Component{

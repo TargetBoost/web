@@ -164,7 +164,7 @@ class Targets extends Component{
 
     handleChange = (selectedOption) => {
         console.log(selectedOption)
-        this.setState({ select: selectedOption.value});
+        this.setState({ select: selectedOption});
     };
 
     handleChangeDeep = (selectedOption) => {

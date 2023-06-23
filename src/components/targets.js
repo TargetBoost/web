@@ -57,10 +57,29 @@ class Targets extends Component{
     }
 
     styles = {
-        valueContainer: (provided, state) => ({
-            ...provided,
-            backgroundColor: state.color
-        })
+        // valueContainer: (provided, state) => ({
+        //     ...provided,
+        //     backgroundColor: state.color
+        // }),
+        multiValue: (styles, { data }) => {
+            const color = chroma(data.color);
+            return {
+                ...styles,
+                backgroundColor: color.alpha(0.1).css(),
+            };
+        },
+        multiValueLabel: (styles, { data }) => ({
+            ...styles,
+            color: data.color,
+        }),
+        multiValueRemove: (styles, { data }) => ({
+            ...styles,
+            color: data.color,
+            ':hover': {
+                backgroundColor: data.color,
+                color: 'white',
+            },
+        }),
     };
 
     settingsTextArea = {

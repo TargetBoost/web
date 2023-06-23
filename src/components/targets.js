@@ -637,7 +637,7 @@ class Targets extends Component{
                                                                             <div className="wrapper-input">
                                                                                 <div className="title-pop-up">Данные рекламной кампании</div>
                                                                             </div>
-                                                                            <div className="wrapper-input">
+                                                                            <div>
                                                                                 <div style={{padding: "10px"}}>Выберите платформы или одну платформу для размещения рекламы</div>
                                                                                 <div className="wrapper-input">
                                                                                     <Select
@@ -651,7 +651,7 @@ class Targets extends Component{
                                                                             {
                                                                                 this.state.select !== null ?
                                                                                     <>
-                                                                                        <div className="wrapper-input">
+                                                                                        <div>
                                                                                             <div style={{padding: "10px"}}>Заголовок рекламной кампании</div>
                                                                                             <div className="wrapper-input">
                                                                                                 <input className="input-default" type="text" onChange={this.handleChangeNameCompany}/>
@@ -659,7 +659,7 @@ class Targets extends Component{
                                                                                         </div>
                                                                                         {
                                                                                             this.state.nameCompany !== null ?
-                                                                                                <div className="wrapper-input">
+                                                                                                <div>
                                                                                                     <div style={{padding: "10px"}}>Описание рекламной кампании</div>
                                                                                                     <div className="wrapper-input">
                                                                                                         <TextareaAutosize {...this.settingsTextArea} className="input-default" />

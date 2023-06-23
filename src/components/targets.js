@@ -646,7 +646,7 @@ class Targets extends Component{
                                                                                 <div className="title-pop-up">Данные рекламной кампании</div>
                                                                             </div>
                                                                             <div>
-                                                                                <div style={{padding: "10px"}}>Выберите платформы или одну платформу для размещения рекламы</div>
+                                                                                <div style={{padding: "10px"}}>Выберите платформы или одну платформу для размещения рекламы:</div>
                                                                                 <div className="wrapper-input">
                                                                                     <Select
                                                                                         isMulti={true}
@@ -660,7 +660,7 @@ class Targets extends Component{
                                                                                 this.state.select !== null ?
                                                                                     <>
                                                                                         <div>
-                                                                                            <div style={{padding: "10px"}}>Заголовок рекламной кампании</div>
+                                                                                            <div style={{padding: "10px"}}>Заголовок рекламной кампании:</div>
                                                                                             <div className="wrapper-input">
                                                                                                 <input className="input-default" type="text" onChange={this.handleChangeNameCompany}/>
                                                                                             </div>
@@ -669,7 +669,7 @@ class Targets extends Component{
                                                                                             this.state.nameCompany !== null ?
                                                                                                 <>
                                                                                                 <div>
-                                                                                                    <div style={{padding: "10px"}}>Описание рекламной кампании</div>
+                                                                                                    <div style={{padding: "10px"}}>Описание рекламной кампании:</div>
                                                                                                     <div className="wrapper-input">
                                                                                                         <TextareaAutosize {...this.settingsTextArea} onChange={this.handleChangeDescriptionCompany} className="input-default" />
                                                                                                     </div>
@@ -677,7 +677,7 @@ class Targets extends Component{
                                                                                                 {
                                                                                                     this.state.descriptionCompany !== null ?
                                                                                                         <div>
-                                                                                                            <div style={{padding: "10px"}}>Ссылка на цель https://...</div>
+                                                                                                            <div style={{padding: "10px"}}>Ссылка на цель: </div>
                                                                                                             <div className="wrapper-input">
                                                                                                                 <input className="input-default" type="text" placeholder="Ссылка на цель https://..." onChange={this.handleChangeLink} />
                                                                                                             </div>

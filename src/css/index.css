@@ -694,8 +694,9 @@ body {
 .title-pop-up {
     text-align: center;
     padding: 10px;
-    border-bottom: 1px solid #fafafa;
-
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .wrapper-auth-pop-up {

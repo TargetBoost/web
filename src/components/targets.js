@@ -157,7 +157,7 @@ class Targets extends Component{
             .then(res => {
                 if (res.status.message === null) {
                     // window.location.reload()
-                    this.setState({executor: "all"})
+                    this.setState({executor: "all", select: null, nameCompany: null, descriptionCompany: null, link: null})
                     this.state.store.dispatch({
                         type: "set_info", value: "Рекламная Кампания успешно создана",
                     })

@@ -41,6 +41,7 @@ class Targets extends Component{
 
             select: null,
             nameCompany: null,
+            descriptionCompany: null,
             cost: null,
             total: 0,
             fullPrice: 0,
@@ -196,6 +197,16 @@ class Targets extends Component{
         this.setState({ select: selectedOption});
     };
 
+    handleChangeNameCompany = (e) => {
+        this.setState({nameCompany: e.target.value})
+
+    }
+
+    handleChangeDescriptionCompany = (e) => {
+        this.setState({ descriptionCompany: e.target.value});
+    };
+
+
     handleChangeDeep = (selectedOption) => {
         this.setState({ cost: selectedOption.cost, type: selectedOption.value});
     };
@@ -208,10 +219,7 @@ class Targets extends Component{
         this.setState({link: e.target.value})
     };
 
-    handleChangeNameCompany = (e) => {
-        this.setState({nameCompany: e.target.value})
 
-    }
 
     handleChangeUserCost = (e) => {
         // TODO: ИСПРАВИТЬ!!!!!!!
@@ -659,12 +667,21 @@ class Targets extends Component{
                                                                                         </div>
                                                                                         {
                                                                                             this.state.nameCompany !== null ?
+                                                                                                <>
                                                                                                 <div>
                                                                                                     <div style={{padding: "10px"}}>Описание рекламной кампании</div>
                                                                                                     <div className="wrapper-input">
-                                                                                                        <TextareaAutosize {...this.settingsTextArea} className="input-default" />
+                                                                                                        <TextareaAutosize {...this.settingsTextArea} onChange={this.handleChangeDescriptionCompany} className="input-default" />
                                                                                                     </div>
                                                                                                 </div>
+                                                                                                {
+                                                                                                    this.state.descriptionCompany !== null ?
+                                                                                                        <div className="wrapper-input">
+                                                                                                            <input className="input-default" type="text" placeholder="Ссылка на цель https://..." onChange={this.handleChangeLink} />
+                                                                                                        </div>
+                                                                                                    : null
+                                                                                                }
+                                                                                                </>
                                                                                             : null
                                                                                         }
                                                                                     </>

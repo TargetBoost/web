@@ -653,7 +653,7 @@ class Targets extends Component{
                                                                                         onChange={this.handleChange}
                                                                                         options={this.state.optionsTypeTarget}
                                                                                         styles={this.styles}
-                                                                                        placeholder="Выберите..."
+                                                                                        placeholder="Начните вводить или выберите из списка..."
                                                                                     />
                                                                                 </div>
                                                                             </div>

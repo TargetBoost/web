@@ -20,7 +20,7 @@ class Targets extends Component{
                 { value: 'vk', label: 'VK', color: '#0277FF'},
                 { value: 'tg', label: 'Telegram', color: '#26A2DF'},
                 { value: 'yt', label: 'Youtube', color: '#FF0000'},
-                { value: 'site', label: 'Сайты партнеры', color: '#000000' },
+                { value: 'site', label: 'Сайты партнеры', color: '#0072FD' },
             ],
             optionsDeepTarget: {
                 vk: [
@@ -642,7 +642,6 @@ class Targets extends Component{
                                                                                 <div className="wrapper-input">
                                                                                     <Select
                                                                                         isMulti={true}
-                                                                                        placeholder=""
                                                                                         onChange={this.handleChange}
                                                                                         options={this.state.optionsTypeTarget}
                                                                                         styles={this.styles}
@@ -655,7 +654,7 @@ class Targets extends Component{
                                                                                         <div className="wrapper-input">
                                                                                             <div style={{padding: "10px"}}>Заголовок рекламной кампании</div>
                                                                                             <div className="wrapper-input">
-                                                                                                <input className="input-default" type="text" placeholder="Заголовок рекламной кампании" onChange={this.handleChangeNameCompany}/>
+                                                                                                <input className="input-default" type="text" onChange={this.handleChangeNameCompany}/>
                                                                                             </div>
                                                                                         </div>
                                                                                         {
@@ -663,7 +662,7 @@ class Targets extends Component{
                                                                                                 <div className="wrapper-input">
                                                                                                     <div style={{padding: "10px"}}>Описание рекламной кампании</div>
                                                                                                     <div className="wrapper-input">
-                                                                                                        <TextareaAutosize placeholder="Описание рекламной кампании" {...this.settingsTextArea} className="input-default" />
+                                                                                                        <TextareaAutosize {...this.settingsTextArea} className="input-default" />
                                                                                                     </div>
                                                                                                 </div>
                                                                                             : null

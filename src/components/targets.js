@@ -614,12 +614,15 @@ class Targets extends Component{
                                                                                 <div className="title-pop-up">Данные рекламной кампании</div>
                                                                             </div>
                                                                             <div className="wrapper-input">
-                                                                                <Select
-                                                                                    isMulti={true}
-                                                                                    placeholder="Выберите платформу размещения рекламы"
-                                                                                    onChange={this.handleChange}
-                                                                                    options={this.state.optionsTypeTarget}
-                                                                                />
+                                                                                <div style={{padding: "10px"}}>Выберите платформы или одну платформу для размещения рекламы</div>
+                                                                                <div className="wrapper-input">
+                                                                                    <Select
+                                                                                        isMulti={true}
+                                                                                        placeholder=""
+                                                                                        onChange={this.handleChange}
+                                                                                        options={this.state.optionsTypeTarget}
+                                                                                    />
+                                                                                </div>
                                                                             </div>
                                                                             {
                                                                                 this.state.select !== null ?
@@ -645,7 +648,6 @@ class Targets extends Component{
                                                                                     null
 
                                                                             }
-
                                                                             {
                                                                                 this.state.link !== "" ?
                                                                                     <div className="wrapper-input">

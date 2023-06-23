@@ -630,13 +630,13 @@ class Targets extends Component{
                                                                                             {/*    onChange={this.handleChangeDeep}*/}
                                                                                             {/*    options={this.state.optionsDeepTarget[this.state.select]}*/}
                                                                                             {/*/>*/}
-                                                                                            <input className="input-default" type="text" placeholder="Название рекламной кампании" onChange={this.handleChangeNameCompany}/>
+                                                                                            <input className="input-default" type="text" placeholder="Заголовок рекламной кампании" onChange={this.handleChangeNameCompany}/>
 
                                                                                         </div>
                                                                                         {
                                                                                             this.state.nameCompany !== null ?
                                                                                                 <div className="wrapper-input">
-                                                                                                    <TextareaAutosize placeholder="Напишите новый пост" {...this.settingsTextArea} className="input-default" />
+                                                                                                    <TextareaAutosize placeholder="Описание рекламной кампании" {...this.settingsTextArea} className="input-default" />
                                                                                                 </div>
                                                                                             : null
                                                                                         }

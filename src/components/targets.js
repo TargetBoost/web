@@ -41,6 +41,7 @@ class Targets extends Component{
             },
 
             select: null,
+            nameCompany: null,
             cost: null,
             total: 0,
             fullPrice: 0,
@@ -162,6 +163,7 @@ class Targets extends Component{
     }
 
     handleChange = (selectedOption) => {
+        console.log(selectedOption.value)
         this.setState({ select: selectedOption.value});
     };
 
@@ -176,6 +178,11 @@ class Targets extends Component{
     handleChangeLink = (e) => {
         this.setState({link: e.target.value})
     };
+
+    handleChangeNameCompany = (e) => {
+        this.setState({nameCompany: e.target.value})
+
+    }
 
     handleChangeUserCost = (e) => {
         // TODO: ИСПРАВИТЬ!!!!!!!
@@ -260,7 +267,6 @@ class Targets extends Component{
 
     render() {
         let store = this.state.store.getState()
-        console.log(this.state.select)
 
         function filterTarget(targets, f) {
             let target = []
@@ -614,11 +620,13 @@ class Targets extends Component{
                                                                                 this.state.select !== null ?
                                                                                     <>
                                                                                         <div className="wrapper-input">
-                                                                                            <Select
-                                                                                                placeholder="Выберите цель рекламной кампании"
-                                                                                                onChange={this.handleChangeDeep}
-                                                                                                options={this.state.optionsDeepTarget[this.state.select]}
-                                                                                            />
+                                                                                            {/*<Select*/}
+                                                                                            {/*    placeholder="Выберите цель рекламной кампании"*/}
+                                                                                            {/*    onChange={this.handleChangeDeep}*/}
+                                                                                            {/*    options={this.state.optionsDeepTarget[this.state.select]}*/}
+                                                                                            {/*/>*/}
+                                                                                            <input className="input-default" type="text" placeholder="Название рекламной кампании" onChange={this.handleChangeNameCompany}/>
+
                                                                                         </div>
 
                                                                                         {

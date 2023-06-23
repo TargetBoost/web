@@ -56,6 +56,13 @@ class Targets extends Component{
         })
     }
 
+    styles = {
+        valueContainer: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.color
+        })
+    };
+
     settingsTextArea = {
         minRows: 1,
     }
@@ -621,6 +628,7 @@ class Targets extends Component{
                                                                                         placeholder=""
                                                                                         onChange={this.handleChange}
                                                                                         options={this.state.optionsTypeTarget}
+                                                                                        styles={this.styles}
                                                                                     />
                                                                                 </div>
                                                                             </div>

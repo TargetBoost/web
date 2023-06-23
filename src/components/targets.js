@@ -8,6 +8,7 @@ import 'react-input-range/lib/css/index.css';
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import {FormGroup} from "@mui/material";
+import TextareaAutosize from "react-textarea-autosize";
 
 class Targets extends Component{
     constructor(props) {
@@ -53,6 +54,10 @@ class Targets extends Component{
         this.state.store.subscribe(() => {
             this.setState(this.state.store.getState())
         })
+    }
+
+    settingsTextArea = {
+        minRows: 1,
     }
 
     countExecute = React.createRef();
@@ -628,47 +633,12 @@ class Targets extends Component{
                                                                                             <input className="input-default" type="text" placeholder="Название рекламной кампании" onChange={this.handleChangeNameCompany}/>
 
                                                                                         </div>
-
                                                                                         {
-                                                                                            this.state.cost !== null ?
-                                                                                                <>
-                                                                                                    <div className="wrapper-input">
-                                                                                                        <input className="input-default" type="number" placeholder="Количество исполнителей" ref={this.countExecute} onChange={this.handleChangeCount}/>
-                                                                                                    </div>
-                                                                                                    <div className="wrapper-input">
-                                                                                                        <FormGroup>
-                                                                                                            <FormControlLabel
-                                                                                                                control={
-                                                                                                                    <Switch checked={this.state.userCost} onChange={this.changeSwitcherPrice} name="count" />
-                                                                                                                }
-                                                                                                                label="Хотите указать свою цену за одну подписку?"
-                                                                                                            />
-                                                                                                        </FormGroup>
-                                                                                                    </div>
-                                                                                                    {
-                                                                                                        this.state.userCost === true ?
-                                                                                                            <div className="wrapper-input">
-                                                                                                                {/*TODO : ИСПРАВИТЬ!!!*/}
-                                                                                                                <input className="input-default" type="number" placeholder={`Укажите свою цену не ниже минимума ${this.state.optionsDeepTarget[this.state.select][0].cost} руб`} onChange={this.handleChangeUserCost}/>
-                                                                                                            </div>
-                                                                                                        :
-                                                                                                            null
-
-                                                                                                    }
-                                                                                                    <div className="wrapper-input color-blue">
-                                                                                                        Стоимость: { (Number(this.state.fullPrice)).toLocaleString('ru') } ₽
-                                                                                                    </div>
-                                                                                                    </>
-                                                                                            :
-                                                                                                null
-                                                                                        }
-                                                                                        {
-                                                                                            this.state.fullPrice !== 0 ?
+                                                                                            this.state.nameCompany !== null ?
                                                                                                 <div className="wrapper-input">
-                                                                                                    <input className="input-default" type="text" placeholder="Ссылка на цель https://..." onChange={this.handleChangeLink}/>
+                                                                                                    <TextareaAutosize placeholder="Напишите новый пост" {...this.settingsTextArea} className="input-default" />
                                                                                                 </div>
-                                                                                            :
-                                                                                                null
+                                                                                            : null
                                                                                         }
                                                                                     </>
                                                                                 :

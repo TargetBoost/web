@@ -557,7 +557,7 @@ class Blog extends Component{
                                         </div>
                                         <div className="wrapper-comment">
                                             {
-                                                t.comments.length !== null ?
+                                                t.comments !== null ?
                                                     t.comments.map(c =>
                                                         c.parent ?
                                                             <div className="comment-wrapper" style={{display: "flex", borderRadius: "20px", wordBreak: "break-all"}} onClick={()=> this.setState({isParent: true, parent: c})}>

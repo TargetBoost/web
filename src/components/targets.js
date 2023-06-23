@@ -646,13 +646,14 @@ class Targets extends Component{
                                                                                 <div className="title-pop-up">Данные рекламной кампании</div>
                                                                             </div>
                                                                             <div>
-                                                                                <div style={{padding: "10px"}}>Выберите платформы или одну платформу для размещения рекламы:</div>
+                                                                                <div style={{padding: "10px"}}>Выберите платформу для размещения рекламы:</div>
                                                                                 <div className="wrapper-input">
                                                                                     <Select
                                                                                         isMulti={true}
                                                                                         onChange={this.handleChange}
                                                                                         options={this.state.optionsTypeTarget}
                                                                                         styles={this.styles}
+                                                                                        placeholder="Выберите..."
                                                                                     />
                                                                                 </div>
                                                                             </div>

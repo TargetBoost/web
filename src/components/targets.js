@@ -19,10 +19,10 @@ class Targets extends Component{
             executor: "all",
             targets: [],
             optionsTypeTarget: [
-                { value: 'vk', label: 'VK' },
-                { value: 'tg', label: 'Telegram' },
-                { value: 'yt', label: 'Youtube' },
-                { value: 'site', label: 'Сайты партнеры' },
+                { value: 'vk', label: 'VK', color: '#0277FF'},
+                { value: 'tg', label: 'Telegram', color: '#26A2DF'},
+                { value: 'yt', label: 'Youtube', color: '#FF0000'},
+                { value: 'site', label: 'Сайты партнеры', color: '#000000' },
             ],
             optionsDeepTarget: {
                 vk: [

@@ -707,11 +707,11 @@ class Targets extends Component{
 
                                     }
 
-                                    <div className="block-default-pre">
-                                        <div className="alert">
-                                            Скоро мы запустим бета-тестирование, следите за нашим <a href="/blog"> блогом</a>
-                                        </div>
-                                    </div>
+                                    {/*<div className="block-default-pre">*/}
+                                    {/*    <div className="alert">*/}
+                                    {/*        Скоро мы запустим бета-тестирование, следите за нашим <a href="/blog"> блогом</a>*/}
+                                    {/*    </div>*/}
+                                    {/*</div>*/}
                                     {/*<div className="block-default-pre" style={{fontSize: "13px", background: "#fcf3e2"}}>*/}
                                     {/*    Добавьте нашего бота (<a href="https://t.me/targetBoostBot" target="_blank" rel="noreferrer" className="underline">@targetBoostBot</a>) администратором в Ваш телеграм канал, чтобы мы могли отслеживать, каких подписчиков привели мы.*/}
                                     {/*</div>*/}

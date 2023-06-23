@@ -390,7 +390,6 @@ class Admin extends Component{
 
     render() {
         let store = this.state.store.getState()
-
         function filterTarget(targets, f) {
             let target = []
 

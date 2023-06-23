@@ -557,7 +557,7 @@ class Blog extends Component{
                                         </div>
                                         <div className="wrapper-comment">
                                             {
-                                                t.comments.length > 0 ?
+                                                t.comments.length !== null ?
                                                     t.comments.map(c =>
                                                         c.parent ?
                                                             <div className="comment-wrapper" style={{display: "flex", borderRadius: "20px", wordBreak: "break-all"}} onClick={()=> this.setState({isParent: true, parent: c})}>
@@ -620,7 +620,7 @@ class Blog extends Component{
                                                         {/*<div style={{padding: "8px", marginRight: "10px"}}>*/}
                                                         {/*    <img src={re} style={{maxWidth: "25px"}}  alt="re"/>*/}
                                                         {/*</div>*/}
-                                                        <div style={{marginRight: "10px", background: "#dcdcdc", width: "3px"}}>
+                                                        <div style={{marginRight: "10px", background: "#dcdcdc", width: "3px", borderRadius: "10px"}}>
 
                                                         </div>
                                                         <div style={{ marginRight: "10px", padding: "8px"}}>

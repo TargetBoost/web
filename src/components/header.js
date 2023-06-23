@@ -100,12 +100,38 @@ class Header extends Component{
                                             <div className="unselectable button-light active-white" target="history" onClick={(e) => {
                                                 e.preventDefault();
                                                 window.location.href = '/blog'
-                                            }}>Наш Блог</div>
+                                            }}>Новости</div>
                                             :
                                             <div className="unselectable button-light" target="history" onClick={(e) => {
                                                 e.preventDefault();
                                                 window.location.href = '/blog'
-                                            }}>Наш Блог</div>
+                                            }}>Новости</div>
+                                    }
+                                    {
+                                        store.user.auth === true ?
+                                            store.user.execute === true ?
+                                                store.page === "lk" ?
+                                                    <div className="unselectable button-light active-white" target="history" onClick={(e) => {
+                                                        e.preventDefault();
+                                                        window.location.href = '/tasks'
+                                                    }}>Ваши площадки</div>
+                                                :
+                                                    <div className="unselectable button-light" target="history" onClick={(e) => {
+                                                        e.preventDefault();
+                                                        window.location.href = '/tasks'
+                                                    }}>Ваши площадки</div>
+                                                :
+                                                store.page === "lk" ?
+                                                    <div className="unselectable button-light active-white" target="history" onClick={(e) => {
+                                                        e.preventDefault();
+                                                        window.location.href = '/targets'
+                                                    }}>Ваши рекламные кампании</div>
+                                                :
+                                                    <div className="unselectable button-light" target="history" onClick={(e) => {
+                                                        e.preventDefault();
+                                                        window.location.href = '/targets'
+                                                    }}>Ваши рекламные кампании</div>
+                                        : null
                                     }
                                 </div>
                             </div>

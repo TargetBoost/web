@@ -5,9 +5,8 @@ import youtube from "../icon/youtube.png"
 import telegram from "../icon/telegram.png"
 import Select from 'react-select';
 import 'react-input-range/lib/css/index.css';
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
-import {FormGroup} from "@mui/material";
+import chroma from 'chroma-js';
+import TextareaAutosize from "react-textarea-autosize";
 
 class Targets extends Component{
     constructor(props) {
@@ -18,10 +17,10 @@ class Targets extends Component{
             executor: "all",
             targets: [],
             optionsTypeTarget: [
-                // { value: 'vk', label: 'VK' },
-                { value: 'tg', label: 'Telegram' },
-                // { value: 'yt', label: 'Youtube' },
-
+                { value: 'vk', label: 'VK', color: '#0277FF'},
+                { value: 'tg', label: 'Telegram', color: '#26A2DF'},
+                { value: 'yt', label: 'Youtube', color: '#FF0000'},
+                { value: 'site', label: 'Сайты партнеры', color: '#0072FD' },
             ],
             optionsDeepTarget: {
                 vk: [
@@ -41,17 +40,49 @@ class Targets extends Component{
             },
 
             select: null,
+            nameCompany: null,
+            descriptionCompany: null,
             cost: null,
             total: 0,
             fullPrice: 0,
             type: null,
-            link: "",
+            link: null,
             userCost: false,
         }
 
         this.state.store.subscribe(() => {
             this.setState(this.state.store.getState())
         })
+    }
+
+    styles = {
+        // valueContainer: (provided, state) => ({
+        //     ...provided,
+        //     backgroundColor: state.color
+        // }),
+        multiValue: (styles, { data }) => {
+            const color = chroma(data.color);
+            return {
+                ...styles,
+                backgroundColor: color.alpha(0.1).css(),
+            };
+        },
+        multiValueLabel: (styles, { data }) => ({
+            ...styles,
+            color: data.color,
+        }),
+        multiValueRemove: (styles, { data }) => ({
+            ...styles,
+            color: data.color,
+            ':hover': {
+                backgroundColor: data.color,
+                color: 'white',
+            },
+        }),
+    };
+
+    settingsTextArea = {
+        minRows: 1,
     }
 
     countExecute = React.createRef();
@@ -62,11 +93,8 @@ class Targets extends Component{
     };
 
     swapButtonTask = (e) => {
-
-        this.setState({executor: e.target.getAttribute("target")})
-
+        this.setState({executor: e.target.getAttribute("target"), select: null, nameCompany: null, descriptionCompany: null, link: null})
         let childrenCollection = document.getElementsByClassName("button-light")
-
         for (let i=0; i !== childrenCollection.length; i++) {
             childrenCollection[i].classList.remove('active-white')
         }
@@ -95,7 +123,7 @@ class Targets extends Component{
             });
 
         this.state.store.dispatch({
-            type: "set_page", value: "",
+            type: "set_page", value: "lk",
         })
     }
 
@@ -126,7 +154,7 @@ class Targets extends Component{
             .then(res => {
                 if (res.status.message === null) {
                     // window.location.reload()
-                    this.setState({executor: "all"})
+                    this.setState({executor: "all", select: null, nameCompany: null, descriptionCompany: null, link: null})
                     this.state.store.dispatch({
                         type: "set_info", value: "Рекламная Кампания успешно создана",
                     })
@@ -162,8 +190,19 @@ class Targets extends Component{
     }
 
     handleChange = (selectedOption) => {
-        this.setState({ select: selectedOption.value});
+        console.log(selectedOption)
+        this.setState({ select: selectedOption});
     };
+
+    handleChangeNameCompany = (e) => {
+        this.setState({nameCompany: e.target.value})
+
+    }
+
+    handleChangeDescriptionCompany = (e) => {
+        this.setState({ descriptionCompany: e.target.value});
+    };
+
 
     handleChangeDeep = (selectedOption) => {
         this.setState({ cost: selectedOption.cost, type: selectedOption.value});
@@ -176,6 +215,8 @@ class Targets extends Component{
     handleChangeLink = (e) => {
         this.setState({link: e.target.value})
     };
+
+
 
     handleChangeUserCost = (e) => {
         // TODO: ИСПРАВИТЬ!!!!!!!
@@ -308,386 +349,369 @@ class Targets extends Component{
                                             {/*<div className="unselectable button-light" target="settings" onClick={this.swapButtonTask}>Настройки</div>*/}
 
                                         </div>
-                                        {/*<div className="flex-left-right">*/}
-                                        {/*    <div className="unselectable button-light" target="create" style={{background: "#0072FC", color: "#fff"}} onClick={this.swapButtonTask}>Создать рекламную кампанию</div>*/}
-                                        {/*</div>*/}
-                                    </div>
-                                    {/*{*/}
-                                    {/*    this.state.executor === "all" ?*/}
-                                    {/*        <div className="block-default-pre">*/}
-                                    {/*            <div className="task-wall">*/}
-                                    {/*                {*/}
-                                    {/*                    filterTarget(this.state.targets, 1).length > 0 ?*/}
-                                    {/*                        filterTarget(this.state.targets, 1).map(t =>*/}
-                                    {/*                            <div className="task-item-wrapper">*/}
-                                    {/*                                <div className="task-item">*/}
-                                    {/*                                    <div className="task-item-value task-item-icon-box">*/}
-                                    {/*                                        {*/}
-                                    {/*                                            t.icon === "vk" ?*/}
-                                    {/*                                                <img className="icon-task-small" src={vk} alt="item"/>*/}
-                                    {/*                                            :*/}
-                                    {/*                                                t.icon === "yt" ?*/}
-                                    {/*                                                    <img className="icon-task-small" src={youtube} alt="item"/>*/}
-                                    {/*                                                :*/}
-                                    {/*                                                    t.icon === "tg" ?*/}
-                                    {/*                                                        <img className="icon-task-small" src={telegram} alt="item"/>*/}
-                                    {/*                                                    :*/}
-                                    {/*                                                        null*/}
-                                    {/*                                        }*/}
-
-                                    {/*                                    </div>*/}
-                                    {/*                                    <div className="task-item-value">{t.title}</div>*/}
-                                    {/*                                    <div className="task-item-value">{t.count}/{t.total}</div>*/}
-                                    {/*                                    <div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>*/}
-                                    {/*                                    {*/}
-                                    {/*                                        t.status === "check" ?*/}
-                                    {/*                                            <div className="task-item-value orange">На проверке</div>*/}
-                                    {/*                                        :*/}
-                                    {/*                                            t.status === "end" ?*/}
-                                    {/*                                                <div className="task-item-value">Завершена</div>*/}
-                                    {/*                                            :*/}
-                                    {/*                                                t.status === "active" ?*/}
-                                    {/*                                                    <div className="task-item-value green-color">Активна</div>*/}
-                                    {/*                                                    :*/}
-                                    {/*                                                    null*/}
-
-                                    {/*                                    }*/}
-                                    {/*                                    <div className="task-item-value">*/}
-                                    {/*                                        <div className="button-default" target={t.id} status="3" onClick={this.updateTask}>Завершить</div>*/}
-                                    {/*                                    </div>*/}
-                                    {/*                                </div>*/}
-                                    {/*                                <div className="info-task-wrapper">*/}
-                                    {/*                                    <div className="image-wrapper-bio">*/}
-                                    {/*                                        <div className="wrapper-image-icon">*/}
-                                    {/*                                            {*/}
-                                    {/*                                                t.cm_file_id !== "" ?*/}
-                                    {/*                                                    <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>*/}
-                                    {/*                                                    :*/}
-                                    {/*                                                    <img className="img-channel" src={noImg} alt={"img"}/>*/}
-
-                                    {/*                                            }*/}
-                                    {/*                                        </div>*/}
-                                    {/*                                        <div className="info-company-bio">*/}
-                                    {/*                                            <div className="title-block" style={{fontWeight: "bold"}}>*/}
-                                    {/*                                                <a href={t.link} target={"_blank"} rel="noreferrer">*/}
-                                    {/*                                                    {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>*/}
-                                    {/*                                                </a>*/}
-                                    {/*                                            </div>*/}
-                                    {/*                                            <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>*/}
-                                    {/*                                        </div>*/}
-                                    {/*                                    </div>*/}
-
-                                    {/*                                </div>*/}
-                                    {/*                            </div>*/}
-                                    {/*                        )*/}
-                                    {/*                    :*/}
-                                    {/*                        <div className="alert">*/}
-                                    {/*                            Вы не еще не создали ни одной рекламной кампании*/}
-                                    {/*                        </div>*/}
-                                    {/*                }*/}
-                                    {/*            </div>*/}
-                                    {/*        </div>*/}
-                                    {/*        :*/}
-                                    {/*        this.state.executor === "end" ?*/}
-                                    {/*            <div className="block-default-pre">*/}
-                                    {/*                <div className="task-wall">*/}
-                                    {/*                    {*/}
-                                    {/*                        filterTarget(this.state.targets, 3).length > 0 ?*/}
-                                    {/*                            filterTarget(this.state.targets, 3).map(t =>*/}
-                                    {/*                                <div className="task-item-wrapper">*/}
-                                    {/*                                    <div className="task-item">*/}
-                                    {/*                                        <div className="task-item-value task-item-icon-box">*/}
-                                    {/*                                            {*/}
-                                    {/*                                                t.icon === "vk" ?*/}
-                                    {/*                                                    <img className="icon-task-small" src={vk} alt="item"/>*/}
-                                    {/*                                                    :*/}
-                                    {/*                                                    t.icon === "yt" ?*/}
-                                    {/*                                                        <img className="icon-task-small" src={youtube} alt="item"/>*/}
-                                    {/*                                                        :*/}
-                                    {/*                                                        t.icon === "tg" ?*/}
-                                    {/*                                                            <img className="icon-task-small" src={telegram} alt="item"/>*/}
-                                    {/*                                                            :*/}
-                                    {/*                                                            null*/}
-                                    {/*                                            }*/}
-
-                                    {/*                                        </div>*/}
-                                    {/*                                        <div className="task-item-value">{t.title}</div>*/}
-                                    {/*                                        <div className="task-item-value">{t.count}/{t.total}</div>*/}
-                                    {/*                                        <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>*/}
-
-                                    {/*                                        <div className="task-item-value">Завершена</div>*/}
-                                    {/*                                        /!*<div className="task-item-value">*!/*/}
-                                    {/*                                        /!*    <div className="button-default" target={t.id} status="3" onClick={this.updateTask}></div>*!/*/}
-                                    {/*                                        /!*</div>*!/*/}
-                                    {/*                                    </div>*/}
-                                    {/*                                    <div className="info-task-wrapper">*/}
-                                    {/*                                        <div className="image-wrapper-bio">*/}
-                                    {/*                                            <div className="wrapper-image-icon">*/}
-                                    {/*                                                {*/}
-                                    {/*                                                    t.cm_file_id !== "" ?*/}
-                                    {/*                                                        <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>*/}
-                                    {/*                                                        :*/}
-                                    {/*                                                        <img className="img-channel" src={noImg} alt={"img"}/>*/}
-
-                                    {/*                                                }*/}
-                                    {/*                                            </div>*/}
-                                    {/*                                            <div className="info-company-bio">*/}
-                                    {/*                                                <div className="title-block" style={{fontWeight: "bold"}}>*/}
-                                    {/*                                                    <a href={t.link} target={"_blank"} rel="noreferrer">*/}
-                                    {/*                                                        {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>*/}
-                                    {/*                                                    </a>*/}
-                                    {/*                                                </div>*/}
-                                    {/*                                                <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>*/}
-                                    {/*                                            </div>*/}
-                                    {/*                                        </div>*/}
-
-                                    {/*                                    </div>*/}
-                                    {/*                                </div>*/}
-                                    {/*                            )*/}
-                                    {/*                            :*/}
-                                    {/*                            <div className="alert">*/}
-                                    {/*                                Завершенных кампаний нет*/}
-                                    {/*                            </div>*/}
-                                    {/*                    }*/}
-                                    {/*                </div>*/}
-                                    {/*            </div>*/}
-                                    {/*            :*/}
-                                    {/*            this.state.executor === "check" ?*/}
-                                    {/*                <div className="block-default-pre">*/}
-                                    {/*                    {*/}
-                                    {/*                        filterTarget(this.state.targets, 0).length > 0 ?*/}
-                                    {/*                            filterTarget(this.state.targets, 0).map(t =>*/}
-                                    {/*                                <div className="task-item-wrapper">*/}
-                                    {/*                                    <div className="task-item">*/}
-                                    {/*                                        <div className="task-item-value task-item-icon-box">*/}
-                                    {/*                                            {*/}
-                                    {/*                                                t.icon === "vk" ?*/}
-                                    {/*                                                    <img className="icon-task-small" src={vk} alt="item"/>*/}
-                                    {/*                                                    :*/}
-                                    {/*                                                    t.icon === "yt" ?*/}
-                                    {/*                                                        <img className="icon-task-small" src={youtube} alt="item"/>*/}
-                                    {/*                                                        :*/}
-                                    {/*                                                        t.icon === "tg" ?*/}
-                                    {/*                                                            <img className="icon-task-small" src={telegram} alt="item"/>*/}
-                                    {/*                                                            :*/}
-                                    {/*                                                            null*/}
-                                    {/*                                            }*/}
-
-                                    {/*                                        </div>*/}
-                                    {/*                                        <div className="task-item-value">{t.title}</div>*/}
-                                    {/*                                        <div className="task-item-value">{t.count}/{t.total}</div>*/}
-                                    {/*                                        <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>*/}
-
-                                    {/*                                        <div className="task-item-value">На проверке</div>*/}
-                                    {/*                                        /!*<div className="task-item-value">*!/*/}
-                                    {/*                                        /!*    <div className="button-default">Изменить</div>*!/*/}
-                                    {/*                                        /!*</div>*!/*/}
-                                    {/*                                    </div>*/}
-                                    {/*                                    <div className="info-task-wrapper">*/}
-                                    {/*                                        <div className="image-wrapper-bio">*/}
-                                    {/*                                            <div className="wrapper-image-icon">*/}
-                                    {/*                                                {*/}
-                                    {/*                                                    t.cm_file_id !== "" ?*/}
-                                    {/*                                                        <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>*/}
-                                    {/*                                                        :*/}
-                                    {/*                                                        <img className="img-channel" src={noImg} alt={"img"}/>*/}
-
-                                    {/*                                                }*/}
-                                    {/*                                            </div>*/}
-                                    {/*                                            <div className="info-company-bio">*/}
-                                    {/*                                                <div className="title-block" style={{fontWeight: "bold"}}>*/}
-                                    {/*                                                    <a href={t.link} target={"_blank"} rel="noreferrer">*/}
-                                    {/*                                                        {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>*/}
-                                    {/*                                                    </a>*/}
-                                    {/*                                                </div>*/}
-                                    {/*                                                <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>*/}
-                                    {/*                                            </div>*/}
-                                    {/*                                        </div>*/}
-
-                                    {/*                                    </div>*/}
-                                    {/*                                </div>*/}
-                                    {/*                            )*/}
-                                    {/*                            :*/}
-                                    {/*                            <div className="alert">*/}
-                                    {/*                                Кампаний на проверке нет*/}
-                                    {/*                            </div>*/}
-                                    {/*                    }*/}
-                                    {/*                </div>*/}
-                                    {/*                :*/}
-                                    {/*                this.state.executor === "rejection" ?*/}
-                                    {/*                    <div className="block-default-pre">*/}
-                                    {/*                        {*/}
-                                    {/*                            filterTarget(this.state.targets, 2).length > 0 ?*/}
-                                    {/*                                filterTarget(this.state.targets, 2).map(t =>*/}
-
-                                    {/*                                    <div className="task-item-wrapper">*/}
-                                    {/*                                        <div className="task-item">*/}
-                                    {/*                                            <div className="task-item-value task-item-icon-box">*/}
-                                    {/*                                                {*/}
-                                    {/*                                                    t.icon === "vk" ?*/}
-                                    {/*                                                        <img className="icon-task-small" src={vk} alt="item"/>*/}
-                                    {/*                                                        :*/}
-                                    {/*                                                        t.icon === "yt" ?*/}
-                                    {/*                                                            <img className="icon-task-small" src={youtube} alt="item"/>*/}
-                                    {/*                                                            :*/}
-                                    {/*                                                            t.icon === "tg" ?*/}
-                                    {/*                                                                <img className="icon-task-small" src={telegram} alt="item"/>*/}
-                                    {/*                                                                :*/}
-                                    {/*                                                                null*/}
-                                    {/*                                                }*/}
-
-                                    {/*                                            </div>*/}
-                                    {/*                                            <div className="task-item-value">{t.title}</div>*/}
-                                    {/*                                            <div className="task-item-value">{t.count}/{t.total}</div>*/}
-                                    {/*                                            <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>*/}
-
-                                    {/*                                            <div className="task-item-value red">*/}
-                                    {/*                                                Не соответствует правилам*/}
-                                    {/*                                            </div>*/}
-                                    {/*                                            /!*<div className="task-item-value">*!/*/}
-                                    {/*                                            /!*    <div className="button-default">Изменить</div>*!/*/}
-                                    {/*                                            /!*</div>*!/*/}
-                                    {/*                                        </div>*/}
-                                    {/*                                        <div className="info-task-wrapper">*/}
-                                    {/*                                            <div className="image-wrapper-bio">*/}
-                                    {/*                                                <div className="wrapper-image-icon">*/}
-                                    {/*                                                    {*/}
-                                    {/*                                                        t.cm_file_id !== "" ?*/}
-                                    {/*                                                            <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>*/}
-                                    {/*                                                            :*/}
-                                    {/*                                                            <img className="img-channel" src={noImg} alt={"img"}/>*/}
-
-                                    {/*                                                    }*/}
-                                    {/*                                                </div>*/}
-                                    {/*                                                <div className="info-company-bio">*/}
-                                    {/*                                                    <div className="title-block" style={{fontWeight: "bold"}}>*/}
-                                    {/*                                                        <a href={t.link} target={"_blank"} rel="noreferrer">*/}
-                                    {/*                                                            {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>*/}
-                                    {/*                                                        </a>*/}
-                                    {/*                                                    </div>*/}
-                                    {/*                                                    <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>*/}
-                                    {/*                                                </div>*/}
-                                    {/*                                            </div>*/}
-
-                                    {/*                                        </div>*/}
-                                    {/*                                    </div>*/}
-                                    {/*                                )*/}
-                                    {/*                                :*/}
-                                    {/*                                <div className="alert">*/}
-                                    {/*                                    Отклоненных кампаний пока нет*/}
-                                    {/*                                </div>*/}
-                                    {/*                        }*/}
-                                    {/*                    </div>*/}
-                                    {/*                    :*/}
-                                    {/*                    this.state.executor === "settings" ?*/}
-                                    {/*                        <div className="block-default-pre">*/}
-                                    {/*                            <div className="settings">*/}
-
-                                    {/*                            </div>*/}
-                                    {/*                        </div>*/}
-                                    {/*                    :*/}
-                                    {/*                        this.state.executor === "admin" ?*/}
-                                    {/*                            <div className="block-default-pre">*/}
-                                    {/*                                <div className="task-item">Настройки платформы</div>*/}
-                                    {/*                                <div className="settings">*/}
-
-                                    {/*                                </div>*/}
-                                    {/*                            </div>*/}
-                                    {/*                        :*/}
-                                    {/*                            this.state.executor === "create" ?*/}
-                                    {/*                                <div className="block-default-pre">*/}
-                                    {/*                                    /!*<div className="task-item">Настройки платформы</div>*!/*/}
-                                    {/*                                    <div className="settings">*/}
-                                    {/*                                        <div className="wrapper-input">*/}
-                                    {/*                                            <div className="title-pop-up">Данные рекламной кампании</div>*/}
-                                    {/*                                        </div>*/}
-                                    {/*                                        <div className="wrapper-input">*/}
-                                    {/*                                            <Select*/}
-                                    {/*                                                placeholder="Выберите Платформу"*/}
-                                    {/*                                                onChange={this.handleChange}*/}
-                                    {/*                                                options={this.state.optionsTypeTarget}*/}
-                                    {/*                                            />*/}
-                                    {/*                                        </div>*/}
-                                    {/*                                        {*/}
-                                    {/*                                            this.state.select !== null ?*/}
-                                    {/*                                                <>*/}
-                                    {/*                                                    <div className="wrapper-input">*/}
-                                    {/*                                                        <Select*/}
-                                    {/*                                                            placeholder="Выберите цель рекламной кампании"*/}
-                                    {/*                                                            onChange={this.handleChangeDeep}*/}
-                                    {/*                                                            options={this.state.optionsDeepTarget[this.state.select]}*/}
-                                    {/*                                                        />*/}
-                                    {/*                                                    </div>*/}
-
-                                    {/*                                                    {*/}
-                                    {/*                                                        this.state.cost !== null ?*/}
-                                    {/*                                                            <>*/}
-                                    {/*                                                                <div className="wrapper-input">*/}
-                                    {/*                                                                    <input className="input-default" type="number" placeholder="Количество исполнителей" ref={this.countExecute} onChange={this.handleChangeCount}/>*/}
-                                    {/*                                                                </div>*/}
-                                    {/*                                                                <div className="wrapper-input">*/}
-                                    {/*                                                                    <FormGroup>*/}
-                                    {/*                                                                        <FormControlLabel*/}
-                                    {/*                                                                            control={*/}
-                                    {/*                                                                                <Switch checked={this.state.userCost} onChange={this.changeSwitcherPrice} name="count" />*/}
-                                    {/*                                                                            }*/}
-                                    {/*                                                                            label="Хотите указать свою цену за одну подписку?"*/}
-                                    {/*                                                                        />*/}
-                                    {/*                                                                    </FormGroup>*/}
-                                    {/*                                                                </div>*/}
-                                    {/*                                                                {*/}
-                                    {/*                                                                    this.state.userCost === true ?*/}
-                                    {/*                                                                        <div className="wrapper-input">*/}
-                                    {/*                                                                            /!*TODO : ИСПРАВИТЬ!!!*!/*/}
-                                    {/*                                                                            <input className="input-default" type="number" placeholder={`Укажите свою цену не ниже минимума ${this.state.optionsDeepTarget[this.state.select][0].cost} руб`} onChange={this.handleChangeUserCost}/>*/}
-                                    {/*                                                                        </div>*/}
-                                    {/*                                                                    :*/}
-                                    {/*                                                                        null*/}
-
-                                    {/*                                                                }*/}
-                                    {/*                                                                <div className="wrapper-input color-blue">*/}
-                                    {/*                                                                    Стоимость: { (Number(this.state.fullPrice)).toLocaleString('ru') } ₽*/}
-                                    {/*                                                                </div>*/}
-                                    {/*                                                                </>*/}
-                                    {/*                                                        :*/}
-                                    {/*                                                            null*/}
-                                    {/*                                                    }*/}
-                                    {/*                                                    {*/}
-                                    {/*                                                        this.state.fullPrice !== 0 ?*/}
-                                    {/*                                                            <div className="wrapper-input">*/}
-                                    {/*                                                                <input className="input-default" type="text" placeholder="Ссылка на цель https://..." onChange={this.handleChangeLink}/>*/}
-                                    {/*                                                            </div>*/}
-                                    {/*                                                        :*/}
-                                    {/*                                                            null*/}
-                                    {/*                                                    }*/}
-                                    {/*                                                </>*/}
-                                    {/*                                            :*/}
-                                    {/*                                                null*/}
-
-                                    {/*                                        }*/}
-
-                                    {/*                                        {*/}
-                                    {/*                                            this.state.link !== "" ?*/}
-                                    {/*                                                <div className="wrapper-input">*/}
-                                    {/*                                                    <div onClick={this.createTarget} className="button-any blue unselectable" >GO 👍</div>*/}
-                                    {/*                                                </div>*/}
-                                    {/*                                            :*/}
-                                    {/*                                                <div className="wrapper-input">*/}
-                                    {/*                                                    <div className="button-any grey unselectable" >Еще не все...</div>*/}
-                                    {/*                                                </div>*/}
-                                    {/*                                        }*/}
-                                    {/*                                    </div>*/}
-                                    {/*                                </div>*/}
-                                    {/*                            :*/}
-                                    {/*                                null*/}
-
-                                    {/*}*/}
-
-                                    <div className="block-default-pre">
-                                        <div className="alert">
-                                            Скоро мы запустим бета-тестирование, следите за нашим <a href="/blog"> блогом</a>
+                                        <div className="flex-left-right">
+                                            <div className="unselectable button-light" target="create" style={{background: "#0072FC", color: "#fff"}} onClick={this.swapButtonTask}>Создать рекламную кампанию</div>
                                         </div>
                                     </div>
+                                    {
+                                        this.state.executor === "all" ?
+                                            <div className="block-default-pre">
+                                                <div className="task-wall">
+                                                    {
+                                                        filterTarget(this.state.targets, 1).length > 0 ?
+                                                            filterTarget(this.state.targets, 1).map(t =>
+                                                                <div className="task-item-wrapper">
+                                                                    <div className="task-item">
+                                                                        <div className="task-item-value task-item-icon-box">
+                                                                            {
+                                                                                t.icon === "vk" ?
+                                                                                    <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                :
+                                                                                    t.icon === "yt" ?
+                                                                                        <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                    :
+                                                                                        t.icon === "tg" ?
+                                                                                            <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                        :
+                                                                                            null
+                                                                            }
+
+                                                                        </div>
+                                                                        <div className="task-item-value">{t.title}</div>
+                                                                        <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                        <div className="task-item-value">{ (parseInt(t.total_price)).toLocaleString('ru') } ₽</div>
+                                                                        {
+                                                                            t.status === "check" ?
+                                                                                <div className="task-item-value orange">На проверке</div>
+                                                                            :
+                                                                                t.status === "end" ?
+                                                                                    <div className="task-item-value">Завершена</div>
+                                                                                :
+                                                                                    t.status === "active" ?
+                                                                                        <div className="task-item-value green-color">Активна</div>
+                                                                                        :
+                                                                                        null
+
+                                                                        }
+                                                                        <div className="task-item-value">
+                                                                            <div className="button-default" target={t.id} status="3" onClick={this.updateTask}>Завершить</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="info-task-wrapper">
+                                                                        <div className="image-wrapper-bio">
+                                                                            <div className="wrapper-image-icon">
+                                                                                {
+                                                                                    t.cm_file_id !== "" ?
+                                                                                        <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
+                                                                                        :
+                                                                                        <img className="img-channel" src={noImg} alt={"img"}/>
+
+                                                                                }
+                                                                            </div>
+                                                                            <div className="info-company-bio">
+                                                                                <div className="title-block" style={{fontWeight: "bold"}}>
+                                                                                    <a href={t.link} target={"_blank"} rel="noreferrer">
+                                                                                        {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            )
+                                                        :
+                                                            <div className="alert">
+                                                                Вы не еще не создали ни одной рекламной кампании
+                                                            </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                            :
+                                            this.state.executor === "end" ?
+                                                <div className="block-default-pre">
+                                                    <div className="task-wall">
+                                                        {
+                                                            filterTarget(this.state.targets, 3).length > 0 ?
+                                                                filterTarget(this.state.targets, 3).map(t =>
+                                                                    <div className="task-item-wrapper">
+                                                                        <div className="task-item">
+                                                                            <div className="task-item-value task-item-icon-box">
+                                                                                {
+                                                                                    t.icon === "vk" ?
+                                                                                        <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                        :
+                                                                                        t.icon === "yt" ?
+                                                                                            <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                            :
+                                                                                            t.icon === "tg" ?
+                                                                                                <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                                :
+                                                                                                null
+                                                                                }
+
+                                                                            </div>
+                                                                            <div className="task-item-value">{t.title}</div>
+                                                                            <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                            <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
+
+                                                                            <div className="task-item-value">Завершена</div>
+                                                                            {/*<div className="task-item-value">*/}
+                                                                            {/*    <div className="button-default" target={t.id} status="3" onClick={this.updateTask}></div>*/}
+                                                                            {/*</div>*/}
+                                                                        </div>
+                                                                        <div className="info-task-wrapper">
+                                                                            <div className="image-wrapper-bio">
+                                                                                <div className="wrapper-image-icon">
+                                                                                    {
+                                                                                        t.cm_file_id !== "" ?
+                                                                                            <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
+                                                                                            :
+                                                                                            <img className="img-channel" src={noImg} alt={"img"}/>
+
+                                                                                    }
+                                                                                </div>
+                                                                                <div className="info-company-bio">
+                                                                                    <div className="title-block" style={{fontWeight: "bold"}}>
+                                                                                        <a href={t.link} target={"_blank"} rel="noreferrer">
+                                                                                            {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                                :
+                                                                <div className="alert">
+                                                                    Завершенных кампаний нет
+                                                                </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                :
+                                                this.state.executor === "check" ?
+                                                    <div className="block-default-pre">
+                                                        {
+                                                            filterTarget(this.state.targets, 0).length > 0 ?
+                                                                filterTarget(this.state.targets, 0).map(t =>
+                                                                    <div className="task-item-wrapper">
+                                                                        <div className="task-item">
+                                                                            <div className="task-item-value task-item-icon-box">
+                                                                                {
+                                                                                    t.icon === "vk" ?
+                                                                                        <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                        :
+                                                                                        t.icon === "yt" ?
+                                                                                            <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                            :
+                                                                                            t.icon === "tg" ?
+                                                                                                <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                                :
+                                                                                                null
+                                                                                }
+
+                                                                            </div>
+                                                                            <div className="task-item-value">{t.title}</div>
+                                                                            <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                            <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
+
+                                                                            <div className="task-item-value">На проверке</div>
+                                                                            {/*<div className="task-item-value">*/}
+                                                                            {/*    <div className="button-default">Изменить</div>*/}
+                                                                            {/*</div>*/}
+                                                                        </div>
+                                                                        <div className="info-task-wrapper">
+                                                                            <div className="image-wrapper-bio">
+                                                                                <div className="wrapper-image-icon">
+                                                                                    {
+                                                                                        t.cm_file_id !== "" ?
+                                                                                            <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
+                                                                                            :
+                                                                                            <img className="img-channel" src={noImg} alt={"img"}/>
+
+                                                                                    }
+                                                                                </div>
+                                                                                <div className="info-company-bio">
+                                                                                    <div className="title-block" style={{fontWeight: "bold"}}>
+                                                                                        <a href={t.link} target={"_blank"} rel="noreferrer">
+                                                                                            {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                                :
+                                                                <div className="alert">
+                                                                    Кампаний на проверке нет
+                                                                </div>
+                                                        }
+                                                    </div>
+                                                    :
+                                                    this.state.executor === "rejection" ?
+                                                        <div className="block-default-pre">
+                                                            {
+                                                                filterTarget(this.state.targets, 2).length > 0 ?
+                                                                    filterTarget(this.state.targets, 2).map(t =>
+
+                                                                        <div className="task-item-wrapper">
+                                                                            <div className="task-item">
+                                                                                <div className="task-item-value task-item-icon-box">
+                                                                                    {
+                                                                                        t.icon === "vk" ?
+                                                                                            <img className="icon-task-small" src={vk} alt="item"/>
+                                                                                            :
+                                                                                            t.icon === "yt" ?
+                                                                                                <img className="icon-task-small" src={youtube} alt="item"/>
+                                                                                                :
+                                                                                                t.icon === "tg" ?
+                                                                                                    <img className="icon-task-small" src={telegram} alt="item"/>
+                                                                                                    :
+                                                                                                    null
+                                                                                    }
+
+                                                                                </div>
+                                                                                <div className="task-item-value">{t.title}</div>
+                                                                                <div className="task-item-value">{t.count}/{t.total}</div>
+                                                                                <div className="task-item-value">{(parseInt(t.total_price)).toLocaleString('ru')} ₽</div>
+
+                                                                                <div className="task-item-value red">
+                                                                                    Не соответствует правилам
+                                                                                </div>
+                                                                                {/*<div className="task-item-value">*/}
+                                                                                {/*    <div className="button-default">Изменить</div>*/}
+                                                                                {/*</div>*/}
+                                                                            </div>
+                                                                            <div className="info-task-wrapper">
+                                                                                <div className="image-wrapper-bio">
+                                                                                    <div className="wrapper-image-icon">
+                                                                                        {
+                                                                                            t.cm_file_id !== "" ?
+                                                                                                <img className="img-channel" src={`/core/v1/file_ch/${t.cm_file_id}`} alt={"img"}/>
+                                                                                                :
+                                                                                                <img className="img-channel" src={noImg} alt={"img"}/>
+
+                                                                                        }
+                                                                                    </div>
+                                                                                    <div className="info-company-bio">
+                                                                                        <div className="title-block" style={{fontWeight: "bold"}}>
+                                                                                            <a href={t.link} target={"_blank"} rel="noreferrer">
+                                                                                                {t.link.split('/')[t.link.split('/').length - 1]} <span style={{color: "#dcdcdc"}}>({t.count_sub})</span>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        <div className="text-info-bio"><span style={{fontWeight: "bold"}} >Описание канала: </span>{t.bio === "" ? "нет" : t.bio}</div>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    )
+                                                                    :
+                                                                    <div className="alert">
+                                                                        Отклоненных кампаний пока нет
+                                                                    </div>
+                                                            }
+                                                        </div>
+                                                        :
+                                                        this.state.executor === "settings" ?
+                                                            <div className="block-default-pre">
+                                                                <div className="settings">
+
+                                                                </div>
+                                                            </div>
+                                                        :
+                                                            this.state.executor === "admin" ?
+                                                                <div className="block-default-pre">
+                                                                    <div className="task-item">Настройки платформы</div>
+                                                                    <div className="settings">
+
+                                                                    </div>
+                                                                </div>
+                                                            :
+                                                                this.state.executor === "create" ?
+                                                                    <div className="block-default-pre">
+                                                                        {/*<div className="task-item">Настройки платформы</div>*/}
+                                                                        <div className="settings">
+                                                                            <div className="wrapper-input">
+                                                                                <div className="title-pop-up">Данные рекламной кампании</div>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div style={{padding: "10px"}}>Выберите платформу для размещения рекламы:</div>
+                                                                                <div className="wrapper-input">
+                                                                                    <Select
+                                                                                        isMulti={true}
+                                                                                        onChange={this.handleChange}
+                                                                                        options={this.state.optionsTypeTarget}
+                                                                                        styles={this.styles}
+                                                                                        placeholder="Начните вводить или выберите из списка..."
+                                                                                    />
+                                                                                </div>
+                                                                            </div>
+                                                                            {
+                                                                                this.state.select !== null ?
+                                                                                    <>
+                                                                                        <div>
+                                                                                            <div style={{padding: "10px"}}>Заголовок рекламной кампании:</div>
+                                                                                            <div className="wrapper-input">
+                                                                                                <input className="input-default" type="text" onChange={this.handleChangeNameCompany}/>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        {
+                                                                                            this.state.nameCompany !== null ?
+                                                                                                <>
+                                                                                                <div>
+                                                                                                    <div style={{padding: "10px"}}>Описание рекламной кампании:</div>
+                                                                                                    <div className="wrapper-input">
+                                                                                                        <TextareaAutosize {...this.settingsTextArea} onChange={this.handleChangeDescriptionCompany} className="input-default" />
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                {
+                                                                                                    this.state.descriptionCompany !== null ?
+                                                                                                        <div>
+                                                                                                            <div style={{padding: "10px"}}>Ссылка на цель: </div>
+                                                                                                            <div className="wrapper-input">
+                                                                                                                <input className="input-default" type="text" onChange={this.handleChangeLink} />
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    : null
+                                                                                                }
+                                                                                                </>
+                                                                                            : null
+                                                                                        }
+                                                                                    </>
+                                                                                :
+                                                                                    null
+
+                                                                            }
+                                                                            {
+                                                                                this.state.link !== null ?
+                                                                                    <div className="wrapper-input">
+                                                                                        <div onClick={this.createTarget} className="button-any blue unselectable" >GO 👍</div>
+                                                                                    </div>
+                                                                                :
+                                                                                    <div className="wrapper-input">
+                                                                                        <div className="button-any grey unselectable" >Еще не все...</div>
+                                                                                    </div>
+                                                                            }
+                                                                        </div>
+                                                                    </div>
+                                                                :
+                                                                    null
+
+                                    }
+
+                                    {/*<div className="block-default-pre">*/}
+                                    {/*    <div className="alert">*/}
+                                    {/*        Скоро мы запустим бета-тестирование, следите за нашим <a href="/blog"> блогом</a>*/}
+                                    {/*    </div>*/}
+                                    {/*</div>*/}
                                     {/*<div className="block-default-pre" style={{fontSize: "13px", background: "#fcf3e2"}}>*/}
                                     {/*    Добавьте нашего бота (<a href="https://t.me/targetBoostBot" target="_blank" rel="noreferrer" className="underline">@targetBoostBot</a>) администратором в Ваш телеграм канал, чтобы мы могли отслеживать, каких подписчиков привели мы.*/}
                                     {/*</div>*/}

@@ -90,7 +90,7 @@ class Tasks extends Component{
             });
 
         this.state.store.dispatch({
-            type: "set_page", value: "",
+            type: "set_page", value: "lk",
         })
     }
 

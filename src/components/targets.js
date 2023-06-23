@@ -676,8 +676,11 @@ class Targets extends Component{
                                                                                                 </div>
                                                                                                 {
                                                                                                     this.state.descriptionCompany !== null ?
-                                                                                                        <div className="wrapper-input">
-                                                                                                            <input className="input-default" type="text" placeholder="Ссылка на цель https://..." onChange={this.handleChangeLink} />
+                                                                                                        <div>
+                                                                                                            <div style={{padding: "10px"}}>Ссылка на цель https://...</div>
+                                                                                                            <div className="wrapper-input">
+                                                                                                                <input className="input-default" type="text" placeholder="Ссылка на цель https://..." onChange={this.handleChangeLink} />
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     : null
                                                                                                 }

@@ -680,7 +680,7 @@ class Targets extends Component{
                                                                                                         <div>
                                                                                                             <div style={{padding: "10px"}}>Ссылка на цель: </div>
                                                                                                             <div className="wrapper-input">
-                                                                                                                <input className="input-default" type="text" placeholder="Ссылка на цель https://..." onChange={this.handleChangeLink} />
+                                                                                                                <input className="input-default" type="text" onChange={this.handleChangeLink} />
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     : null

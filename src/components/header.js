@@ -100,12 +100,12 @@ class Header extends Component{
                                             <div className="unselectable button-light active-white" target="history" onClick={(e) => {
                                                 e.preventDefault();
                                                 window.location.href = '/blog'
-                                            }}>Наш Блог</div>
+                                            }}>Новости</div>
                                             :
                                             <div className="unselectable button-light" target="history" onClick={(e) => {
                                                 e.preventDefault();
                                                 window.location.href = '/blog'
-                                            }}>Наш Блог</div>
+                                            }}>Новости</div>
                                     }
                                 </div>
                             </div>

@@ -260,6 +260,7 @@ class Targets extends Component{
 
     render() {
         let store = this.state.store.getState()
+        console.log(this.state.select)
 
         function filterTarget(targets, f) {
             let target = []

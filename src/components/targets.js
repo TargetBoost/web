@@ -691,7 +691,7 @@ class Targets extends Component{
 
                                                                             }
                                                                             {
-                                                                                this.state.link !== "" ?
+                                                                                this.state.link !== null ?
                                                                                     <div className="wrapper-input">
                                                                                         <div onClick={this.createTarget} className="button-any blue unselectable" >GO 👍</div>
                                                                                     </div>

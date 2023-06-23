@@ -21,7 +21,7 @@ class Targets extends Component{
                 { value: 'vk', label: 'VK' },
                 { value: 'tg', label: 'Telegram' },
                 { value: 'yt', label: 'Youtube' },
-                { value: 'yt', label: 'Сайты партнеры' },
+                { value: 'site', label: 'Сайты партнеры' },
             ],
             optionsDeepTarget: {
                 vk: [

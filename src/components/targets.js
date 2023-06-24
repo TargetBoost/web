@@ -7,6 +7,8 @@ import Select from 'react-select';
 import 'react-input-range/lib/css/index.css';
 import chroma from 'chroma-js';
 import TextareaAutosize from "react-textarea-autosize";
+import Avatar from "@mui/material/Avatar";
+import target from "../icon/target_new.png";
 
 class Targets extends Component{
     constructor(props) {
@@ -684,12 +686,19 @@ class Targets extends Component{
                                                                                                             <div>
                                                                                                                 <div style={{padding: "10px"}}>Пример рекламного поста:</div>
                                                                                                                 <div className="wrapper-input">
-                                                                                                                    <div className="tg-wrapper" style={{width: "445px"}}>
-                                                                                                                        <div style={{color: "#2381CC"}}>TargetBoostBot</div>
-                                                                                                                        <div style={{marginTop: "6px", fontWeight: "bold"}}>{this.state.nameCompany}</div>
-                                                                                                                        <div style={{marginTop: "6px", fontStyle: "italic"}}>{this.state.descriptionCompany}</div>
-                                                                                                                        <div style={{marginTop: "6px", padding: "5px", textDecoration: "underline", color: "#2381CC"}}>
-                                                                                                                            <a href={this.state.link}>{this.state.link}</a>
+                                                                                                                    <div className="tg-wrapper" style={{display: "flex"}}>
+                                                                                                                        <div>
+                                                                                                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                                                                                                <Avatar src={target} sx={{ width: 70, height: 70 }}></Avatar>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div style={{width: "445px"}}>
+                                                                                                                            <div style={{color: "#2381CC"}}>TargetBoostBot</div>
+                                                                                                                            <div style={{marginTop: "6px", fontWeight: "bold"}}>{this.state.nameCompany}</div>
+                                                                                                                            <div style={{marginTop: "6px", fontStyle: "italic"}}>{this.state.descriptionCompany}</div>
+                                                                                                                            <div style={{marginTop: "6px", padding: "5px", textDecoration: "underline", color: "#2381CC"}}>
+                                                                                                                                <a href={this.state.link}>{this.state.link}</a>
+                                                                                                                            </div>
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                 </div>

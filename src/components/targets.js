@@ -684,7 +684,7 @@ class Targets extends Component{
                                                                                                             <div>
                                                                                                                 <div style={{padding: "10px"}}>Пример рекламного поста:</div>
                                                                                                                 <div className="wrapper-input">
-                                                                                                                    <div style={{borderRadius: "20px", padding: "5px", border: "1px solid #dcdcdc"}}>
+                                                                                                                    <div style={{borderRadius: "20px", padding: "5px", border: "1px solid #dcdcdc", width: "445px"}}>
                                                                                                                         <div style={{padding: "5px", color: "#2381CC"}}>TargetBoostBot</div>
                                                                                                                         <div style={{fontWeight: "bold"}}>{this.state.nameCompany}</div>
                                                                                                                         <div style={{fontStyle: "italic"}}>{this.state.descriptionCompany}</div>

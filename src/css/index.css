@@ -699,6 +699,14 @@ body {
     font-weight: 500;
 }
 
+.tg-wrapper {
+    border-radius: 0 10px 10px 10px;
+    background: #fff;
+    padding: 12px 17px;
+    border: none;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
 .wrapper-auth-pop-up {
     background: #fff;
     width: 420px;

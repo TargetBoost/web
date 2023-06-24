@@ -681,7 +681,7 @@ class Targets extends Component{
                                                                                                                     <input className="input-default" type="text" onChange={this.handleChangeLink} />
                                                                                                                 </div>
                                                                                                             </div>
-                                                                                                            <div style={}>
+                                                                                                            <div>
                                                                                                                 <div style={{padding: "10px"}}>Пример рекламного поста:</div>
                                                                                                                 <div className="wrapper-input">
                                                                                                                     <div style={{borderRadius: "20px", border: "1px solid #fafafa"}}>

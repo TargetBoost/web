@@ -685,13 +685,13 @@ class Targets extends Component{
                                                                                                             </div>
                                                                                                             <div>
                                                                                                                 <div style={{padding: "10px"}}>Пример рекламного поста:</div>
-                                                                                                                <div className="wrapper-input">
-                                                                                                                    <div className="tg-wrapper" style={{display: "flex"}}>
-                                                                                                                        <div>
-                                                                                                                            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-                                                                                                                                <Avatar src={target} sx={{ width: 70, height: 70 }}></Avatar>
-                                                                                                                            </div>
+                                                                                                                <div className="wrapper-input" style={{display: "flex"}}>
+                                                                                                                    <div>
+                                                                                                                        <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                                                                                            <Avatar src={target} sx={{ width: 70, height: 70 }}></Avatar>
                                                                                                                         </div>
+                                                                                                                    </div>
+                                                                                                                    <div className="tg-wrapper">
                                                                                                                         <div className="tg-message-wrapper" style={{width: "445px"}}>
                                                                                                                             <i className="tgme_widget_message_bubble_tail">
                                                                                                                                 <svg

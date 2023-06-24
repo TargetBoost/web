@@ -696,7 +696,7 @@ class Targets extends Component{
                                                                                                                             <div style={{color: "#2381CC"}}>TargetBoostBot</div>
                                                                                                                             <div style={{marginTop: "6px", fontWeight: "bold"}}>{this.state.nameCompany}</div>
                                                                                                                             <div style={{marginTop: "6px", fontStyle: "italic"}}>{this.state.descriptionCompany}</div>
-                                                                                                                            <div style={{marginTop: "6px", padding: "5px", textDecoration: "underline", color: "#2381CC"}}>
+                                                                                                                            <div style={{marginTop: "6px", textDecoration: "underline", color: "#2381CC"}}>
                                                                                                                                 <a href={this.state.link}>{this.state.link}</a>
                                                                                                                             </div>
                                                                                                                         </div>

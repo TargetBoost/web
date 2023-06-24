@@ -686,8 +686,8 @@ class Targets extends Component{
                                                                                                             <div>
                                                                                                                 <div style={{padding: "10px"}}>Пример рекламного поста:</div>
                                                                                                                 <div className="wrapper-input" style={{display: "flex"}}>
-                                                                                                                    <div>
-                                                                                                                        <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                                                                                                                    <div style={{marginRight: "10px"}}>
+                                                                                                                        <div style={{display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", border: "1px solid #dcdcdc"}}>
                                                                                                                             <Avatar src={target} sx={{ width: 70, height: 70 }}></Avatar>
                                                                                                                         </div>
                                                                                                                     </div>

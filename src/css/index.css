@@ -705,10 +705,10 @@ body {
     padding: 12px 17px;
     border: none;
     filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+    position: relative;
 }
 
 .tg-message-wrapper {
-    position: relative;
 }
 
 .tgme_widget_message_bubble_tail {

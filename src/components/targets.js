@@ -674,12 +674,26 @@ class Targets extends Component{
                                                                                                 </div>
                                                                                                 {
                                                                                                     this.state.descriptionCompany !== null ?
-                                                                                                        <div>
-                                                                                                            <div style={{padding: "10px"}}>Ссылка на цель: </div>
-                                                                                                            <div className="wrapper-input">
-                                                                                                                <input className="input-default" type="text" onChange={this.handleChangeLink} />
+                                                                                                        <>
+                                                                                                            <div>
+                                                                                                                <div style={{padding: "10px"}}>Ссылка на цель: </div>
+                                                                                                                <div className="wrapper-input">
+                                                                                                                    <input className="input-default" type="text" onChange={this.handleChangeLink} />
+                                                                                                                </div>
                                                                                                             </div>
-                                                                                                        </div>
+                                                                                                            <div style={}>
+                                                                                                                <div style={{padding: "10px"}}>Пример рекламного поста:</div>
+                                                                                                                <div className="wrapper-input">
+                                                                                                                    <div style={{borderRadius: "20px", border: "1px solid #fafafa"}}>
+                                                                                                                        <div style={{padding: "10px"}}>{this.state.nameCompany}</div>
+                                                                                                                        <div style={{padding: "10px", fontSize: "13px"}}>{this.state.descriptionCompany}</div>
+                                                                                                                        <div style={{padding: "10px", textDecoration: "underline"}}>
+                                                                                                                            <a href={this.state.link}>{this.state.link}</a>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </>
                                                                                                     : null
                                                                                                 }
                                                                                                 </>

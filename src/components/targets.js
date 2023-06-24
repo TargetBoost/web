@@ -684,10 +684,11 @@ class Targets extends Component{
                                                                                                             <div>
                                                                                                                 <div style={{padding: "10px"}}>Пример рекламного поста:</div>
                                                                                                                 <div className="wrapper-input">
-                                                                                                                    <div style={{borderRadius: "20px", border: "1px solid #fafafa"}}>
-                                                                                                                        <div style={{padding: "10px"}}>{this.state.nameCompany}</div>
-                                                                                                                        <div style={{padding: "10px", fontSize: "13px"}}>{this.state.descriptionCompany}</div>
-                                                                                                                        <div style={{padding: "10px", textDecoration: "underline"}}>
+                                                                                                                    <div style={{borderRadius: "20px", padding: "5px", border: "1px solid #dcdcdc"}}>
+                                                                                                                        <div style={{padding: "5px", color: "#2381CC"}}>TargetBoostBot</div>
+                                                                                                                        <div style={{fontWeight: "bold"}}>{this.state.nameCompany}</div>
+                                                                                                                        <div style={{fontStyle: "italic"}}>{this.state.descriptionCompany}</div>
+                                                                                                                        <div style={{padding: "5px", textDecoration: "underline", color: "#2381CC"}}>
                                                                                                                             <a href={this.state.link}>{this.state.link}</a>
                                                                                                                         </div>
                                                                                                                     </div>

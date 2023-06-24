@@ -688,7 +688,7 @@ class Targets extends Component{
                                                                                                                 <div className="wrapper-input" style={{display: "flex"}}>
                                                                                                                     <div style={{marginRight: "10px"}}>
                                                                                                                         <div style={{display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", border: "1px solid #dcdcdc"}}>
-                                                                                                                            <Avatar src={target} sx={{ width: 70, height: 70 }}></Avatar>
+                                                                                                                            <Avatar src={target} sx={{ width: 36, height: 36 }}></Avatar>
                                                                                                                         </div>
                                                                                                                     </div>
                                                                                                                     <div className="tg-wrapper">

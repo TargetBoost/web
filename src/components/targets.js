@@ -35,7 +35,7 @@ class Targets extends Component{
                 { value: '6', label: 'Аксессуары (шапки, шарфы, перчатки пояса и т.д.)', color: '#0072FD' },
                 { value: '7', label: 'Одежда', color: '#0072FD' },
                 { value: '8', label: 'Обувь', color: '#0072FD' },
-                { value: '3', label: 'Конференция', color: '#0072FD' },
+                { value: '9', label: 'Конференция', color: '#0072FD' },
                 // { value: '3', label: '', color: '#0072FD' },
                 // { value: '3', label: '', color: '#0072FD' },
                 // { value: '3', label: '', color: '#0072FD' },
@@ -153,7 +153,7 @@ class Targets extends Component{
         let data = {
             name_company: this.state.nameCompany,
             description_company: this.state.descriptionCompany,
-            type: this.state.type,
+            type: this.state.select,
             link: this.state.link,
             limit: this.state.limit,
             type_ad: this.state.typeAd,

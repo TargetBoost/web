@@ -62,6 +62,7 @@ class Targets extends Component{
             select: null,
             nameCompany: null,
             descriptionCompany: null,
+            typeAd: null,
             cost: null,
             total: 0,
             fullPrice: 0,
@@ -150,11 +151,12 @@ class Targets extends Component{
 
     createTarget = () => {
         let data = {
-            icon: this.state.select,
-            total: String(this.state.total),
-            cost: Number(this.state.cost),
+            name_company: this.state.nameCompany,
+            description_company: this.state.descriptionCompany,
             type: this.state.type,
             link: this.state.link,
+            limit: this.state.limit,
+            type_ad: this.state.typeAd,
         }
 
         if (!this.urlPatternValidation(this.state.link)){
@@ -213,6 +215,11 @@ class Targets extends Component{
     handleChange = (selectedOption) => {
         console.log(selectedOption)
         this.setState({ select: selectedOption});
+    };
+
+    handleChangeAd = (selectedOption) => {
+        console.log(selectedOption)
+        this.setState({ typeAd: selectedOption});
     };
 
     handleChangeNameCompany = (e) => {
@@ -711,7 +718,7 @@ class Targets extends Component{
                                                                                                                 <div className="wrapper-input">
                                                                                                                     <Select
                                                                                                                         // isMulti={true}
-                                                                                                                        onChange={this.handleChange}
+                                                                                                                        onChange={this.handleChangeAd}
                                                                                                                         options={this.state.optionsTypeAD}
                                                                                                                         styles={this.styles}
                                                                                                                         placeholder="Начните вводить или выберите из списка..."

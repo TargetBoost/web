@@ -696,7 +696,7 @@ class Targets extends Component{
                                                                                                                         '9': '[0-9]',
                                                                                                                         'a': '[A-Za-z]',
                                                                                                                         '*': '.*'
-                                                                                                                    }} id="tg" mask="999999999999999999 ₽" maskChar={null} alwaysShowMask={false} onChange={this.handleChangeLimitDay} />
+                                                                                                                    }} id="tg" mask="999999999999999999" maskChar={"₽"} alwaysShowMask={true} onChange={this.handleChangeLimitDay} />
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div>
@@ -757,7 +757,7 @@ class Targets extends Component{
                                                                             {
                                                                                 this.state.link !== null ?
                                                                                     <div className="wrapper-input">
-                                                                                        <div onClick={this.createTarget} className="button-any blue unselectable" >GO 👍</div>
+                                                                                        <div onClick={this.createTarget} className="button-any blue unselectable" >Создать</div>
                                                                                     </div>
                                                                                 :
                                                                                     <div className="wrapper-input">

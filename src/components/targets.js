@@ -700,7 +700,7 @@ class Targets extends Component{
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div>
-                                                                                                                <div style={{padding: "10px"}}>Пример рекламного поста:</div>
+                                                                                                                <div style={{padding: "10px"}}>Пример рекламного поста в Telegram:</div>
                                                                                                                 <div className="wrapper-input" style={{display: "flex"}}>
                                                                                                                     <div style={{marginRight: "10px"}}>
                                                                                                                         <div style={{display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "50%", border: "1px solid #dcdcdc"}}>

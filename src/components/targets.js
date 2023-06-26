@@ -20,10 +20,10 @@ class Targets extends Component{
             executor: "all",
             targets: [],
             optionsTypeTarget: [
-                { value: 'vk', label: 'VK', color: '#0277FF'},
+                // { value: 'vk', label: 'VK', color: '#0277FF'},
                 { value: 'tg', label: 'Telegram', color: '#26A2DF'},
-                { value: 'yt', label: 'Youtube', color: '#FF0000'},
-                { value: 'site', label: 'Сайты партнеры', color: '#0072FD' },
+                // { value: 'yt', label: 'Youtube', color: '#FF0000'},
+                // { value: 'site', label: 'Сайты партнеры', color: '#0072FD' },
             ],
             optionsTypeAD: [
                 { value: '0', label: 'Интернет (интернет-сервисы и услуги, домены и т.д.)', color: '#0277FF'},

@@ -36,7 +36,7 @@ class Targets extends Component{
                 { value: '7', label: 'Одежда', color: '#0072FD' },
                 { value: '8', label: 'Обувь', color: '#0072FD' },
                 { value: '9', label: 'Конференция', color: '#0072FD' },
-                // { value: '3', label: '', color: '#0072FD' },
+                { value: '10000000', label: 'Другое', color: '#0072FD' },
                 // { value: '3', label: '', color: '#0072FD' },
                 // { value: '3', label: '', color: '#0072FD' },
                 // { value: '3', label: '', color: '#0072FD' },
@@ -62,6 +62,7 @@ class Targets extends Component{
             select: null,
             nameCompany: null,
             descriptionCompany: null,
+            descriptionCompanyType: null,
             typeAd: null,
             cost: null,
             total: 0,
@@ -219,7 +220,7 @@ class Targets extends Component{
 
     handleChangeAd = (selectedOption) => {
         console.log(selectedOption)
-        this.setState({ typeAd: selectedOption});
+        this.setState({ typeAd: selectedOption.value});
     };
 
     handleChangeNameCompany = (e) => {
@@ -229,6 +230,10 @@ class Targets extends Component{
 
     handleChangeDescriptionCompany = (e) => {
         this.setState({ descriptionCompany: e.target.value});
+    };
+
+    handleChangeDescriptionType = (e) => {
+        this.setState({ descriptionCompanyType: e.target.value});
     };
 
 
@@ -725,6 +730,16 @@ class Targets extends Component{
                                                                                                                     />
                                                                                                                 </div>
                                                                                                             </div>
+                                                                                                            {
+                                                                                                                this.state.typeAd === 10000 ?
+                                                                                                                    <div>
+                                                                                                                        <div style={{padding: "10px"}}>Опишите подробно тип Вашей рекламы:</div>
+                                                                                                                        <div className="wrapper-input">
+                                                                                                                            <TextareaAutosize {...this.settingsTextArea} onChange={this.handleChangeDescriptionType} className="input-default" />
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    : null
+                                                                                                            }
                                                                                                             <div>
                                                                                                                 <div style={{padding: "10px"}}>Бюджет в сутки (100): </div>
                                                                                                                 <div className="wrapper-input">

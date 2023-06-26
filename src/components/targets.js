@@ -690,7 +690,7 @@ class Targets extends Component{
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div>
-                                                                                                                <div style={{padding: "10px"}}>Бюджет в сутки (220.20): </div>
+                                                                                                                <div style={{padding: "10px"}}>Бюджет в сутки (100): </div>
                                                                                                                 <div className="wrapper-input">
                                                                                                                     <InputMask className="input-default" formatChars={{
                                                                                                                         '9': '[0-9]',

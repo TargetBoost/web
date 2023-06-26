@@ -731,7 +731,7 @@ class Targets extends Component{
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             {
-                                                                                                                this.state.typeAd === 10000 ?
+                                                                                                                this.state.typeAd === "10000000" ?
                                                                                                                     <div>
                                                                                                                         <div style={{padding: "10px"}}>Опишите подробно тип Вашей рекламы:</div>
                                                                                                                         <div className="wrapper-input">

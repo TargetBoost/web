@@ -695,8 +695,10 @@ class Targets extends Component{
                                                                                                                     <InputMask className="input-default" formatChars={{
                                                                                                                         '9': '[0-9]',
                                                                                                                         'a': '[A-Za-z]',
-                                                                                                                        '*': '.*'
-                                                                                                                    }} id="tg" mask="999.99" maskChar={false} alwaysShowMask={true} onChange={this.handleChangeLimitDay} value={this.state.limit} />
+                                                                                                                        '*': '.*',
+                                                                                                                        '#': '([0-9]){0,10000}',
+                                                                                                                        '#2': '([0-9]){0,2}',
+                                                                                                                    }} id="tg" mask="#.#2" maskChar={false} alwaysShowMask={true} onChange={this.handleChangeLimitDay} value={this.state.limit} />
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div>

@@ -50,7 +50,7 @@ class Targets extends Component{
             fullPrice: 0,
             type: null,
             link: null,
-            limit: null,
+            limit: 0,
             userCost: false,
         }
 
@@ -696,7 +696,7 @@ class Targets extends Component{
                                                                                                                         '9': '[0-9]',
                                                                                                                         'a': '[A-Za-z]',
                                                                                                                         '*': '.*'
-                                                                                                                    }} id="tg" mask="999999999999999999" maskChar={"₽"} alwaysShowMask={true} onChange={this.handleChangeLimitDay} />
+                                                                                                                    }} id="tg" mask="999.99" maskChar={false} alwaysShowMask={true} onChange={this.handleChangeLimitDay} value={this.state.limit} />
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div>

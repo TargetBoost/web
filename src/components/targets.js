@@ -690,13 +690,13 @@ class Targets extends Component{
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div>
-                                                                                                                <div style={{padding: "10px"}}>Бюджет в сутки: </div>
+                                                                                                                <div style={{padding: "10px"}}>Бюджет в сутки (220.20): </div>
                                                                                                                 <div className="wrapper-input">
                                                                                                                     <InputMask className="input-default" formatChars={{
                                                                                                                         '9': '[0-9]',
                                                                                                                         'a': '[A-Za-z]',
                                                                                                                         '*': '.*',
-                                                                                                                        '#': '([0-9]){0,10000}[.][0-9]){2}',
+                                                                                                                        '#': '([0-9]){0,10000}[.]([0-9]){2}',
                                                                                                                         '#2': '([0-9]){0,2}',
                                                                                                                     }} id="tg" mask="#" maskChar={false} alwaysShowMask={true} onChange={this.handleChangeLimitDay} />
                                                                                                                 </div>

@@ -25,6 +25,23 @@ class Targets extends Component{
                 { value: 'yt', label: 'Youtube', color: '#FF0000'},
                 { value: 'site', label: 'Сайты партнеры', color: '#0072FD' },
             ],
+            optionsTypeAD: [
+                { value: '0', label: 'Интернет (интернет-сервисы и услуги, домены и т.д.)', color: '#0277FF'},
+                { value: '1', label: 'Дом и сад (мебель и аксессуары для дома и сада)', color: '#26A2DF'},
+                { value: '2', label: 'Телефония (телефоны, сим-карты, тарифы на мобильную связь, оплата роуминга и т.д.)', color: '#FF0000'},
+                { value: '3', label: 'Недвижимость (продажа, покупка, аренда и т.д.)', color: '#0072FD' },
+                { value: '4', label: 'Кредитование', color: '#0072FD' },
+                { value: '5', label: 'Путешествия (путевки, авиабилеты, бронирование отелей и т.д.)', color: '#0072FD' },
+                { value: '6', label: 'Аксессуары (шапки, шарфы, перчатки пояса и т.д.)', color: '#0072FD' },
+                { value: '7', label: 'Одежда', color: '#0072FD' },
+                { value: '8', label: 'Обувь', color: '#0072FD' },
+                // { value: '3', label: '', color: '#0072FD' },
+                // { value: '3', label: '', color: '#0072FD' },
+                // { value: '3', label: '', color: '#0072FD' },
+                // { value: '3', label: '', color: '#0072FD' },
+                // { value: '3', label: '', color: '#0072FD' },
+                // { value: '3', label: '', color: '#0072FD' },
+            ],
             optionsDeepTarget: {
                 vk: [
                     { value: 'vk_community', cost: 6, label: 'Вступить в сообщество' },
@@ -687,6 +704,18 @@ class Targets extends Component{
                                                                                                                 <div style={{padding: "10px"}}>Ссылка на цель: </div>
                                                                                                                 <div className="wrapper-input">
                                                                                                                     <input className="input-default" type="text" onChange={this.handleChangeLink} />
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div>
+                                                                                                                <div style={{padding: "10px"}}>Выберите тип Вашей рекламы:</div>
+                                                                                                                <div className="wrapper-input">
+                                                                                                                    <Select
+                                                                                                                        // isMulti={true}
+                                                                                                                        onChange={this.handleChange}
+                                                                                                                        options={this.state.optionsTypeAD}
+                                                                                                                        styles={this.styles}
+                                                                                                                        placeholder="Начните вводить или выберите из списка..."
+                                                                                                                    />
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div>

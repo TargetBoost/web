@@ -696,9 +696,7 @@ class Targets extends Component{
                                                                                                                         '9': '[0-9]',
                                                                                                                         'a': '[A-Za-z]',
                                                                                                                         '*': '.*',
-                                                                                                                        '#': '([0-9]){0,10000}[.]([0-9]){2}',
-                                                                                                                        '#2': '([0-9]){0,2}',
-                                                                                                                    }} id="tg" mask="#" maskChar={false} alwaysShowMask={true} onChange={this.handleChangeLimitDay} />
+                                                                                                                    }} id="tg" mask="99999999" maskChar={false} alwaysShowMask={true} onChange={this.handleChangeLimitDay} />
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div>

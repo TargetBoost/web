@@ -9,6 +9,7 @@ import chroma from 'chroma-js';
 import TextareaAutosize from "react-textarea-autosize";
 import Avatar from "@mui/material/Avatar";
 import target from "../icon/target_new.png";
+import InputMask from "react-input-mask";
 
 class Targets extends Component{
     constructor(props) {
@@ -49,6 +50,7 @@ class Targets extends Component{
             fullPrice: 0,
             type: null,
             link: null,
+            limit: null,
             userCost: false,
         }
 
@@ -216,6 +218,10 @@ class Targets extends Component{
 
     handleChangeLink = (e) => {
         this.setState({link: e.target.value})
+    };
+
+    handleChangeLimitDay = (e) => {
+        this.setState({limit: e.target.value})
     };
 
 
@@ -681,6 +687,16 @@ class Targets extends Component{
                                                                                                                 <div style={{padding: "10px"}}>Ссылка на цель: </div>
                                                                                                                 <div className="wrapper-input">
                                                                                                                     <input className="input-default" type="text" onChange={this.handleChangeLink} />
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                            <div>
+                                                                                                                <div style={{padding: "10px"}}>Бюджет в сутки: </div>
+                                                                                                                <div className="wrapper-input">
+                                                                                                                    <InputMask className="input-default" formatChars={{
+                                                                                                                        '9': '[0-9]',
+                                                                                                                        'a': '[A-Za-z]',
+                                                                                                                        '*': '.*'
+                                                                                                                    }} id="tg" mask="999999999999999999" maskChar={null} alwaysShowMask={false} onChange={this.handleChangeLimitDay} />
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div>
